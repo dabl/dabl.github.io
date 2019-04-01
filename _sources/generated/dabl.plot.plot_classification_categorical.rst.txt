@@ -1,0 +1,12 @@
+:mod:`dabl.plot`.plot_classification_categorical
+=============================================================
+
+.. currentmodule:: dabl.plot
+
+.. autofunction:: plot_classification_categorical
+
+.. include:: dabl.plot.plot_classification_categorical.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

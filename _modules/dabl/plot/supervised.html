@@ -1,0 +1,625 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>dabl.plot.supervised &mdash; dabl  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/project-template.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> dabl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start.html">Getting started with Machine Learning with dabl</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide.html">Machine Learning with dabl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">dabl API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">General examples</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">dabl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>dabl.plot.supervised</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for dabl.plot.supervised</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">warnings</span> <span class="k">import</span> <span class="n">warn</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="k">import</span> <span class="p">(</span><span class="n">f_regression</span><span class="p">,</span>
+                                       <span class="n">mutual_info_regression</span><span class="p">,</span>
+                                       <span class="n">mutual_info_classif</span><span class="p">,</span>
+                                       <span class="n">f_classif</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="k">import</span> <span class="n">SimpleImputer</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">scale</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="k">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.discriminant_analysis</span> <span class="k">import</span> <span class="n">LinearDiscriminantAnalysis</span>
+<span class="kn">from</span> <span class="nn">statsmodels.graphics.mosaicplot</span> <span class="k">import</span> <span class="n">mosaic</span>
+
+<span class="kn">from</span> <span class="nn">..preprocessing</span> <span class="k">import</span> <span class="n">detect_types</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="p">(</span><span class="n">_check_X_target_col</span><span class="p">,</span> <span class="n">_get_n_top</span><span class="p">,</span> <span class="n">_make_subplots</span><span class="p">,</span>
+                    <span class="n">_short_tick_names</span><span class="p">,</span> <span class="n">_shortname</span><span class="p">,</span> <span class="n">_prune_category_make_X</span><span class="p">,</span>
+                    <span class="n">find_pretty_grid</span><span class="p">,</span> <span class="n">_find_scatter_plots_classification</span><span class="p">,</span>
+                    <span class="n">_discrete_scatter</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="plot_regression_continuous"><a class="viewcode-back" href="../../../generated/dabl.plot.plot_regression_continuous.html#dabl.plot.plot_regression_continuous">[docs]</a><span class="k">def</span> <span class="nf">plot_regression_continuous</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Exploration plots for continuous features in regression.</span>
+
+<span class="sd">    Creates plots of all the continuous features vs the target.</span>
+<span class="sd">    Relevant features are determined using F statistics.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    X : dataframe</span>
+<span class="sd">        Input data including features and target</span>
+<span class="sd">    target_col : str or int</span>
+<span class="sd">        Identifier of the target column in X</span>
+<span class="sd">    types : dataframe of types, optional.</span>
+<span class="sd">        Output of detect_types on X. Can be used to avoid recomputing the</span>
+<span class="sd">        types.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">types</span> <span class="o">=</span> <span class="n">_check_X_target_col</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">types</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">&quot;regression&quot;</span><span class="p">)</span>
+
+    <span class="n">features</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">types</span><span class="o">.</span><span class="n">continuous</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">target_col</span> <span class="ow">in</span> <span class="n">features</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">target_col</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="n">show_top</span> <span class="o">=</span> <span class="n">_get_n_top</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="s2">&quot;continuous&quot;</span><span class="p">)</span>
+
+    <span class="n">target</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">target_col</span><span class="p">]</span>
+    <span class="c1"># HACK we should drop them per column before feeding them into f_regression</span>
+    <span class="c1"># FIXME</span>
+    <span class="n">features_imp</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+    <span class="n">f</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">f_regression</span><span class="p">(</span><span class="n">features_imp</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+    <span class="n">top_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="o">-</span><span class="n">show_top</span><span class="p">:][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="c1"># we could do better lol</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">_make_subplots</span><span class="p">(</span><span class="n">n_plots</span><span class="o">=</span><span class="n">show_top</span><span class="p">)</span>
+
+    <span class="c1"># FIXME this could be a function or maybe using seaborn</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Continuous Feature vs Target&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">top_k</span><span class="p">,</span> <span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">())):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="n">axes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">target_col</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">col</span><span class="p">],</span> <span class="n">target</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">6</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">_shortname</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">col</span><span class="p">]))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;F=</span><span class="si">{:.2E}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">col</span><span class="p">]))</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axes</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+        <span class="c1"># turn off axis if we didn&#39;t fill last row</span>
+        <span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">()[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="plot_regression_categorical"><a class="viewcode-back" href="../../../generated/dabl.plot.plot_regression_categorical.html#dabl.plot.plot_regression_categorical">[docs]</a><span class="k">def</span> <span class="nf">plot_regression_categorical</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Exploration plots for categorical features in regression.</span>
+
+<span class="sd">    Creates box plots of target distribution for important categorical</span>
+<span class="sd">    features. Relevant features are identified using mutual information.</span>
+
+<span class="sd">    For high cardinality categorical variables (variables with many categories)</span>
+<span class="sd">    only the most frequent categories are shown.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    X : dataframe</span>
+<span class="sd">        Input data including features and target</span>
+<span class="sd">    target_col : str or int</span>
+<span class="sd">        Identifier of the target column in X</span>
+<span class="sd">    types : dataframe of types, optional.</span>
+<span class="sd">        Output of detect_types on X. Can be used to avoid recomputing the</span>
+<span class="sd">        types.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">types</span> <span class="o">=</span> <span class="n">_check_X_target_col</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">types</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">&quot;regression&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">types</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">types</span> <span class="o">=</span> <span class="n">detect_types</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">types</span><span class="o">.</span><span class="n">categorical</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">target_col</span> <span class="ow">in</span> <span class="n">features</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">target_col</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+    <span class="n">show_top</span> <span class="o">=</span> <span class="n">_get_n_top</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="s2">&quot;categorical&quot;</span><span class="p">)</span>
+
+    <span class="c1"># can&#39;t use OrdinalEncoder because we might have mix of int and string</span>
+    <span class="n">ordinal_encoded</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="p">)</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">target_col</span><span class="p">]</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">mutual_info_regression</span><span class="p">(</span>
+        <span class="n">ordinal_encoded</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span>
+        <span class="n">discrete_features</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">))</span>
+    <span class="n">top_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="o">-</span><span class="n">show_top</span><span class="p">:][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># large number of categories -&gt; taller plot</span>
+    <span class="n">row_height</span> <span class="o">=</span> <span class="mi">3</span> <span class="k">if</span> <span class="n">X</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="mi">5</span> <span class="k">else</span> <span class="mi">5</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">_make_subplots</span><span class="p">(</span><span class="n">n_plots</span><span class="o">=</span><span class="n">show_top</span><span class="p">,</span> <span class="n">row_height</span><span class="o">=</span><span class="n">row_height</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Categorical Feature vs Target&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">col_ind</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">top_k</span><span class="p">,</span> <span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">())):</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">X_new</span> <span class="o">=</span> <span class="n">_prune_category_make_X</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">target_col</span><span class="p">)</span>
+        <span class="n">medians</span> <span class="o">=</span> <span class="n">X_new</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">col</span><span class="p">)[</span><span class="n">target_col</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+        <span class="n">order</span> <span class="o">=</span> <span class="n">medians</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">index</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">target_col</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">col</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">X_new</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;F=</span><span class="si">{:.2E}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">col_ind</span><span class="p">]))</span>
+        <span class="c1"># shorten long ticks and labels</span>
+        <span class="n">_short_tick_names</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axes</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+        <span class="c1"># turn off axis if we didn&#39;t fill last row</span>
+        <span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">()[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="plot_classification_continuous"><a class="viewcode-back" href="../../../generated/dabl.plot.plot_classification_continuous.html#dabl.plot.plot_classification_continuous">[docs]</a><span class="k">def</span> <span class="nf">plot_classification_continuous</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hue_order</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Exploration plots for continuous features in classification.</span>
+
+<span class="sd">    Selects important continuous features according to F statistics.</span>
+<span class="sd">    Creates univariate distribution plots for these, as well as scatterplots</span>
+<span class="sd">    for selected pairs of features, and scatterplots for selected pairs of</span>
+<span class="sd">    PCA directions.</span>
+<span class="sd">    If there are more than 2 classes, scatter plots from Linear Discriminant</span>
+<span class="sd">    Analysis are also shown.</span>
+<span class="sd">    Scatter plots are determined &quot;interesting&quot; is a decision tree on the</span>
+<span class="sd">    two-dimensional projection performs well. The cross-validated macro-average</span>
+<span class="sd">    recall of a decision tree is shown in the title for each scatterplot.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    X : dataframe</span>
+<span class="sd">        Input data including features and target</span>
+<span class="sd">    target_col : str or int</span>
+<span class="sd">        Identifier of the target column in X</span>
+<span class="sd">    types : dataframe of types, optional.</span>
+<span class="sd">        Output of detect_types on X. Can be used to avoid recomputing the</span>
+<span class="sd">        types.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">types</span> <span class="o">=</span> <span class="n">_check_X_target_col</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">types</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">&#39;classification&#39;</span><span class="p">)</span>
+
+    <span class="n">features</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">types</span><span class="o">.</span><span class="n">continuous</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">target_col</span> <span class="ow">in</span> <span class="n">features</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">target_col</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="n">top_for_interactions</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">features_imp</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">target_col</span><span class="p">]</span>
+    <span class="c1"># FIXME if one class only has NaN for a value we crash! :-/</span>
+    <span class="c1"># TODO univariate plot?</span>
+    <span class="c1"># already on diagonal for pairplot but not for many features</span>
+    <span class="k">if</span> <span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="c1"># for n_dim &lt;= 5 we do full pairplot plot</span>
+        <span class="c1"># FIXME filling in missing values here b/c of a bug in seaborn</span>
+        <span class="c1"># we really shouldn&#39;t be doing this</span>
+        <span class="c1"># https://github.com/mwaskom/seaborn/issues/1699</span>
+        <span class="n">X_imp</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">X_imp</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="n">features</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+                     <span class="n">hue</span><span class="o">=</span><span class="n">target_col</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># univariate plots</span>
+        <span class="n">show_top</span> <span class="o">=</span> <span class="n">_get_n_top</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="s2">&quot;continuous&quot;</span><span class="p">)</span>
+        <span class="n">f</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">f_classif</span><span class="p">(</span><span class="n">features_imp</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+        <span class="n">top_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="o">-</span><span class="n">show_top</span><span class="p">:][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="c1"># FIXME this will fail if a feature is always</span>
+        <span class="c1"># NaN for a particular class</span>
+        <span class="n">best_features</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">top_k</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="n">best_features</span><span class="p">[</span><span class="n">target_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">target</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">best_features</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">target_col</span><span class="p">)</span>
+        <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">find_pretty_grid</span><span class="p">(</span><span class="n">show_top</span><span class="p">)</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;variable&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="n">target_col</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="n">cols</span><span class="p">,</span>
+                          <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">hue_order</span><span class="o">=</span><span class="n">hue_order</span><span class="p">)</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">g</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="c1"># FIXME remove &quot;variable = &quot; from title, add f score</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Univariate Distributions&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+
+        <span class="c1"># pairwise plots</span>
+        <span class="n">top_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="o">-</span><span class="n">top_for_interactions</span><span class="p">:][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">top_pairs</span> <span class="o">=</span> <span class="n">_find_scatter_plots_classification</span><span class="p">(</span>
+            <span class="n">features_imp</span><span class="p">[:,</span> <span class="n">top_k</span><span class="p">],</span> <span class="n">target</span><span class="p">)</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">),</span>
+                                 <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">top_pairs</span><span class="o">.</span><span class="n">feature0</span><span class="p">,</span> <span class="n">top_pairs</span><span class="o">.</span><span class="n">feature1</span><span class="p">,</span>
+                                   <span class="n">top_pairs</span><span class="o">.</span><span class="n">score</span><span class="p">,</span> <span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">()):</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">top_k</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">top_k</span><span class="p">[</span><span class="n">y</span><span class="p">]</span>
+            <span class="n">_discrete_scatter</span><span class="p">(</span><span class="n">features_imp</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">features_imp</span><span class="p">[:,</span> <span class="n">j</span><span class="p">],</span>
+                              <span class="n">c</span><span class="o">=</span><span class="n">target</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score</span><span class="p">))</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Top feature interactions&quot;</span><span class="p">)</span>
+    <span class="c1"># get some PCA directions</span>
+    <span class="c1"># we&#39;re using all features here, not only most informative</span>
+    <span class="c1"># should we use only those?</span>
+    <span class="n">n_components</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">top_for_interactions</span><span class="p">,</span> <span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                       <span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">n_components</span><span class="p">)</span>
+    <span class="n">features_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">scale</span><span class="p">(</span><span class="n">features_imp</span><span class="p">))</span>
+    <span class="n">top_pairs</span> <span class="o">=</span> <span class="n">_find_scatter_plots_classification</span><span class="p">(</span><span class="n">features_pca</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+    <span class="c1"># copy and paste from above. Refactor?</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">),</span>
+                             <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="c1"># we don&#39;t want ravel to fail, this is awkward!</span>
+        <span class="n">axes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">axes</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">top_pairs</span><span class="o">.</span><span class="n">feature0</span><span class="p">,</span> <span class="n">top_pairs</span><span class="o">.</span><span class="n">feature1</span><span class="p">,</span>
+                               <span class="n">top_pairs</span><span class="o">.</span><span class="n">score</span><span class="p">,</span> <span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">()):</span>
+
+        <span class="n">_discrete_scatter</span><span class="p">(</span><span class="n">features_pca</span><span class="p">[:,</span> <span class="n">x</span><span class="p">],</span> <span class="n">features_pca</span><span class="p">[:,</span> <span class="n">y</span><span class="p">],</span>
+                          <span class="n">c</span><span class="o">=</span><span class="n">target</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;PCA </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;PCA </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score</span><span class="p">))</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Discriminating PCA directions&quot;</span><span class="p">)</span>
+    <span class="c1"># LDA</span>
+    <span class="n">lda</span> <span class="o">=</span> <span class="n">LinearDiscriminantAnalysis</span><span class="p">(</span>
+        <span class="n">n_components</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">n_components</span><span class="p">,</span> <span class="n">target</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">features_lda</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">scale</span><span class="p">(</span><span class="n">features_imp</span><span class="p">),</span> <span class="n">target</span><span class="p">)</span>
+    <span class="n">top_pairs</span> <span class="o">=</span> <span class="n">_find_scatter_plots_classification</span><span class="p">(</span><span class="n">features_lda</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+    <span class="c1"># copy and paste from above. Refactor?</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">),</span>
+                             <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="c1"># we don&#39;t want ravel to fail, this is awkward!</span>
+        <span class="n">axes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">axes</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">top_pairs</span><span class="o">.</span><span class="n">feature0</span><span class="p">,</span> <span class="n">top_pairs</span><span class="o">.</span><span class="n">feature1</span><span class="p">,</span>
+                               <span class="n">top_pairs</span><span class="o">.</span><span class="n">score</span><span class="p">,</span> <span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">()):</span>
+
+        <span class="n">_discrete_scatter</span><span class="p">(</span><span class="n">features_lda</span><span class="p">[:,</span> <span class="n">x</span><span class="p">],</span> <span class="n">features_lda</span><span class="p">[:,</span> <span class="n">y</span><span class="p">],</span>
+                          <span class="n">c</span><span class="o">=</span><span class="n">target</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;LDA </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;LDA </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score</span><span class="p">))</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Discriminating LDA directions&quot;</span><span class="p">)</span></div>
+    <span class="c1"># TODO fancy manifolds?</span>
+
+
+<div class="viewcode-block" id="plot_classification_categorical"><a class="viewcode-back" href="../../../generated/dabl.plot.plot_classification_categorical.html#dabl.plot.plot_classification_categorical">[docs]</a><span class="k">def</span> <span class="nf">plot_classification_categorical</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span>
+                                    <span class="n">hue_order</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Exploration plots for categorical features in classification.</span>
+
+<span class="sd">    Creates plots of categorical variable distributions for each target class.</span>
+<span class="sd">    Relevant features are identified via mutual information.</span>
+
+<span class="sd">    For high cardinality categorical variables (variables with many categories)</span>
+<span class="sd">    only the most frequent categories are shown.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    X : dataframe</span>
+<span class="sd">        Input data including features and target</span>
+<span class="sd">    target_col : str or int</span>
+<span class="sd">        Identifier of the target column in X</span>
+<span class="sd">    types : dataframe of types, optional.</span>
+<span class="sd">        Output of detect_types on X. Can be used to avoid recomputing the</span>
+<span class="sd">        types.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">types</span> <span class="o">=</span> <span class="n">_check_X_target_col</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">types</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">&quot;classification&quot;</span><span class="p">)</span>
+
+    <span class="n">features</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">types</span><span class="o">.</span><span class="n">categorical</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">target_col</span> <span class="ow">in</span> <span class="n">features</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">target_col</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="n">features</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+
+    <span class="n">show_top</span> <span class="o">=</span> <span class="n">_get_n_top</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="s2">&quot;categorical&quot;</span><span class="p">)</span>
+
+    <span class="c1"># can&#39;t use OrdinalEncoder because we might have mix of int and string</span>
+    <span class="n">ordinal_encoded</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="p">)</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">target_col</span><span class="p">]</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">mutual_info_classif</span><span class="p">(</span>
+        <span class="n">ordinal_encoded</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span>
+        <span class="n">discrete_features</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">))</span>
+    <span class="n">top_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="o">-</span><span class="n">show_top</span><span class="p">:][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="c1"># large number of categories -&gt; taller plot</span>
+    <span class="n">row_height</span> <span class="o">=</span> <span class="mi">3</span> <span class="k">if</span> <span class="n">features</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="mi">5</span> <span class="k">else</span> <span class="mi">5</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">_make_subplots</span><span class="p">(</span><span class="n">n_plots</span><span class="o">=</span><span class="n">show_top</span><span class="p">,</span> <span class="n">row_height</span><span class="o">=</span><span class="n">row_height</span><span class="p">)</span>
+    <span class="c1"># FIXME mosaic doesn&#39;t like constraint layout?</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Categorical Features vs Target&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">col_ind</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">top_k</span><span class="p">,</span> <span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">())):</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">col_ind</span><span class="p">]</span>
+        <span class="n">X_new</span> <span class="o">=</span> <span class="n">_prune_category_make_X</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">target_col</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;proportion&#39;</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="p">(</span><span class="n">X_new</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">col</span><span class="p">)[</span><span class="n">target_col</span><span class="p">]</span>
+                  <span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                  <span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+                  <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">target</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>  <span class="c1"># hacky way to get a class name</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">,</span> <span class="n">stacked</span><span class="o">=</span><span class="s1">&#39;True&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;mosaic&#39;</span><span class="p">:</span>
+            <span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Mosaic plots are buggy right now, come back later.&quot;</span><span class="p">,</span>
+                 <span class="ne">UserWarning</span><span class="p">)</span>
+            <span class="c1"># This seems pretty broken, abandoning for now</span>
+            <span class="c1"># counts = pd.crosstab(X_new[col], X_new[target_col])</span>
+
+            <span class="n">mosaic</span><span class="p">(</span><span class="n">X_new</span><span class="p">,</span> <span class="p">[</span><span class="n">col</span><span class="p">,</span> <span class="n">target_col</span><span class="p">],</span>
+                   <span class="n">horizontal</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+            <span class="c1"># ,</span>
+            <span class="c1"># labelizer=lambda k: counts.loc[k[0], k[1]])</span>
+        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;count&#39;</span><span class="p">:</span>
+            <span class="c1"># absolute counts</span>
+            <span class="c1"># FIXME show f value</span>
+            <span class="c1"># FIXME shorten titles?</span>
+            <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">col</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">X_new</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="n">target_col</span><span class="p">,</span>
+                          <span class="n">hue_order</span><span class="o">=</span><span class="n">hue_order</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unknown plot kind </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">kind</span><span class="p">))</span>
+        <span class="n">_short_tick_names</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axes</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+        <span class="c1"># turn off axis if we didn&#39;t fill last row</span>
+        <span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">()[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="plot_supervised"><a class="viewcode-back" href="../../../generated/dabl.plot_supervised.html#dabl.plot.plot_supervised">[docs]</a><span class="k">def</span> <span class="nf">plot_supervised</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Exploration plots for classification and regression.</span>
+
+<span class="sd">    Determines whether the target is categorical or continuous and plots the</span>
+<span class="sd">    target distribution. Then calls the relevant plotting functions</span>
+<span class="sd">    accordingly.</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    X : dataframe</span>
+<span class="sd">        Input data including features and target</span>
+<span class="sd">    target_col : str or int</span>
+<span class="sd">        Identifier of the target column in X</span>
+<span class="sd">    types : dataframe of types, optional.</span>
+<span class="sd">        Output of detect_types on X. Can be used to avoid recomputing the</span>
+<span class="sd">        types.</span>
+<span class="sd">    verbose : int, default=10</span>
+<span class="sd">        Controls the verbosity (output).</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    plot_regression_continuous</span>
+<span class="sd">    plot_regression_categorical</span>
+<span class="sd">    plot_classification_continuous</span>
+<span class="sd">    plot_classification_categorical</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">types</span> <span class="o">=</span> <span class="n">_check_X_target_col</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">types</span><span class="p">)</span>
+    <span class="c1"># aggressively low_cardinality integers plot better as categorical</span>
+    <span class="k">if</span> <span class="n">types</span><span class="o">.</span><span class="n">low_card_int</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">types</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">types</span><span class="o">.</span><span class="n">low_card_int</span><span class="p">]:</span>
+            <span class="c1"># yes we con&#39;t need a loop</span>
+            <span class="n">types</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">col</span><span class="p">,</span> <span class="s1">&#39;low_card_int&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">types</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">col</span><span class="p">,</span> <span class="s1">&#39;categorical&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="c1"># if any dirty floats, tell user to clean them first</span>
+    <span class="k">if</span> <span class="n">types</span><span class="o">.</span><span class="n">dirty_float</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Found some dirty floats! &quot;</span>
+             <span class="s2">&quot;Clean em up first:</span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                 <span class="n">types</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">types</span><span class="o">.</span><span class="n">dirty_float</span><span class="p">]),</span>
+             <span class="ne">UserWarning</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">types</span><span class="o">.</span><span class="n">continuous</span><span class="p">[</span><span class="n">target_col</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Target looks like regression&quot;</span><span class="p">)</span>
+        <span class="c1"># regression</span>
+        <span class="c1"># make sure we include the target column in X</span>
+        <span class="c1"># even though it&#39;s not categorical</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">target_col</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">target_col</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;frequency&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Target distribution&quot;</span><span class="p">)</span>
+        <span class="n">plot_regression_continuous</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="n">types</span><span class="p">)</span>
+        <span class="n">plot_regression_categorical</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="n">types</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Target looks like classification&quot;</span><span class="p">)</span>
+        <span class="c1"># regression</span>
+        <span class="c1"># make sure we include the target column in X</span>
+        <span class="c1"># even though it&#39;s not categorical</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+        <span class="n">counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">target_col</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+        <span class="n">melted</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">melt</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+            <span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;count&#39;</span><span class="p">})</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">melted</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Target distribution&quot;</span><span class="p">)</span>
+        <span class="n">plot_classification_continuous</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="n">types</span><span class="p">,</span>
+                                       <span class="n">hue_order</span><span class="o">=</span><span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+        <span class="n">plot_classification_categorical</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="n">types</span><span class="p">,</span>
+                                        <span class="n">hue_order</span><span class="o">=</span><span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Andreas Mueller.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/copybutton.js"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
