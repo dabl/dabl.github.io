@@ -190,7 +190,7 @@
 <h1><code class="xref py py-mod docutils literal"><span class="pre">dabl.search</span></code>.GridSuccessiveHalving<a class="headerlink" href="#dabl-search-gridsuccessivehalving" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dabl.search.GridSuccessiveHalving">
-<code class="descclassname">dabl.search.</code><code class="descname">GridSuccessiveHalving</code><span class="sig-paren">(</span><em>estimator</em>, <em>param_grid</em>, <em>scoring=None</em>, <em>n_jobs=None</em>, <em>refit=True</em>, <em>verbose=0</em>, <em>cv=None</em>, <em>pre_dispatch=‘2*n_jobs’</em>, <em>random_state=None</em>, <em>error_score=nan</em>, <em>return_train_score=True</em>, <em>max_budget=’auto’</em>, <em>budget_on=’n_samples’</em>, <em>ratio=3</em>, <em>r_min=’auto’</em>, <em>aggressive_elimination=False</em>, <em>force_exhaust_budget=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/search.html#GridSuccessiveHalving"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.search.GridSuccessiveHalving" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dabl.search.</code><code class="descname">GridSuccessiveHalving</code><span class="sig-paren">(</span><em>estimator</em>, <em>param_grid</em>, <em>scoring=None</em>, <em>n_jobs=None</em>, <em>refit=True</em>, <em>verbose=0</em>, <em>cv=5</em>, <em>pre_dispatch=‘2*n_jobs’</em>, <em>random_state=None</em>, <em>error_score=nan</em>, <em>return_train_score=True</em>, <em>max_budget=’auto’</em>, <em>budget_on=’n_samples’</em>, <em>ratio=3</em>, <em>r_min=’auto’</em>, <em>aggressive_elimination=False</em>, <em>force_exhaust_budget=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/search.html#GridSuccessiveHalving"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.search.GridSuccessiveHalving" title="Permalink to this definition">¶</a></dt>
 <dd><p>Search over specified parameter values with successive halving.</p>
 <p>The search strategy starts evaluating all the candidates with a small
 amount a resource and iteratively selects the best candidates, using more
@@ -213,18 +213,10 @@ dictionaries, in which case the grids spanned by each dictionary
 in the list are explored. This enables searching over any sequence
 of parameter settings.</p>
 </dd>
-<dt><strong># FIXME (is this even supported??)</strong></dt>
-<dd></dd>
-<dt><strong>scoring</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, callable, list/tuple, dict or None, default: None</span></dt>
-<dd><p class="first">A single string (see <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter" title="(in scikit-learn v0.20.3)"><span>The scoring parameter: defining model evaluation rules</span></a>) or a callable
-(see <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html#scoring" title="(in scikit-learn v0.20.3)"><span>Defining your scoring strategy from metric functions</span></a>) to evaluate the predictions on the test set.</p>
-<p>For evaluating multiple metrics, either give a list of (unique) strings
-or a dict with names as keys and callables as values.</p>
-<p>NOTE that when using custom scorers, each scorer should return a single
-value. Metric functions returning a list/array of values can be wrapped
-into multiple scorers that return one value each.</p>
-<p>See <a class="reference external" href="https://scikit-learn.org/stable/modules/grid_search.html#multimetric-grid-search" title="(in scikit-learn v0.20.3)"><span>Specifying multiple metrics for evaluation</span></a> for an example.</p>
-<p class="last">If None, the estimator’s score method is used.</p>
+<dt><strong>scoring</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, callable, or None, default: None</span></dt>
+<dd><p class="first last">A single string (see <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter" title="(in scikit-learn v0.20.3)"><span>The scoring parameter: defining model evaluation rules</span></a>) or a callable
+(see <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html#scoring" title="(in scikit-learn v0.20.3)"><span>Defining your scoring strategy from metric functions</span></a>) to evaluate the predictions on the test set.
+If None, the estimator’s score method is used.</p>
 </dd>
 <dt><strong>n_jobs</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int or None, optional (default=None)</span></dt>
 <dd><p class="first last">Number of jobs to run in parallel.
@@ -250,11 +242,10 @@ as in ‘2*n_jobs’</li>
 </ul>
 </div></blockquote>
 </dd>
-<dt><strong>cv</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, cross-validation generator or an iterable, optional</span></dt>
+<dt><strong>cv</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, cross-validation generator or an iterable, optional (default=5)</span></dt>
 <dd><p class="first">Determines the cross-validation splitting strategy.
 Possible inputs for cv are:</p>
 <ul class="simple">
-<li>None, to use the default 3-fold cross validation,</li>
 <li>integer, to specify the number of folds in a <cite>(Stratified)KFold</cite>,</li>
 <li><a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-cv-splitter" title="(in scikit-learn v0.20.3)"><span class="xref std std-term">CV splitter</span></a>,</li>
 <li>An iterable yielding (train, test) splits as arrays of indices.</li>
@@ -262,35 +253,15 @@ Possible inputs for cv are:</p>
 <p>For integer/None inputs, if the estimator is a classifier and <code class="docutils literal"><span class="pre">y</span></code> is
 either binary or multiclass, <code class="xref py py-class docutils literal"><span class="pre">StratifiedKFold</span></code> is used. In all
 other cases, <code class="xref py py-class docutils literal"><span class="pre">KFold</span></code> is used.</p>
-<p>Refer <a class="reference external" href="https://scikit-learn.org/stable/modules/cross_validation.html#cross-validation" title="(in scikit-learn v0.20.3)"><span class="xref std std-ref">User Guide</span></a> for the various
+<p class="last">Refer <a class="reference external" href="https://scikit-learn.org/stable/modules/cross_validation.html#cross-validation" title="(in scikit-learn v0.20.3)"><span class="xref std std-ref">User Guide</span></a> for the various
 cross-validation strategies that can be used here.</p>
-<p># FIXME
-.. versionchanged:: 0.20</p>
-<blockquote class="last">
-<div><p><code class="docutils literal"><span class="pre">cv</span></code> default value if None will change from 3-fold to 5-fold
-in v0.22.</p>
-</div></blockquote>
 </dd>
-<dt><strong># FIXME</strong></dt>
-<dd></dd>
 <dt><strong>refit</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean, default=True</span></dt>
 <dd><p class="first">If True, refit an estimator using the best found parameters on the
 whole dataset.</p>
-<p>For multiple metric evaluation, this needs to be a string denoting the
-scorer is used to find the best parameters for refitting the estimator
-at the end.</p>
-<p>Where there are considerations other than maximum score in
-choosing a best estimator, <code class="docutils literal"><span class="pre">refit</span></code> can be set to a function which
-returns the selected <code class="docutils literal"><span class="pre">best_index_</span></code> given <code class="docutils literal"><span class="pre">cv_results_</span></code>.</p>
-<p>The refitted estimator is made available at the <code class="docutils literal"><span class="pre">best_estimator_</span></code>
+<p class="last">The refitted estimator is made available at the <code class="docutils literal"><span class="pre">best_estimator_</span></code>
 attribute and permits using <code class="docutils literal"><span class="pre">predict</span></code> directly on this
 <code class="docutils literal"><span class="pre">GridSearchCV</span></code> instance.</p>
-<p>Also for multiple metric evaluation, the attributes <code class="docutils literal"><span class="pre">best_index_</span></code>,
-<code class="docutils literal"><span class="pre">best_score_</span></code> and <code class="docutils literal"><span class="pre">best_params_</span></code> will only be available if
-<code class="docutils literal"><span class="pre">refit</span></code> is set and all of them will be determined w.r.t this specific
-scorer. <code class="docutils literal"><span class="pre">best_score_</span></code> is not returned if refit is callable.</p>
-<p class="last">See <code class="docutils literal"><span class="pre">scoring</span></code> parameter to know more about multiple metric
-evaluation.</p>
 </dd>
 <dt><strong>verbose</strong> <span class="classifier-delimiter">:</span> <span class="classifier">integer</span></dt>
 <dd><p class="first last">Controls the verbosity: the higher, the more messages.</p>
@@ -310,7 +281,7 @@ However computing the scores on the training set can be computationally
 expensive and is not strictly required to select the parameters that
 yield the best generalization performance.</p>
 </dd>
-<dt><strong>max_budget</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dt><strong>max_budget</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, optional(default=’auto’)</span></dt>
 <dd><p class="first last">The maximum number of resources that any candidate is allowed to use
 for a given iteration. By default, this is set <code class="docutils literal"><span class="pre">n_samples</span></code> when
 <code class="docutils literal"><span class="pre">budget_on='n_samples'</span></code> (default), else an error is raised.</p>
@@ -420,7 +391,7 @@ resources and without exceeding <code class="docutils literal"><span class="pre"
 resources. This will be smaller than <code class="docutils literal"><span class="pre">n_possible_iterations_</span></code> when
 there isn’t enough budget.</p>
 </dd>
-<dt><strong>cv_results_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict of numpy (masked) ndarrays  # FIXME Update this</span></dt>
+<dt><strong>cv_results_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict of numpy (masked) ndarrays</span></dt>
 <dd><p class="first">A dict with keys as column headers and values as columns, that can be
 imported into a pandas <code class="docutils literal"><span class="pre">DataFrame</span></code>.</p>
 <p>For instance the below given table</p>
@@ -486,45 +457,30 @@ imported into a pandas <code class="docutils literal"><span class="pre">DataFram
 <p>NOTE</p>
 <p>The key <code class="docutils literal"><span class="pre">'params'</span></code> is used to store a list of parameter
 settings dicts for all the parameter candidates.</p>
-<p>The <code class="docutils literal"><span class="pre">mean_fit_time</span></code>, <code class="docutils literal"><span class="pre">std_fit_time</span></code>, <code class="docutils literal"><span class="pre">mean_score_time</span></code> and
+<p class="last">The <code class="docutils literal"><span class="pre">mean_fit_time</span></code>, <code class="docutils literal"><span class="pre">std_fit_time</span></code>, <code class="docutils literal"><span class="pre">mean_score_time</span></code> and
 <code class="docutils literal"><span class="pre">std_score_time</span></code> are all in seconds.</p>
-<p class="last">For multi-metric evaluation, the scores for all the scorers are
-available in the <code class="docutils literal"><span class="pre">cv_results_</span></code> dict at the keys ending with that
-scorer’s name (<code class="docutils literal"><span class="pre">'_&lt;scorer_name&gt;'</span></code>) instead of <code class="docutils literal"><span class="pre">'_score'</span></code> shown
-above. (‘split0_test_precision’, ‘mean_train_precision’ etc.)</p>
 </dd>
 <dt><strong>best_estimator_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">estimator or dict</span></dt>
-<dd><p class="first">Estimator that was chosen by the search, i.e. estimator
+<dd><p class="first last">Estimator that was chosen by the search, i.e. estimator
 which gave highest score (or smallest loss if specified)
 on the left out data. Not available if <code class="docutils literal"><span class="pre">refit=False</span></code>.</p>
-<p>For multi-metric evaluation, this attribute is present only if
-<code class="docutils literal"><span class="pre">refit</span></code> is specified.</p>
-<p class="last">See <code class="docutils literal"><span class="pre">refit</span></code> parameter for more information on allowed values.</p>
 </dd>
 <dt><strong>best_score_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd><p class="first">Mean cross-validated score of the best_estimator.</p>
-<p class="last">For multi-metric evaluation, this is not available if <code class="docutils literal"><span class="pre">refit</span></code> is
-<code class="docutils literal"><span class="pre">False</span></code>. See <code class="docutils literal"><span class="pre">refit</span></code> parameter for more information.</p>
+<dd><p class="first last">Mean cross-validated score of the best_estimator.</p>
 </dd>
 <dt><strong>best_params_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
-<dd><p class="first">Parameter setting that gave the best results on the hold out data.</p>
-<p class="last">For multi-metric evaluation, this is not available if <code class="docutils literal"><span class="pre">refit</span></code> is
-<code class="docutils literal"><span class="pre">False</span></code>. See <code class="docutils literal"><span class="pre">refit</span></code> parameter for more information.</p>
+<dd><p class="first last">Parameter setting that gave the best results on the hold out data.</p>
 </dd>
 <dt><strong>best_index_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
 <dd><p class="first">The index (of the <code class="docutils literal"><span class="pre">cv_results_</span></code> arrays) which corresponds to the best
 candidate parameter setting.</p>
-<p>The dict at <code class="docutils literal"><span class="pre">search.cv_results_['params'][search.best_index_]</span></code> gives
+<p class="last">The dict at <code class="docutils literal"><span class="pre">search.cv_results_['params'][search.best_index_]</span></code> gives
 the parameter setting for the best model, that gives the highest
 mean score (<code class="docutils literal"><span class="pre">search.best_score_</span></code>).</p>
-<p class="last">For multi-metric evaluation, this is not available if <code class="docutils literal"><span class="pre">refit</span></code> is
-<code class="docutils literal"><span class="pre">False</span></code>. See <code class="docutils literal"><span class="pre">refit</span></code> parameter for more information.</p>
 </dd>
 <dt><strong>scorer_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">function or a dict</span></dt>
-<dd><p class="first">Scorer function used on the held out data to choose the best
+<dd><p class="first last">Scorer function used on the held out data to choose the best
 parameters for the model.</p>
-<p class="last">For multi-metric evaluation, this attribute holds the validated
-<code class="docutils literal"><span class="pre">scoring</span></code> dict which maps the scorer key to the scorer callable.</p>
 </dd>
 <dt><strong>n_splits_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
 <dd><p class="first last">The number of cross-validation splits (folds/iterations).</p>
