@@ -1,0 +1,14 @@
+:orphan:
+
+Available documentation for Scikit-learn
+========================================
+
+Web-based documentation is available for versions listed below:
+
+* `Scikit-learn 0.21.dev0 (dev) documentation <http://scikit-learn.org/dev/documentation.html>`_ (`PDF 46.3 MB <http://scikit-learn.org/dev/_downloads/scikit-learn-docs.pdf>`_)
+* `Scikit-learn 0.20.3 (stable) documentation <http://scikit-learn.org/stable/documentation.html>`_ (`PDF 48.5 MB <http://scikit-learn.org/stable/_downloads/scikit-learn-docs.pdf>`_)
+* `Scikit-learn 0.19.2 documentation <http://scikit-learn.org/0.19/documentation.html>`_ (`PDF 42.2 MB <http://scikit-learn.org/0.19/_downloads/scikit-learn-docs.pdf>`_)
+* `Scikit-learn 0.18.2 documentation <http://scikit-learn.org/0.18/documentation.html>`_ (`PDF 46.5 MB <http://scikit-learn.org/0.18/_downloads/scikit-learn-docs.pdf>`_)
+* `Scikit-learn 0.17.1 documentation <http://scikit-learn.org/0.17/documentation.html>`_ (`PDF 46.0 MB <http://scikit-learn.org/0.17/_downloads/scikit-learn-docs.pdf>`_)
+* `Scikit-learn 0.16.1 documentation <http://scikit-learn.org/0.16/documentation.html>`_ (`PDF 56.8 MB <http://scikit-learn.org/0.16/_downloads/scikit-learn-docs.pdf>`_)
+* `Scikit-learn 0.15-git documentation <http://scikit-learn.org/0.15/documentation.html>`_

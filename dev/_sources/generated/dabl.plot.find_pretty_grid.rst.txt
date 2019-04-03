@@ -1,0 +1,12 @@
+:mod:`dabl.plot`.find_pretty_grid
+==============================================
+
+.. currentmodule:: dabl.plot
+
+.. autofunction:: find_pretty_grid
+
+.. include:: dabl.plot.find_pretty_grid.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

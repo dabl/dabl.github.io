@@ -1,0 +1,599 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>dabl.search.RandomSuccessiveHalving &mdash; dabl  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/project-template.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="dabl.pipelines.get_fast_classifiers" href="dabl.pipelines.get_fast_classifiers.html" />
+    <link rel="prev" title="dabl.search.GridSuccessiveHalving" href="dabl.search.GridSuccessiveHalving.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> dabl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Getting started with Machine Learning with dabl</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">Machine Learning with dabl</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">dabl API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api.html#high-level-api">High-level API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#supervised-models">Supervised Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#preprocessing">Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#plotting">Plotting</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html#model-search">Model Search</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="dabl.search.GridSuccessiveHalving.html"><code class="docutils literal"><span class="pre">dabl.search</span></code>.GridSuccessiveHalving</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">dabl.search</span></code>.RandomSuccessiveHalving</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#portfolios">Portfolios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#datasets">Datasets</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">General examples</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dabl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../api.html">dabl API</a> &raquo;</li>
+        
+      <li><code class="docutils literal"><span class="pre">dabl.search</span></code>.RandomSuccessiveHalving</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/generated/dabl.search.RandomSuccessiveHalving.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dabl-search-randomsuccessivehalving">
+<h1><code class="xref py py-mod docutils literal"><span class="pre">dabl.search</span></code>.RandomSuccessiveHalving<a class="headerlink" href="#dabl-search-randomsuccessivehalving" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="dabl.search.RandomSuccessiveHalving">
+<code class="descclassname">dabl.search.</code><code class="descname">RandomSuccessiveHalving</code><span class="sig-paren">(</span><em>estimator</em>, <em>param_distributions</em>, <em>n_candidates=’auto’</em>, <em>scoring=None</em>, <em>n_jobs=None</em>, <em>refit=True</em>, <em>verbose=0</em>, <em>cv=None</em>, <em>pre_dispatch=‘2*n_jobs’</em>, <em>random_state=None</em>, <em>error_score=nan</em>, <em>return_train_score=True</em>, <em>max_budget=’auto’</em>, <em>budget_on=’n_samples’</em>, <em>ratio=3</em>, <em>r_min=’auto’</em>, <em>aggressive_elimination=False</em>, <em>force_exhaust_budget=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/search.html#RandomSuccessiveHalving"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.search.RandomSuccessiveHalving" title="Permalink to this definition">¶</a></dt>
+<dd><p>Randomized search on hyper parameters.</p>
+<p>The search strategy starts evaluating all the candidates with a small
+amount a resource and iteratively selects the best candidates, using more
+and more resources.</p>
+<p>Read more in the <a class="reference internal" href="../user_guide.html#successive-halving-user-guide"><span class="std std-ref">User guide</span></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>estimator</strong> <span class="classifier-delimiter">:</span> <span class="classifier">estimator object.</span></dt>
+<dd><p class="first last">This is assumed to implement the scikit-learn estimator interface.
+Either estimator needs to provide a <code class="docutils literal"><span class="pre">score</span></code> function,
+or <code class="docutils literal"><span class="pre">scoring</span></code> must be passed.</p>
+</dd>
+<dt><strong>param_distributions</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">Dictionary with parameters names (string) as keys and distributions
+or lists of parameters to try. Distributions must provide a <code class="docutils literal"><span class="pre">rvs</span></code>
+method for sampling (such as those from scipy.stats.distributions).
+If a list is given, it is sampled uniformly.</p>
+</dd>
+<dt><strong>n_candidates: int, optional(default=’auto’)</strong></dt>
+<dd><p class="first last">The number of candidate parameters to sample. By default this will
+sample enough candidates so that the last iteration uses as many
+resources as possible. Note that <code class="docutils literal"><span class="pre">force_exhaust_budget</span></code> has no
+effect in this case.</p>
+</dd>
+<dt><strong># FIXME (is this even supported??)</strong></dt>
+<dd></dd>
+<dt><strong>scoring</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, callable, list/tuple, dict or None, default: None</span></dt>
+<dd><p class="first">A single string (see <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter" title="(in scikit-learn v0.20.3)"><span>The scoring parameter: defining model evaluation rules</span></a>) or a callable
+(see <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html#scoring" title="(in scikit-learn v0.20.3)"><span>Defining your scoring strategy from metric functions</span></a>) to evaluate the predictions on the test set.</p>
+<p>For evaluating multiple metrics, either give a list of (unique) strings
+or a dict with names as keys and callables as values.</p>
+<p>NOTE that when using custom scorers, each scorer should return a single
+value. Metric functions returning a list/array of values can be wrapped
+into multiple scorers that return one value each.</p>
+<p>See <a class="reference external" href="https://scikit-learn.org/stable/modules/grid_search.html#multimetric-grid-search" title="(in scikit-learn v0.20.3)"><span>Specifying multiple metrics for evaluation</span></a> for an example.</p>
+<p class="last">If None, the estimator’s score method is used.</p>
+</dd>
+<dt><strong>n_jobs</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int or None, optional (default=None)</span></dt>
+<dd><p class="first last">Number of jobs to run in parallel.
+<code class="docutils literal"><span class="pre">None</span></code> means 1 unless in a <code class="xref py py-obj docutils literal"><span class="pre">joblib.parallel_backend</span></code> context.
+<code class="docutils literal"><span class="pre">-1</span></code> means using all processors. See <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-n-jobs" title="(in scikit-learn v0.20.3)"><span class="xref std std-term">Glossary</span></a>
+for more details.</p>
+</dd>
+<dt><strong>pre_dispatch</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, or string, optional</span></dt>
+<dd><p class="first">Controls the number of jobs that get dispatched during parallel
+execution. Reducing this number can be useful to avoid an
+explosion of memory consumption when more jobs get dispatched
+than CPUs can process. This parameter can be:</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li>None, in which case all the jobs are immediately
+created and spawned. Use this for lightweight and
+fast-running jobs, to avoid delays due to on-demand
+spawning of the jobs</li>
+<li>An int, giving the exact number of total jobs that are
+spawned</li>
+<li>A string, giving an expression as a function of n_jobs,
+as in ‘2*n_jobs’</li>
+</ul>
+</div></blockquote>
+</dd>
+<dt><strong>cv</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, cross-validation generator or an iterable, optional</span></dt>
+<dd><p class="first">Determines the cross-validation splitting strategy.
+Possible inputs for cv are:</p>
+<ul class="simple">
+<li>None, to use the default 3-fold cross validation,</li>
+<li>integer, to specify the number of folds in a <cite>(Stratified)KFold</cite>,</li>
+<li><a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-cv-splitter" title="(in scikit-learn v0.20.3)"><span class="xref std std-term">CV splitter</span></a>,</li>
+<li>An iterable yielding (train, test) splits as arrays of indices.</li>
+</ul>
+<p>For integer/None inputs, if the estimator is a classifier and <code class="docutils literal"><span class="pre">y</span></code> is
+either binary or multiclass, <code class="xref py py-class docutils literal"><span class="pre">StratifiedKFold</span></code> is used. In all
+other cases, <code class="xref py py-class docutils literal"><span class="pre">KFold</span></code> is used.</p>
+<p>Refer <a class="reference external" href="https://scikit-learn.org/stable/modules/cross_validation.html#cross-validation" title="(in scikit-learn v0.20.3)"><span class="xref std std-ref">User Guide</span></a> for the various
+cross-validation strategies that can be used here.</p>
+<p># FIXME
+.. versionchanged:: 0.20</p>
+<blockquote class="last">
+<div><p><code class="docutils literal"><span class="pre">cv</span></code> default value if None will change from 3-fold to 5-fold
+in v0.22.</p>
+</div></blockquote>
+</dd>
+<dt><strong># FIXME</strong></dt>
+<dd></dd>
+<dt><strong>refit</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean, default=True</span></dt>
+<dd><p class="first">If True, refit an estimator using the best found parameters on the
+whole dataset.</p>
+<p>For multiple metric evaluation, this needs to be a string denoting the
+scorer is used to find the best parameters for refitting the estimator
+at the end.</p>
+<p>Where there are considerations other than maximum score in
+choosing a best estimator, <code class="docutils literal"><span class="pre">refit</span></code> can be set to a function which
+returns the selected <code class="docutils literal"><span class="pre">best_index_</span></code> given <code class="docutils literal"><span class="pre">cv_results_</span></code>.</p>
+<p>The refitted estimator is made available at the <code class="docutils literal"><span class="pre">best_estimator_</span></code>
+attribute and permits using <code class="docutils literal"><span class="pre">predict</span></code> directly on this
+<code class="docutils literal"><span class="pre">GridSearchCV</span></code> instance.</p>
+<p>Also for multiple metric evaluation, the attributes <code class="docutils literal"><span class="pre">best_index_</span></code>,
+<code class="docutils literal"><span class="pre">best_score_</span></code> and <code class="docutils literal"><span class="pre">best_params_</span></code> will only be available if
+<code class="docutils literal"><span class="pre">refit</span></code> is set and all of them will be determined w.r.t this specific
+scorer. <code class="docutils literal"><span class="pre">best_score_</span></code> is not returned if refit is callable.</p>
+<p class="last">See <code class="docutils literal"><span class="pre">scoring</span></code> parameter to know more about multiple metric
+evaluation.</p>
+</dd>
+<dt><strong>verbose</strong> <span class="classifier-delimiter">:</span> <span class="classifier">integer</span></dt>
+<dd><p class="first last">Controls the verbosity: the higher, the more messages.</p>
+</dd>
+<dt><strong>error_score</strong> <span class="classifier-delimiter">:</span> <span class="classifier">‘raise’ or numeric</span></dt>
+<dd><p class="first last">Value to assign to the score if an error occurs in estimator fitting.
+If set to ‘raise’, the error is raised. If a numeric value is given,
+FitFailedWarning is raised. This parameter does not affect the refit
+step, which will always raise the error. Default is <code class="docutils literal"><span class="pre">np.nan</span></code></p>
+</dd>
+<dt><strong>return_train_score</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean, default=False</span></dt>
+<dd><p class="first last">If <code class="docutils literal"><span class="pre">False</span></code>, the <code class="docutils literal"><span class="pre">cv_results_</span></code> attribute will not include training
+scores.
+Computing training scores is used to get insights on how different
+parameter settings impact the overfitting/underfitting trade-off.
+However computing the scores on the training set can be computationally
+expensive and is not strictly required to select the parameters that
+yield the best generalization performance.</p>
+</dd>
+<dt><strong>max_budget</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">The maximum number of resources that any candidate is allowed to use
+for a given iteration. By default, this is set <code class="docutils literal"><span class="pre">n_samples</span></code> when
+<code class="docutils literal"><span class="pre">budget_on='n_samples'</span></code> (default), else an error is raised.</p>
+</dd>
+<dt><strong>budget_on</strong> <span class="classifier-delimiter">:</span> <span class="classifier"><cite>n_samples</cite> or str, optional(default=’n_samples’)</span></dt>
+<dd><p class="first last">Defines the nature of the budget. By default, the budget is the number
+of samples. It can also be set to any parameter of the base estimator
+that accepts positive integer values, e.g. ‘n_iterations’ or
+‘n_estimators’ for a gradient boosting estimator. In this case
+<code class="docutils literal"><span class="pre">max_budget</span></code> cannot be ‘auto’.</p>
+</dd>
+<dt><strong>ratio</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int or float, optional(default=3)</span></dt>
+<dd><p class="first last">The ‘halving’ parameter, which determines the proportion of candidates
+that are selected for the next iteration. For example, <code class="docutils literal"><span class="pre">ratio=3</span></code>
+means that only one third of the candidates are selected.</p>
+</dd>
+<dt><strong>r_min</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, optional(default=’auto’)</span></dt>
+<dd><p class="first">The minimum amount of resource that any candidate is allowed to use for
+a given iteration. Equivalently, this defines the amount of resources
+that are allocated for each candidate at the first iteration. By
+default, this is set to:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">n_splits</span> <span class="pre">*</span> <span class="pre">2</span></code> when <code class="docutils literal"><span class="pre">budget_on='n_samples'</span></code> for a regression
+problem</li>
+<li><code class="docutils literal"><span class="pre">n_classes</span> <span class="pre">*</span> <span class="pre">n_splits</span> <span class="pre">*</span> <span class="pre">2</span></code> when <code class="docutils literal"><span class="pre">budget_on='n_samples'</span></code> for a
+regression problem</li>
+<li>The highest possible value satisfying the constraint
+<code class="docutils literal"><span class="pre">force_exhaust_budget=True</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">1</span></code> when <code class="docutils literal"><span class="pre">budget_on!='n_samples'</span></code></li>
+</ul>
+<p class="last">Note that the amount of resources used at each iteration is always a
+multiple of <code class="docutils literal"><span class="pre">r_min</span></code>.</p>
+</dd>
+<dt><strong>aggressive_elimination</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional(default=False)</span></dt>
+<dd><p class="first last">This is only relevant in cases where there isn’t enough budget to
+eliminate enough candidates at the last iteration. If <code class="docutils literal"><span class="pre">True</span></code>, then
+the search process will ‘replay’ the first iteration for as long as
+needed until the number of candidates is small enough. This is
+<code class="docutils literal"><span class="pre">False</span></code> by default, which means that the last iteration may evaluate
+more than <code class="docutils literal"><span class="pre">ratio</span></code> candidates.</p>
+</dd>
+<dt><strong>force_exhaust_budget</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional(default=False)</span></dt>
+<dd><p class="first last">If True, then <code class="docutils literal"><span class="pre">r_min</span></code> is set to a specific value such that the
+last iteration uses as much budget as possible. Namely, the last
+iteration uses the highest value smaller than <code class="docutils literal"><span class="pre">max_budget</span></code> that is a
+multiple of both <code class="docutils literal"><span class="pre">r_min</span></code> and <code class="docutils literal"><span class="pre">ratio</span></code>.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="dabl.search.GridSuccessiveHalving.html#dabl.search.GridSuccessiveHalving" title="dabl.search.GridSuccessiveHalving"><code class="xref py py-class docutils literal"><span class="pre">GridSuccessiveHalving</span></code></a></dt>
+<dd>Search over a grid of parameters using successive halving.</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>The parameters selected are those that maximize the score of the held-out
+data, according to the scoring parameter.</p>
+<p>If <cite>n_jobs</cite> was set to a value higher than one, the data is copied for each
+parameter setting(and not <cite>n_jobs</cite> times). This is done for efficiency
+reasons if individual jobs take very little time, but may raise errors if
+the dataset is large and not enough memory is available.  A workaround in
+this case is to set <cite>pre_dispatch</cite>. Then, the memory is copied only
+<cite>pre_dispatch</cite> many times. A reasonable value for <cite>pre_dispatch</cite> is <cite>2 *
+n_jobs</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Attributes:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>n_candidates_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">The number of candidate parameters that were evaluated at the first
+iteartion.</p>
+</dd>
+<dt><strong>n_remaining_candidates_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">The number of candidate parameters that are left after the last
+iteration.</p>
+</dd>
+<dt><strong>max_budget_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">The maximum number of resources that any candidate is allowed to use
+for a given iteration. Note that since the number of resources used at
+each iteration must be a multiple of <code class="docutils literal"><span class="pre">r_min_</span></code>, the actual number of
+resources used at the last iteartion may be smaller than
+<code class="docutils literal"><span class="pre">max_budget_</span></code>.</p>
+</dd>
+<dt><strong>r_min_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">The amount of resources that are allocated for each candidate at the
+first iteration.</p>
+</dd>
+<dt><strong>n_iterations_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">The actual number of iterations that were run. This is equal to
+<code class="docutils literal"><span class="pre">n_required_iterations_</span></code> if <code class="docutils literal"><span class="pre">aggressive_elimination</span></code> is <code class="docutils literal"><span class="pre">True</span></code>.
+Else, this is equal to <code class="docutils literal"><span class="pre">min(n_possible_iterations_,</span>
+<span class="pre">n_required_iterations_)</span></code>.</p>
+</dd>
+<dt><strong>n_possible_iterations_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">The number of iterations that are possible starting with <code class="docutils literal"><span class="pre">r_min_</span></code>
+resources and without exceeding <code class="docutils literal"><span class="pre">max_budget_</span></code>.</p>
+</dd>
+<dt><strong>n_required_iterations_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">The number of iterations that are required to end up with less than
+<code class="docutils literal"><span class="pre">ratio</span></code> candidates at the last iteration, starting with <code class="docutils literal"><span class="pre">r_min_</span></code>
+resources. This will be smaller than <code class="docutils literal"><span class="pre">n_possible_iterations_</span></code> when
+there isn’t enough budget.</p>
+</dd>
+<dt><strong>cv_results_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict of numpy (masked) ndarrays  # FIXME Update this</span></dt>
+<dd><p class="first">A dict with keys as column headers and values as columns, that can be
+imported into a pandas <code class="docutils literal"><span class="pre">DataFrame</span></code>.</p>
+<p>For instance the below given table</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="20%" />
+<col width="30%" />
+<col width="5%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">param_kernel</th>
+<th class="head">param_gamma</th>
+<th class="head">split0_test_score</th>
+<th class="head">…</th>
+<th class="head">rank_test_score</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>‘rbf’</td>
+<td>0.1</td>
+<td>0.80</td>
+<td>…</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>‘rbf’</td>
+<td>0.2</td>
+<td>0.90</td>
+<td>…</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>‘rbf’</td>
+<td>0.3</td>
+<td>0.70</td>
+<td>…</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>will be represented by a <code class="docutils literal"><span class="pre">cv_results_</span></code> dict of:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s1">&#39;param_kernel&#39;</span> <span class="p">:</span> <span class="n">masked_array</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="s1">&#39;rbf&#39;</span><span class="p">],</span>
+                              <span class="n">mask</span> <span class="o">=</span> <span class="kc">False</span><span class="p">),</span>
+<span class="s1">&#39;param_gamma&#39;</span>  <span class="p">:</span> <span class="n">masked_array</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span> <span class="mf">0.2</span> <span class="mf">0.3</span><span class="p">],</span> <span class="n">mask</span> <span class="o">=</span> <span class="kc">False</span><span class="p">),</span>
+<span class="s1">&#39;split0_test_score&#39;</span>  <span class="p">:</span> <span class="p">[</span><span class="mf">0.80</span><span class="p">,</span> <span class="mf">0.90</span><span class="p">,</span> <span class="mf">0.70</span><span class="p">],</span>
+<span class="s1">&#39;split1_test_score&#39;</span>  <span class="p">:</span> <span class="p">[</span><span class="mf">0.82</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.70</span><span class="p">],</span>
+<span class="s1">&#39;mean_test_score&#39;</span>    <span class="p">:</span> <span class="p">[</span><span class="mf">0.81</span><span class="p">,</span> <span class="mf">0.70</span><span class="p">,</span> <span class="mf">0.70</span><span class="p">],</span>
+<span class="s1">&#39;std_test_score&#39;</span>     <span class="p">:</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.20</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">],</span>
+<span class="s1">&#39;rank_test_score&#39;</span>    <span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="s1">&#39;split0_train_score&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mf">0.80</span><span class="p">,</span> <span class="mf">0.92</span><span class="p">,</span> <span class="mf">0.70</span><span class="p">],</span>
+<span class="s1">&#39;split1_train_score&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mf">0.82</span><span class="p">,</span> <span class="mf">0.55</span><span class="p">,</span> <span class="mf">0.70</span><span class="p">],</span>
+<span class="s1">&#39;mean_train_score&#39;</span>   <span class="p">:</span> <span class="p">[</span><span class="mf">0.81</span><span class="p">,</span> <span class="mf">0.74</span><span class="p">,</span> <span class="mf">0.70</span><span class="p">],</span>
+<span class="s1">&#39;std_train_score&#39;</span>    <span class="p">:</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.19</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">],</span>
+<span class="s1">&#39;mean_fit_time&#39;</span>      <span class="p">:</span> <span class="p">[</span><span class="mf">0.73</span><span class="p">,</span> <span class="mf">0.63</span><span class="p">,</span> <span class="mf">0.43</span><span class="p">],</span>
+<span class="s1">&#39;std_fit_time&#39;</span>       <span class="p">:</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">],</span>
+<span class="s1">&#39;mean_score_time&#39;</span>    <span class="p">:</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">],</span>
+<span class="s1">&#39;std_score_time&#39;</span>     <span class="p">:</span> <span class="p">[</span><span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">],</span>
+<span class="s1">&#39;params&#39;</span>             <span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;kernel&#39;</span> <span class="p">:</span> <span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="s1">&#39;gamma&#39;</span> <span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span> <span class="o">...</span><span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>NOTE</p>
+<p>The key <code class="docutils literal"><span class="pre">'params'</span></code> is used to store a list of parameter
+settings dicts for all the parameter candidates.</p>
+<p>The <code class="docutils literal"><span class="pre">mean_fit_time</span></code>, <code class="docutils literal"><span class="pre">std_fit_time</span></code>, <code class="docutils literal"><span class="pre">mean_score_time</span></code> and
+<code class="docutils literal"><span class="pre">std_score_time</span></code> are all in seconds.</p>
+<p class="last">For multi-metric evaluation, the scores for all the scorers are
+available in the <code class="docutils literal"><span class="pre">cv_results_</span></code> dict at the keys ending with that
+scorer’s name (<code class="docutils literal"><span class="pre">'_&lt;scorer_name&gt;'</span></code>) instead of <code class="docutils literal"><span class="pre">'_score'</span></code> shown
+above. (‘split0_test_precision’, ‘mean_train_precision’ etc.)</p>
+</dd>
+<dt><strong>best_estimator_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">estimator or dict</span></dt>
+<dd><p class="first">Estimator that was chosen by the search, i.e. estimator
+which gave highest score (or smallest loss if specified)
+on the left out data. Not available if <code class="docutils literal"><span class="pre">refit=False</span></code>.</p>
+<p>For multi-metric evaluation, this attribute is present only if
+<code class="docutils literal"><span class="pre">refit</span></code> is specified.</p>
+<p class="last">See <code class="docutils literal"><span class="pre">refit</span></code> parameter for more information on allowed values.</p>
+</dd>
+<dt><strong>best_score_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first">Mean cross-validated score of the best_estimator.</p>
+<p class="last">For multi-metric evaluation, this is not available if <code class="docutils literal"><span class="pre">refit</span></code> is
+<code class="docutils literal"><span class="pre">False</span></code>. See <code class="docutils literal"><span class="pre">refit</span></code> parameter for more information.</p>
+</dd>
+<dt><strong>best_params_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first">Parameter setting that gave the best results on the hold out data.</p>
+<p class="last">For multi-metric evaluation, this is not available if <code class="docutils literal"><span class="pre">refit</span></code> is
+<code class="docutils literal"><span class="pre">False</span></code>. See <code class="docutils literal"><span class="pre">refit</span></code> parameter for more information.</p>
+</dd>
+<dt><strong>best_index_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first">The index (of the <code class="docutils literal"><span class="pre">cv_results_</span></code> arrays) which corresponds to the best
+candidate parameter setting.</p>
+<p>The dict at <code class="docutils literal"><span class="pre">search.cv_results_['params'][search.best_index_]</span></code> gives
+the parameter setting for the best model, that gives the highest
+mean score (<code class="docutils literal"><span class="pre">search.best_score_</span></code>).</p>
+<p class="last">For multi-metric evaluation, this is not available if <code class="docutils literal"><span class="pre">refit</span></code> is
+<code class="docutils literal"><span class="pre">False</span></code>. See <code class="docutils literal"><span class="pre">refit</span></code> parameter for more information.</p>
+</dd>
+<dt><strong>scorer_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">function or a dict</span></dt>
+<dd><p class="first">Scorer function used on the held out data to choose the best
+parameters for the model.</p>
+<p class="last">For multi-metric evaluation, this attribute holds the validated
+<code class="docutils literal"><span class="pre">scoring</span></code> dict which maps the scorer key to the scorer callable.</p>
+</dd>
+<dt><strong>n_splits_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">The number of cross-validation splits (folds/iterations).</p>
+</dd>
+<dt><strong>refit_time_</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first">Seconds used for refitting the best model on the whole dataset.</p>
+<p class="last">This is present only if <code class="docutils literal"><span class="pre">refit</span></code> is not False.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div style='clear:both'></div></div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dabl.pipelines.get_fast_classifiers.html" class="btn btn-neutral float-right" title="dabl.pipelines.get_fast_classifiers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="dabl.search.GridSuccessiveHalving.html" class="btn btn-neutral float-left" title="dabl.search.GridSuccessiveHalving" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Andreas Mueller
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

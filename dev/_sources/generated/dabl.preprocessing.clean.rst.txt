@@ -1,0 +1,12 @@
+:mod:`dabl.preprocessing`.clean
+============================================
+
+.. currentmodule:: dabl.preprocessing
+
+.. autofunction:: clean
+
+.. include:: dabl.preprocessing.clean.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

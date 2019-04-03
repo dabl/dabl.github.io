@@ -1,0 +1,12 @@
+:mod:`dabl`.clean
+==============================
+
+.. currentmodule:: dabl
+
+.. autofunction:: clean
+
+.. include:: dabl.clean.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>
