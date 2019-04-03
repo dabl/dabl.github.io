@@ -1,0 +1,12 @@
+:mod:`dabl.plot`.plot_supervised
+=============================================
+
+.. currentmodule:: dabl.plot
+
+.. autofunction:: plot_supervised
+
+.. include:: dabl.plot.plot_supervised.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

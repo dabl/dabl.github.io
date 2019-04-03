@@ -1,0 +1,421 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>dabl API &mdash; dabl  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/js/copybutton.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/project-template.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dabl.clean" href="generated/dabl.clean.html" />
+    <link rel="prev" title="Machine Learning with dabl" href="user_guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> dabl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Getting started with Machine Learning with dabl</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="user_guide.html">Machine Learning with dabl</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">dabl API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#high-level-api">High-level API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/dabl.clean.html"><code class="docutils literal"><span class="pre">dabl</span></code>.clean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/dabl.detect_types.html"><code class="docutils literal"><span class="pre">dabl</span></code>.detect_types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/dabl.plot_supervised.html"><code class="docutils literal"><span class="pre">dabl</span></code>.plot_supervised</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/dabl.SimpleClassifier.html"><code class="docutils literal"><span class="pre">dabl</span></code>.SimpleClassifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/dabl.EasyPreprocessor.html"><code class="docutils literal"><span class="pre">dabl</span></code>.EasyPreprocessor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#supervised-models">Supervised Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preprocessing">Preprocessing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/dabl.preprocessing.EasyPreprocessor.html"><code class="docutils literal"><span class="pre">dabl.preprocessing</span></code>.EasyPreprocessor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/dabl.preprocessing.detect_types.html"><code class="docutils literal"><span class="pre">dabl.preprocessing</span></code>.detect_types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/dabl.preprocessing.clean.html"><code class="docutils literal"><span class="pre">dabl.preprocessing</span></code>.clean</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#plotting">Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/dabl.plot.find_pretty_grid.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.find_pretty_grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/dabl.plot.plot_supervised.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.plot_supervised</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/dabl.plot.plot_classification_categorical.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.plot_classification_categorical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/dabl.plot.plot_classification_continuous.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.plot_classification_continuous</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/dabl.plot.plot_regression_categorical.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.plot_regression_categorical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/dabl.plot.plot_regression_continuous.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.plot_regression_continuous</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#model-search">Model Search</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/dabl.search.GridSuccessiveHalving.html"><code class="docutils literal"><span class="pre">dabl.search</span></code>.GridSuccessiveHalving</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/dabl.search.RandomSuccessiveHalving.html"><code class="docutils literal"><span class="pre">dabl.search</span></code>.RandomSuccessiveHalving</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#portfolios">Portfolios</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/dabl.pipelines.get_fast_classifiers.html"><code class="docutils literal"><span class="pre">dabl.pipelines</span></code>.get_fast_classifiers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#datasets">Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/dabl.datasets.load_ames.html"><code class="docutils literal"><span class="pre">dabl.datasets</span></code>.load_ames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/dabl.datasets.load_titanic.html"><code class="docutils literal"><span class="pre">dabl.datasets</span></code>.load_titanic</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">General examples</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">dabl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>dabl API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dabl-api">
+<h1>dabl API<a class="headerlink" href="#dabl-api" title="Permalink to this headline">¶</a></h1>
+<p>This is a list of all functions and classes provided by dabl.</p>
+<div class="section" id="high-level-api">
+<h2>High-level API<a class="headerlink" href="#high-level-api" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/dabl.clean.html#dabl.clean" title="dabl.clean"><code class="xref py py-obj docutils literal"><span class="pre">clean</span></code></a>(X[,&nbsp;type_hints,&nbsp;verbose])</td>
+<td>Public clean interface</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/dabl.detect_types.html#dabl.detect_types" title="dabl.detect_types"><code class="xref py py-obj docutils literal"><span class="pre">detect_types</span></code></a>(X[,&nbsp;type_hints,&nbsp;…])</td>
+<td>Detect types of dataframe columns.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/dabl.plot_supervised.html#dabl.plot_supervised" title="dabl.plot_supervised"><code class="xref py py-obj docutils literal"><span class="pre">plot_supervised</span></code></a>(X,&nbsp;target_col[,&nbsp;type_hints,&nbsp;…])</td>
+<td>Exploration plots for classification and regression.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/dabl.SimpleClassifier.html#dabl.SimpleClassifier" title="dabl.SimpleClassifier"><code class="xref py py-obj docutils literal"><span class="pre">SimpleClassifier</span></code></a>([refit,&nbsp;random_state,&nbsp;verbose])</td>
+<td>Automagic anytime classifier.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/dabl.EasyPreprocessor.html#dabl.EasyPreprocessor" title="dabl.EasyPreprocessor"><code class="xref py py-obj docutils literal"><span class="pre">EasyPreprocessor</span></code></a>([scale,&nbsp;verbose,&nbsp;types])</td>
+<td>A simple preprocessor</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="supervised-models">
+<h2>Supervised Models<a class="headerlink" href="#supervised-models" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/dabl.SimpleClassifier.html#dabl.SimpleClassifier" title="dabl.SimpleClassifier"><code class="xref py py-obj docutils literal"><span class="pre">SimpleClassifier</span></code></a>([refit,&nbsp;random_state,&nbsp;verbose])</td>
+<td>Automagic anytime classifier.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="preprocessing">
+<h2>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/dabl.preprocessing.EasyPreprocessor.html#dabl.preprocessing.EasyPreprocessor" title="dabl.preprocessing.EasyPreprocessor"><code class="xref py py-obj docutils literal"><span class="pre">EasyPreprocessor</span></code></a>([scale,&nbsp;verbose,&nbsp;types])</td>
+<td>A simple preprocessor</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/dabl.preprocessing.detect_types.html#dabl.preprocessing.detect_types" title="dabl.preprocessing.detect_types"><code class="xref py py-obj docutils literal"><span class="pre">detect_types</span></code></a>(X[,&nbsp;type_hints,&nbsp;…])</td>
+<td>Detect types of dataframe columns.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/dabl.preprocessing.clean.html#dabl.preprocessing.clean" title="dabl.preprocessing.clean"><code class="xref py py-obj docutils literal"><span class="pre">clean</span></code></a>(X[,&nbsp;type_hints,&nbsp;verbose])</td>
+<td>Public clean interface</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="plotting">
+<h2>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/dabl.plot.find_pretty_grid.html#dabl.plot.find_pretty_grid" title="dabl.plot.find_pretty_grid"><code class="xref py py-obj docutils literal"><span class="pre">find_pretty_grid</span></code></a>(n_plots[,&nbsp;max_cols])</td>
+<td>Determine a good grid shape for n_plots subplots.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/dabl.plot.plot_supervised.html#dabl.plot.plot_supervised" title="dabl.plot.plot_supervised"><code class="xref py py-obj docutils literal"><span class="pre">plot_supervised</span></code></a>(X,&nbsp;target_col[,&nbsp;type_hints,&nbsp;…])</td>
+<td>Exploration plots for classification and regression.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/dabl.plot.plot_classification_categorical.html#dabl.plot.plot_classification_categorical" title="dabl.plot.plot_classification_categorical"><code class="xref py py-obj docutils literal"><span class="pre">plot_classification_categorical</span></code></a>(X,&nbsp;target_col)</td>
+<td>Exploration plots for categorical features in classification.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/dabl.plot.plot_classification_continuous.html#dabl.plot.plot_classification_continuous" title="dabl.plot.plot_classification_continuous"><code class="xref py py-obj docutils literal"><span class="pre">plot_classification_continuous</span></code></a>(X,&nbsp;target_col)</td>
+<td>Exploration plots for continuous features in classification.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/dabl.plot.plot_regression_categorical.html#dabl.plot.plot_regression_categorical" title="dabl.plot.plot_regression_categorical"><code class="xref py py-obj docutils literal"><span class="pre">plot_regression_categorical</span></code></a>(X,&nbsp;target_col[,&nbsp;…])</td>
+<td>Exploration plots for categorical features in regression.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/dabl.plot.plot_regression_continuous.html#dabl.plot.plot_regression_continuous" title="dabl.plot.plot_regression_continuous"><code class="xref py py-obj docutils literal"><span class="pre">plot_regression_continuous</span></code></a>(X,&nbsp;target_col[,&nbsp;…])</td>
+<td>Exploration plots for continuous features in regression.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="model-search">
+<h2>Model Search<a class="headerlink" href="#model-search" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/dabl.search.GridSuccessiveHalving.html#dabl.search.GridSuccessiveHalving" title="dabl.search.GridSuccessiveHalving"><code class="xref py py-obj docutils literal"><span class="pre">GridSuccessiveHalving</span></code></a>(estimator,&nbsp;param_grid)</td>
+<td>Search over specified parameter values with successive halving.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/dabl.search.RandomSuccessiveHalving.html#dabl.search.RandomSuccessiveHalving" title="dabl.search.RandomSuccessiveHalving"><code class="xref py py-obj docutils literal"><span class="pre">RandomSuccessiveHalving</span></code></a>(estimator,&nbsp;…[,&nbsp;…])</td>
+<td>Randomized search on hyper parameters.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="portfolios">
+<h2>Portfolios<a class="headerlink" href="#portfolios" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/dabl.pipelines.get_fast_classifiers.html#dabl.pipelines.get_fast_classifiers" title="dabl.pipelines.get_fast_classifiers"><code class="xref py py-obj docutils literal"><span class="pre">get_fast_classifiers</span></code></a>(n_classes)</td>
+<td>Get a list of very fast classifiers.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="datasets">
+<h2>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/dabl.datasets.load_ames.html#dabl.datasets.load_ames" title="dabl.datasets.load_ames"><code class="xref py py-obj docutils literal"><span class="pre">load_ames</span></code></a>()</td>
+<td>Load ames housing dataset.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/dabl.datasets.load_titanic.html#dabl.datasets.load_titanic" title="dabl.datasets.load_titanic"><code class="xref py py-obj docutils literal"><span class="pre">load_titanic</span></code></a>()</td>
+<td>Load titanic dataset.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="generated/dabl.clean.html" class="btn btn-neutral float-right" title="dabl.clean" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="user_guide.html" class="btn btn-neutral float-left" title="Machine Learning with dabl" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Andreas Mueller
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
