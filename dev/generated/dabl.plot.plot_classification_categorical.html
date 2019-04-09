@@ -107,7 +107,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../api.html#supervised-models">Supervised Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#preprocessing">Preprocessing</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api.html#plotting">Plotting</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="dabl.plot.discrete_scatter.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.discrete_scatter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dabl.plot.find_pretty_grid.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.find_pretty_grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.plot.mosaic_plot.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.mosaic_plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_supervised.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.plot_supervised</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.plot_classification_categorical</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_classification_continuous.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.plot_classification_continuous</a></li>
@@ -194,7 +196,7 @@
 <h1><code class="xref py py-mod docutils literal"><span class="pre">dabl.plot</span></code>.plot_classification_categorical<a class="headerlink" href="#dabl-plot-plot-classification-categorical" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dabl.plot.plot_classification_categorical">
-<code class="descclassname">dabl.plot.</code><code class="descname">plot_classification_categorical</code><span class="sig-paren">(</span><em>X</em>, <em>target_col</em>, <em>types=None</em>, <em>kind=’count’</em>, <em>hue_order=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/plot/supervised.html#plot_classification_categorical"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot.plot_classification_categorical" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dabl.plot.</code><code class="descname">plot_classification_categorical</code><span class="sig-paren">(</span><em>X</em>, <em>target_col</em>, <em>types=None</em>, <em>kind=’auto’</em>, <em>hue_order=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/plot/supervised.html#plot_classification_categorical"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot.plot_classification_categorical" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exploration plots for categorical features in classification.</p>
 <p>Creates plots of categorical variable distributions for each target class.
 Relevant features are identified via mutual information.</p>
@@ -214,6 +216,16 @@ only the most frequent categories are shown.</p>
 <dt><strong>types</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dataframe of types, optional.</span></dt>
 <dd><p class="first last">Output of detect_types on X. Can be used to avoid recomputing the
 types.</p>
+</dd>
+<dt><strong>kind</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, default ‘auto’</span></dt>
+<dd><p class="first last">Kind of plot to show. Options are ‘count’, ‘proportion’,
+‘mosaic’ and ‘auto’.
+Count shows raw class counts within categories
+(can be hard to read with imbalanced classes)
+Proportion shows class proportions within categories
+(can be misleading with imbalanced categories)
+Mosaic shows both aspects, but can be a bit busy.
+Auto uses mosaic plots for binary classification and counts otherwise.</p>
 </dd>
 </dl>
 </td>

@@ -335,6 +335,8 @@
     <span class="k">if</span> <span class="n">duplicated</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Duplicate Columns: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">duplicated</span><span class="p">]))</span>
+    <span class="k">if</span> <span class="n">type_hints</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">type_hints</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">_apply_type_hints</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="n">type_hints</span><span class="p">)</span>
 
     <span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
@@ -346,12 +348,11 @@
         <span class="nb">print</span><span class="p">(</span><span class="n">n_values</span><span class="p">)</span>
 
     <span class="n">binary</span> <span class="o">=</span> <span class="n">n_values</span> <span class="o">==</span> <span class="mi">2</span>
-    <span class="k">if</span> <span class="n">type_hints</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="c1"># force binary variables to be continuous</span>
-        <span class="c1"># if type hints say so</span>
-        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">type_hints</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="k">if</span> <span class="n">v</span> <span class="o">==</span> <span class="s1">&#39;continuous&#39;</span><span class="p">:</span>
-                <span class="n">binary</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="c1"># force binary variables to be continuous</span>
+    <span class="c1"># if type hints say so</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">type_hints</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">v</span> <span class="o">==</span> <span class="s1">&#39;continuous&#39;</span><span class="p">:</span>
+            <span class="n">binary</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 
     <span class="n">dtypes</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">dtypes</span>
     <span class="n">kinds</span> <span class="o">=</span> <span class="n">dtypes</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">kind</span><span class="p">)</span>
@@ -361,7 +362,7 @@
     <span class="c1"># check if float column is actually all integers</span>
     <span class="c1"># we&#39;ll treat them as int for now.</span>
     <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">isfloat</span> <span class="ow">in</span> <span class="n">floats</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="k">if</span> <span class="n">isfloat</span> <span class="ow">and</span> <span class="p">(</span><span class="n">type_hints</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">type_hints</span>
+        <span class="k">if</span> <span class="n">isfloat</span> <span class="ow">and</span> <span class="p">(</span><span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">type_hints</span>
                         <span class="ow">or</span> <span class="n">type_hints</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;continuous&quot;</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">_float_col_is_int</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]):</span>
                 <span class="c1"># it&#39;s int!</span>
@@ -433,9 +434,8 @@
          <span class="s1">&#39;free_string&#39;</span><span class="p">:</span> <span class="n">free_strings</span><span class="p">,</span> <span class="s1">&#39;useless&#39;</span><span class="p">:</span> <span class="n">useless</span><span class="p">,</span>
          <span class="p">})</span>
     <span class="c1"># ensure we respected type hints</span>
-    <span class="k">if</span> <span class="n">type_hints</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">type_hints</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">res</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">type_hints</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">res</span><span class="p">[</span><span class="s1">&#39;useless&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;useless&#39;</span><span class="p">]</span> <span class="o">|</span> <span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
 

@@ -172,6 +172,8 @@
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="k">import</span> <span class="n">Rectangle</span>
+
 
 <span class="kn">from</span> <span class="nn">sklearn.dummy</span> <span class="k">import</span> <span class="n">DummyClassifier</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">recall_score</span>
@@ -340,6 +342,32 @@
         <span class="k">return</span> <span class="n">some_string</span>
 
 
+<div class="viewcode-block" id="mosaic_plot"><a class="viewcode-back" href="../../../generated/dabl.plot.mosaic_plot.html#dabl.plot.mosaic_plot">[docs]</a><span class="k">def</span> <span class="nf">mosaic_plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">cont</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">cols</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">rows</span><span class="p">])</span>
+    <span class="n">sort</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">((</span><span class="n">cont</span> <span class="o">/</span> <span class="n">cont</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">cont</span> <span class="o">=</span> <span class="n">cont</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">sort</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="n">pos_y</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">positions_y</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cont</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="n">cont</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">positions_y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pos_y</span> <span class="o">+</span> <span class="n">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+
+        <span class="n">pos_x</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cont</span><span class="p">[</span><span class="n">col</span><span class="p">]:</span>
+            <span class="n">width</span> <span class="o">=</span> <span class="n">row</span> <span class="o">/</span> <span class="n">height</span>
+            <span class="n">rect</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">((</span><span class="n">pos_x</span><span class="p">,</span> <span class="n">pos_y</span><span class="p">),</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span>
+                             <span class="n">facecolor</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="n">pos_x</span> <span class="o">+</span> <span class="n">width</span><span class="p">)</span>
+            <span class="n">pos_x</span> <span class="o">+=</span> <span class="n">width</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
+        <span class="n">pos_y</span> <span class="o">+=</span> <span class="n">height</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">pos_y</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">positions_y</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">cont</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span></div>
+
+
 <span class="k">def</span> <span class="nf">_get_n_top</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Showing only top 10 of </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> features&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
@@ -359,11 +387,12 @@
     <span class="k">return</span> <span class="n">res</span>
 
 
-<span class="k">def</span> <span class="nf">_prune_category_make_X</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">target_col</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">_prune_category_make_X</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">max_categories</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
     <span class="n">col_values</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
-    <span class="k">if</span> <span class="n">col_values</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">col_values</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">max_categories</span><span class="p">:</span>
         <span class="c1"># keep only top 10 categories if there are more than 20</span>
-        <span class="n">col_values</span> <span class="o">=</span> <span class="n">_prune_categories</span><span class="p">(</span><span class="n">col_values</span><span class="p">)</span>
+        <span class="n">col_values</span> <span class="o">=</span> <span class="n">_prune_categories</span><span class="p">(</span><span class="n">col_values</span><span class="p">,</span>
+                                       <span class="n">max_categories</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">max_categories</span><span class="p">))</span>
         <span class="n">X_new</span> <span class="o">=</span> <span class="n">X</span><span class="p">[[</span><span class="n">target_col</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">X_new</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">col_values</span>
     <span class="k">else</span><span class="p">:</span>
@@ -448,11 +477,32 @@
     <span class="k">return</span> <span class="n">top_3</span>
 
 
-<span class="k">def</span> <span class="nf">_discrete_scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="discrete_scatter"><a class="viewcode-back" href="../../../generated/dabl.plot.discrete_scatter.html#dabl.plot.discrete_scatter">[docs]</a><span class="k">def</span> <span class="nf">discrete_scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Scatter plot for categories.</span>
+
+<span class="sd">    Creates a scatter plot for x and y grouped by c.</span>
+<span class="sd">    Contrary to plt.scatter this allows creating legends and using</span>
+<span class="sd">    discrete colormaps.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : array-like</span>
+<span class="sd">        x coordinates to scatter</span>
+<span class="sd">    y : array-like</span>
+<span class="sd">        y coordinates to scatter</span>
+<span class="sd">    c : array-like</span>
+<span class="sd">        Grouping of samples (similar to hue in seaborn)</span>
+<span class="sd">    ax : matplotlib axes, default=None</span>
+<span class="sd">        Axes to plot into</span>
+<span class="sd">    kwargs :</span>
+<span class="sd">        Passed through to plt.plot</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
         <span class="n">mask</span> <span class="o">=</span> <span class="n">c</span> <span class="o">==</span> <span class="n">i</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span></div>
 </pre></div>
 
            </div>
