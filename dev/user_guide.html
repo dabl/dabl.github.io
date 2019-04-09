@@ -47,7 +47,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="dabl API" href="api.html" />
-    <link rel="prev" title="Getting started with Machine Learning with dabl" href="quick_start.html" /> 
+    <link rel="prev" title="Quickstart to ML with dabl" href="quick_start.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -97,7 +97,7 @@
             
               <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Getting started with Machine Learning with dabl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quickstart to ML with dabl</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Documentation</span></p>
 <ul class="current">
@@ -259,55 +259,52 @@ leakage through spurious representations of the target in the data.</p>
 <div class="section" id="initial-model-building">
 <h2>Initial Model Building<a class="headerlink" href="#initial-model-building" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ec</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">SimpleClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s2">&quot;income&quot;</span><span class="p">)</span>
-<span class="go">    DummyClassifier(random_state=0, strategy=&#39;prior&#39;)</span>
-<span class="go">    accuracy: 0.7592    average_precision: 0.2408    recall_macro: 0.5000    roc_auc: 0.5000</span>
-<span class="go">    new best (using recall_macro):</span>
-<span class="go">    accuracy             0.75919</span>
-<span class="go">    average_precision    0.24081</span>
-<span class="go">    recall_macro         0.50000</span>
-<span class="go">    roc_auc              0.50000</span>
-<span class="go">    Name: DummyClassifier(random_state=0, strategy=&#39;prior&#39;), dtype: float64</span>
-<span class="go">    GaussianNB()</span>
-<span class="go">    accuracy: 0.5084    average_precision: 0.3728    recall_macro: 0.6591    roc_auc: 0.7219</span>
-<span class="go">    new best (using recall_macro):</span>
-<span class="go">    accuracy             0.508432</span>
-<span class="go">    average_precision    0.372784</span>
-<span class="go">    recall_macro         0.659142</span>
-<span class="go">    roc_auc              0.721880</span>
-<span class="go">    Name: GaussianNB(), dtype: float64</span>
-<span class="go">    MultinomialNB()</span>
-<span class="go">    accuracy: 0.7944    average_precision: 0.6606    recall_macro: 0.7732    roc_auc: 0.8682</span>
-<span class="go">    new best (using recall_macro):</span>
-<span class="go">    accuracy             0.794355</span>
-<span class="go">    average_precision    0.660584</span>
-<span class="go">    recall_macro         0.773171</span>
-<span class="go">    roc_auc              0.868248</span>
-<span class="go">    Name: MultinomialNB(), dtype: float64</span>
-<span class="go">    DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=1, random_state=0)</span>
-<span class="go">    accuracy: 0.7103    average_precision: 0.4167    recall_macro: 0.7592    roc_auc: 0.7592</span>
-<span class="go">    DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=5, random_state=0)</span>
-<span class="go">    accuracy: 0.7220    average_precision: 0.5786    recall_macro: 0.7711    roc_auc: 0.8410</span>
-<span class="go">    DecisionTreeClassifier(class_weight=&#39;balanced&#39;, min_impurity_decrease=0.01,</span>
-<span class="go">                random_state=0)</span>
-<span class="go">    accuracy: 0.7103    average_precision: 0.4167    recall_macro: 0.7592    roc_auc: 0.7592</span>
-<span class="go">    LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, multi_class=&#39;auto&#39;,</span>
-<span class="go">              random_state=0, solver=&#39;lbfgs&#39;)</span>
-<span class="go">    accuracy: 0.7764    average_precision: 0.6859    recall_macro: 0.7969    roc_auc: 0.8784</span>
-<span class="go">    new best (using recall_macro):</span>
-<span class="go">    accuracy             0.776389</span>
-<span class="go">    average_precision    0.685911</span>
-<span class="go">    recall_macro         0.796911</span>
-<span class="go">    roc_auc              0.878391</span>
-<span class="go">    Name: LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, multi_class=&#39;auto&#39;,\n          random_state=0, solver=&#39;lbfgs&#39;), dtype: float64</span>
-<span class="go">    Best model:</span>
-<span class="go">    LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, multi_class=&#39;auto&#39;,</span>
-<span class="go">              random_state=0, solver=&#39;lbfgs&#39;)</span>
-<span class="go">    Best Scores:</span>
-<span class="go">    accuracy             0.776389</span>
-<span class="go">    average_precision    0.685911</span>
-<span class="go">    recall_macro         0.796911</span>
-<span class="go">    roc_auc              0.878391</span>
-<span class="go">    Name: LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, multi_class=&#39;auto&#39;,\n          random_state=0, solver=&#39;lbfgs&#39;), dtype: float64</span>
+<span class="go">DummyClassifier(strategy=&#39;prior&#39;)</span>
+<span class="go">accuracy: 0.759    average_precision: 0.241    recall_macro: 0.500    roc_auc: 0.500</span>
+<span class="go">new best (using recall_macro):</span>
+<span class="go">accuracy             0.759</span>
+<span class="go">average_precision    0.241</span>
+<span class="go">recall_macro         0.500</span>
+<span class="go">roc_auc              0.500</span>
+<span class="go">Name: DummyClassifier(strategy=&#39;prior&#39;), dtype: float64</span>
+<span class="go">GaussianNB()</span>
+<span class="go">accuracy: 0.407    average_precision: 0.288    recall_macro: 0.605    roc_auc: 0.607</span>
+<span class="go">new best (using recall_macro):</span>
+<span class="go">accuracy             0.407</span>
+<span class="go">average_precision    0.288</span>
+<span class="go">recall_macro         0.605</span>
+<span class="go">roc_auc              0.607</span>
+<span class="go">Name: GaussianNB(), dtype: float64</span>
+<span class="go">MultinomialNB()</span>
+<span class="go">accuracy: 0.831    average_precision: 0.773    recall_macro: 0.815    roc_auc: 0.908</span>
+<span class="go">new best (using recall_macro):</span>
+<span class="go">accuracy             0.831</span>
+<span class="go">average_precision    0.773</span>
+<span class="go">recall_macro         0.815</span>
+<span class="go">roc_auc              0.908</span>
+<span class="go">Name: MultinomialNB(), dtype: float64</span>
+<span class="go">DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=1)</span>
+<span class="go">accuracy: 0.710    average_precision: 0.417    recall_macro: 0.759    roc_auc: 0.759</span>
+<span class="go">DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=5)</span>
+<span class="go">accuracy: 0.784    average_precision: 0.711    recall_macro: 0.811    roc_auc: 0.894</span>
+<span class="go">DecisionTreeClassifier(class_weight=&#39;balanced&#39;, min_impurity_decrease=0.01)</span>
+<span class="go">accuracy: 0.718    average_precision: 0.561    recall_macro: 0.779    roc_auc: 0.848</span>
+<span class="go">LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, solver=&#39;lbfgs&#39;)</span>
+<span class="go">accuracy: 0.819    average_precision: 0.789    recall_macro: 0.832    roc_auc: 0.915</span>
+<span class="go">new best (using recall_macro):</span>
+<span class="go">accuracy             0.819</span>
+<span class="go">average_precision    0.789</span>
+<span class="go">recall_macro         0.832</span>
+<span class="go">roc_auc              0.915</span>
+<span class="go">Name: LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, solver=&#39;lbfgs&#39;), dtype: float64</span>
+<span class="go">Best model:</span>
+<span class="go">LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, solver=&#39;lbfgs&#39;)</span>
+<span class="go">Best Scores:</span>
+<span class="go">accuracy             0.819</span>
+<span class="go">average_precision    0.789</span>
+<span class="go">recall_macro         0.832</span>
+<span class="go">roc_auc              0.915</span>
+<span class="go">Name: LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, solver=&#39;lbfgs&#39;), dtype: float64</span>
 </pre></div>
 </div>
 <p>Fit an initial model. The SimpleClassifier first tries several baseline and
@@ -580,7 +577,7 @@ simple user interface and strong anytime performance.</p>
         <a href="api.html" class="btn btn-neutral float-right" title="dabl API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="quick_start.html" class="btn btn-neutral float-left" title="Getting started with Machine Learning with dabl" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="quick_start.html" class="btn btn-neutral float-left" title="Quickstart to ML with dabl" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

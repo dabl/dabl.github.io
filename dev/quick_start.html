@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Getting started with Machine Learning with dabl &mdash; dabl  documentation</title>
+  <title>Quickstart to ML with dabl &mdash; dabl  documentation</title>
   
 
   
@@ -97,7 +97,7 @@
             
               <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting started with Machine Learning with dabl</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstart to ML with dabl</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Documentation</span></p>
 <ul>
@@ -152,7 +152,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Getting started with Machine Learning with dabl</li>
+      <li>Quickstart to ML with dabl</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -171,8 +171,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="getting-started-with-machine-learning-with-dabl">
-<h1>Getting started with Machine Learning with dabl<a class="headerlink" href="#getting-started-with-machine-learning-with-dabl" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="quickstart-to-ml-with-dabl">
+<h1>Quickstart to ML with dabl<a class="headerlink" href="#quickstart-to-ml-with-dabl" title="Permalink to this headline">¶</a></h1>
 <p>Let’s dive right in!</p>
 <p>Let’s start with the classic. You have the titanic.csv file and want to predict
 whether a passenger survived or not based on the information about the
@@ -190,7 +190,7 @@ columns, what do they look like?</p>
 <span class="go">(1309, 14)</span>
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">titanic</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">titanic</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> 
 <span class="go">   pclass  survived  ... body                        home.dest</span>
 <span class="go">0       1         1  ...    ?                     St Louis, MO</span>
 <span class="go">1       1         1  ...    ?  Montreal, PQ / Chesterville, ON</span>
@@ -216,7 +216,7 @@ parsing of the CSV, but let’s try an continue with what dabl is doing
 automatically for now.  In dabl, we can also get a best guess of the column
 types in a convenient format:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">types</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">detect_types</span><span class="p">(</span><span class="n">titanic_clean</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">types</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">types</span><span class="p">)</span> 
 <span class="go">                      continuous  dirty_float  ...  free_string  useless</span>
 <span class="go">age_?                      False        False  ...        False    False</span>
 <span class="go">age_dabl_continuous         True        False  ...        False    False</span>
@@ -246,58 +246,73 @@ we can create plot of the features deemed most important for our task.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dabl</span><span class="o">.</span><span class="n">plot_supervised</span><span class="p">(</span><span class="n">titanic</span><span class="p">,</span> <span class="s1">&#39;survived&#39;</span><span class="p">)</span>
 <span class="go">Target looks like classification</span>
 <span class="go">baseline score: 0.500</span>
-<span class="go">baseline score: 0.500</span>
 </pre></div>
 </div>
-<p>Finally, we can find a good model for our data. The SimpleClassifier does all
-the work for us. It implements the familiar scikit-learn api of fit and
-predict:</p>
+<p>(<a class="reference external" href=".//quick_start-1.py">Source code</a>)</p>
+<div class="figure" id="id1">
+<img alt="_images/quick_start-1_00.png" src="_images/quick_start-1_00.png" />
+<p class="caption"><span class="caption-text">(<a class="reference external" href=".//quick_start-1_00.png">png</a>, <a class="reference external" href=".//quick_start-1_00.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_00.pdf">pdf</a>)</span></p>
+</div>
+<div class="figure" id="id2">
+<img alt="_images/quick_start-1_01.png" src="_images/quick_start-1_01.png" />
+<p class="caption"><span class="caption-text">(<a class="reference external" href=".//quick_start-1_01.png">png</a>, <a class="reference external" href=".//quick_start-1_01.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_01.pdf">pdf</a>)</span></p>
+</div>
+<div class="figure" id="id3">
+<img alt="_images/quick_start-1_02.png" src="_images/quick_start-1_02.png" />
+<p class="caption"><span class="caption-text">(<a class="reference external" href=".//quick_start-1_02.png">png</a>, <a class="reference external" href=".//quick_start-1_02.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_02.pdf">pdf</a>)</span></p>
+</div>
+<div class="figure" id="id4">
+<img alt="_images/quick_start-1_03.png" src="_images/quick_start-1_03.png" />
+<p class="caption"><span class="caption-text">(<a class="reference external" href=".//quick_start-1_03.png">png</a>, <a class="reference external" href=".//quick_start-1_03.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_03.pdf">pdf</a>)</span></p>
+</div>
+<p>Finally, we can find an initial model for our data. The SimpleClassifier does all
+the work for us. It implements the familiar scikit-learn API of fit and
+predict. Alternatively we could also use the same interface as before and pass
+the whole data frame and specify the target column.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fc</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">SimpleClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">titanic_clean</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;survived&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">titanic_clean</span><span class="o">.</span><span class="n">survived</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="go">DummyClassifier(random_state=0, strategy=&#39;prior&#39;)</span>
-<span class="go">accuracy: 0.6180    average_precision: 0.3820    recall_macro: 0.5000    roc_auc: 0.5000</span>
+<span class="go">DummyClassifier(strategy=&#39;prior&#39;)</span>
+<span class="go">accuracy: 0.618    average_precision: 0.382    recall_macro: 0.500    roc_auc: 0.500</span>
 <span class="go">new best (using recall_macro):</span>
-<span class="go">accuracy             0.618028</span>
-<span class="go">average_precision    0.381972</span>
-<span class="go">recall_macro         0.500000</span>
-<span class="go">roc_auc              0.500000</span>
-<span class="go">Name: DummyClassifier(random_state=0, strategy=&#39;prior&#39;), dtype: float64</span>
+<span class="go">accuracy             0.618</span>
+<span class="go">average_precision    0.382</span>
+<span class="go">recall_macro         0.500</span>
+<span class="go">roc_auc              0.500</span>
+<span class="go">Name: DummyClassifier(strategy=&#39;prior&#39;), dtype: float64</span>
 <span class="go">GaussianNB()</span>
-<span class="go">accuracy: 0.9007    average_precision: 0.8750    recall_macro: 0.9064    roc_auc: 0.9189</span>
+<span class="go">accuracy: 0.897    average_precision: 0.870    recall_macro: 0.902    roc_auc: 0.919</span>
 <span class="go">new best (using recall_macro):</span>
-<span class="go">accuracy             0.900719</span>
-<span class="go">average_precision    0.875011</span>
-<span class="go">recall_macro         0.906354</span>
-<span class="go">roc_auc              0.918921</span>
+<span class="go">accuracy             0.897</span>
+<span class="go">average_precision    0.870</span>
+<span class="go">recall_macro         0.902</span>
+<span class="go">roc_auc              0.919</span>
 <span class="go">Name: GaussianNB(), dtype: float64</span>
 <span class="go">MultinomialNB()</span>
-<span class="go">accuracy: 0.8946    average_precision: 0.9841    recall_macro: 0.8976    roc_auc: 0.9873</span>
-<span class="go">DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=1, random_state=0)</span>
-<span class="go">accuracy: 0.9755    average_precision: 0.9540    recall_macro: 0.9714    roc_auc: 0.9714</span>
+<span class="go">accuracy: 0.888    average_precision: 0.981    recall_macro: 0.891    roc_auc: 0.985</span>
+<span class="go">DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=1)</span>
+<span class="go">accuracy: 0.976    average_precision: 0.954    recall_macro: 0.971    roc_auc: 0.971</span>
 <span class="go">new best (using recall_macro):</span>
-<span class="go">accuracy             0.975540</span>
-<span class="go">average_precision    0.953971</span>
-<span class="go">recall_macro         0.971441</span>
-<span class="go">roc_auc              0.971441</span>
-<span class="go">Name: DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=1, random_state=0), dtype: float64</span>
-<span class="go">DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=5, random_state=0)</span>
-<span class="go">accuracy: 0.9587    average_precision: 0.9487    recall_macro: 0.9556    roc_auc: 0.9673</span>
-<span class="go">DecisionTreeClassifier(class_weight=&#39;balanced&#39;, min_impurity_decrease=0.01,</span>
-<span class="go">            random_state=0)</span>
-<span class="go">accuracy: 0.9755    average_precision: 0.9540    recall_macro: 0.9714    roc_auc: 0.9714</span>
-<span class="go">LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, multi_class=&#39;auto&#39;,</span>
-<span class="go">          random_state=0, solver=&#39;lbfgs&#39;)</span>
-<span class="go">accuracy: 0.9679    average_precision: 0.9855    recall_macro: 0.9653    roc_auc: 0.9881</span>
+<span class="go">accuracy             0.976</span>
+<span class="go">average_precision    0.954</span>
+<span class="go">recall_macro         0.971</span>
+<span class="go">roc_auc              0.971</span>
+<span class="go">Name: DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=1), dtype: float64</span>
+<span class="go">DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=5)</span>
+<span class="go">accuracy: 0.957    average_precision: 0.942    recall_macro: 0.954    roc_auc: 0.970</span>
+<span class="go">DecisionTreeClassifier(class_weight=&#39;balanced&#39;, min_impurity_decrease=0.01)</span>
+<span class="go">accuracy: 0.976    average_precision: 0.954    recall_macro: 0.971    roc_auc: 0.971</span>
+<span class="go">LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, solver=&#39;lbfgs&#39;)</span>
+<span class="go">accuracy: 0.963    average_precision: 0.986    recall_macro: 0.961    roc_auc: 0.989</span>
 <span class="go">Best model:</span>
-<span class="go">DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=1, random_state=0)</span>
+<span class="go">DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=1)</span>
 <span class="go">Best Scores:</span>
-<span class="go">accuracy             0.975540</span>
-<span class="go">average_precision    0.953971</span>
-<span class="go">recall_macro         0.971441</span>
-<span class="go">roc_auc              0.971441</span>
-<span class="go">Name: DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=1, random_state=0), dtype: float64</span>
+<span class="go">accuracy             0.976</span>
+<span class="go">average_precision    0.954</span>
+<span class="go">recall_macro         0.971</span>
+<span class="go">roc_auc              0.971</span>
+<span class="go">Name: DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=1), dtype: float64</span>
 <span class="go">SimpleClassifier(random_state=0, refit=True, verbose=1)</span>
 </pre></div>
 </div>

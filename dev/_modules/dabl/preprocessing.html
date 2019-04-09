@@ -95,7 +95,7 @@
             
               <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Getting started with Machine Learning with dabl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quickstart to ML with dabl</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Documentation</span></p>
 <ul>
@@ -214,6 +214,14 @@
             <span class="n">cats</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">_dabl_continuous&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">col</span><span class="p">)]</span> <span class="o">=</span> <span class="n">new_col</span>
             <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cats</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_feature_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_features</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">feature_names</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns_</span><span class="p">:</span>
+            <span class="n">enc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoders_</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+            <span class="n">feature_names</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">col</span><span class="p">)]))</span>
+            <span class="n">feature_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">_dabl_continuous&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">col</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">feature_names</span>
 
 
 <span class="k">def</span> <span class="nf">guess_ordinal</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
@@ -628,15 +636,29 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">types</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">types</span>
 
+        <span class="n">types</span> <span class="o">=</span> <span class="n">types</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="c1"># low card int encoded as categorical and continuous for now:</span>
+        <span class="n">types</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">types</span><span class="o">.</span><span class="n">low_card_int</span><span class="p">,</span> <span class="s1">&#39;continuous&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">types</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">types</span><span class="o">.</span><span class="n">low_card_int</span><span class="p">,</span> <span class="s1">&#39;categorical&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
         <span class="c1"># go over variable blocks</span>
         <span class="c1"># check for missing values</span>
         <span class="c1"># scale etc</span>
-        <span class="n">pipe_categorical</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span>
-            <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="s1">&#39;dabl_missing&#39;</span><span class="p">),</span>
+        <span class="n">steps_categorical</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">types</span><span class="o">.</span><span class="n">categorical</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <span class="n">steps_categorical</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="s1">&#39;dabl_missing&#39;</span><span class="p">))</span>
+        <span class="n">steps_categorical</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
             <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">categories</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">handle_unknown</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span>
                           <span class="n">sparse</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+        <span class="n">pipe_categorical</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="o">*</span><span class="n">steps_categorical</span><span class="p">)</span>
 
-        <span class="n">steps_continuous</span> <span class="o">=</span> <span class="p">[</span><span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">)]</span>
+        <span class="n">steps_continuous</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">types</span><span class="o">.</span><span class="n">continuous</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+                <span class="ow">or</span> <span class="n">types</span><span class="p">[</span><span class="s1">&#39;dirty_float&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">any</span><span class="p">()):</span>
+            <span class="c1"># we could skip the imputer here, but if there&#39;s dirty</span>
+            <span class="c1"># floats, they&#39;ll have NaN, and we reuse the cont pipeline</span>
+            <span class="n">steps_continuous</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">))</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">:</span>
             <span class="n">steps_continuous</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">())</span>
         <span class="c1"># if X.loc[:, types[&#39;continuous&#39;]].isnull().values.any():</span>
@@ -644,6 +666,7 @@
         <span class="n">pipe_continuous</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="o">*</span><span class="n">steps_continuous</span><span class="p">)</span>
         <span class="c1"># FIXME only have one imputer/standard scaler in all</span>
         <span class="c1"># (right now copied in dirty floats and floats)</span>
+
         <span class="n">pipe_dirty_float</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span>
             <span class="n">DirtyFloatCleaner</span><span class="p">(),</span>
             <span class="n">make_column_transformer</span><span class="p">(</span>
@@ -657,7 +680,7 @@
             <span class="n">transformer_cols</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;categorical&#39;</span><span class="p">,</span>
                                      <span class="n">pipe_categorical</span><span class="p">,</span> <span class="n">types</span><span class="p">[</span><span class="s1">&#39;categorical&#39;</span><span class="p">]))</span>
         <span class="k">if</span> <span class="n">types</span><span class="p">[</span><span class="s1">&#39;dirty_float&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-            <span class="c1"># FIXME we&#39;re not really handling this here any more?</span>
+            <span class="c1"># FIXME we&#39;re not really handling this here any more? (yes we are)</span>
             <span class="n">transformer_cols</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;dirty_float&#39;</span><span class="p">,</span>
                                      <span class="n">pipe_dirty_float</span><span class="p">,</span> <span class="n">types</span><span class="p">[</span><span class="s1">&#39;dirty_float&#39;</span><span class="p">]))</span>
 
@@ -678,7 +701,8 @@
         <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">trans</span><span class="p">,</span> <span class="n">cols</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ct_</span><span class="o">.</span><span class="n">transformers_</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;continuous&quot;</span><span class="p">:</span>
                 <span class="c1"># three should be no all-nan columns in the imputer</span>
-                <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">trans</span><span class="o">.</span><span class="n">steps</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">statistics_</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">trans</span><span class="o">.</span><span class="n">steps</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;simpleimputer&quot;</span>
+                        <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">trans</span><span class="o">.</span><span class="n">steps</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">statistics_</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">()):</span>
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;So unexpected! Looks like the imputer&quot;</span>
                                      <span class="s2">&quot; dropped some all-NaN columns.&quot;</span>
                                      <span class="s2">&quot;Try calling &#39;clean&#39; on your data first.&quot;</span><span class="p">)</span>
@@ -691,6 +715,10 @@
                 <span class="n">feature_names</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">ohe</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">(</span><span class="n">ohe_cols</span><span class="p">))</span>
             <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;remainder&quot;</span><span class="p">:</span>
                 <span class="k">assert</span> <span class="n">trans</span> <span class="o">==</span> <span class="s2">&quot;drop&quot;</span>
+            <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;dirty_float&quot;</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;Can&#39;t compute feature names when handling dirty floats. &quot;</span>
+                    <span class="s2">&quot;Call &#39;clean&#39; as a workaround&quot;</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                     <span class="s2">&quot;Can&#39;t compute feature names for </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>

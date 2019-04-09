@@ -95,7 +95,7 @@
             
               <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../quick_start.html">Getting started with Machine Learning with dabl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start.html">Quickstart to ML with dabl</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Documentation</span></p>
 <ul>
@@ -412,6 +412,9 @@
         <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score</span><span class="p">))</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Discriminating PCA directions&quot;</span><span class="p">)</span>
     <span class="c1"># LDA</span>
+    <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="c1"># lda currently only 2d scatter plot.</span>
+        <span class="k">return</span>
     <span class="n">lda</span> <span class="o">=</span> <span class="n">LinearDiscriminantAnalysis</span><span class="p">(</span>
         <span class="n">n_components</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">n_components</span><span class="p">,</span> <span class="n">target</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
     <span class="n">features_lda</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">scale</span><span class="p">(</span><span class="n">features_imp</span><span class="p">),</span> <span class="n">target</span><span class="p">)</span>
@@ -517,7 +520,8 @@
         <span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">()[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="plot_supervised"><a class="viewcode-back" href="../../../generated/dabl.plot_supervised.html#dabl.plot.plot_supervised">[docs]</a><span class="k">def</span> <span class="nf">plot_supervised</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scatter_alpha</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<div class="viewcode-block" id="plot_supervised"><a class="viewcode-back" href="../../../generated/dabl.plot_supervised.html#dabl.plot.plot_supervised">[docs]</a><span class="k">def</span> <span class="nf">plot_supervised</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scatter_alpha</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span>
+                    <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Exploration plots for classification and regression.</span>
 
 <span class="sd">    Determines whether the target is categorical or continuous and plots the</span>
@@ -581,7 +585,8 @@
         <span class="c1"># class could be a string that&#39;s a float</span>
         <span class="c1"># seaborn is trying to be smart unless we declare it categorical</span>
         <span class="c1"># we actually fixed counts to have categorical index</span>
-        <span class="c1"># but melt destroys it: https://github.com/pandas-dev/pandas/issues/15853</span>
+        <span class="c1"># but melt destroys it:</span>
+        <span class="c1"># https://github.com/pandas-dev/pandas/issues/15853</span>
         <span class="n">melted</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">melted</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
         <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">melted</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Target distribution&quot;</span><span class="p">)</span>
