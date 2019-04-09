@@ -5,8 +5,8 @@
 
 Computation times
 =================
-**00:25.189** total execution time for **auto_examples** files:
+**00:25.829** total execution time for **auto_examples** files:
 
-- **00:17.193**: :ref:`sphx_glr_auto_examples_plot_successive_halving_iterations.py` (``plot_successive_halving_iterations.py``)
-- **00:04.457**: :ref:`sphx_glr_auto_examples_plot_ames.py` (``plot_ames.py``)
-- **00:03.539**: :ref:`sphx_glr_auto_examples_plot_wine.py` (``plot_wine.py``)
+- **00:17.834**: :ref:`sphx_glr_auto_examples_plot_successive_halving_iterations.py` (``plot_successive_halving_iterations.py``)
+- **00:04.278**: :ref:`sphx_glr_auto_examples_plot_ames.py` (``plot_ames.py``)
+- **00:03.717**: :ref:`sphx_glr_auto_examples_plot_wine.py` (``plot_wine.py``)

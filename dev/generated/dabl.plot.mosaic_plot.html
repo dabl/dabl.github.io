@@ -197,7 +197,32 @@
 <dl class="function">
 <dt id="dabl.plot.mosaic_plot">
 <code class="descclassname">dabl.plot.</code><code class="descname">mosaic_plot</code><span class="sig-paren">(</span><em>data</em>, <em>rows</em>, <em>cols</em>, <em>ax=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/plot/utils.html#mosaic_plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot.mosaic_plot" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Create a mosaic plot from a dataframe.</p>
+<p>Right now only horizontal mosaic plots are supported,
+i.e. rows are prioritized over columns.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>data</strong> <span class="classifier-delimiter">:</span> <span class="classifier">pandas data frame</span></dt>
+<dd><p class="first last">Data to tabulate.</p>
+</dd>
+<dt><strong>rows</strong> <span class="classifier-delimiter">:</span> <span class="classifier">column specifier</span></dt>
+<dd><p class="first last">Column in data to tabulate across rows.</p>
+</dd>
+<dt><strong>cols</strong> <span class="classifier-delimiter">:</span> <span class="classifier">column specifier</span></dt>
+<dd><p class="first last">Column in data to use to subpartition rows.</p>
+</dd>
+<dt><strong>ax</strong> <span class="classifier-delimiter">:</span> <span class="classifier">matplotlib axes or None</span></dt>
+<dd><p class="first last">Axes to plot into.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <div style='clear:both'></div></div>
 
