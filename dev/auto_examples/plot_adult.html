@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Ames Housing Dataset Visualization &mdash; dabl  documentation</title>
+  <title>Adult Census Dataset Visualization &mdash; dabl  documentation</title>
   
 
   
@@ -46,8 +46,8 @@
   <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Adult Census Dataset Visualization" href="plot_adult.html" />
-    <link rel="prev" title="General examples" href="index.html" /> 
+    <link rel="next" title="Wine Classification Dataset Visualization" href="plot_wine.html" />
+    <link rel="prev" title="Ames Housing Dataset Visualization" href="plot_ames.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -107,8 +107,8 @@
 <p class="caption"><span class="caption-text">Examples</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">General examples</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Ames Housing Dataset Visualization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_adult.html">Adult Census Dataset Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_ames.html">Ames Housing Dataset Visualization</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Adult Census Dataset Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_wine.html">Wine Classification Dataset Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_successive_halving_iterations.html">Successive Halving</a></li>
 </ul>
@@ -160,13 +160,13 @@
         
           <li><a href="index.html">General examples</a> &raquo;</li>
         
-      <li>Ames Housing Dataset Visualization</li>
+      <li>Adult Census Dataset Visualization</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/auto_examples/plot_ames.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/auto_examples/plot_adult.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -181,45 +181,45 @@
             
   <div class="sphx-glr-download-link-note admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-ames-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+<p class="last">Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-adult-py"><span class="std std-ref">here</span></a> to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="ames-housing-dataset-visualization">
-<span id="sphx-glr-auto-examples-plot-ames-py"></span><h1>Ames Housing Dataset Visualization<a class="headerlink" href="#ames-housing-dataset-visualization" title="Permalink to this headline">¶</a></h1>
+<div class="sphx-glr-example-title section" id="adult-census-dataset-visualization">
+<span id="sphx-glr-auto-examples-plot-adult-py"></span><h1>Adult Census Dataset Visualization<a class="headerlink" href="#adult-census-dataset-visualization" title="Permalink to this headline">¶</a></h1>
 <ul class="sphx-glr-horizontal">
-<li><img alt="../_images/sphx_glr_plot_ames_001.png" class="sphx-glr-multi-img first" src="../_images/sphx_glr_plot_ames_001.png" />
+<li><img alt="../_images/sphx_glr_plot_adult_001.png" class="sphx-glr-multi-img first" src="../_images/sphx_glr_plot_adult_001.png" />
 </li>
-<li><img alt="../_images/sphx_glr_plot_ames_002.png" class="sphx-glr-multi-img first" src="../_images/sphx_glr_plot_ames_002.png" />
+<li><img alt="../_images/sphx_glr_plot_adult_002.png" class="sphx-glr-multi-img first" src="../_images/sphx_glr_plot_adult_002.png" />
 </li>
-<li><img alt="../_images/sphx_glr_plot_ames_003.png" class="sphx-glr-multi-img first" src="../_images/sphx_glr_plot_ames_003.png" />
+<li><img alt="../_images/sphx_glr_plot_adult_003.png" class="sphx-glr-multi-img first" src="../_images/sphx_glr_plot_adult_003.png" />
+</li>
+<li><img alt="../_images/sphx_glr_plot_adult_004.png" class="sphx-glr-multi-img first" src="../_images/sphx_glr_plot_adult_004.png" />
 </li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none"><div class="highlight"><pre><span></span>Target looks like regression
-Showing only top 10 of 22 continuous features
-Showing only top 10 of 46 categorical features
+<div class="sphx-glr-script-out highlight-none"><div class="highlight"><pre><span></span>Target looks like classification
 </pre></div>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dabl</span> <span class="k">import</span> <span class="n">plot_supervised</span>
-<span class="kn">from</span> <span class="nn">dabl.datasets</span> <span class="k">import</span> <span class="n">load_ames</span>
+<span class="kn">from</span> <span class="nn">dabl.datasets</span> <span class="k">import</span> <span class="n">load_adult</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="c1"># load the ames housing dataset</span>
+<span class="c1"># load the adult census housing dataset</span>
 <span class="c1"># returns a plain dataframe</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">load_ames</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">load_adult</span><span class="p">()</span>
 
-<span class="n">plot_supervised</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;SalePrice&#39;</span><span class="p">)</span>
+<span class="n">plot_supervised</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="n">scatter_alpha</span><span class="o">=.</span><span class="mi">1</span><span class="p">)</span>
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.941 seconds)</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-ames-py">
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.808 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-adult-py">
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" href="../_downloads/plot_ames.py" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_ames.py</span></code></a></div>
+<a class="reference download internal" href="../_downloads/plot_adult.py" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_adult.py</span></code></a></div>
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" href="../_downloads/plot_ames.ipynb" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_ames.ipynb</span></code></a></div>
+<a class="reference download internal" href="../_downloads/plot_adult.ipynb" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_adult.ipynb</span></code></a></div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
 </div>
@@ -232,10 +232,10 @@ Showing only top 10 of 46 categorical features
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="plot_adult.html" class="btn btn-neutral float-right" title="Adult Census Dataset Visualization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="plot_wine.html" class="btn btn-neutral float-right" title="Wine Classification Dataset Visualization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="General examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="plot_ames.html" class="btn btn-neutral float-left" title="Ames Housing Dataset Visualization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
