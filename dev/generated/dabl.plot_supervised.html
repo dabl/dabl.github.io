@@ -193,7 +193,7 @@
 <h1><code class="xref py py-mod docutils literal"><span class="pre">dabl</span></code>.plot_supervised<a class="headerlink" href="#dabl-plot-supervised" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dabl.plot_supervised">
-<code class="descclassname">dabl.</code><code class="descname">plot_supervised</code><span class="sig-paren">(</span><em>X</em>, <em>target_col</em>, <em>type_hints=None</em>, <em>scatter_alpha=1.0</em>, <em>verbose=10</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/plot/supervised.html#plot_supervised"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot_supervised" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dabl.</code><code class="descname">plot_supervised</code><span class="sig-paren">(</span><em>X</em>, <em>target_col</em>, <em>type_hints=None</em>, <em>scatter_alpha=’auto’</em>, <em>scatter_size=’auto’</em>, <em>verbose=10</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/plot/supervised.html#plot_supervised"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot_supervised" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exploration plots for classification and regression.</p>
 <p>Determines whether the target is categorical or continuous and plots the
 target distribution. Then calls the relevant plotting functions
@@ -213,8 +213,11 @@ accordingly.</p>
 <dd><p class="first last">If dict, provide type information for columns.
 Keys are column names, values are types as provided by detect_types.</p>
 </dd>
-<dt><strong>scatter_alpha</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, default=1.</span></dt>
-<dd><p class="first last">Alpha values for scatter plots.</p>
+<dt><strong>scatter_alpha</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, default=’auto’</span></dt>
+<dd><p class="first last">Alpha values for scatter plots. ‘auto’ is dirty hacks.</p>
+</dd>
+<dt><strong>scatter_size</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, default=’auto’.</span></dt>
+<dd><p class="first last">Marker size for scatter plots. ‘auto’ is dirty hacks.</p>
 </dd>
 <dt><strong>verbose</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, default=10</span></dt>
 <dd><p class="first last">Controls the verbosity (output).</p>
