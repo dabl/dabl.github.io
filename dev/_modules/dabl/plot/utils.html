@@ -485,6 +485,8 @@
     <span class="c1"># dummy = DummyClassifier(strategy=&#39;prior&#39;).fit(X, target)</span>
     <span class="c1"># baseline_score = recall_score(target, dummy.predict(X), average=&#39;macro&#39;)</span>
     <span class="n">scores</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># converting to int here might save some time</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">return_inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="mi">2</span><span class="p">):</span>
         <span class="n">this_X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]]</span>
         <span class="c1"># assume this tree is simple enough so not be able to overfit in 2d</span>
