@@ -195,7 +195,7 @@
 <h1><code class="xref py py-mod docutils literal"><span class="pre">dabl.plot</span></code>.discrete_scatter<a class="headerlink" href="#dabl-plot-discrete-scatter" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dabl.plot.discrete_scatter">
-<code class="descclassname">dabl.plot.</code><code class="descname">discrete_scatter</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>c</em>, <em>ax=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/plot/utils.html#discrete_scatter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot.discrete_scatter" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dabl.plot.</code><code class="descname">discrete_scatter</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>c</em>, <em>legend=’first’</em>, <em>clip_outliers=True</em>, <em>alpha=’auto’</em>, <em>s=’auto’</em>, <em>ax=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/plot/utils.html#discrete_scatter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot.discrete_scatter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Scatter plot for categories.</p>
 <p>Creates a scatter plot for x and y grouped by c.
 Contrary to plt.scatter this allows creating legends and using
@@ -214,11 +214,21 @@ discrete colormaps.</p>
 <dt><strong>c</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array-like</span></dt>
 <dd><p class="first last">Grouping of samples (similar to hue in seaborn)</p>
 </dd>
+<dt><strong>legend</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, or “first”, default=”first”</span></dt>
+<dd><p class="first last">Whether to create a legend. “first” mean only the
+first one in a given gridspec.</p>
+</dd>
+<dt><strong>scatter_alpha</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, default=’auto’</span></dt>
+<dd><p class="first last">Alpha values for scatter plots. ‘auto’ is dirty hacks.</p>
+</dd>
+<dt><strong>scatter_size</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, default=’auto’.</span></dt>
+<dd><p class="first last">Marker size for scatter plots. ‘auto’ is dirty hacks.</p>
+</dd>
 <dt><strong>ax</strong> <span class="classifier-delimiter">:</span> <span class="classifier">matplotlib axes, default=None</span></dt>
 <dd><p class="first last">Axes to plot into</p>
 </dd>
 <dt><strong>kwargs :</strong></dt>
-<dd><p class="first last">Passed through to plt.plot</p>
+<dd><p class="first last">Passed through to plt.scatter</p>
 </dd>
 </dl>
 </td>

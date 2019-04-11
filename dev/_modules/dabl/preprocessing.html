@@ -410,6 +410,7 @@
     <span class="n">useless</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_values</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">useless</span>
     <span class="c1"># also throw out near constant:</span>
     <span class="n">most_common_count</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+
     <span class="n">near_constant</span> <span class="o">=</span> <span class="n">most_common_count</span> <span class="o">/</span> <span class="n">X</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">near_constant_threshold</span>
     <span class="k">if</span> <span class="n">near_constant</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
         <span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Discarding near-constant features: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>

@@ -38,8 +38,8 @@ Ames Housing Dataset Visualization
  .. code-block:: none
 
     Target looks like regression
-    Showing only top 10 of 22 continuous features
-    Showing only top 10 of 46 categorical features
+    Showing only top 10 of 26 continuous features
+    Showing only top 10 of 42 categorical features
 
 
 
@@ -63,7 +63,7 @@ Ames Housing Dataset Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.606 seconds)
+   **Total running time of the script:** ( 0 minutes  4.330 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_ames.py:
