@@ -318,6 +318,7 @@
                                    <span class="n">scatter_alpha</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">scatter_size</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>
                                    <span class="n">univariate_plot</span><span class="o">=</span><span class="s1">&#39;histogram&#39;</span><span class="p">,</span>
                                    <span class="n">drop_outliers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">plot_pairwise</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                   <span class="n">top_k_interactions</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
                                    <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Exploration plots for continuous features in classification.</span>
 
@@ -350,6 +351,11 @@
 <span class="sd">        Whether to drop outliers when plotting.</span>
 <span class="sd">    plot_pairwise : bool, default=True</span>
 <span class="sd">        Whether to create pairwise plots. Can be a bit slow.</span>
+<span class="sd">    top_k_interactions : int, default=10</span>
+<span class="sd">        How many pairwise interactions to consider</span>
+<span class="sd">        (ranked by univariate f scores).</span>
+<span class="sd">        Runtime is quadratic in this, but higher numbers might find more</span>
+<span class="sd">        interesting interactions.</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
@@ -364,7 +370,6 @@
     <span class="k">if</span> <span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span>
 
-    <span class="n">top_for_interactions</span> <span class="o">=</span> <span class="mi">20</span>
     <span class="n">features_imp</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
     <span class="n">target</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">target_col</span><span class="p">]</span>
 
@@ -420,11 +425,12 @@
         <span class="c1"># pairwise plots</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">plot_pairwise</span><span class="p">:</span>
             <span class="k">return</span>
-        <span class="n">top_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="o">-</span><span class="n">top_for_interactions</span><span class="p">:][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">top_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="o">-</span><span class="n">top_k_interactions</span><span class="p">:][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">top_pairs</span> <span class="o">=</span> <span class="n">_find_scatter_plots_classification</span><span class="p">(</span>
             <span class="n">features_imp</span><span class="p">[:,</span> <span class="n">top_k</span><span class="p">],</span> <span class="n">target</span><span class="p">)</span>
         <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">),</span>
-                                 <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                                 <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+                                 <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">top_pairs</span><span class="o">.</span><span class="n">feature0</span><span class="p">,</span> <span class="n">top_pairs</span><span class="o">.</span><span class="n">feature1</span><span class="p">,</span>
                                    <span class="n">top_pairs</span><span class="o">.</span><span class="n">score</span><span class="p">,</span> <span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">()):</span>
             <span class="n">i</span> <span class="o">=</span> <span class="n">top_k</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
@@ -436,10 +442,12 @@
             <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
             <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score</span><span class="p">))</span>
         <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Top feature interactions&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">plot_pairwise</span><span class="p">:</span>
+        <span class="k">return</span>
     <span class="c1"># get some PCA directions</span>
     <span class="c1"># we&#39;re using all features here, not only most informative</span>
     <span class="c1"># should we use only those?</span>
-    <span class="n">n_components</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">top_for_interactions</span><span class="p">,</span> <span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="n">n_components</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">top_k_interactions</span><span class="p">,</span> <span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
                        <span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
     <span class="k">if</span> <span class="n">n_components</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
         <span class="k">return</span>
@@ -447,8 +455,9 @@
     <span class="n">features_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">scale</span><span class="p">(</span><span class="n">features_imp</span><span class="p">))</span>
     <span class="n">top_pairs</span> <span class="o">=</span> <span class="n">_find_scatter_plots_classification</span><span class="p">(</span><span class="n">features_pca</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
     <span class="c1"># copy and paste from above. Refactor?</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">),</span>
-                             <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                             <span class="n">figsize</span><span class="o">=</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+                             <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
         <span class="c1"># we don&#39;t want ravel to fail, this is awkward!</span>
         <span class="n">axes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">axes</span><span class="p">])</span>
@@ -461,6 +470,12 @@
         <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;PCA </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;PCA </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score</span><span class="p">))</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;variance&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">),</span>
+            <span class="n">label</span><span class="o">=</span><span class="s1">&#39;cumulative variance&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Scree plot (PCA explained variance)&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Discriminating PCA directions&quot;</span><span class="p">)</span>
     <span class="c1"># LDA</span>
     <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
@@ -472,7 +487,8 @@
     <span class="n">top_pairs</span> <span class="o">=</span> <span class="n">_find_scatter_plots_classification</span><span class="p">(</span><span class="n">features_lda</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
     <span class="c1"># copy and paste from above. Refactor?</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">),</span>
-                             <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                             <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+                             <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
         <span class="c1"># we don&#39;t want ravel to fail, this is awkward!</span>
         <span class="n">axes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">axes</span><span class="p">])</span>
@@ -588,7 +604,8 @@
 
 
 <div class="viewcode-block" id="plot_supervised"><a class="viewcode-back" href="../../../generated/dabl.plot_supervised.html#dabl.plot.plot_supervised">[docs]</a><span class="k">def</span> <span class="nf">plot_supervised</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scatter_alpha</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
-                    <span class="n">scatter_size</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                    <span class="n">scatter_size</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">plot_pairwise</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Exploration plots for classification and regression.</span>
 
 <span class="sd">    Determines whether the target is categorical or continuous and plots the</span>
@@ -609,6 +626,9 @@
 <span class="sd">        Alpha values for scatter plots. &#39;auto&#39; is dirty hacks.</span>
 <span class="sd">    scatter_size : float, default=&#39;auto&#39;.</span>
 <span class="sd">        Marker size for scatter plots. &#39;auto&#39; is dirty hacks.</span>
+<span class="sd">    plot_pairwise : bool, default=True</span>
+<span class="sd">        Whether to include pairwise scatterplots for classification.</span>
+<span class="sd">        These can be somewhat expensive to compute.</span>
 <span class="sd">    verbose : int, default=10</span>
 <span class="sd">        Controls the verbosity (output).</span>
 
@@ -619,9 +639,9 @@
 <span class="sd">    plot_classification_continuous</span>
 <span class="sd">    plot_classification_categorical</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">clean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="n">type_hints</span><span class="p">)</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">types</span> <span class="o">=</span> <span class="n">clean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="n">type_hints</span><span class="p">,</span> <span class="n">return_types</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="c1"># recompute types after cleaning:</span>
-    <span class="n">types</span> <span class="o">=</span> <span class="n">_check_X_target_col</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="n">type_hints</span><span class="p">)</span>
+    <span class="n">types</span> <span class="o">=</span> <span class="n">_check_X_target_col</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="n">types</span><span class="p">)</span>
     <span class="c1"># low_cardinality integers plot better as categorical</span>
     <span class="k">if</span> <span class="n">types</span><span class="o">.</span><span class="n">low_card_int</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
         <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">types</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">types</span><span class="o">.</span><span class="n">low_card_int</span><span class="p">]:</span>
@@ -668,10 +688,10 @@
         <span class="n">melted</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">melted</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
         <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">melted</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Target distribution&quot;</span><span class="p">)</span>
-        <span class="n">plot_classification_continuous</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="n">types</span><span class="p">,</span>
-                                       <span class="n">hue_order</span><span class="o">=</span><span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
-                                       <span class="n">scatter_alpha</span><span class="o">=</span><span class="n">scatter_alpha</span><span class="p">,</span>
-                                       <span class="n">scatter_size</span><span class="o">=</span><span class="n">scatter_size</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">plot_classification_continuous</span><span class="p">(</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="n">types</span><span class="p">,</span> <span class="n">hue_order</span><span class="o">=</span><span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+            <span class="n">scatter_alpha</span><span class="o">=</span><span class="n">scatter_alpha</span><span class="p">,</span> <span class="n">scatter_size</span><span class="o">=</span><span class="n">scatter_size</span><span class="p">,</span>
+            <span class="n">plot_pairwise</span><span class="o">=</span><span class="n">plot_pairwise</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">plot_classification_categorical</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="n">types</span><span class="p">,</span>
                                         <span class="n">hue_order</span><span class="o">=</span><span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 </pre></div>
