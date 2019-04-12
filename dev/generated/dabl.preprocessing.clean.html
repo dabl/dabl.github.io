@@ -190,7 +190,7 @@
 <h1><code class="xref py py-mod docutils literal"><span class="pre">dabl.preprocessing</span></code>.clean<a class="headerlink" href="#dabl-preprocessing-clean" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dabl.preprocessing.clean">
-<code class="descclassname">dabl.preprocessing.</code><code class="descname">clean</code><span class="sig-paren">(</span><em>X</em>, <em>type_hints=None</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/preprocessing.html#clean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.preprocessing.clean" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dabl.preprocessing.</code><code class="descname">clean</code><span class="sig-paren">(</span><em>X</em>, <em>type_hints=None</em>, <em>return_types=False</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/preprocessing.html#clean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.preprocessing.clean" title="Permalink to this definition">¶</a></dt>
 <dd><p>Public clean interface</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -200,6 +200,9 @@
 <dt><strong>type_hints</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict or None</span></dt>
 <dd><p class="first last">If dict, provide type information for columns.
 Keys are column names, values are types as provided by detect_types.</p>
+</dd>
+<dt><strong>return_types</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default=False</span></dt>
+<dd><p class="first last">Whether to return the inferred types</p>
 </dd>
 <dt><strong>verbose</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, default=0</span></dt>
 <dd><p class="first last">Verbosity control.</p>

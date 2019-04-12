@@ -218,23 +218,23 @@ types in a convenient format:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">types</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">detect_types</span><span class="p">(</span><span class="n">titanic_clean</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">types</span><span class="p">)</span> 
 <span class="go">                      continuous  dirty_float  ...  free_string  useless</span>
-<span class="go">age_?                      False        False  ...        False    False</span>
-<span class="go">age_dabl_continuous         True        False  ...        False    False</span>
-<span class="go">boat                       False        False  ...        False    False</span>
-<span class="go">body_?                     False        False  ...        False    False</span>
-<span class="go">body_dabl_continuous        True        False  ...        False    False</span>
-<span class="go">cabin                      False        False  ...         True    False</span>
-<span class="go">embarked                   False        False  ...        False    False</span>
-<span class="go">fare_?                     False        False  ...        False     True</span>
-<span class="go">fare_dabl_continuous        True        False  ...        False    False</span>
-<span class="go">home.dest                  False        False  ...         True    False</span>
-<span class="go">name                       False        False  ...         True    False</span>
-<span class="go">parch                      False        False  ...        False    False</span>
 <span class="go">pclass                     False        False  ...        False    False</span>
+<span class="go">survived                   False        False  ...        False    False</span>
+<span class="go">name                       False        False  ...         True    False</span>
 <span class="go">sex                        False        False  ...        False    False</span>
 <span class="go">sibsp                      False        False  ...        False    False</span>
-<span class="go">survived                   False        False  ...        False    False</span>
+<span class="go">parch                      False        False  ...        False    False</span>
 <span class="go">ticket                     False        False  ...         True    False</span>
+<span class="go">cabin                      False        False  ...         True    False</span>
+<span class="go">embarked                   False        False  ...        False    False</span>
+<span class="go">boat                       False        False  ...        False    False</span>
+<span class="go">home.dest                  False        False  ...         True    False</span>
+<span class="go">age_?                      False        False  ...        False    False</span>
+<span class="go">age_dabl_continuous         True        False  ...        False    False</span>
+<span class="go">fare_?                     False        False  ...        False     True</span>
+<span class="go">fare_dabl_continuous        True        False  ...        False    False</span>
+<span class="go">body_?                     False        False  ...        False    False</span>
+<span class="go">body_dabl_continuous        True        False  ...        False    False</span>
 
 <span class="go">[17 rows x 7 columns]</span>
 </pre></div>
@@ -299,7 +299,7 @@ the whole data frame and specify the target column.</p>
 <span class="go">roc_auc              0.971</span>
 <span class="go">Name: DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=1), dtype: float64</span>
 <span class="go">DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=5)</span>
-<span class="go">accuracy: 0.957    average_precision: 0.942    recall_macro: 0.954    roc_auc: 0.970</span>
+<span class="go">accuracy: 0.957    average_precision: 0.943    recall_macro: 0.953    roc_auc: 0.970</span>
 <span class="go">DecisionTreeClassifier(class_weight=&#39;balanced&#39;, min_impurity_decrease=0.01)</span>
 <span class="go">accuracy: 0.976    average_precision: 0.954    recall_macro: 0.971    roc_auc: 0.971</span>
 <span class="go">LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, solver=&#39;lbfgs&#39;)</span>

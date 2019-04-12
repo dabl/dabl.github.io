@@ -337,6 +337,9 @@
             <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">duplicated</span><span class="p">]))</span>
     <span class="k">if</span> <span class="n">type_hints</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">type_hints</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="c1"># apply type hints drops useless columns,</span>
+    <span class="c1"># but in the end we want to check against original columns</span>
+    <span class="n">X_org</span> <span class="o">=</span> <span class="n">X</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">_apply_type_hints</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="n">type_hints</span><span class="p">)</span>
 
     <span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
@@ -409,9 +412,14 @@
     <span class="c1"># constant features are useless</span>
     <span class="n">useless</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_values</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">useless</span>
     <span class="c1"># also throw out near constant:</span>
-    <span class="n">most_common_count</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
-
-    <span class="n">near_constant</span> <span class="o">=</span> <span class="n">most_common_count</span> <span class="o">/</span> <span class="n">X</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">near_constant_threshold</span>
+    <span class="n">near_constant</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">n_values</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">/</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="o">.</span><span class="mi">9</span><span class="p">:</span>
+            <span class="c1"># save some computation</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">/</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="n">near_constant_threshold</span><span class="p">:</span>
+            <span class="n">near_constant</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="k">if</span> <span class="n">near_constant</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
         <span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Discarding near-constant features: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
              <span class="n">near_constant</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">near_constant</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()))</span>
@@ -442,6 +450,9 @@
         <span class="n">res</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">res</span><span class="p">[</span><span class="s1">&#39;useless&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;useless&#39;</span><span class="p">]</span> <span class="o">|</span> <span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># reorder res to have the same order as X.columns</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">X_org</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">X_org</span><span class="o">.</span><span class="n">columns</span> <span class="o">==</span> <span class="n">res</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 
     <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
 
@@ -489,7 +500,7 @@
     <span class="k">return</span> <span class="n">X</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="clean"><a class="viewcode-back" href="../../generated/dabl.preprocessing.clean.html#dabl.clean">[docs]</a><span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="clean"><a class="viewcode-back" href="../../generated/dabl.preprocessing.clean.html#dabl.clean">[docs]</a><span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_types</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Public clean interface</span>
 
 <span class="sd">    Parameters</span>
@@ -497,6 +508,8 @@
 <span class="sd">    type_hints : dict or None</span>
 <span class="sd">        If dict, provide type information for columns.</span>
 <span class="sd">        Keys are column names, values are types as provided by detect_types.</span>
+<span class="sd">    return_types : bool, default=False</span>
+<span class="sd">        Whether to return the inferred types</span>
 <span class="sd">    verbose : int, default=0</span>
 <span class="sd">        Verbosity control.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -508,72 +521,33 @@
         <span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Index not unique, resetting index!&quot;</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
         <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
     <span class="n">types</span> <span class="o">=</span> <span class="n">detect_types</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="n">type_hints</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+    <span class="c1"># drop useless columns</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="o">~</span><span class="n">types</span><span class="o">.</span><span class="n">useless</span><span class="p">]</span>
+    <span class="n">types</span> <span class="o">=</span> <span class="n">types</span><span class="p">[</span><span class="o">~</span><span class="n">types</span><span class="o">.</span><span class="n">useless</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">types</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">types</span><span class="o">.</span><span class="n">categorical</span><span class="p">]:</span>
         <span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="c1"># get rid of dirty floats, add indicators</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">_safe_clean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="n">types</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">types</span><span class="p">[</span><span class="s1">&#39;dirty_float&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="c1"># don&#39;t use ColumnTransformer that can&#39;t return dataframe yet</span>
+        <span class="n">X_df</span> <span class="o">=</span> <span class="n">DirtyFloatCleaner</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span>
+            <span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">types</span><span class="p">[</span><span class="s1">&#39;dirty_float&#39;</span><span class="p">]])</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="o">~</span><span class="n">types</span><span class="o">.</span><span class="n">dirty_float</span><span class="p">],</span> <span class="n">X_df</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># we should know what these are but maybe running this again is fine?</span>
+        <span class="n">types_df</span> <span class="o">=</span> <span class="n">detect_types</span><span class="p">(</span><span class="n">X_df</span><span class="p">)</span>
+        <span class="n">types</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">types</span><span class="p">[</span><span class="o">~</span><span class="n">types</span><span class="o">.</span><span class="n">dirty_float</span><span class="p">],</span> <span class="n">types_df</span><span class="p">])</span>
     <span class="c1"># deal with low cardinality ints</span>
-    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">types</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">types</span><span class="o">.</span><span class="n">low_card_int</span><span class="p">]:</span>
-        <span class="c1"># for now let&#39;s just check for smooth distributions</span>
-        <span class="k">pass</span>
+    <span class="c1"># TODO ?</span>
     <span class="c1"># ensure that the indicator variables are also marked as categorical</span>
     <span class="c1"># we could certainly do this nicer, but at this point calling</span>
     <span class="c1"># detect_types shouldn&#39;t be expensive any more</span>
     <span class="c1"># though if we have actual string columns that are free strings... hum</span>
-    <span class="n">types</span> <span class="o">=</span> <span class="n">detect_types</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="n">type_hints</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">types</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">types</span><span class="o">.</span><span class="n">categorical</span><span class="p">]:</span>
         <span class="c1"># ensure categories are strings, otherwise imputation might fail</span>
         <span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">rename_categories</span><span class="p">(</span>
             <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">return_types</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">types</span>
     <span class="k">return</span> <span class="n">X</span></div>
-
-
-<span class="k">def</span> <span class="nf">_safe_clean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">onehot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Cleaning / preprocessing outside of cross-validation</span>
-
-<span class="sd">    FIXME this leads to duplicating integer columns! no good!</span>
-
-<span class="sd">    This function is &quot;safe&quot; to use outside of cross-validation in that</span>
-<span class="sd">    it only does preprocessing that doesn&#39;t use statistics that could</span>
-<span class="sd">    leak information from the test set (like scaling or imputation).</span>
-
-<span class="sd">    Using this method prior to analysis can speed up your pipelines.</span>
-
-<span class="sd">    The main operation is checking for string-encoded floats.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    X : dataframe</span>
-<span class="sd">        Dirty data</span>
-<span class="sd">    onehot : boolean, default=False</span>
-<span class="sd">        Whether to do one-hot encoding of categorical data.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    X_cleaner : dataframe</span>
-<span class="sd">        Slightly cleaner dataframe.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">types</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">types</span> <span class="o">=</span> <span class="n">detect_types</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">if</span> <span class="n">types</span><span class="p">[</span><span class="s1">&#39;dirty_float&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-        <span class="c1"># don&#39;t use ColumnTransformer that can&#39;t return dataframe yet</span>
-        <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">DirtyFloatCleaner</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span>
-            <span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">types</span><span class="p">[</span><span class="s1">&#39;dirty_float&#39;</span><span class="p">]]))</span>
-    <span class="k">if</span> <span class="n">types</span><span class="p">[</span><span class="s1">&#39;useless&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">any</span><span class="p">()</span> <span class="ow">or</span> <span class="n">types</span><span class="p">[</span><span class="s1">&#39;dirty_float&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-        <span class="k">if</span> <span class="n">onehot</span><span class="p">:</span>
-            <span class="c1"># FIXME REMOVE THIS HERE</span>
-            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">types</span><span class="p">[</span><span class="s1">&#39;continuous&#39;</span><span class="p">]])</span>
-            <span class="n">cat_indices</span> <span class="o">=</span> <span class="n">types</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">types</span><span class="p">[</span><span class="s1">&#39;categorical&#39;</span><span class="p">]]</span>
-            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">types</span><span class="p">[</span><span class="s1">&#39;categorical&#39;</span><span class="p">]],</span>
-                                      <span class="n">columns</span><span class="o">=</span><span class="n">cat_indices</span><span class="p">))</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">good_types</span> <span class="o">=</span> <span class="p">(</span><span class="n">types</span><span class="o">.</span><span class="n">continuous</span> <span class="o">|</span> <span class="n">types</span><span class="o">.</span><span class="n">categorical</span>
-                          <span class="o">|</span> <span class="n">types</span><span class="o">.</span><span class="n">low_card_int</span> <span class="o">|</span> <span class="n">types</span><span class="o">.</span><span class="n">date</span>
-                          <span class="o">|</span> <span class="n">types</span><span class="o">.</span><span class="n">free_string</span><span class="p">)</span>
-            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">good_types</span><span class="p">])</span>
-        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">X</span>
 
 
 <div class="viewcode-block" id="EasyPreprocessor"><a class="viewcode-back" href="../../generated/dabl.preprocessing.EasyPreprocessor.html#dabl.EasyPreprocessor">[docs]</a><span class="k">class</span> <span class="nc">EasyPreprocessor</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
