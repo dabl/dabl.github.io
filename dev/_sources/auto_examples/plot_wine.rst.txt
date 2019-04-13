@@ -48,6 +48,7 @@ Wine Classification Dataset Visualization
  .. code-block:: none
 
     Target looks like classification
+    Linear Discriminant Analysis training set score: 1.000
 
 
 
@@ -71,7 +72,7 @@ Wine Classification Dataset Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.007 seconds)
+   **Total running time of the script:** ( 0 minutes  2.779 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_wine.py:

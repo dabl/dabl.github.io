@@ -182,6 +182,7 @@
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">scale</span>
 <span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="k">import</span> <span class="n">PCA</span>
 <span class="kn">from</span> <span class="nn">sklearn.discriminant_analysis</span> <span class="k">import</span> <span class="n">LinearDiscriminantAnalysis</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">recall_score</span>
 
 <span class="kn">from</span> <span class="nn">..preprocessing</span> <span class="k">import</span> <span class="n">detect_types</span><span class="p">,</span> <span class="n">clean</span><span class="p">,</span> <span class="n">guess_ordinal</span>
 <span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="p">(</span><span class="n">_check_X_target_col</span><span class="p">,</span> <span class="n">_get_n_top</span><span class="p">,</span> <span class="n">_make_subplots</span><span class="p">,</span>
@@ -427,7 +428,7 @@
             <span class="k">return</span>
         <span class="n">top_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="o">-</span><span class="n">top_k_interactions</span><span class="p">:][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">top_pairs</span> <span class="o">=</span> <span class="n">_find_scatter_plots_classification</span><span class="p">(</span>
-            <span class="n">features_imp</span><span class="p">[:,</span> <span class="n">top_k</span><span class="p">],</span> <span class="n">target</span><span class="p">)</span>
+            <span class="n">features_imp</span><span class="p">[:,</span> <span class="n">top_k</span><span class="p">],</span> <span class="n">target</span><span class="p">,</span> <span class="n">how_many</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
         <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">),</span>
                                  <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
                                  <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -452,8 +453,10 @@
     <span class="k">if</span> <span class="n">n_components</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
         <span class="k">return</span>
     <span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">n_components</span><span class="p">)</span>
-    <span class="n">features_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">scale</span><span class="p">(</span><span class="n">features_imp</span><span class="p">))</span>
-    <span class="n">top_pairs</span> <span class="o">=</span> <span class="n">_find_scatter_plots_classification</span><span class="p">(</span><span class="n">features_pca</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+    <span class="n">features_scaled</span> <span class="o">=</span> <span class="n">scale</span><span class="p">(</span><span class="n">features_imp</span><span class="p">)</span>
+    <span class="n">features_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">features_scaled</span><span class="p">)</span>
+    <span class="n">top_pairs</span> <span class="o">=</span> <span class="n">_find_scatter_plots_classification</span><span class="p">(</span>
+        <span class="n">features_pca</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">how_many</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
     <span class="c1"># copy and paste from above. Refactor?</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
                              <span class="n">figsize</span><span class="o">=</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
@@ -478,13 +481,23 @@
     <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Discriminating PCA directions&quot;</span><span class="p">)</span>
     <span class="c1"># LDA</span>
-    <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="c1"># lda currently only 2d scatter plot.</span>
-        <span class="k">return</span>
+
     <span class="n">lda</span> <span class="o">=</span> <span class="n">LinearDiscriminantAnalysis</span><span class="p">(</span>
         <span class="n">n_components</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">n_components</span><span class="p">,</span> <span class="n">target</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
-    <span class="n">features_lda</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">scale</span><span class="p">(</span><span class="n">features_imp</span><span class="p">),</span> <span class="n">target</span><span class="p">)</span>
-    <span class="n">top_pairs</span> <span class="o">=</span> <span class="n">_find_scatter_plots_classification</span><span class="p">(</span><span class="n">features_lda</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+    <span class="n">features_lda</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">features_scaled</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+    <span class="c1"># we should probably do macro-average recall here as everywhere else?</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Linear Discriminant Analysis training set score: </span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+          <span class="n">recall_score</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">lda</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">features_scaled</span><span class="p">),</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">)))</span>
+    <span class="k">if</span> <span class="n">features_lda</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="c1"># Do a single plot and exit</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+        <span class="n">single_lda</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;feature&#39;</span><span class="p">:</span> <span class="n">features_lda</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span>
+                                   <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="n">target</span><span class="p">})</span>
+        <span class="n">class_hists</span><span class="p">(</span><span class="n">single_lda</span><span class="p">,</span> <span class="s1">&#39;feature&#39;</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Linear Discriminant&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="n">top_pairs</span> <span class="o">=</span> <span class="n">_find_scatter_plots_classification</span><span class="p">(</span>
+        <span class="n">features_lda</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">how_many</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
     <span class="c1"># copy and paste from above. Refactor?</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">),</span>
                              <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">top_pairs</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>

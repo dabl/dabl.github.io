@@ -506,7 +506,7 @@
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">_shortname</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_ylabel</span><span class="p">(),</span> <span class="n">maxlen</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
 
 
-<span class="k">def</span> <span class="nf">_find_scatter_plots_classification</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">_find_scatter_plots_classification</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">how_many</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
     <span class="c1"># input is continuous</span>
     <span class="c1"># look at all pairs of features, find most promising ones</span>
     <span class="c1"># dummy = DummyClassifier(strategy=&#39;prior&#39;).fit(X, target)</span>
@@ -526,8 +526,8 @@
             <span class="n">tree</span><span class="p">,</span> <span class="n">this_X</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;recall_macro&#39;</span><span class="p">))))</span>
 
     <span class="n">scores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;feature0&#39;</span><span class="p">,</span> <span class="s1">&#39;feature1&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">])</span>
-    <span class="n">top_3</span> <span class="o">=</span> <span class="n">scores</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;score&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">top_3</span>
+    <span class="n">top</span> <span class="o">=</span> <span class="n">scores</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;score&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="n">how_many</span><span class="p">:][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">top</span>
 
 
 <div class="viewcode-block" id="discrete_scatter"><a class="viewcode-back" href="../../../generated/dabl.plot.discrete_scatter.html#dabl.plot.discrete_scatter">[docs]</a><span class="k">def</span> <span class="nf">discrete_scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">,</span> <span class="n">clip_outliers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -697,7 +697,7 @@
 <span class="k">def</span> <span class="nf">_inlier_range</span><span class="p">(</span><span class="n">series</span><span class="p">):</span>
     <span class="n">low</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanquantile</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
     <span class="n">high</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanquantile</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">low</span> <span class="o">&lt;</span> <span class="n">high</span>
+    <span class="k">assert</span> <span class="n">low</span> <span class="o">&lt;=</span> <span class="n">high</span>
     <span class="c1"># the two is a complete hack</span>
     <span class="n">inner_range</span> <span class="o">=</span> <span class="p">(</span><span class="n">high</span> <span class="o">-</span> <span class="n">low</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
     <span class="k">return</span> <span class="n">low</span> <span class="o">-</span> <span class="n">inner_range</span><span class="p">,</span> <span class="n">high</span> <span class="o">+</span> <span class="n">inner_range</span>
