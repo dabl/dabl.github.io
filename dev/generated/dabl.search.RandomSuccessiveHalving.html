@@ -219,14 +219,14 @@ resources as possible. Note that <code class="docutils literal"><span class="pre
 effect in this case.</p>
 </dd>
 <dt><strong>scoring</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, callable, or None, default: None</span></dt>
-<dd><p class="first last">A single string (see <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter" title="(in scikit-learn v0.21.1)"><span>The scoring parameter: defining model evaluation rules</span></a>) or a callable
-(see <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html#scoring" title="(in scikit-learn v0.21.1)"><span>Defining your scoring strategy from metric functions</span></a>) to evaluate the predictions on the test set.
+<dd><p class="first last">A single string (see <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter" title="(in scikit-learn v0.21.2)"><span>The scoring parameter: defining model evaluation rules</span></a>) or a callable
+(see <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html#scoring" title="(in scikit-learn v0.21.2)"><span>Defining your scoring strategy from metric functions</span></a>) to evaluate the predictions on the test set.
 If None, the estimator’s score method is used.</p>
 </dd>
 <dt><strong>n_jobs</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int or None, optional (default=None)</span></dt>
 <dd><p class="first last">Number of jobs to run in parallel.
 <code class="docutils literal"><span class="pre">None</span></code> means 1 unless in a <code class="xref py py-obj docutils literal"><span class="pre">joblib.parallel_backend</span></code> context.
-<code class="docutils literal"><span class="pre">-1</span></code> means using all processors. See <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-n-jobs" title="(in scikit-learn v0.21.1)"><span class="xref std std-term">Glossary</span></a>
+<code class="docutils literal"><span class="pre">-1</span></code> means using all processors. See <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-n-jobs" title="(in scikit-learn v0.21.2)"><span class="xref std std-term">Glossary</span></a>
 for more details.</p>
 </dd>
 <dt><strong>pre_dispatch</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, or string, optional</span></dt>
@@ -252,13 +252,13 @@ as in ‘2*n_jobs’</li>
 Possible inputs for cv are:</p>
 <ul class="simple">
 <li>integer, to specify the number of folds in a <cite>(Stratified)KFold</cite>,</li>
-<li><a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-cv-splitter" title="(in scikit-learn v0.21.1)"><span class="xref std std-term">CV splitter</span></a>,</li>
+<li><a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-cv-splitter" title="(in scikit-learn v0.21.2)"><span class="xref std std-term">CV splitter</span></a>,</li>
 <li>An iterable yielding (train, test) splits as arrays of indices.</li>
 </ul>
 <p>For integer/None inputs, if the estimator is a classifier and <code class="docutils literal"><span class="pre">y</span></code> is
 either binary or multiclass, <code class="xref py py-class docutils literal"><span class="pre">StratifiedKFold</span></code> is used. In all
 other cases, <code class="xref py py-class docutils literal"><span class="pre">KFold</span></code> is used.</p>
-<p class="last">Refer <a class="reference external" href="https://scikit-learn.org/stable/modules/cross_validation.html#cross-validation" title="(in scikit-learn v0.21.1)"><span class="xref std std-ref">User Guide</span></a> for the various
+<p class="last">Refer <a class="reference external" href="https://scikit-learn.org/stable/modules/cross_validation.html#cross-validation" title="(in scikit-learn v0.21.2)"><span class="xref std std-ref">User Guide</span></a> for the various
 cross-validation strategies that can be used here.</p>
 </dd>
 <dt><strong>refit</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean, default=True</span></dt>
