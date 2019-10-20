@@ -20,20 +20,11 @@
   <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'./',
-              VERSION:'',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script type="text/javascript" src="_static/jquery.js"></script>
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
         <script type="text/javascript" src="_static/js/copybutton.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
@@ -179,18 +170,18 @@ whether a passenger survived or not based on the information about the
 passenger in that file.
 We know, for tabular data like this, pandas is our friend.
 Clearly we need to start with loading our data:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">dabl</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">titanic</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dabl</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">data_path</span><span class="p">(</span><span class="s2">&quot;titanic.csv&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Let’s familiarize ourself with the data a bit; what’s the shape, what are the
 columns, what do they look like?</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">titanic</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">titanic</span><span class="o">.</span><span class="n">shape</span>
 <span class="go">(1309, 14)</span>
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">titanic</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">titanic</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> 
 <span class="go">   pclass  survived  ... body                        home.dest</span>
 <span class="go">0       1         1  ...    ?                     St Louis, MO</span>
 <span class="go">1       1         1  ...    ?  Montreal, PQ / Chesterville, ON</span>
@@ -203,7 +194,7 @@ columns, what do they look like?</p>
 </div>
 <p>So far so good! There’s already a bunch of things going on in the data that we
 can see here, but let’s ask dabl what it thinks by cleaning up the data:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">titanic_clean</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">titanic</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">titanic_clean</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">titanic</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This provides us with lots of information about what is happening in the
@@ -215,7 +206,7 @@ This is probably a marker for a missing value and we could go back and fix our
 parsing of the CSV, but let’s try an continue with what dabl is doing
 automatically for now.  In dabl, we can also get a best guess of the column
 types in a convenient format:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">types</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">detect_types</span><span class="p">(</span><span class="n">titanic_clean</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">types</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">detect_types</span><span class="p">(</span><span class="n">titanic_clean</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">types</span><span class="p">)</span> 
 <span class="go">                      continuous  dirty_float  ...  free_string  useless</span>
 <span class="go">pclass                     False        False  ...        False    False</span>
@@ -243,40 +234,40 @@ types in a convenient format:</p>
 at the actual content. The easiest way to do that is using visualization of
 univariate and bivariate patterns. With plot_supervised,
 we can create plot of the features deemed most important for our task.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dabl</span><span class="o">.</span><span class="n">plot_supervised</span><span class="p">(</span><span class="n">titanic</span><span class="p">,</span> <span class="s1">&#39;survived&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dabl</span><span class="o">.</span><span class="n">plot_supervised</span><span class="p">(</span><span class="n">titanic</span><span class="p">,</span> <span class="s1">&#39;survived&#39;</span><span class="p">)</span>
 <span class="go">Target looks like classification</span>
 <span class="go">Linear Discriminant Analysis training set score: 0.578</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href=".//quick_start-1.py">Source code</a>)</p>
-<div class="figure" id="id1">
+<div class="figure align-default" id="id1">
 <img alt="_images/quick_start-1_00.png" src="_images/quick_start-1_00.png" />
-<p class="caption"><span class="caption-text">(<a class="reference external" href=".//quick_start-1_00.png">png</a>, <a class="reference external" href=".//quick_start-1_00.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_00.pdf">pdf</a>)</span></p>
+<p class="caption"><span class="caption-text">(<a class="reference external" href=".//quick_start-1_00.png">png</a>, <a class="reference external" href=".//quick_start-1_00.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_00.pdf">pdf</a>)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure" id="id2">
+<div class="figure align-default" id="id2">
 <img alt="_images/quick_start-1_01.png" src="_images/quick_start-1_01.png" />
-<p class="caption"><span class="caption-text">(<a class="reference external" href=".//quick_start-1_01.png">png</a>, <a class="reference external" href=".//quick_start-1_01.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_01.pdf">pdf</a>)</span></p>
+<p class="caption"><span class="caption-text">(<a class="reference external" href=".//quick_start-1_01.png">png</a>, <a class="reference external" href=".//quick_start-1_01.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_01.pdf">pdf</a>)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure" id="id3">
+<div class="figure align-default" id="id3">
 <img alt="_images/quick_start-1_02.png" src="_images/quick_start-1_02.png" />
-<p class="caption"><span class="caption-text">(<a class="reference external" href=".//quick_start-1_02.png">png</a>, <a class="reference external" href=".//quick_start-1_02.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_02.pdf">pdf</a>)</span></p>
+<p class="caption"><span class="caption-text">(<a class="reference external" href=".//quick_start-1_02.png">png</a>, <a class="reference external" href=".//quick_start-1_02.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_02.pdf">pdf</a>)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure" id="id4">
+<div class="figure align-default" id="id4">
 <img alt="_images/quick_start-1_03.png" src="_images/quick_start-1_03.png" />
-<p class="caption"><span class="caption-text">(<a class="reference external" href=".//quick_start-1_03.png">png</a>, <a class="reference external" href=".//quick_start-1_03.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_03.pdf">pdf</a>)</span></p>
+<p class="caption"><span class="caption-text">(<a class="reference external" href=".//quick_start-1_03.png">png</a>, <a class="reference external" href=".//quick_start-1_03.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_03.pdf">pdf</a>)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure" id="id5">
+<div class="figure align-default" id="id5">
 <img alt="_images/quick_start-1_04.png" src="_images/quick_start-1_04.png" />
-<p class="caption"><span class="caption-text">(<a class="reference external" href=".//quick_start-1_04.png">png</a>, <a class="reference external" href=".//quick_start-1_04.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_04.pdf">pdf</a>)</span></p>
+<p class="caption"><span class="caption-text">(<a class="reference external" href=".//quick_start-1_04.png">png</a>, <a class="reference external" href=".//quick_start-1_04.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_04.pdf">pdf</a>)</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <p>Finally, we can find an initial model for our data. The SimpleClassifier does all
 the work for us. It implements the familiar scikit-learn API of fit and
 predict. Alternatively we could also use the same interface as before and pass
 the whole data frame and specify the target column.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fc</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">SimpleClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fc</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">SimpleClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">titanic_clean</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;survived&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">titanic_clean</span><span class="o">.</span><span class="n">survived</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> 
 <span class="go">DummyClassifier(strategy=&#39;prior&#39;)</span>
 <span class="go">accuracy: 0.618    average_precision: 0.382    recall_macro: 0.500    roc_auc: 0.500</span>
 <span class="go">new best (using recall_macro):</span>
@@ -307,7 +298,7 @@ the whole data frame and specify the target column.</p>
 <span class="go">accuracy: 0.957    average_precision: 0.943    recall_macro: 0.953    roc_auc: 0.970</span>
 <span class="go">DecisionTreeClassifier(class_weight=&#39;balanced&#39;, min_impurity_decrease=0.01)</span>
 <span class="go">accuracy: 0.976    average_precision: 0.954    recall_macro: 0.971    roc_auc: 0.971</span>
-<span class="go">LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, solver=&#39;lbfgs&#39;)</span>
+<span class="go">LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;)</span>
 <span class="go">accuracy: 0.963    average_precision: 0.986    recall_macro: 0.961    roc_auc: 0.989</span>
 <span class="go">Best model:</span>
 <span class="go">DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=1)</span>

@@ -20,20 +20,11 @@
   <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
         <script type="text/javascript" src="../_static/js/copybutton.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -107,14 +98,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../api.html#supervised-models">Supervised Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#preprocessing">Preprocessing</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api.html#plotting">Plotting</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="dabl.plot.discrete_scatter.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.discrete_scatter</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.find_pretty_grid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dabl.plot.mosaic_plot.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.mosaic_plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_supervised.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.plot_supervised</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_classification_categorical.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.plot_classification_categorical</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_classification_continuous.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.plot_classification_continuous</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_regression_categorical.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.plot_regression_categorical</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_regression_continuous.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.plot_regression_continuous</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.plot.discrete_scatter.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.discrete_scatter</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.find_pretty_grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.plot.mosaic_plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.mosaic_plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_supervised.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_supervised</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_classification_categorical.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_classification_categorical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_classification_continuous.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_classification_continuous</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_regression_categorical.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_regression_categorical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_regression_continuous.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_regression_continuous</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#model-search">Model Search</a></li>
@@ -173,7 +164,7 @@
         
           <li><a href="../api.html">dabl API</a> &raquo;</li>
         
-      <li><code class="docutils literal"><span class="pre">dabl.plot</span></code>.find_pretty_grid</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.find_pretty_grid</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -193,42 +184,34 @@
            <div itemprop="articleBody">
             
   <div class="section" id="dabl-plot-find-pretty-grid">
-<h1><code class="xref py py-mod docutils literal"><span class="pre">dabl.plot</span></code>.find_pretty_grid<a class="headerlink" href="#dabl-plot-find-pretty-grid" title="Permalink to this headline">¶</a></h1>
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.find_pretty_grid<a class="headerlink" href="#dabl-plot-find-pretty-grid" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dabl.plot.find_pretty_grid">
-<code class="descclassname">dabl.plot.</code><code class="descname">find_pretty_grid</code><span class="sig-paren">(</span><em>n_plots</em>, <em>max_cols=5</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/plot/utils.html#find_pretty_grid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot.find_pretty_grid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">dabl.plot.</code><code class="sig-name descname">find_pretty_grid</code><span class="sig-paren">(</span><em class="sig-param">n_plots</em>, <em class="sig-param">max_cols=5</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/plot/utils.html#find_pretty_grid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot.find_pretty_grid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine a good grid shape for n_plots subplots.</p>
 <p>Tries to find a way to arange n_plots many subplots on a grid in a way
 that fills as many grid-cells as possible, while keeping the number
 of rows low and the number of columns below max_cols.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>n_plots</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
-<dd><p class="first last">Number of plots to arrange.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>n_plots</strong><span class="classifier">int</span></dt><dd><p>Number of plots to arrange.</p>
 </dd>
-<dt><strong>max_cols</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, default=5</span></dt>
-<dd><p class="first last">Maximum number of columns.</p>
+<dt><strong>max_cols</strong><span class="classifier">int, default=5</span></dt><dd><p>Maximum number of columns.</p>
 </dd>
 </dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>n_rows</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
-<dd><p class="first last">Number of rows in grid.</p>
 </dd>
-<dt><strong>n_cols</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
-<dd><p class="first last">Number of columns in grid.</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>n_rows</strong><span class="classifier">int</span></dt><dd><p>Number of rows in grid.</p>
+</dd>
+<dt><strong>n_cols</strong><span class="classifier">int</span></dt><dd><p>Number of columns in grid.</p>
 </dd>
 </dl>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">find_pretty_grid</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">find_pretty_grid</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="go">(4, 4)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">find_pretty_grid</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="go">(3, 4)</span>

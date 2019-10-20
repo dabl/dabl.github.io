@@ -20,20 +20,11 @@
   <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
         <script type="text/javascript" src="../_static/js/copybutton.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -104,11 +95,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide.html">Machine Learning with dabl</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">dabl API</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../api.html#high-level-api">High-level API</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">dabl</span></code>.clean</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dabl.detect_types.html"><code class="docutils literal"><span class="pre">dabl</span></code>.detect_types</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dabl.plot_supervised.html"><code class="docutils literal"><span class="pre">dabl</span></code>.plot_supervised</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dabl.SimpleClassifier.html"><code class="docutils literal"><span class="pre">dabl</span></code>.SimpleClassifier</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dabl.EasyPreprocessor.html"><code class="docutils literal"><span class="pre">dabl</span></code>.EasyPreprocessor</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.clean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.detect_types.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.detect_types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.plot_supervised.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.plot_supervised</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.SimpleClassifier.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.SimpleClassifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.EasyPreprocessor.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.EasyPreprocessor</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#supervised-models">Supervised Models</a></li>
@@ -170,7 +161,7 @@
         
           <li><a href="../api.html">dabl API</a> &raquo;</li>
         
-      <li><code class="docutils literal"><span class="pre">dabl</span></code>.clean</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.clean</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -190,31 +181,24 @@
            <div itemprop="articleBody">
             
   <div class="section" id="dabl-clean">
-<h1><code class="xref py py-mod docutils literal"><span class="pre">dabl</span></code>.clean<a class="headerlink" href="#dabl-clean" title="Permalink to this headline">¶</a></h1>
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.clean<a class="headerlink" href="#dabl-clean" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dabl.clean">
-<code class="descclassname">dabl.</code><code class="descname">clean</code><span class="sig-paren">(</span><em>X</em>, <em>type_hints=None</em>, <em>return_types=False</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/preprocessing.html#clean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.clean" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">clean</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">return_types=False</em>, <em class="sig-param">verbose=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/preprocessing.html#clean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.clean" title="Permalink to this definition">¶</a></dt>
 <dd><p>Public clean interface</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>type_hints</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict or None</span></dt>
-<dd><p class="first last">If dict, provide type information for columns.
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>type_hints</strong><span class="classifier">dict or None</span></dt><dd><p>If dict, provide type information for columns.
 Keys are column names, values are types as provided by detect_types.</p>
 </dd>
-<dt><strong>return_types</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default=False</span></dt>
-<dd><p class="first last">Whether to return the inferred types</p>
+<dt><strong>return_types</strong><span class="classifier">bool, default=False</span></dt><dd><p>Whether to return the inferred types</p>
 </dd>
-<dt><strong>verbose</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, default=0</span></dt>
-<dd><p class="first last">Verbosity control.</p>
+<dt><strong>verbose</strong><span class="classifier">int, default=0</span></dt><dd><p>Verbosity control.</p>
 </dd>
 </dl>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <div style='clear:both'></div></div>

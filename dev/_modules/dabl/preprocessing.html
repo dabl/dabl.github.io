@@ -20,20 +20,11 @@
   <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../../',
-              VERSION:'',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script type="text/javascript" src="../../_static/jquery.js"></script>
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
         <script type="text/javascript" src="../../_static/js/copybutton.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -176,6 +167,7 @@
 <span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="k">import</span> <span class="n">check_is_fitted</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
 <span class="kn">from</span> <span class="nn">warnings</span> <span class="k">import</span> <span class="n">warn</span>
 
 <span class="n">_FLOAT_REGEX</span> <span class="o">=</span> <span class="s2">&quot;^[+-]?[0-9]*\.?[0-9]*$&quot;</span>
@@ -519,7 +511,7 @@
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">X</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">is_unique</span><span class="p">:</span>
         <span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Index not unique, resetting index!&quot;</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
-        <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">types</span> <span class="o">=</span> <span class="n">detect_types</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="n">type_hints</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
     <span class="c1"># drop useless columns</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="o">~</span><span class="n">types</span><span class="o">.</span><span class="n">useless</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -578,14 +570,19 @@
 <span class="sd">    scale : boolean, default=True</span>
 <span class="sd">        Whether to scale continuous data.</span>
 
+<span class="sd">    force_imputation : bool, default=True</span>
+<span class="sd">        Whether to create imputers even if not training data is missing.</span>
+
 <span class="sd">    verbose : int, default=0</span>
 <span class="sd">        Control output verbosity.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="EasyPreprocessor.__init__"><a class="viewcode-back" href="../../generated/dabl.preprocessing.EasyPreprocessor.html#dabl.EasyPreprocessor.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="EasyPreprocessor.__init__"><a class="viewcode-back" href="../../generated/dabl.preprocessing.EasyPreprocessor.html#dabl.EasyPreprocessor.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">force_imputation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="n">types</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="n">scale</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">types</span> <span class="o">=</span> <span class="n">types</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">types</span> <span class="o">=</span> <span class="n">types</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">force_imputation</span> <span class="o">=</span> <span class="n">force_imputation</span></div>
 
 <div class="viewcode-block" id="EasyPreprocessor.fit"><a class="viewcode-back" href="../../generated/dabl.preprocessing.EasyPreprocessor.html#dabl.EasyPreprocessor.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;A reference implementation of a fitting function for a transformer.</span>
@@ -623,16 +620,18 @@
         <span class="c1"># check for missing values</span>
         <span class="c1"># scale etc</span>
         <span class="n">steps_categorical</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">if</span> <span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">types</span><span class="o">.</span><span class="n">categorical</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">force_imputation</span>
+                <span class="ow">or</span> <span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">types</span><span class="o">.</span><span class="n">categorical</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">)):</span>
             <span class="n">steps_categorical</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="s1">&#39;dabl_missing&#39;</span><span class="p">))</span>
+                <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;most_frequent&#39;</span><span class="p">,</span> <span class="n">add_indicator</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
         <span class="n">steps_categorical</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
             <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">categories</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">handle_unknown</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span>
                           <span class="n">sparse</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
         <span class="n">pipe_categorical</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="o">*</span><span class="n">steps_categorical</span><span class="p">)</span>
 
         <span class="n">steps_continuous</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">types</span><span class="o">.</span><span class="n">continuous</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">force_imputation</span>
+                <span class="ow">or</span> <span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">types</span><span class="o">.</span><span class="n">continuous</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
                 <span class="ow">or</span> <span class="n">types</span><span class="p">[</span><span class="s1">&#39;dirty_float&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">any</span><span class="p">()):</span>
             <span class="c1"># we could skip the imputer here, but if there&#39;s dirty</span>
             <span class="c1"># floats, they&#39;ll have NaN, and we reuse the cont pipeline</span>
@@ -717,7 +716,11 @@
 <span class="sd">            in `X`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Check is fit had been called</span>
-        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ct_&#39;</span><span class="p">])</span>
+        <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+            <span class="c1"># fix when requiring sklearn 0.22</span>
+            <span class="c1"># check_is_fitted will not have arguments any more</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">DeprecationWarning</span><span class="p">)</span>
+            <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ct_&#39;</span><span class="p">])</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ct_</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span></div></div>
 </pre></div>
 

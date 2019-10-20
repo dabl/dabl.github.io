@@ -20,20 +20,11 @@
   <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
         <script type="text/javascript" src="../_static/js/copybutton.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -104,11 +95,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide.html">Machine Learning with dabl</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">dabl API</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../api.html#high-level-api">High-level API</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="dabl.clean.html"><code class="docutils literal"><span class="pre">dabl</span></code>.clean</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dabl.detect_types.html"><code class="docutils literal"><span class="pre">dabl</span></code>.detect_types</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">dabl</span></code>.plot_supervised</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dabl.SimpleClassifier.html"><code class="docutils literal"><span class="pre">dabl</span></code>.SimpleClassifier</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dabl.EasyPreprocessor.html"><code class="docutils literal"><span class="pre">dabl</span></code>.EasyPreprocessor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.clean.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.clean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.detect_types.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.detect_types</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.plot_supervised</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.SimpleClassifier.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.SimpleClassifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.EasyPreprocessor.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.EasyPreprocessor</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#supervised-models">Supervised Models</a></li>
@@ -170,7 +161,7 @@
         
           <li><a href="../api.html">dabl API</a> &raquo;</li>
         
-      <li><code class="docutils literal"><span class="pre">dabl</span></code>.plot_supervised</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.plot_supervised</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -190,50 +181,39 @@
            <div itemprop="articleBody">
             
   <div class="section" id="dabl-plot-supervised">
-<h1><code class="xref py py-mod docutils literal"><span class="pre">dabl</span></code>.plot_supervised<a class="headerlink" href="#dabl-plot-supervised" title="Permalink to this headline">¶</a></h1>
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.plot_supervised<a class="headerlink" href="#dabl-plot-supervised" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dabl.plot_supervised">
-<code class="descclassname">dabl.</code><code class="descname">plot_supervised</code><span class="sig-paren">(</span><em>X</em>, <em>target_col</em>, <em>type_hints=None</em>, <em>scatter_alpha=’auto’</em>, <em>scatter_size=’auto’</em>, <em>verbose=10</em>, <em>plot_pairwise=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/plot/supervised.html#plot_supervised"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot_supervised" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">plot_supervised</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">target_col</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">scatter_alpha='auto'</em>, <em class="sig-param">scatter_size='auto'</em>, <em class="sig-param">verbose=10</em>, <em class="sig-param">plot_pairwise=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/plot/supervised.html#plot_supervised"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot_supervised" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exploration plots for classification and regression.</p>
 <p>Determines whether the target is categorical or continuous and plots the
 target distribution. Then calls the relevant plotting functions
 accordingly.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>X</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dataframe</span></dt>
-<dd><p class="first last">Input data including features and target</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">dataframe</span></dt><dd><p>Input data including features and target</p>
 </dd>
-<dt><strong>target_col</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str or int</span></dt>
-<dd><p class="first last">Identifier of the target column in X</p>
+<dt><strong>target_col</strong><span class="classifier">str or int</span></dt><dd><p>Identifier of the target column in X</p>
 </dd>
-<dt><strong>type_hints</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict or None</span></dt>
-<dd><p class="first last">If dict, provide type information for columns.
+<dt><strong>type_hints</strong><span class="classifier">dict or None</span></dt><dd><p>If dict, provide type information for columns.
 Keys are column names, values are types as provided by detect_types.</p>
 </dd>
-<dt><strong>scatter_alpha</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, default=’auto’</span></dt>
-<dd><p class="first last">Alpha values for scatter plots. ‘auto’ is dirty hacks.</p>
+<dt><strong>scatter_alpha</strong><span class="classifier">float, default=’auto’</span></dt><dd><p>Alpha values for scatter plots. ‘auto’ is dirty hacks.</p>
 </dd>
-<dt><strong>scatter_size</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, default=’auto’.</span></dt>
-<dd><p class="first last">Marker size for scatter plots. ‘auto’ is dirty hacks.</p>
+<dt><strong>scatter_size</strong><span class="classifier">float, default=’auto’.</span></dt><dd><p>Marker size for scatter plots. ‘auto’ is dirty hacks.</p>
 </dd>
-<dt><strong>plot_pairwise</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default=True</span></dt>
-<dd><p class="first last">Whether to include pairwise scatterplots for classification.
+<dt><strong>plot_pairwise</strong><span class="classifier">bool, default=True</span></dt><dd><p>Whether to include pairwise scatterplots for classification.
 These can be somewhat expensive to compute.</p>
 </dd>
-<dt><strong>verbose</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, default=10</span></dt>
-<dd><p class="first last">Controls the verbosity (output).</p>
+<dt><strong>verbose</strong><span class="classifier">int, default=10</span></dt><dd><p>Controls the verbosity (output).</p>
 </dd>
 </dl>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><code class="xref py py-obj docutils literal"><span class="pre">plot_regression_continuous</span></code>, <code class="xref py py-obj docutils literal"><span class="pre">plot_regression_categorical</span></code>, <code class="xref py py-obj docutils literal"><span class="pre">plot_classification_continuous</span></code>, <code class="xref py py-obj docutils literal"><span class="pre">plot_classification_categorical</span></code></p>
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_regression_continuous</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_regression_categorical</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_classification_continuous</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_classification_categorical</span></code></p>
 </div>
 </dd></dl>
 

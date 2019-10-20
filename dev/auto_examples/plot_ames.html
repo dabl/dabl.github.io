@@ -20,20 +20,11 @@
   <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
         <script type="text/javascript" src="../_static/js/copybutton.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -180,29 +171,43 @@
            <div itemprop="articleBody">
             
   <div class="sphx-glr-download-link-note admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-ames-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-ames-py"><span class="std std-ref">here</span></a> to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="ames-housing-dataset-visualization">
 <span id="sphx-glr-auto-examples-plot-ames-py"></span><h1>Ames Housing Dataset Visualization<a class="headerlink" href="#ames-housing-dataset-visualization" title="Permalink to this headline">¶</a></h1>
 <ul class="sphx-glr-horizontal">
-<li><img alt="../_images/sphx_glr_plot_ames_001.png" class="sphx-glr-multi-img first" src="../_images/sphx_glr_plot_ames_001.png" />
+<li><img alt="../_images/sphx_glr_plot_ames_001.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_plot_ames_001.png" />
 </li>
-<li><img alt="../_images/sphx_glr_plot_ames_002.png" class="sphx-glr-multi-img first" src="../_images/sphx_glr_plot_ames_002.png" />
+<li><img alt="../_images/sphx_glr_plot_ames_002.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_plot_ames_002.png" />
 </li>
-<li><img alt="../_images/sphx_glr_plot_ames_003.png" class="sphx-glr-multi-img first" src="../_images/sphx_glr_plot_ames_003.png" />
+<li><img alt="../_images/sphx_glr_plot_ames_003.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_plot_ames_003.png" />
 </li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none"><div class="highlight"><pre><span></span>Target looks like regression
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/project/dabl/preprocessing.py:256: UserWarning: Discarding near-constant features: [&#39;Street&#39;, &#39;Utilities&#39;, &#39;Land Slope&#39;, &#39;Condition 2&#39;, &#39;Roof Matl&#39;, &#39;Heating&#39;, &#39;Low Qual Fin SF&#39;, &#39;Kitchen AbvGr&#39;, &#39;Garage Cond&#39;, &#39;3Ssn Porch&#39;, &#39;Pool Area&#39;, &#39;Misc Val&#39;]
+  near_constant.index[near_constant].tolist()))
+Target looks like regression
 Showing only top 10 of 26 continuous features
+/home/circleci/project/dabl/plot/utils.py:545: UserWarning: Dropped 5 outliers in column Gr Liv Area.
+  int(dropped), series.name), UserWarning)
+/home/circleci/project/dabl/plot/utils.py:545: UserWarning: Dropped 1 outliers in column Garage Cars.
+  int(dropped), series.name), UserWarning)
+/home/circleci/project/dabl/plot/utils.py:545: UserWarning: Dropped 2 outliers in column Total Bsmt SF.
+  int(dropped), series.name), UserWarning)
+/home/circleci/project/dabl/plot/utils.py:545: UserWarning: Dropped 4 outliers in column 1st Flr SF.
+  int(dropped), series.name), UserWarning)
+/home/circleci/project/dabl/plot/utils.py:545: UserWarning: Dropped 1 outliers in column Garage Yr Blt.
+  int(dropped), series.name), UserWarning)
+/home/circleci/project/dabl/plot/utils.py:545: UserWarning: Dropped 7 outliers in column Mas Vnr Area.
+  int(dropped), series.name), UserWarning)
 Showing only top 10 of 42 categorical features
 </pre></div>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dabl</span> <span class="k">import</span> <span class="n">plot_supervised</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dabl</span> <span class="k">import</span> <span class="n">plot_supervised</span>
 <span class="kn">from</span> <span class="nn">dabl.datasets</span> <span class="k">import</span> <span class="n">load_ames</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
@@ -214,14 +219,16 @@ Showing only top 10 of 42 categorical features
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.332 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.882 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-ames-py">
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" href="../_downloads/plot_ames.py" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_ames.py</span></code></a></div>
-<div class="sphx-glr-download docutils container">
-<a class="reference download internal" href="../_downloads/plot_ames.ipynb" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_ames.ipynb</span></code></a></div>
+<p><a class="reference download internal" download="" href="../_downloads/474d8c3fed157e6ff5995592b8f408bd/plot_ames.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_ames.py</span></code></a></p>
 </div>
-<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/6075dd53f9de257b33674d0a41cfeb63/plot_ames.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_ames.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </div>
 
 

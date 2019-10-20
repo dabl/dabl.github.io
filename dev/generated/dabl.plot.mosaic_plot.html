@@ -20,20 +20,11 @@
   <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
         <script type="text/javascript" src="../_static/js/copybutton.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -107,14 +98,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../api.html#supervised-models">Supervised Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#preprocessing">Preprocessing</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api.html#plotting">Plotting</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="dabl.plot.discrete_scatter.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.discrete_scatter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dabl.plot.find_pretty_grid.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.find_pretty_grid</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.mosaic_plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_supervised.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.plot_supervised</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_classification_categorical.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.plot_classification_categorical</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_classification_continuous.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.plot_classification_continuous</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_regression_categorical.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.plot_regression_categorical</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_regression_continuous.html"><code class="docutils literal"><span class="pre">dabl.plot</span></code>.plot_regression_continuous</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.plot.discrete_scatter.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.discrete_scatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.plot.find_pretty_grid.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.find_pretty_grid</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.mosaic_plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_supervised.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_supervised</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_classification_categorical.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_classification_categorical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_classification_continuous.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_classification_continuous</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_regression_categorical.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_regression_categorical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_regression_continuous.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_regression_continuous</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#model-search">Model Search</a></li>
@@ -173,7 +164,7 @@
         
           <li><a href="../api.html">dabl API</a> &raquo;</li>
         
-      <li><code class="docutils literal"><span class="pre">dabl.plot</span></code>.mosaic_plot</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.mosaic_plot</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -193,38 +184,29 @@
            <div itemprop="articleBody">
             
   <div class="section" id="dabl-plot-mosaic-plot">
-<h1><code class="xref py py-mod docutils literal"><span class="pre">dabl.plot</span></code>.mosaic_plot<a class="headerlink" href="#dabl-plot-mosaic-plot" title="Permalink to this headline">¶</a></h1>
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.mosaic_plot<a class="headerlink" href="#dabl-plot-mosaic-plot" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dabl.plot.mosaic_plot">
-<code class="descclassname">dabl.plot.</code><code class="descname">mosaic_plot</code><span class="sig-paren">(</span><em>data</em>, <em>rows</em>, <em>cols</em>, <em>vary_lightness=False</em>, <em>ax=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/plot/utils.html#mosaic_plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot.mosaic_plot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">dabl.plot.</code><code class="sig-name descname">mosaic_plot</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">rows</em>, <em class="sig-param">cols</em>, <em class="sig-param">vary_lightness=False</em>, <em class="sig-param">ax=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/plot/utils.html#mosaic_plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot.mosaic_plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a mosaic plot from a dataframe.</p>
 <p>Right now only horizontal mosaic plots are supported,
 i.e. rows are prioritized over columns.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>data</strong> <span class="classifier-delimiter">:</span> <span class="classifier">pandas data frame</span></dt>
-<dd><p class="first last">Data to tabulate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data</strong><span class="classifier">pandas data frame</span></dt><dd><p>Data to tabulate.</p>
 </dd>
-<dt><strong>rows</strong> <span class="classifier-delimiter">:</span> <span class="classifier">column specifier</span></dt>
-<dd><p class="first last">Column in data to tabulate across rows.</p>
+<dt><strong>rows</strong><span class="classifier">column specifier</span></dt><dd><p>Column in data to tabulate across rows.</p>
 </dd>
-<dt><strong>cols</strong> <span class="classifier-delimiter">:</span> <span class="classifier">column specifier</span></dt>
-<dd><p class="first last">Column in data to use to subpartition rows.</p>
+<dt><strong>cols</strong><span class="classifier">column specifier</span></dt><dd><p>Column in data to use to subpartition rows.</p>
 </dd>
-<dt><strong>vary_lightness</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default=False</span></dt>
-<dd><p class="first last">Whether to vary lightness across categories.</p>
+<dt><strong>vary_lightness</strong><span class="classifier">bool, default=False</span></dt><dd><p>Whether to vary lightness across categories.</p>
 </dd>
-<dt><strong>ax</strong> <span class="classifier-delimiter">:</span> <span class="classifier">matplotlib axes or None</span></dt>
-<dd><p class="first last">Axes to plot into.</p>
+<dt><strong>ax</strong><span class="classifier">matplotlib axes or None</span></dt><dd><p>Axes to plot into.</p>
 </dd>
 </dl>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <div style='clear:both'></div></div>

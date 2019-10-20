@@ -20,20 +20,11 @@
   <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
         <script type="text/javascript" src="../_static/js/copybutton.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -180,32 +171,32 @@
            <div itemprop="articleBody">
             
   <div class="sphx-glr-download-link-note admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-wine-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-wine-py"><span class="std std-ref">here</span></a> to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="wine-classification-dataset-visualization">
 <span id="sphx-glr-auto-examples-plot-wine-py"></span><h1>Wine Classification Dataset Visualization<a class="headerlink" href="#wine-classification-dataset-visualization" title="Permalink to this headline">¶</a></h1>
 <ul class="sphx-glr-horizontal">
-<li><img alt="../_images/sphx_glr_plot_wine_001.png" class="sphx-glr-multi-img first" src="../_images/sphx_glr_plot_wine_001.png" />
+<li><img alt="../_images/sphx_glr_plot_wine_001.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_plot_wine_001.png" />
 </li>
-<li><img alt="../_images/sphx_glr_plot_wine_002.png" class="sphx-glr-multi-img first" src="../_images/sphx_glr_plot_wine_002.png" />
+<li><img alt="../_images/sphx_glr_plot_wine_002.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_plot_wine_002.png" />
 </li>
-<li><img alt="../_images/sphx_glr_plot_wine_003.png" class="sphx-glr-multi-img first" src="../_images/sphx_glr_plot_wine_003.png" />
+<li><img alt="../_images/sphx_glr_plot_wine_003.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_plot_wine_003.png" />
 </li>
-<li><img alt="../_images/sphx_glr_plot_wine_004.png" class="sphx-glr-multi-img first" src="../_images/sphx_glr_plot_wine_004.png" />
+<li><img alt="../_images/sphx_glr_plot_wine_004.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_plot_wine_004.png" />
 </li>
-<li><img alt="../_images/sphx_glr_plot_wine_005.png" class="sphx-glr-multi-img first" src="../_images/sphx_glr_plot_wine_005.png" />
+<li><img alt="../_images/sphx_glr_plot_wine_005.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_plot_wine_005.png" />
 </li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none"><div class="highlight"><pre><span></span>Target looks like classification
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Target looks like classification
 Linear Discriminant Analysis training set score: 1.000
 </pre></div>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="k">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_wine.html#sklearn.datasets.load_wine" title="View documentation for sklearn.datasets.load_wine"><span class="n">load_wine</span></a>
 <span class="kn">from</span> <span class="nn">dabl</span> <span class="k">import</span> <span class="n">plot_supervised</span>
 <span class="kn">from</span> <span class="nn">dabl.utils</span> <span class="k">import</span> <span class="n">data_df_from_bunch</span>
@@ -217,14 +208,16 @@ Linear Discriminant Analysis training set score: 1.000
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.174 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.738 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-wine-py">
 <div class="sphx-glr-download docutils container">
-<a class="reference download internal" href="../_downloads/plot_wine.py" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_wine.py</span></code></a></div>
-<div class="sphx-glr-download docutils container">
-<a class="reference download internal" href="../_downloads/plot_wine.ipynb" download=""><code class="xref download docutils literal"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_wine.ipynb</span></code></a></div>
+<p><a class="reference download internal" download="" href="../_downloads/771c8bc150dee543a36ae189070696e3/plot_wine.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_wine.py</span></code></a></p>
 </div>
-<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
+<div class="sphx-glr-download docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/ec066dcc5d5bc3e250d4ffbb9715aa9f/plot_wine.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_wine.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </div>
 
 
