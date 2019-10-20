@@ -47,7 +47,7 @@ Adult Census Dataset Visualization
 
  .. code-block:: none
 
-    /home/circleci/project/dabl/preprocessing.py:256: UserWarning: Discarding near-constant features: ['capital-loss']
+    /home/circleci/project/dabl/preprocessing.py:258: UserWarning: Discarding near-constant features: ['capital-loss']
       near_constant.index[near_constant].tolist()))
     Target looks like classification
     Linear Discriminant Analysis training set score: 0.530
@@ -75,7 +75,7 @@ Adult Census Dataset Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.558 seconds)
+   **Total running time of the script:** ( 0 minutes  3.662 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_adult.py:
