@@ -1,0 +1,12 @@
+:mod:`dabl.plot`.plot
+==================================
+
+.. currentmodule:: dabl.plot
+
+.. autofunction:: plot
+
+.. include:: dabl.plot.plot.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

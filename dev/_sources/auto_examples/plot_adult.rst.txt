@@ -61,7 +61,7 @@ Adult Census Dataset Visualization
 
 .. code-block:: default
 
-    from dabl import plot_supervised
+    from dabl import plot
     from dabl.datasets import load_adult
     import matplotlib.pyplot as plt
 
@@ -69,13 +69,13 @@ Adult Census Dataset Visualization
     # returns a plain dataframe
     data = load_adult()
 
-    plot_supervised(data, 'income', scatter_alpha=.1)
+    plot(data, 'income', scatter_alpha=.1)
     plt.show()
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.870 seconds)
+   **Total running time of the script:** ( 0 minutes  3.864 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_adult.py:

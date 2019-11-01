@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dabl.plot.plot_supervised &mdash; dabl  documentation</title>
+  <title>dabl.plot.plot &mdash; dabl  documentation</title>
   
 
   
@@ -101,7 +101,7 @@
 <li class="toctree-l3"><a class="reference internal" href="dabl.plot.discrete_scatter.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.discrete_scatter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dabl.plot.find_pretty_grid.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.find_pretty_grid</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dabl.plot.mosaic_plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.mosaic_plot</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_supervised</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_classification_categorical.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_classification_categorical</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_classification_continuous.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_classification_continuous</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dabl.plot.plot_regression_categorical.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_regression_categorical</a></li>
@@ -164,13 +164,13 @@
         
           <li><a href="../api.html">dabl API</a> &raquo;</li>
         
-      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_supervised</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/generated/dabl.plot.plot_supervised.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/generated/dabl.plot.plot.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -183,11 +183,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="dabl-plot-plot-supervised">
-<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_supervised<a class="headerlink" href="#dabl-plot-plot-supervised" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="dabl-plot-plot">
+<h1><a class="reference internal" href="dabl.plot.html#dabl.plot" title="dabl.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code></a>.plot<a class="headerlink" href="#dabl-plot-plot" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="dabl.plot.plot_supervised">
-<code class="sig-prename descclassname">dabl.plot.</code><code class="sig-name descname">plot_supervised</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">target_col</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">scatter_alpha='auto'</em>, <em class="sig-param">scatter_size='auto'</em>, <em class="sig-param">verbose=10</em>, <em class="sig-param">plot_pairwise=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/plot/supervised.html#plot_supervised"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot.plot_supervised" title="Permalink to this definition">¶</a></dt>
+<dt id="dabl.plot.plot">
+<code class="sig-prename descclassname">dabl.plot.</code><code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">target_col</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">scatter_alpha='auto'</em>, <em class="sig-param">scatter_size='auto'</em>, <em class="sig-param">verbose=10</em>, <em class="sig-param">plot_pairwise=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/plot/supervised.html#plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exploration plots for classification and regression.</p>
 <p>Determines whether the target is categorical or continuous and plots the
 target distribution. Then calls the relevant plotting functions

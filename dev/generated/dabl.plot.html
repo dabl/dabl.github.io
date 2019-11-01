@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dabl.plot_supervised &mdash; dabl  documentation</title>
+  <title>dabl.plot &mdash; dabl  documentation</title>
   
 
   
@@ -97,7 +97,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../api.html#high-level-api">High-level API</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="dabl.clean.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.clean</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dabl.detect_types.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.detect_types</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.plot_supervised</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dabl.SimpleClassifier.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.SimpleClassifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dabl.EasyPreprocessor.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.EasyPreprocessor</a></li>
 </ul>
@@ -161,13 +161,13 @@
         
           <li><a href="../api.html">dabl API</a> &raquo;</li>
         
-      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.plot_supervised</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.plot</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/generated/dabl.plot_supervised.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/generated/dabl.plot.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -180,11 +180,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="dabl-plot-supervised">
-<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.plot_supervised<a class="headerlink" href="#dabl-plot-supervised" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="dabl-plot">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.plot<a class="headerlink" href="#dabl-plot" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="dabl.plot_supervised">
-<code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">plot_supervised</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">target_col</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">scatter_alpha='auto'</em>, <em class="sig-param">scatter_size='auto'</em>, <em class="sig-param">verbose=10</em>, <em class="sig-param">plot_pairwise=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/plot/supervised.html#plot_supervised"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot_supervised" title="Permalink to this definition">¶</a></dt>
+<dt id="dabl.plot">
+<code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">target_col</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">scatter_alpha='auto'</em>, <em class="sig-param">scatter_size='auto'</em>, <em class="sig-param">verbose=10</em>, <em class="sig-param">plot_pairwise=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/plot/supervised.html#plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exploration plots for classification and regression.</p>
 <p>Determines whether the target is categorical or continuous and plots the
 target distribution. Then calls the relevant plotting functions
