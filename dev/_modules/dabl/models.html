@@ -177,7 +177,6 @@
 <span class="kn">from</span> <span class="nn">sklearn.utils.testing</span> <span class="k">import</span> <span class="n">set_random_state</span>
 <span class="kn">from</span> <span class="nn">sklearn.dummy</span> <span class="k">import</span> <span class="n">DummyClassifier</span>
 
-
 <span class="kn">from</span> <span class="nn">.preprocessing</span> <span class="k">import</span> <span class="n">EasyPreprocessor</span><span class="p">,</span> <span class="n">clean</span><span class="p">,</span> <span class="n">detect_types</span>
 <span class="kn">from</span> <span class="nn">.pipelines</span> <span class="k">import</span> <span class="p">(</span><span class="n">get_fast_classifiers</span><span class="p">,</span> <span class="n">get_fast_regressors</span><span class="p">,</span>
                         <span class="n">get_any_classifiers</span><span class="p">)</span>
@@ -242,14 +241,6 @@
         <span class="n">res_mean</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">log_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">res_mean</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">res_mean</span>
-
-    <span class="nd">@if_delegate_has_method</span><span class="p">(</span><span class="n">delegate</span><span class="o">=</span><span class="s1">&#39;est_&#39;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">est_</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-
-    <span class="nd">@if_delegate_has_method</span><span class="p">(</span><span class="n">delegate</span><span class="o">=</span><span class="s1">&#39;est_&#39;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">decision_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">est_</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Fit estimator.</span>
@@ -544,6 +535,7 @@
 
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;best classifier: &quot;</span><span class="p">,</span> <span class="n">gs</span><span class="o">.</span><span class="n">best_params_</span><span class="p">[</span><span class="s1">&#39;classifier&#39;</span><span class="p">])</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;best score: </span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">best_score_</span><span class="p">))</span>
+
         <span class="k">return</span> <span class="bp">self</span>
 </pre></div>
 
