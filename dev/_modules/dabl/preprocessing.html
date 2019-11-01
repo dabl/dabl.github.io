@@ -464,7 +464,7 @@
                 <span class="n">dirty_float</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">dirty_float</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
             <span class="p">))</span>
         <span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">useless</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WARN dropped columns (too many unique values): </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WARN dropped useless columns: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                 <span class="n">res</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">res</span><span class="o">.</span><span class="n">useless</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
             <span class="p">))</span>
     <span class="k">return</span> <span class="n">res</span></div>
