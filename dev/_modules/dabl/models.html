@@ -170,11 +170,18 @@
 <span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="k">import</span> <span class="n">make_pipeline</span><span class="p">,</span> <span class="n">Pipeline</span>
 <span class="kn">from</span> <span class="nn">sklearn.exceptions</span> <span class="k">import</span> <span class="n">UndefinedMetricWarning</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">StratifiedKFold</span><span class="p">,</span> <span class="n">KFold</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics.scorer</span> <span class="k">import</span> <span class="n">_check_multimetric_scoring</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">sklearn.metrics._scorer</span> <span class="k">import</span> <span class="n">_check_multimetric_scoring</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">sklearn.metrics.scorer</span> <span class="k">import</span> <span class="n">_check_multimetric_scoring</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection._validation</span> <span class="k">import</span> <span class="n">_fit_and_score</span>
 <span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="k">import</span> <span class="n">check_is_fitted</span>
 <span class="kn">from</span> <span class="nn">sklearn.utils.metaestimators</span> <span class="k">import</span> <span class="n">if_delegate_has_method</span>
-<span class="kn">from</span> <span class="nn">sklearn.utils.testing</span> <span class="k">import</span> <span class="n">set_random_state</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">sklearn.utils._testing</span> <span class="k">import</span> <span class="n">set_random_state</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">sklearn.utils.testing</span> <span class="k">import</span> <span class="n">set_random_state</span>
+
 <span class="kn">from</span> <span class="nn">sklearn.dummy</span> <span class="k">import</span> <span class="n">DummyClassifier</span>
 
 <span class="kn">from</span> <span class="nn">.preprocessing</span> <span class="k">import</span> <span class="n">EasyPreprocessor</span><span class="p">,</span> <span class="n">clean</span><span class="p">,</span> <span class="n">detect_types</span>
