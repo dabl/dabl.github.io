@@ -450,7 +450,38 @@
 
 
 <span class="k">class</span> <span class="nc">AnyClassifier</span><span class="p">(</span><span class="n">_DablBaseEstimator</span><span class="p">,</span> <span class="n">ClassifierMixin</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">force_exhaust_budget</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Automatic model selection using successive halving.</span>
+
+<span class="sd">    This model uses successive halving on a portfolio of complex models</span>
+<span class="sd">    (HistGradientBoosting, RandomForest, SVC, LogisticRegression)</span>
+<span class="sd">    to pick the best model family and hyper-parameters.</span>
+
+<span class="sd">    AnyClassifier internally applies EasyPreprocessor, so no preprocessing</span>
+<span class="sd">    is necessary.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_jobs : int, default=None</span>
+<span class="sd">        Number of processes to spawn for parallelizing the search.</span>
+
+<span class="sd">    force_exhaust_budget : bool, default=True</span>
+<span class="sd">        Whether to ensure at least one model is trained on the full</span>
+<span class="sd">        dataset in successive halving.</span>
+<span class="sd">        See the documentation of successive halving for details.</span>
+
+<span class="sd">    verbose : integer, default=0</span>
+<span class="sd">        Verbosity. Higher means more output.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    search_ : SuccessiveHalving instance</span>
+<span class="sd">        Fitted GridSuccessiveHalving instance for inspection.</span>
+
+<span class="sd">    est_ : sklearn estimator</span>
+<span class="sd">        Best estimator (pipeline) found during search.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">force_exhaust_budget</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">force_exhaust_budget</span> <span class="o">=</span> <span class="n">force_exhaust_budget</span>
@@ -461,22 +492,14 @@
     <span class="k">def</span> <span class="nf">_preprocess_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="c1"># copy and paste from above, should be a mixin</span>
         <span class="n">target_type</span> <span class="o">=</span> <span class="n">type_of_target</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-        <span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+        <span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">classes_</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">classes_</span>
 
         <span class="k">if</span> <span class="n">target_type</span> <span class="o">==</span> <span class="s2">&quot;binary&quot;</span><span class="p">:</span>
-            <span class="n">minority_class</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-            <span class="n">my_average_precision_scorer</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span>
-                <span class="n">average_precision_score</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="n">minority_class</span><span class="p">,</span>
-                <span class="n">needs_threshold</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-            <span class="n">scoring</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;accuracy&#39;</span><span class="p">:</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">,</span>
-                       <span class="s1">&#39;average_precision&#39;</span><span class="p">:</span> <span class="n">my_average_precision_scorer</span><span class="p">,</span>
-                       <span class="s1">&#39;roc_auc&#39;</span><span class="p">:</span> <span class="s1">&#39;roc_auc&#39;</span><span class="p">,</span>
-                       <span class="s1">&#39;recall_macro&#39;</span><span class="p">:</span> <span class="s1">&#39;recall_macro&#39;</span>
-                       <span class="p">}</span>
+            <span class="n">scoring</span> <span class="o">=</span> <span class="s1">&#39;recall_macro&#39;</span>
         <span class="k">elif</span> <span class="n">target_type</span> <span class="o">==</span> <span class="s2">&quot;multiclass&quot;</span><span class="p">:</span>
-            <span class="n">scoring</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;recall_macro&#39;</span><span class="p">,</span> <span class="s1">&#39;precision_macro&#39;</span><span class="p">]</span>
+            <span class="n">scoring</span> <span class="o">=</span> <span class="s1">&#39;recall_macro&#39;</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unknown target type: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_type</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">y</span><span class="p">,</span> <span class="n">scoring</span>
