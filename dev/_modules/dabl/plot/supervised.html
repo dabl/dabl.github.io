@@ -166,18 +166,18 @@
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 
-<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="k">import</span> <span class="p">(</span><span class="n">f_regression</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="p">(</span><span class="n">f_regression</span><span class="p">,</span>
                                        <span class="n">mutual_info_regression</span><span class="p">,</span>
                                        <span class="n">mutual_info_classif</span><span class="p">,</span>
                                        <span class="n">f_classif</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="k">import</span> <span class="n">SimpleImputer</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">scale</span>
-<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="k">import</span> <span class="n">PCA</span>
-<span class="kn">from</span> <span class="nn">sklearn.discriminant_analysis</span> <span class="k">import</span> <span class="n">LinearDiscriminantAnalysis</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">recall_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">scale</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.discriminant_analysis</span> <span class="kn">import</span> <span class="n">LinearDiscriminantAnalysis</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">recall_score</span>
 
-<span class="kn">from</span> <span class="nn">..preprocessing</span> <span class="k">import</span> <span class="n">detect_types</span><span class="p">,</span> <span class="n">clean</span><span class="p">,</span> <span class="n">guess_ordinal</span>
-<span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="p">(</span><span class="n">_check_X_target_col</span><span class="p">,</span> <span class="n">_get_n_top</span><span class="p">,</span> <span class="n">_make_subplots</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">..preprocessing</span> <span class="kn">import</span> <span class="n">detect_types</span><span class="p">,</span> <span class="n">clean</span><span class="p">,</span> <span class="n">guess_ordinal</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="p">(</span><span class="n">_check_X_target_col</span><span class="p">,</span> <span class="n">_get_n_top</span><span class="p">,</span> <span class="n">_make_subplots</span><span class="p">,</span>
                     <span class="n">_short_tick_names</span><span class="p">,</span> <span class="n">_shortname</span><span class="p">,</span> <span class="n">_prune_category_make_X</span><span class="p">,</span>
                     <span class="n">find_pretty_grid</span><span class="p">,</span> <span class="n">_find_scatter_plots_classification</span><span class="p">,</span>
                     <span class="n">class_hists</span><span class="p">,</span> <span class="n">discrete_scatter</span><span class="p">,</span> <span class="n">mosaic_plot</span><span class="p">,</span>

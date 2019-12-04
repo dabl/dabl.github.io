@@ -19,9 +19,9 @@ Introductory examples.
 
 .. only:: html
 
-    .. figure:: /auto_examples/images/thumb/sphx_glr_plot_ames_thumb.png
+ .. figure:: /auto_examples/images/thumb/sphx_glr_plot_ames_thumb.png
 
-        :ref:`sphx_glr_auto_examples_plot_ames.py`
+     :ref:`sphx_glr_auto_examples_plot_ames.py`
 
 .. raw:: html
 
@@ -39,9 +39,9 @@ Introductory examples.
 
 .. only:: html
 
-    .. figure:: /auto_examples/images/thumb/sphx_glr_plot_adult_thumb.png
+ .. figure:: /auto_examples/images/thumb/sphx_glr_plot_adult_thumb.png
 
-        :ref:`sphx_glr_auto_examples_plot_adult.py`
+     :ref:`sphx_glr_auto_examples_plot_adult.py`
 
 .. raw:: html
 
@@ -59,9 +59,9 @@ Introductory examples.
 
 .. only:: html
 
-    .. figure:: /auto_examples/images/thumb/sphx_glr_plot_wine_thumb.png
+ .. figure:: /auto_examples/images/thumb/sphx_glr_plot_wine_thumb.png
 
-        :ref:`sphx_glr_auto_examples_plot_wine.py`
+     :ref:`sphx_glr_auto_examples_plot_wine.py`
 
 .. raw:: html
 
@@ -79,9 +79,9 @@ Introductory examples.
 
 .. only:: html
 
-    .. figure:: /auto_examples/images/thumb/sphx_glr_plot_successive_halving_iterations_thumb.png
+ .. figure:: /auto_examples/images/thumb/sphx_glr_plot_successive_halving_iterations_thumb.png
 
-        :ref:`sphx_glr_auto_examples_plot_successive_halving_iterations.py`
+     :ref:`sphx_glr_auto_examples_plot_successive_halving_iterations.py`
 
 .. raw:: html
 
@@ -94,7 +94,7 @@ Introductory examples.
    /auto_examples/plot_successive_halving_iterations
 .. raw:: html
 
-    <div style='clear:both'></div>
+    <div class="sphx-glr-clear"></div>
 
 
 
