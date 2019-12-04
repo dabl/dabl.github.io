@@ -188,7 +188,7 @@
 <h1><a class="reference internal" href="dabl.plot.html#dabl.plot" title="dabl.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code></a>.plot<a class="headerlink" href="#dabl-plot-plot" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dabl.plot.plot">
-<code class="sig-prename descclassname">dabl.plot.</code><code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">target_col</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">scatter_alpha='auto'</em>, <em class="sig-param">scatter_size='auto'</em>, <em class="sig-param">verbose=10</em>, <em class="sig-param">plot_pairwise=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/plot/supervised.html#plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot.plot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">dabl.plot.</code><code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">target_col=None</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">scatter_alpha='auto'</em>, <em class="sig-param">scatter_size='auto'</em>, <em class="sig-param">verbose=10</em>, <em class="sig-param">plot_pairwise=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/plot/supervised.html#plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exploration plots for classification and regression.</p>
 <p>Determines whether the target is categorical or continuous and plots the
 target distribution. Then calls the relevant plotting functions
@@ -196,9 +196,12 @@ accordingly.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">dataframe</span></dt><dd><p>Input data including features and target</p>
+<dt><strong>X</strong><span class="classifier">DataFrame</span></dt><dd><p>Input features. If target_col is specified, X also includes the
+target.</p>
 </dd>
-<dt><strong>target_col</strong><span class="classifier">str or int</span></dt><dd><p>Identifier of the target column in X</p>
+<dt><strong>y</strong><span class="classifier">Series or numpy array, optional.</span></dt><dd><p>Target. You need to specify either y or target_col.</p>
+</dd>
+<dt><strong>target_col</strong><span class="classifier">string or int, optional</span></dt><dd><p>Column name of target if included in X.</p>
 </dd>
 <dt><strong>type_hints</strong><span class="classifier">dict or None</span></dt><dd><p>If dict, provide type information for columns.
 Keys are column names, values are types as provided by detect_types.</p>
