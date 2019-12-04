@@ -166,36 +166,14 @@
 <h1>Welcome to dabl, the Data Analysis Baseline Library<a class="headerlink" href="#welcome-to-dabl-the-data-analysis-baseline-library" title="Permalink to this headline">¶</a></h1>
 <p>This project tries to help make supervised machine learning more accessible for
 beginners, and reduce boiler plate for common tasks.</p>
-<p>This library is in very active development, so it’s not recommended for production use.</p>
+<p>WARNING: This is a prototype and in a pre-alpha state.
+Don’t rely on dabl for critical applications for now.</p>
 <p>Development at <a class="reference external" href="https://github.com/amueller/dabl">github.com/amueller/dabl</a>.</p>
-<div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<p>A minimum example of using dabl for classification is:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">dabl</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_digits</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_digits</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sc</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">SimpleClassifier</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="go">Running ...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy score&quot;</span><span class="p">,</span> <span class="n">sc</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
-<span class="go">Accuracy score 0.98</span>
-</pre></div>
-</div>
-<p>This will return increasingly better results immediately and should conclude
-within several seconds with an accuracy of 0.98.</p>
-<p>The real strength of <code class="docutils literal notranslate"><span class="pre">dabl</span></code> is in providing simple interfaces for data exploration.
-Here are some examples of visualizations produced simply by calling <code class="docutils literal notranslate"><span class="pre">plot(data,</span> <span class="pre">'target_col')</span></code>:</p>
-<div class="figure align-center" id="id6">
-<a class="reference external image-reference" href="../auto_examples/plot/plot_ames.html"><img alt="../auto_examples/images/plot/sphx_glr_ames_003.png" src="../auto_examples/images/plot/sphx_glr_ames_003.png" /></a>
-<p class="caption"><span class="caption-text">Impact of categorical variables in the ames housing regression dataset.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
-</div>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
-</div>
 </div>
 <div class="section" id="id1">
 <h2><a class="reference external" href="quick_start.html">Getting started</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
@@ -209,8 +187,8 @@ Here are some examples of visualizations produced simply by calling <code class=
 <h2><a class="reference external" href="api.html">API Documentation</a><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>A documentation of all the dabl classes and functions.</p>
 </div>
-<div class="section" id="id5">
-<h2><a class="reference external" href="auto_examples/index.html">Examples</a><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h2><a class="reference external" href="auto_examples/index.html">Examples</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>Some examples to give you a taste how much you can achieve with little code
 with some help from dabl!</p>
 </div>

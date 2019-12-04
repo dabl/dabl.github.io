@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>General examples &mdash; dabl  documentation</title>
+  <title>Adult Census Dataset Visualization &mdash; dabl  documentation</title>
   
 
   
@@ -38,8 +38,8 @@
   <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Ames Housing Dataset Visualization" href="plot_ames.html" />
-    <link rel="prev" title="dabl.datasets.load_titanic" href="../generated/dabl.datasets.load_titanic.html" /> 
+    <link rel="next" title="Wine Classification Dataset Visualization" href="plot_wine.html" />
+    <link rel="prev" title="Ames Housing Dataset Visualization" href="plot_ames.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -98,9 +98,9 @@
 </ul>
 <p class="caption"><span class="caption-text">Examples</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">General examples</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">General examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="plot_ames.html">Ames Housing Dataset Visualization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_adult.html">Adult Census Dataset Visualization</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Adult Census Dataset Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_wine.html">Wine Classification Dataset Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_successive_halving_iterations.html">Successive Halving</a></li>
 </ul>
@@ -150,13 +150,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>General examples</li>
+          <li><a href="index.html">General examples</a> &raquo;</li>
+        
+      <li>Adult Census Dataset Visualization</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/auto_examples/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/auto_examples/plot_adult.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -169,39 +171,53 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="general-examples">
-<span id="sphx-glr-auto-examples"></span><span id="id1"></span><h1>General examples<a class="headerlink" href="#general-examples" title="Permalink to this headline">¶</a></h1>
-<p>Introductory examples.</p>
-<div class="sphx-glr-thumbcontainer" tooltip="Ames Housing Dataset Visualization"><div class="figure align-default" id="id2">
-<img alt="../_images/sphx_glr_plot_ames_thumb.png" src="../_images/sphx_glr_plot_ames_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="plot_ames.html#sphx-glr-auto-examples-plot-ames-py"><span class="std std-ref">Ames Housing Dataset Visualization</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-adult-py"><span class="std std-ref">here</span></a> to download the full example code</p>
 </div>
-</div><div class="toctree-wrapper compound">
+<div class="sphx-glr-example-title section" id="adult-census-dataset-visualization">
+<span id="sphx-glr-auto-examples-plot-adult-py"></span><h1>Adult Census Dataset Visualization<a class="headerlink" href="#adult-census-dataset-visualization" title="Permalink to this headline">¶</a></h1>
+<ul class="sphx-glr-horizontal">
+<li><img alt="../_images/sphx_glr_plot_adult_001.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_plot_adult_001.png" />
+</li>
+<li><img alt="../_images/sphx_glr_plot_adult_002.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_plot_adult_002.png" />
+</li>
+<li><img alt="../_images/sphx_glr_plot_adult_003.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_plot_adult_003.png" />
+</li>
+<li><img alt="../_images/sphx_glr_plot_adult_004.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_plot_adult_004.png" />
+</li>
+<li><img alt="../_images/sphx_glr_plot_adult_005.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_plot_adult_005.png" />
+</li>
+</ul>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/project/dabl/preprocessing.py:271: UserWarning: Discarding near-constant features: [&#39;capital-loss&#39;]
+  near_constant.index[near_constant].tolist()))
+Target looks like classification
+Linear Discriminant Analysis training set score: 0.530
+</pre></div>
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Adult Census Dataset Visualization"><div class="figure align-default" id="id3">
-<img alt="../_images/sphx_glr_plot_adult_thumb.png" src="../_images/sphx_glr_plot_adult_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="plot_adult.html#sphx-glr-auto-examples-plot-adult-py"><span class="std std-ref">Adult Census Dataset Visualization</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<div class="line-block">
+<div class="line"><br /></div>
 </div>
-</div><div class="toctree-wrapper compound">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dabl</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="kn">from</span> <span class="nn">dabl.datasets</span> <span class="kn">import</span> <span class="n">load_adult</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># load the adult census housing dataset</span>
+<span class="c1"># returns a plain dataframe</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">load_adult</span><span class="p">()</span>
+
+<span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="n">scatter_alpha</span><span class="o">=.</span><span class="mi">1</span><span class="p">)</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+</pre></div>
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Wine Classification Dataset Visualization"><div class="figure align-default" id="id4">
-<img alt="../_images/sphx_glr_plot_wine_thumb.png" src="../_images/sphx_glr_plot_wine_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="plot_wine.html#sphx-glr-auto-examples-plot-wine-py"><span class="std std-ref">Wine Classification Dataset Visualization</span></a></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Successive Halving"><div class="figure align-default" id="id5">
-<img alt="../_images/sphx_glr_plot_successive_halving_iterations_thumb.png" src="../_images/sphx_glr_plot_successive_halving_iterations_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="plot_successive_halving_iterations.html#sphx-glr-auto-examples-plot-successive-halving-iterations-py"><span class="std std-ref">Successive Halving</span></a></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-clear"></div><div class="sphx-glr-footer class sphx-glr-footer-gallery docutils container">
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.388 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-adult-py">
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../_downloads/3409d9766d352cc9f9b169d4a799a87a/auto_examples_python.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">examples</span> <span class="pre">in</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">auto_examples_python.zip</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/2bcf52068bd3ac236f25e08510e869ea/plot_adult.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_adult.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../_downloads/d34667f097c619f8afda4bc936e7af21/auto_examples_jupyter.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">examples</span> <span class="pre">in</span> <span class="pre">Jupyter</span> <span class="pre">notebooks:</span> <span class="pre">auto_examples_jupyter.zip</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/08485f2afbc523ab69fd9fa82cf45066/plot_adult.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_adult.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
@@ -215,10 +231,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="plot_ames.html" class="btn btn-neutral float-right" title="Ames Housing Dataset Visualization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="plot_wine.html" class="btn btn-neutral float-right" title="Wine Classification Dataset Visualization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../generated/dabl.datasets.load_titanic.html" class="btn btn-neutral float-left" title="dabl.datasets.load_titanic" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="plot_ames.html" class="btn btn-neutral float-left" title="Ames Housing Dataset Visualization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
