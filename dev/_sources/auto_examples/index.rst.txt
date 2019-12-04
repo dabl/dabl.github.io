@@ -15,66 +15,6 @@ Introductory examples.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Ames Housing Dataset Visualization">
-
-.. only:: html
-
- .. figure:: /auto_examples/images/thumb/sphx_glr_plot_ames_thumb.png
-
-     :ref:`sphx_glr_auto_examples_plot_ames.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /auto_examples/plot_ames
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Adult Census Dataset Visualization">
-
-.. only:: html
-
- .. figure:: /auto_examples/images/thumb/sphx_glr_plot_adult_thumb.png
-
-     :ref:`sphx_glr_auto_examples_plot_adult.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /auto_examples/plot_adult
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Wine Classification Dataset Visualization">
-
-.. only:: html
-
- .. figure:: /auto_examples/images/thumb/sphx_glr_plot_wine_thumb.png
-
-     :ref:`sphx_glr_auto_examples_plot_wine.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /auto_examples/plot_wine
-
-.. raw:: html
-
     <div class="sphx-glr-thumbcontainer" tooltip="Successive Halving">
 
 .. only:: html
