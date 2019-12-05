@@ -47,7 +47,7 @@ Adult Census Dataset Visualization
 
  .. code-block:: none
 
-    /home/circleci/project/dabl/plot/supervised.py:501: FutureWarning: The second positional argument of plot is a Series 'y'. If passing a column name, use a keyword.
+    /home/circleci/project/dabl/plot/supervised.py:499: FutureWarning: The second positional argument of plot is a Series 'y'. If passing a column name, use a keyword.
       FutureWarning)
     /home/circleci/project/dabl/preprocessing.py:271: UserWarning: Discarding near-constant features: ['capital-loss']
       near_constant.index[near_constant].tolist()))
@@ -79,7 +79,7 @@ Adult Census Dataset Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.739 seconds)
+   **Total running time of the script:** ( 0 minutes  3.764 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_adult.py:
