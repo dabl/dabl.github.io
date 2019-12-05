@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dabl.preprocessing.clean &mdash; dabl  documentation</title>
+  <title>dabl.datasets.load_adult &mdash; dabl  documentation</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="dabl.plot.class_hists" href="dabl.plot.class_hists.html" />
-    <link rel="prev" title="dabl.preprocessing.detect_types" href="dabl.preprocessing.detect_types.html" /> 
+    <link rel="next" title="dabl.datasets.load_ames" href="dabl.datasets.load_ames.html" />
+    <link rel="prev" title="dabl.SimpleRegressor" href="dabl.SimpleRegressor.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -95,17 +95,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide.html">Machine Learning with dabl</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">dabl API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../api.html#high-level-api">High-level API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api.html#supervised-models">Supervised Models</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../api.html#preprocessing">Preprocessing</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="dabl.preprocessing.EasyPreprocessor.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.preprocessing</span></code>.EasyPreprocessor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dabl.preprocessing.detect_types.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.preprocessing</span></code>.detect_types</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.preprocessing</span></code>.clean</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html#full-api">Full API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../api.html#datasets">Datasets</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.datasets</span></code>.load_adult</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dabl.datasets.load_ames.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.datasets</span></code>.load_ames</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dabl.datasets.load_titanic.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.datasets</span></code>.load_titanic</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../api.html#plotting">Plotting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api.html#model-search">Model Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api.html#portfolios">Portfolios</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api.html#datasets">Datasets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#model-search">Model Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#plotting">Plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#portfolios">Portfolios</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -160,13 +161,13 @@
         
           <li><a href="../api.html">dabl API</a> &raquo;</li>
         
-      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.preprocessing</span></code>.clean</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.datasets</span></code>.load_adult</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/generated/dabl.preprocessing.clean.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/generated/dabl.datasets.load_adult.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -179,21 +180,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="dabl-preprocessing-clean">
-<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.preprocessing</span></code>.clean<a class="headerlink" href="#dabl-preprocessing-clean" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="dabl-datasets-load-adult">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.datasets</span></code>.load_adult<a class="headerlink" href="#dabl-datasets-load-adult" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="dabl.preprocessing.clean">
-<code class="sig-prename descclassname">dabl.preprocessing.</code><code class="sig-name descname">clean</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">return_types=False</em>, <em class="sig-param">verbose=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/preprocessing.html#clean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.preprocessing.clean" title="Permalink to this definition">¶</a></dt>
-<dd><p>Public clean interface</p>
+<dt id="dabl.datasets.load_adult">
+<code class="sig-prename descclassname">dabl.datasets.</code><code class="sig-name descname">load_adult</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/datasets.html#load_adult"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.datasets.load_adult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load adult census dataset.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>type_hints</strong><span class="classifier">dict or None</span></dt><dd><p>If dict, provide type information for columns.
-Keys are column names, values are types as provided by detect_types.</p>
-</dd>
-<dt><strong>return_types</strong><span class="classifier">bool, default=False</span></dt><dd><p>Whether to return the inferred types</p>
-</dd>
-<dt><strong>verbose</strong><span class="classifier">int, default=0</span></dt><dd><p>Verbosity control.</p>
+<dt><strong>data</strong><span class="classifier">DataFrame</span></dt><dd><p>DataFrame containing the adult dataset.</p>
 </dd>
 </dl>
 </dd>
@@ -210,10 +206,10 @@ Keys are column names, values are types as provided by detect_types.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="dabl.plot.class_hists.html" class="btn btn-neutral float-right" title="dabl.plot.class_hists" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="dabl.datasets.load_ames.html" class="btn btn-neutral float-right" title="dabl.datasets.load_ames" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="dabl.preprocessing.detect_types.html" class="btn btn-neutral float-left" title="dabl.preprocessing.detect_types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="dabl.SimpleRegressor.html" class="btn btn-neutral float-left" title="dabl.SimpleRegressor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -184,7 +184,7 @@
 
 
 <div class="viewcode-block" id="find_pretty_grid"><a class="viewcode-back" href="../../../generated/dabl.plot.find_pretty_grid.html#dabl.plot.find_pretty_grid">[docs]</a><span class="k">def</span> <span class="nf">find_pretty_grid</span><span class="p">(</span><span class="n">n_plots</span><span class="p">,</span> <span class="n">max_cols</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Determine a good grid shape for n_plots subplots.</span>
+    <span class="sd">&quot;&quot;&quot;Determine a good grid shape for subplots.</span>
 
 <span class="sd">    Tries to find a way to arange n_plots many subplots on a grid in a way</span>
 <span class="sd">    that fills as many grid-cells as possible, while keeping the number</span>
@@ -236,7 +236,7 @@
     <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">n_plots</span> <span class="o">/</span> <span class="n">best_cols</span><span class="p">)),</span> <span class="n">best_cols</span></div>
 
 
-<span class="k">def</span> <span class="nf">plot_coefficients</span><span class="p">(</span><span class="n">coefficients</span><span class="p">,</span> <span class="n">feature_names</span><span class="p">,</span> <span class="n">n_top_features</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<div class="viewcode-block" id="plot_coefficients"><a class="viewcode-back" href="../../../generated/dabl.plot.plot_coefficients.html#dabl.plot.plot_coefficients">[docs]</a><span class="k">def</span> <span class="nf">plot_coefficients</span><span class="p">(</span><span class="n">coefficients</span><span class="p">,</span> <span class="n">feature_names</span><span class="p">,</span> <span class="n">n_top_features</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
                       <span class="n">classname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Visualize coefficients of a linear model.</span>
 
@@ -291,7 +291,7 @@
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Coefficient magnitude&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Feature&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">classname</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">feature_names</span><span class="p">[</span><span class="n">interesting_coefficients</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">feature_names</span><span class="p">[</span><span class="n">interesting_coefficients</span><span class="p">]</span></div>
 
 
 <span class="k">def</span> <span class="nf">heatmap</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">xlabel</span><span class="p">,</span> <span class="n">ylabel</span><span class="p">,</span> <span class="n">xticklabels</span><span class="p">,</span> <span class="n">yticklabels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>

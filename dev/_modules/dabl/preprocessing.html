@@ -284,7 +284,7 @@
     <span class="k">return</span> <span class="kc">True</span>
 
 
-<div class="viewcode-block" id="detect_types"><a class="viewcode-back" href="../../generated/dabl.preprocessing.detect_types.html#dabl.detect_types">[docs]</a><span class="k">def</span> <span class="nf">detect_types</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_int_cardinality</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+<div class="viewcode-block" id="detect_types"><a class="viewcode-back" href="../../generated/dabl.detect_types.html#dabl.detect_types">[docs]</a><span class="k">def</span> <span class="nf">detect_types</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_int_cardinality</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
                  <span class="n">dirty_float_threshold</span><span class="o">=.</span><span class="mi">9</span><span class="p">,</span>
                  <span class="n">near_constant_threshold</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Detect types of dataframe columns.</span>
@@ -508,7 +508,7 @@
     <span class="k">return</span> <span class="n">X</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="clean"><a class="viewcode-back" href="../../generated/dabl.preprocessing.clean.html#dabl.clean">[docs]</a><span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_types</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="clean"><a class="viewcode-back" href="../../generated/dabl.clean.html#dabl.clean">[docs]</a><span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_types</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Public clean interface</span>
 
 <span class="sd">    Parameters</span>
@@ -558,7 +558,7 @@
     <span class="k">return</span> <span class="n">X</span></div>
 
 
-<div class="viewcode-block" id="EasyPreprocessor"><a class="viewcode-back" href="../../generated/dabl.preprocessing.EasyPreprocessor.html#dabl.EasyPreprocessor">[docs]</a><span class="k">class</span> <span class="nc">EasyPreprocessor</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
+<div class="viewcode-block" id="EasyPreprocessor"><a class="viewcode-back" href="../../generated/dabl.EasyPreprocessor.html#dabl.EasyPreprocessor">[docs]</a><span class="k">class</span> <span class="nc">EasyPreprocessor</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;A simple preprocessor</span>
 
 <span class="sd">    Detects variable types, encodes everything as floats</span>
@@ -593,14 +593,14 @@
 <span class="sd">        Control output verbosity.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="EasyPreprocessor.__init__"><a class="viewcode-back" href="../../generated/dabl.preprocessing.EasyPreprocessor.html#dabl.EasyPreprocessor.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">force_imputation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<div class="viewcode-block" id="EasyPreprocessor.__init__"><a class="viewcode-back" href="../../generated/dabl.EasyPreprocessor.html#dabl.EasyPreprocessor.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">force_imputation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
                  <span class="n">types</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="n">scale</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">types</span> <span class="o">=</span> <span class="n">types</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">force_imputation</span> <span class="o">=</span> <span class="n">force_imputation</span></div>
 
-<div class="viewcode-block" id="EasyPreprocessor.fit"><a class="viewcode-back" href="../../generated/dabl.preprocessing.EasyPreprocessor.html#dabl.EasyPreprocessor.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="EasyPreprocessor.fit"><a class="viewcode-back" href="../../generated/dabl.EasyPreprocessor.html#dabl.EasyPreprocessor.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;A reference implementation of a fitting function for a transformer.</span>
 
 <span class="sd">        Parameters</span>
@@ -717,7 +717,7 @@
                     <span class="s2">&quot;Can&#39;t compute feature names for </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">feature_names</span>
 
-<div class="viewcode-block" id="EasyPreprocessor.transform"><a class="viewcode-back" href="../../generated/dabl.preprocessing.EasyPreprocessor.html#dabl.EasyPreprocessor.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+<div class="viewcode-block" id="EasyPreprocessor.transform"><a class="viewcode-back" href="../../generated/dabl.EasyPreprocessor.html#dabl.EasyPreprocessor.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; A reference implementation of a transform function.</span>
 
 <span class="sd">        Parameters</span>

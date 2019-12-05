@@ -97,42 +97,44 @@
 <li class="toctree-l2"><a class="reference internal" href="#high-level-api">High-level API</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="generated/dabl.clean.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.clean</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/dabl.detect_types.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.detect_types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/dabl.explain.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.explain</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/dabl.plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/dabl.SimpleClassifier.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.SimpleClassifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/dabl.AnyClassifier.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.AnyClassifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/dabl.EasyPreprocessor.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.EasyPreprocessor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/dabl.SimpleClassifier.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.SimpleClassifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/dabl.SimpleRegressor.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.SimpleRegressor</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#supervised-models">Supervised Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#preprocessing">Preprocessing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/dabl.preprocessing.EasyPreprocessor.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.preprocessing</span></code>.EasyPreprocessor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/dabl.preprocessing.detect_types.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.preprocessing</span></code>.detect_types</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/dabl.preprocessing.clean.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.preprocessing</span></code>.clean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#full-api">Full API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#datasets">Datasets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/dabl.datasets.load_adult.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.datasets</span></code>.load_adult</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/dabl.datasets.load_ames.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.datasets</span></code>.load_ames</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/dabl.datasets.load_titanic.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.datasets</span></code>.load_titanic</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#plotting">Plotting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/dabl.plot.class_hists.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.class_hists</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/dabl.plot.discrete_scatter.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.discrete_scatter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/dabl.plot.find_pretty_grid.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.find_pretty_grid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/dabl.plot.mosaic_plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.mosaic_plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/dabl.plot.plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/dabl.plot.plot_classification_categorical.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_classification_categorical</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/dabl.plot.plot_classification_continuous.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_classification_continuous</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/dabl.plot.plot_regression_categorical.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_regression_categorical</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/dabl.plot.plot_regression_continuous.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_regression_continuous</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-search">Model Search</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/dabl.search.GridSuccessiveHalving.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.search</span></code>.GridSuccessiveHalving</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/dabl.search.RandomSuccessiveHalving.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.search</span></code>.RandomSuccessiveHalving</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#model-search">Model Search</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/dabl.search.GridSuccessiveHalving.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.search</span></code>.GridSuccessiveHalving</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/dabl.search.RandomSuccessiveHalving.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.search</span></code>.RandomSuccessiveHalving</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plotting">Plotting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/dabl.plot.class_hists.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.class_hists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/dabl.plot.discrete_scatter.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.discrete_scatter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/dabl.plot.find_pretty_grid.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.find_pretty_grid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/dabl.plot.mosaic_plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.mosaic_plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/dabl.plot.plot_classification_categorical.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_classification_categorical</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/dabl.plot.plot_classification_continuous.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_classification_continuous</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/dabl.plot.plot_coefficients.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_coefficients</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/dabl.plot.plot_regression_categorical.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_regression_categorical</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/dabl.plot.plot_regression_continuous.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code>.plot_regression_continuous</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#portfolios">Portfolios</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/dabl.pipelines.get_fast_classifiers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.pipelines</span></code>.get_fast_classifiers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#portfolios">Portfolios</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/dabl.pipelines.get_any_classifiers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.pipelines</span></code>.get_any_classifiers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/dabl.pipelines.get_fast_classifiers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.pipelines</span></code>.get_fast_classifiers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/dabl.pipelines.get_fast_regressors.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.pipelines</span></code>.get_fast_regressors</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#datasets">Datasets</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/dabl.datasets.load_ames.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.datasets</span></code>.load_ames</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/dabl.datasets.load_titanic.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.datasets</span></code>.load_titanic</a></li>
 </ul>
 </li>
 </ul>
@@ -223,8 +225,11 @@
 <tr class="row-even"><td><p><a class="reference internal" href="generated/dabl.detect_types.html#dabl.detect_types" title="dabl.detect_types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">detect_types</span></code></a>(X[, type_hints, …])</p></td>
 <td><p>Detect types of dataframe columns.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/dabl.plot.html#dabl.plot" title="dabl.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a>(X[, y, target_col, type_hints, …])</p></td>
-<td><p>Exploration plots for classification and regression.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/dabl.explain.html#dabl.explain" title="dabl.explain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">explain</span></code></a>(estimator[, X_val, y_val, …])</p></td>
+<td><p>Explain estimator.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/dabl.plot.html#dabl.plot" title="dabl.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a>(X[, y, target_col, type_hints, …])</p></td>
+<td><p>Automatic plots for classification and regression.</p></td>
 </tr>
 </tbody>
 </table>
@@ -234,59 +239,62 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/dabl.SimpleClassifier.html#dabl.SimpleClassifier" title="dabl.SimpleClassifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SimpleClassifier</span></code></a>([refit, random_state, verbose])</p></td>
-<td><p>Automagic anytime classifier.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/dabl.AnyClassifier.html#dabl.AnyClassifier" title="dabl.AnyClassifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AnyClassifier</span></code></a>([n_jobs, …])</p></td>
+<td><p>Classifier with automatic model selection.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/dabl.EasyPreprocessor.html#dabl.EasyPreprocessor" title="dabl.EasyPreprocessor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EasyPreprocessor</span></code></a>([scale, force_imputation, …])</p></td>
 <td><p>A simple preprocessor</p></td>
 </tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="supervised-models">
-<h2>Supervised Models<a class="headerlink" href="#supervised-models" title="Permalink to this headline">¶</a></h2>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/dabl.SimpleClassifier.html#dabl.SimpleClassifier" title="dabl.SimpleClassifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SimpleClassifier</span></code></a>([refit, random_state, verbose])</p></td>
+<td><p>Automagic anytime classifier.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/dabl.SimpleRegressor.html#dabl.SimpleRegressor" title="dabl.SimpleRegressor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SimpleRegressor</span></code></a>([refit, random_state, verbose])</p></td>
 <td><p>Automagic anytime classifier.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="preprocessing">
-<h2>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="full-api">
+<h2>Full API<a class="headerlink" href="#full-api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="datasets">
+<h3>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/dabl.preprocessing.EasyPreprocessor.html#dabl.preprocessing.EasyPreprocessor" title="dabl.preprocessing.EasyPreprocessor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EasyPreprocessor</span></code></a>([scale, force_imputation, …])</p></td>
-<td><p>A simple preprocessor</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/dabl.datasets.load_adult.html#dabl.datasets.load_adult" title="dabl.datasets.load_adult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_adult</span></code></a>()</p></td>
+<td><p>Load adult census dataset.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/dabl.datasets.load_ames.html#dabl.datasets.load_ames" title="dabl.datasets.load_ames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_ames</span></code></a>()</p></td>
+<td><p>Load ames housing dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/dabl.datasets.load_titanic.html#dabl.datasets.load_titanic" title="dabl.datasets.load_titanic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_titanic</span></code></a>()</p></td>
+<td><p>Load titanic dataset.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="model-search">
+<h3>Model Search<a class="headerlink" href="#model-search" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/dabl.preprocessing.detect_types.html#dabl.preprocessing.detect_types" title="dabl.preprocessing.detect_types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">detect_types</span></code></a>(X[, type_hints, …])</p></td>
-<td><p>Detect types of dataframe columns.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/dabl.search.GridSuccessiveHalving.html#dabl.search.GridSuccessiveHalving" title="dabl.search.GridSuccessiveHalving"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GridSuccessiveHalving</span></code></a>(estimator, param_grid)</p></td>
+<td><p>Grid-search with successive halving.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/dabl.preprocessing.clean.html#dabl.preprocessing.clean" title="dabl.preprocessing.clean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clean</span></code></a>(X[, type_hints, return_types, verbose])</p></td>
-<td><p>Public clean interface</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/dabl.search.RandomSuccessiveHalving.html#dabl.search.RandomSuccessiveHalving" title="dabl.search.RandomSuccessiveHalving"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RandomSuccessiveHalving</span></code></a>(estimator, …[, …])</p></td>
+<td><p>Randomized search with successive halving.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="plotting">
-<h2>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">¶</a></h2>
+<h3>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -300,76 +308,50 @@
 <td><p>Scatter plot for categories.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/dabl.plot.find_pretty_grid.html#dabl.plot.find_pretty_grid" title="dabl.plot.find_pretty_grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_pretty_grid</span></code></a>(n_plots[, max_cols])</p></td>
-<td><p>Determine a good grid shape for n_plots subplots.</p></td>
+<td><p>Determine a good grid shape for subplots.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/dabl.plot.mosaic_plot.html#dabl.plot.mosaic_plot" title="dabl.plot.mosaic_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mosaic_plot</span></code></a>(data, rows, cols[, …])</p></td>
 <td><p>Create a mosaic plot from a dataframe.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/dabl.plot.plot.html#dabl.plot.plot" title="dabl.plot.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a>(X[, y, target_col, type_hints, …])</p></td>
-<td><p>Exploration plots for classification and regression.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/dabl.plot.plot_classification_categorical.html#dabl.plot.plot_classification_categorical" title="dabl.plot.plot_classification_categorical"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_classification_categorical</span></code></a>(X, target_col)</p></td>
+<td><p>Plots for categorical features in classification.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/dabl.plot.plot_classification_categorical.html#dabl.plot.plot_classification_categorical" title="dabl.plot.plot_classification_categorical"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_classification_categorical</span></code></a>(X, target_col)</p></td>
-<td><p>Exploration plots for categorical features in classification.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/dabl.plot.plot_classification_continuous.html#dabl.plot.plot_classification_continuous" title="dabl.plot.plot_classification_continuous"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_classification_continuous</span></code></a>(X, target_col)</p></td>
+<td><p>Plots for continuous features in classification.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/dabl.plot.plot_classification_continuous.html#dabl.plot.plot_classification_continuous" title="dabl.plot.plot_classification_continuous"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_classification_continuous</span></code></a>(X, target_col)</p></td>
-<td><p>Exploration plots for continuous features in classification.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/dabl.plot.plot_coefficients.html#dabl.plot.plot_coefficients" title="dabl.plot.plot_coefficients"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_coefficients</span></code></a>(coefficients, feature_names)</p></td>
+<td><p>Visualize coefficients of a linear model.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/dabl.plot.plot_regression_categorical.html#dabl.plot.plot_regression_categorical" title="dabl.plot.plot_regression_categorical"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_regression_categorical</span></code></a>(X, target_col[, …])</p></td>
-<td><p>Exploration plots for categorical features in regression.</p></td>
+<td><p>Plots for categorical features in regression.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/dabl.plot.plot_regression_continuous.html#dabl.plot.plot_regression_continuous" title="dabl.plot.plot_regression_continuous"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_regression_continuous</span></code></a>(X, target_col[, …])</p></td>
-<td><p>Exploration plots for continuous features in regression.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="model-search">
-<h2>Model Search<a class="headerlink" href="#model-search" title="Permalink to this headline">¶</a></h2>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/dabl.search.GridSuccessiveHalving.html#dabl.search.GridSuccessiveHalving" title="dabl.search.GridSuccessiveHalving"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GridSuccessiveHalving</span></code></a>(estimator, param_grid)</p></td>
-<td><p>Search over specified parameter values with successive halving.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/dabl.search.RandomSuccessiveHalving.html#dabl.search.RandomSuccessiveHalving" title="dabl.search.RandomSuccessiveHalving"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RandomSuccessiveHalving</span></code></a>(estimator, …[, …])</p></td>
-<td><p>Randomized search on hyper parameters.</p></td>
+<td><p>Plots for continuous features in regression.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="portfolios">
-<h2>Portfolios<a class="headerlink" href="#portfolios" title="Permalink to this headline">¶</a></h2>
+<h3>Portfolios<a class="headerlink" href="#portfolios" title="Permalink to this headline">¶</a></h3>
+<p>Built-in lists of classifiers and regressors to search.</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/dabl.pipelines.get_fast_classifiers.html#dabl.pipelines.get_fast_classifiers" title="dabl.pipelines.get_fast_classifiers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_fast_classifiers</span></code></a>(n_classes)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/dabl.pipelines.get_any_classifiers.html#dabl.pipelines.get_any_classifiers" title="dabl.pipelines.get_any_classifiers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_any_classifiers</span></code></a>()</p></td>
+<td><p>Return a portfolio of classifiers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/dabl.pipelines.get_fast_classifiers.html#dabl.pipelines.get_fast_classifiers" title="dabl.pipelines.get_fast_classifiers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_fast_classifiers</span></code></a>(n_classes)</p></td>
 <td><p>Get a list of very fast classifiers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/dabl.pipelines.get_fast_regressors.html#dabl.pipelines.get_fast_regressors" title="dabl.pipelines.get_fast_regressors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_fast_regressors</span></code></a>()</p></td>
+<td><p>Get a list of very fast regressors.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="datasets">
-<h2>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h2>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/dabl.datasets.load_ames.html#dabl.datasets.load_ames" title="dabl.datasets.load_ames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_ames</span></code></a>()</p></td>
-<td><p>Load ames housing dataset.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/dabl.datasets.load_titanic.html#dabl.datasets.load_titanic" title="dabl.datasets.load_titanic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_titanic</span></code></a>()</p></td>
-<td><p>Load titanic dataset.</p></td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 

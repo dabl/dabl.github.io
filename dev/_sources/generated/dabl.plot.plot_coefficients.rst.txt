@@ -1,0 +1,12 @@
+:mod:`dabl.plot`.plot_coefficients
+===============================================
+
+.. currentmodule:: dabl.plot
+
+.. autofunction:: plot_coefficients
+
+.. include:: dabl.plot.plot_coefficients.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>
