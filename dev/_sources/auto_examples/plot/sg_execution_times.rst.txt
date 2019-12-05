@@ -5,18 +5,18 @@
 
 Computation times
 =================
-**00:51.748** total execution time for **auto_examples_plot** files:
+**00:47.556** total execution time for **auto_examples_plot** files:
 
 +----------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_human_activity.py` (``plot_human_activity.py``) | 00:23.617 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_plot_human_activity.py` (``plot_human_activity.py``) | 00:21.972 | 0.0 MB |
 +----------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_mfeat_factors.py` (``plot_mfeat_factors.py``)   | 00:11.701 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_plot_mfeat_factors.py` (``plot_mfeat_factors.py``)   | 00:10.430 | 0.0 MB |
 +----------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_splice.py` (``plot_splice.py``)                 | 00:04.987 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_plot_splice.py` (``plot_splice.py``)                 | 00:04.486 | 0.0 MB |
 +----------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_ames.py` (``plot_ames.py``)                     | 00:04.578 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_plot_ames.py` (``plot_ames.py``)                     | 00:04.120 | 0.0 MB |
 +----------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_adult.py` (``plot_adult.py``)                   | 00:03.732 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_plot_adult.py` (``plot_adult.py``)                   | 00:03.671 | 0.0 MB |
 +----------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_wine.py` (``plot_wine.py``)                     | 00:03.132 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_plot_wine.py` (``plot_wine.py``)                     | 00:02.877 | 0.0 MB |
 +----------------------------------------------------------------------------------------+-----------+--------+
