@@ -187,7 +187,7 @@
 
 <span class="kn">from</span> <span class="nn">sklearn.dummy</span> <span class="kn">import</span> <span class="n">DummyClassifier</span>
 
-<span class="kn">from</span> <span class="nn">.preprocessing</span> <span class="kn">import</span> <span class="n">EasyPreprocessor</span><span class="p">,</span> <span class="n">clean</span><span class="p">,</span> <span class="n">detect_types</span>
+<span class="kn">from</span> <span class="nn">.preprocessing</span> <span class="kn">import</span> <span class="n">EasyPreprocessor</span><span class="p">,</span> <span class="n">detect_types</span>
 <span class="kn">from</span> <span class="nn">.pipelines</span> <span class="kn">import</span> <span class="p">(</span><span class="n">get_fast_classifiers</span><span class="p">,</span> <span class="n">get_fast_regressors</span><span class="p">,</span>
                         <span class="n">get_any_classifiers</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">nice_repr</span><span class="p">,</span> <span class="n">_validate_Xyt</span>
@@ -274,7 +274,7 @@
         <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">_validate_Xyt</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">do_clean</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
             <span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-        <span class="n">types</span> <span class="o">=</span> <span class="n">detect_types</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">types</span> <span class="o">=</span> <span class="n">detect_types</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">type_hints</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">feature_names_</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">types_</span> <span class="o">=</span> <span class="n">types</span>
 
@@ -323,7 +323,8 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">refit</span><span class="p">:</span>
             <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
                 <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">est_</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">EasyPreprocessor</span><span class="p">(),</span> <span class="n">best_est</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">est_</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">EasyPreprocessor</span><span class="p">(</span><span class="n">types</span><span class="o">=</span><span class="n">types</span><span class="p">),</span>
+                                          <span class="n">best_est</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">est_</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
 
@@ -342,16 +343,23 @@
 <span class="sd">    verbose : integer, default=1</span>
 <span class="sd">        Verbosity (higher is more output)</span>
 
+<span class="sd">    type_hints : dict or None</span>
+<span class="sd">            If dict, provide type information for columns.</span>
+<span class="sd">            Keys are column names, values are types as provided by</span>
+<span class="sd">            detect_types.</span>
+
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
 <span class="sd">    est_ : sklearn estimator</span>
 <span class="sd">        Best estimator found.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="SimpleClassifier.__init__"><a class="viewcode-back" href="../../generated/dabl.SimpleClassifier.html#dabl.SimpleClassifier.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="viewcode-block" id="SimpleClassifier.__init__"><a class="viewcode-back" href="../../generated/dabl.SimpleClassifier.html#dabl.SimpleClassifier.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                 <span class="n">type_hints</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">random_state</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">refit</span> <span class="o">=</span> <span class="n">refit</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refit</span> <span class="o">=</span> <span class="n">refit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type_hints</span> <span class="o">=</span> <span class="n">type_hints</span></div>
 
     <span class="k">def</span> <span class="nf">_get_estimators</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">get_fast_classifiers</span><span class="p">(</span><span class="n">n_classes</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">classes_</span><span class="p">))</span>
@@ -380,7 +388,7 @@
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unknown target type: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_type</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">y</span><span class="p">,</span> <span class="n">scoring</span>
 
-<div class="viewcode-block" id="SimpleClassifier.fit"><a class="viewcode-back" href="../../generated/dabl.SimpleClassifier.html#dabl.SimpleClassifier.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="SimpleClassifier.fit"><a class="viewcode-back" href="../../generated/dabl.SimpleClassifier.html#dabl.SimpleClassifier.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Fit classifier.</span>
 
 <span class="sd">        Requires to either specify the target as separate 1d array or Series y</span>
@@ -415,11 +423,18 @@
 
 <span class="sd">    verbose : integer, default=1</span>
 <span class="sd">        Verbosity (higher is more output)</span>
+
+<span class="sd">    type_hints : dict or None</span>
+<span class="sd">            If dict, provide type information for columns.</span>
+<span class="sd">            Keys are column names, values are types as provided by</span>
+<span class="sd">            detect_types.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="SimpleRegressor.__init__"><a class="viewcode-back" href="../../generated/dabl.SimpleRegressor.html#dabl.SimpleRegressor.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="viewcode-block" id="SimpleRegressor.__init__"><a class="viewcode-back" href="../../generated/dabl.SimpleRegressor.html#dabl.SimpleRegressor.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                 <span class="n">type_hints</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">refit</span> <span class="o">=</span> <span class="n">refit</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">random_state</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">random_state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type_hints</span> <span class="o">=</span> <span class="n">type_hints</span></div>
 
     <span class="k">def</span> <span class="nf">_get_estimators</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">get_fast_regressors</span><span class="p">()</span>
@@ -434,7 +449,7 @@
         <span class="n">scoring</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;r2&#39;</span><span class="p">,</span> <span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">y</span><span class="p">,</span> <span class="n">scoring</span>
 
-<div class="viewcode-block" id="SimpleRegressor.fit"><a class="viewcode-back" href="../../generated/dabl.SimpleRegressor.html#dabl.SimpleRegressor.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="SimpleRegressor.fit"><a class="viewcode-back" href="../../generated/dabl.SimpleRegressor.html#dabl.SimpleRegressor.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Fit regressor.</span>
 
 <span class="sd">        Requires to either specify the target as separate 1d array or Series y</span>
@@ -451,6 +466,7 @@
 <span class="sd">            Target class labels. You need to specify either y or target_col.</span>
 <span class="sd">        target_col : string or int, optional</span>
 <span class="sd">            Column name of target if included in X.</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rank_scoring</span> <span class="o">=</span> <span class="s2">&quot;r2&quot;</span>
 
@@ -480,6 +496,11 @@
 <span class="sd">    verbose : integer, default=0</span>
 <span class="sd">        Verbosity. Higher means more output.</span>
 
+<span class="sd">    type_hints : dict or None</span>
+<span class="sd">            If dict, provide type information for columns.</span>
+<span class="sd">            Keys are column names, values are types as provided by</span>
+<span class="sd">            detect_types.</span>
+
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
 <span class="sd">    search_ : SuccessiveHalving instance</span>
@@ -489,10 +510,12 @@
 <span class="sd">        Best estimator (pipeline) found during search.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="AnyClassifier.__init__"><a class="viewcode-back" href="../../generated/dabl.AnyClassifier.html#dabl.AnyClassifier.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">force_exhaust_budget</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="AnyClassifier.__init__"><a class="viewcode-back" href="../../generated/dabl.AnyClassifier.html#dabl.AnyClassifier.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">force_exhaust_budget</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="n">type_hints</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">force_exhaust_budget</span> <span class="o">=</span> <span class="n">force_exhaust_budget</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">force_exhaust_budget</span> <span class="o">=</span> <span class="n">force_exhaust_budget</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type_hints</span> <span class="o">=</span> <span class="n">type_hints</span></div>
 
     <span class="k">def</span> <span class="nf">_get_estimators</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">get_any_classifiers</span><span class="p">()</span>
@@ -522,7 +545,7 @@
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">est_</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
-<div class="viewcode-block" id="AnyClassifier.fit"><a class="viewcode-back" href="../../generated/dabl.AnyClassifier.html#dabl.AnyClassifier.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="AnyClassifier.fit"><a class="viewcode-back" href="../../generated/dabl.AnyClassifier.html#dabl.AnyClassifier.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Fit estimator.</span>
 
 <span class="sd">        Requiers to either specify the target as separate 1d array or Series y</span>
@@ -549,7 +572,7 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
             <span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
-        <span class="n">types</span> <span class="o">=</span> <span class="n">detect_types</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">types</span> <span class="o">=</span> <span class="n">detect_types</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">type_hints</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">feature_names_</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">types_</span> <span class="o">=</span> <span class="n">types</span>
         <span class="n">cv</span> <span class="o">=</span> <span class="mi">5</span>
