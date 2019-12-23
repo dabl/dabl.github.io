@@ -213,7 +213,7 @@ fitted models.</p>
 </div>
 <div class="section" id="data-cleaning">
 <h2>Data cleaning<a class="headerlink" href="#data-cleaning" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">dabl</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">dabl</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dabl</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">data_path</span><span class="p">(</span><span class="s2">&quot;adult.csv.gz&quot;</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data_clean</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">data</span><span class="p">)[::</span><span class="mi">10</span><span class="p">]</span>
@@ -228,13 +228,13 @@ create useful visualizations and models, and to allow the user to perform
 custom cleaning operations themselves.
 In particular if the detection of semantic types (continuous, categorical,
 ordinal, text, etc) fails, the user can provide <code class="docutils literal notranslate"><span class="pre">type_hints</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data_clean</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;capital-gain&quot;</span><span class="p">:</span> <span class="s2">&quot;continuous&quot;</span><span class="p">})</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data_clean</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;capital-gain&quot;</span><span class="p">:</span> <span class="s2">&quot;continuous&quot;</span><span class="p">})</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="exploratory-data-analysis">
 <h2>Exploratory Data analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dabl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s2">&quot;income&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dabl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s2">&quot;income&quot;</span><span class="p">)</span>
 <span class="go">Target looks like classification</span>
 <span class="go">Linear Discriminant Analysis training set score: ...</span>
 </pre></div>
@@ -251,7 +251,7 @@ leakage through spurious representations of the target in the data.</p>
 </div>
 <div class="section" id="initial-model-building">
 <h2>Initial Model Building<a class="headerlink" href="#initial-model-building" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ec</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">SimpleClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s2">&quot;income&quot;</span><span class="p">)</span> 
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ec</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">SimpleClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s2">&quot;income&quot;</span><span class="p">)</span> 
 <span class="go">    DummyClassifier(strategy=&#39;prior&#39;)</span>
 <span class="go">    accuracy: 0.759    average_precision: 0.241    recall_macro: 0.500    roc_auc: 0.500</span>
 <span class="go">    new best (using recall_macro):</span>
@@ -310,7 +310,7 @@ features <code class="docutils literal notranslate"><span class="pre">X</span></
 column inside of X as``target_col``.</p>
 <p>The SimpleClassifier also performs preprocessing such as missing value
 imputation and one-hot-encoding.  You can inspect the model using:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dabl</span><span class="o">.</span><span class="n">explain</span><span class="p">(</span><span class="n">ec</span><span class="p">)</span> 
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dabl</span><span class="o">.</span><span class="n">explain</span><span class="p">(</span><span class="n">ec</span><span class="p">)</span> 
 </pre></div>
 </div>
 <p>This can lead to additional insights and guide costom processing and
@@ -318,7 +318,7 @@ cleaning of the data.</p>
 </div>
 <div class="section" id="enhanced-model-building">
 <h2>Enhanced Model Building<a class="headerlink" href="#enhanced-model-building" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># ac = AnyClassifier().fit(data, target_col=&quot;income&quot;) not implemented yet</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># ac = AnyClassifier().fit(data, target_col=&quot;income&quot;) not implemented yet</span>
 </pre></div>
 </div>
 <p>After creating an initial model, it’s interesting to explore more powerful
@@ -327,7 +327,7 @@ models that commonly perform well, and identifies promising candidates.  If
 your goal is prediction, <code class="docutils literal notranslate"><span class="pre">AnyClassifier</span></code> can provide a strong baseline for
 further investigation.  Again, we can inspect our model to understand it
 better:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># explain(ac)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># explain(ac)</span>
 </pre></div>
 </div>
 </div>
@@ -339,7 +339,7 @@ complex model can serve as a good benchmark on what is achievable on a certain
 dataset. After this benchmark is established, it is interesting to see if we
 can build a model that is interpretable while still providing competitive
 performance.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># xc = ExplainableClassifier().fit(data, target_col=&quot;income&quot;)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># xc = ExplainableClassifier().fit(data, target_col=&quot;income&quot;)</span>
 </pre></div>
 </div>
 </div>

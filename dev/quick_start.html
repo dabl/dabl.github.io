@@ -171,18 +171,18 @@ whether a passenger survived or not based on the information about the
 passenger in that file.
 We know, for tabular data like this, pandas is our friend.
 Clearly we need to start with loading our data:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">dabl</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">titanic</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dabl</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">data_path</span><span class="p">(</span><span class="s2">&quot;titanic.csv&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Let’s familiarize ourself with the data a bit; what’s the shape, what are the
 columns, what do they look like?</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">titanic</span><span class="o">.</span><span class="n">shape</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">titanic</span><span class="o">.</span><span class="n">shape</span>
 <span class="go">(1309, 14)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">titanic</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> 
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">titanic</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> 
 <span class="go">   pclass  survived  ... body                        home.dest</span>
 <span class="go">0       1         1  ...    ?                     St Louis, MO</span>
 <span class="go">1       1         1  ...    ?  Montreal, PQ / Chesterville, ON</span>
@@ -195,7 +195,7 @@ columns, what do they look like?</p>
 </div>
 <p>So far so good! There’s already a bunch of things going on in the data that we
 can see here, but let’s ask dabl what it thinks by cleaning up the data:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">titanic_clean</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">titanic</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">titanic_clean</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">titanic</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This provides us with lots of information about what is happening in the
@@ -207,7 +207,7 @@ This is probably a marker for a missing value and we could go back and fix our
 parsing of the CSV, but let’s try an continue with what dabl is doing
 automatically for now.  In dabl, we can also get a best guess of the column
 types in a convenient format:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">types</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">detect_types</span><span class="p">(</span><span class="n">titanic_clean</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">types</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">detect_types</span><span class="p">(</span><span class="n">titanic_clean</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">types</span><span class="p">)</span> 
 <span class="go">                      continuous  dirty_float  ...  free_string  useless</span>
 <span class="go">pclass                     False        False  ...        False    False</span>
@@ -235,7 +235,7 @@ types in a convenient format:</p>
 at the actual content. The easiest way to do that is using visualization of
 univariate and bivariate patterns. With plot,
 we can create plot of the features deemed most important for our task.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dabl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">titanic</span><span class="p">,</span> <span class="s1">&#39;survived&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dabl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">titanic</span><span class="p">,</span> <span class="s1">&#39;survived&#39;</span><span class="p">)</span>
 <span class="go">Target looks like classification</span>
 <span class="go">Linear Discriminant Analysis training set score: 0.578</span>
 </pre></div>
@@ -265,7 +265,7 @@ we can create plot of the features deemed most important for our task.</p>
 the work for us. It implements the familiar scikit-learn API of fit and
 predict. Alternatively we could also use the same interface as before and pass
 the whole data frame and specify the target column.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fc</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">SimpleClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fc</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">SimpleClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">titanic_clean</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;survived&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">titanic_clean</span><span class="o">.</span><span class="n">survived</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> 

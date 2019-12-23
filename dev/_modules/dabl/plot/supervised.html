@@ -685,7 +685,7 @@
 
     <span class="k">if</span> <span class="n">types</span><span class="o">.</span><span class="n">continuous</span><span class="p">[</span><span class="n">target_col</span><span class="p">]:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Target looks like regression&quot;</span><span class="p">)</span>
-        <span class="c1"># FIXME are might be overwriting the original dataframe here?</span>
+        <span class="c1"># FIXME we might be overwriting the original dataframe here?</span>
         <span class="n">X</span><span class="p">[</span><span class="n">target_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">target_col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
         <span class="c1"># regression</span>
         <span class="c1"># make sure we include the target column in X</span>
