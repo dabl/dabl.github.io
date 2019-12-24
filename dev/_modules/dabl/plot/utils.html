@@ -504,7 +504,8 @@
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">_shortname</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_ylabel</span><span class="p">(),</span> <span class="n">maxlen</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
 
 
-<span class="k">def</span> <span class="nf">_find_scatter_plots_classification</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">how_many</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">_find_scatter_plots_classification</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">how_many</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                                       <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="c1"># input is continuous</span>
     <span class="c1"># look at all pairs of features, find most promising ones</span>
     <span class="c1"># dummy = DummyClassifier(strategy=&#39;prior&#39;).fit(X, target)</span>
@@ -514,7 +515,8 @@
     <span class="n">_</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">return_inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="c1"># limit to 2000 training points for speed?</span>
     <span class="n">train_size</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="o">.</span><span class="mi">9</span> <span class="o">*</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-    <span class="n">cv</span> <span class="o">=</span> <span class="n">StratifiedShuffleSplit</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="n">train_size</span><span class="p">)</span>
+    <span class="n">cv</span> <span class="o">=</span> <span class="n">StratifiedShuffleSplit</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="n">train_size</span><span class="p">,</span>
+                                <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="mi">2</span><span class="p">):</span>
         <span class="n">this_X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]]</span>
         <span class="c1"># assume this tree is simple enough so not be able to overfit in 2d</span>
@@ -695,6 +697,7 @@
     <span class="k">if</span> <span class="n">n_features</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_yticks</span><span class="p">())</span>
         <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">axes</span>
 
 
 <span class="k">def</span> <span class="nf">_inlier_range</span><span class="p">(</span><span class="n">series</span><span class="p">):</span>
