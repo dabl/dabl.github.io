@@ -174,6 +174,39 @@
 <span class="n">_FLOAT_REGEX</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^[-+]?(?:(?:\d*\.\d+)|(?:\d+\.?))$&quot;</span>
 
 
+<span class="k">def</span> <span class="nf">_float_matching</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">return_safe_col</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">is_floaty</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">_FLOAT_REGEX</span><span class="p">)</span>
+    <span class="c1"># things that weren&#39;t strings</span>
+    <span class="n">not_strings</span> <span class="o">=</span> <span class="n">is_floaty</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">not_strings</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="n">rest</span> <span class="o">=</span> <span class="n">col</span><span class="p">[</span><span class="n">not_strings</span><span class="p">]</span>
+        <span class="n">all_castable</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># if we can convert them all to float we&#39;re done</span>
+            <span class="n">rest</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+            <span class="n">is_floaty</span><span class="p">[</span><span class="n">not_strings</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">all_castable</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">all_castable</span><span class="p">:</span>
+            <span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Mixed types in column </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+            <span class="c1"># make everything string</span>
+            <span class="n">rest</span> <span class="o">=</span> <span class="n">rest</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+            <span class="n">rest_is_floaty</span> <span class="o">=</span> <span class="n">_float_matching</span><span class="p">(</span><span class="n">rest</span><span class="p">)</span>
+            <span class="n">is_floaty</span><span class="p">[</span><span class="n">not_strings</span><span class="p">]</span> <span class="o">=</span> <span class="n">rest_is_floaty</span>
+            <span class="k">if</span> <span class="n">return_safe_col</span><span class="p">:</span>
+                <span class="n">col</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+                <span class="n">col</span><span class="p">[</span><span class="n">not_strings</span><span class="p">]</span> <span class="o">=</span> <span class="n">rest</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_floaty</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="n">is_floaty</span> <span class="o">=</span> <span class="n">is_floaty</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">return_safe_col</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">is_floaty</span><span class="p">,</span> <span class="n">col</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">is_floaty</span>
+
+
 <span class="k">class</span> <span class="nc">DirtyFloatCleaner</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
     <span class="c1"># should this error if the inputs are not string?</span>
     <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -182,12 +215,12 @@
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;X is not a dataframe. Convert or call `clean`.&quot;</span><span class="p">)</span>
         <span class="n">encoders</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-            <span class="n">floats</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">_FLOAT_REGEX</span><span class="p">)</span>
+            <span class="n">floats</span><span class="p">,</span> <span class="n">X_col</span> <span class="o">=</span> <span class="n">_float_matching</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">return_safe_col</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
             <span class="c1"># FIXME sparse</span>
             <span class="k">if</span> <span class="p">(</span><span class="o">~</span><span class="n">floats</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
                 <span class="n">encoders</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">sparse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                                               <span class="n">handle_unknown</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
-                    <span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">floats</span><span class="p">,</span> <span class="p">[</span><span class="n">col</span><span class="p">]])</span>
+                    <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_col</span><span class="p">[</span><span class="o">~</span><span class="n">floats</span><span class="p">]))</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">encoders</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">encoders_</span> <span class="o">=</span> <span class="n">encoders</span>
@@ -199,8 +232,9 @@
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Given the same columns&quot;</span><span class="p">)</span>
         <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns_</span><span class="p">:</span>
-            <span class="n">nofloats</span> <span class="o">=</span> <span class="o">~</span><span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">_FLOAT_REGEX</span><span class="p">)</span>
-            <span class="n">new_col</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">floats</span><span class="p">,</span> <span class="n">X_col</span> <span class="o">=</span> <span class="n">_float_matching</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">return_safe_col</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">nofloats</span> <span class="o">=</span> <span class="o">~</span><span class="n">floats</span>
+            <span class="n">new_col</span> <span class="o">=</span> <span class="n">X_col</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
             <span class="n">new_col</span><span class="p">[</span><span class="n">nofloats</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
             <span class="n">new_col</span> <span class="o">=</span> <span class="n">new_col</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
             <span class="n">enc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoders_</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
@@ -218,7 +252,8 @@
             <span class="n">cats</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
                                 <span class="n">columns</span><span class="o">=</span><span class="n">enc</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">col</span><span class="p">)]))</span>
             <span class="k">if</span> <span class="n">nofloats</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-                <span class="n">cats</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">nofloats</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">nofloats</span><span class="p">,</span> <span class="p">[</span><span class="n">col</span><span class="p">]])</span>
+                <span class="n">cats</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">nofloats</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+                    <span class="n">X_col</span><span class="p">[</span><span class="n">nofloats</span><span class="p">]))</span>
             <span class="n">cats</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">_dabl_continuous&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">col</span><span class="p">)]</span> <span class="o">=</span> <span class="n">new_col</span>
             <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cats</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -256,33 +291,18 @@
 
 
 <span class="k">def</span> <span class="nf">_find_string_floats</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">dirty_float_threshold</span><span class="p">):</span>
-    <span class="n">is_float</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">_FLOAT_REGEX</span><span class="p">))</span>
-    <span class="n">non_string</span> <span class="o">=</span> <span class="n">is_float</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
-    <span class="n">clean_float_string</span> <span class="o">=</span> <span class="n">is_float</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">non_string</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
+    <span class="n">is_float</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">_float_matching</span><span class="p">)</span>
+    <span class="n">clean_float_string</span> <span class="o">=</span> <span class="n">is_float</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
     <span class="c1"># remove 5 most common string values before checking if the rest is float</span>
     <span class="c1"># FIXME 5 hardcoded!!</span>
     <span class="n">dirty_float</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-
         <span class="k">if</span> <span class="n">clean_float_string</span><span class="p">[</span><span class="n">col</span><span class="p">]:</span>
             <span class="c1"># already know it&#39;s clean</span>
             <span class="k">continue</span>
         <span class="n">column</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
-        <span class="n">non_str</span> <span class="o">=</span> <span class="n">non_string</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">non_str</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-            <span class="c1"># some non-strings in this column</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">column_float</span> <span class="o">=</span> <span class="n">column</span><span class="p">[</span><span class="n">non_str</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
-                <span class="c1"># missing values are not counted as float</span>
-                <span class="c1"># because they could be categorical as well</span>
-                <span class="n">is_float</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">non_str</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="o">~</span><span class="n">column_float</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
-            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-                <span class="c1"># FIXME of some are not float-able we assume</span>
-                <span class="c1"># they all are not</span>
-                <span class="c1"># it&#39;s unclear whether iteration manually is worth is</span>
-                <span class="n">is_float</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">non_str</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="n">common_values</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[:</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
-        <span class="n">is_common</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">common_values</span><span class="p">)</span>
+        <span class="n">is_common</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">common_values</span><span class="p">)</span> <span class="o">|</span> <span class="n">column</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">is_float</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">is_common</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">dirty_float_threshold</span><span class="p">:</span>
             <span class="n">dirty_float</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
