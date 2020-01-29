@@ -609,6 +609,12 @@
 <span class="sd">        Whether to create a legend.</span>
 <span class="sd">    scale_separately : boolean, default=True</span>
 <span class="sd">        Whether to scale each class separately.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from dabl.datasets import load_adult</span>
+<span class="sd">    &gt;&gt;&gt; data = load_adult()</span>
+<span class="sd">    &gt;&gt;&gt; class_hists(data, &quot;age&quot;, &quot;gender&quot;, legend=True)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">col_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 

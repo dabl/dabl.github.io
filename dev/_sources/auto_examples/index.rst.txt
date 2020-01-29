@@ -109,6 +109,26 @@ Plotting examples
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Class Histogram Example">
+
+.. only:: html
+
+ .. figure:: /auto_examples/plot/images/thumb/sphx_glr_plot_class_hists_thumb.png
+
+     :ref:`sphx_glr_auto_examples_plot_plot_class_hists.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/plot/plot_class_hists
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="mfeat-factors dataset visualization">
 
 .. only:: html
