@@ -192,23 +192,23 @@ understanding of the data and task, and more appropriate features.  dabl tries
 to provide as much insight into the data as possible, and enable interactive
 analysis.</p>
 <p>Many analyses start with the same rote tasks of cleaning and basic data
-visualization, and initial modelling.  dabl tries to make these steps as easy
+visualization, and initial modeling.  dabl tries to make these steps as easy
 as possible, so that you can spend your time thinking about the problem and
-creating more intesting custom analyses.</p>
+creating more interesting custom analyses.</p>
 <p>There are two main packages that dabl takes inspiration from and that dabl
-builds upon: scikit-learn and auto-sklearn.  But the design philosophies and
-use-cases are quite different. Scikit-learn provides many essential building
-blocks, but is build on the idea to exactly what the user asks for. That
-requires specifying every step of the processing in detail.  dabl on the other
-hand has a best-guess philosophy, tries to do something sensible, and then
-provides tools for the user to inspect and evaluate the results to judge them.
-auto-sklearn on the other hand is completely automatic and black-box. It
-searches a vast space of models and constructs complex ensemles of high
-accuracy, taking a substantial amount of computation and time in the process.
-The goal of auto-sklearn is to build the best model possible given the data.</p>
-<p>dabl on the other hand tries to enable quick iteration, and enable the user to
-quickly iterate and get a grasp on the properties of the data at hand and the
-fitted models.</p>
+builds upon: scikit-learn and auto-sklearn.  The design philosophies and
+use-cases are quite different, however.</p>
+<p>Scikit-learn provides many essential building blocks, but is built on the idea
+to do exactly what the user asks for.  That requires specifying every step of
+the processing in detail.  dabl on the other hand has a best-guess philosophy:
+it tries to do something sensible, and then provides tools for the user to
+inspect and evaluate the results to judge them.</p>
+<p>auto-sklearn is completely automatic and black-box.  It searches a vast space
+of models and constructs complex ensemles of high accuracy, taking a substantial
+amount of computation and time in the process.  The goal of auto-sklearn is to
+build the best model possible given the data.  dabl, conversely, tries to enable
+the user to quickly iterate and get a grasp on the properties of the data at hand
+and the fitted models.</p>
 <p>dabl is meant to support you in the following tasks, in order:</p>
 </div>
 <div class="section" id="data-cleaning">
@@ -224,7 +224,7 @@ types of your data and apply appropriate conversions.  It also tries to detect
 potential data quality issues.
 The field of data cleaning is impossibly broad, and dabl’s approaches are by no
 means sophisticated.  The goal of dabl is to get the data “clean enough” to
-create useful visualizations and models, and to allow the user to perform
+create useful visualizations and models, and to allow users to perform
 custom cleaning operations themselves.
 In particular if the detection of semantic types (continuous, categorical,
 ordinal, text, etc) fails, the user can provide <code class="docutils literal notranslate"><span class="pre">type_hints</span></code>:</p>
@@ -241,7 +241,7 @@ ordinal, text, etc) fails, the user can provide <code class="docutils literal no
 </div>
 <p>The next step in any task should be exploratory data analysis. dabl provides a
 high-level interface that summarizes several common high-level plots.  For low
-dimensional datasets, all features are shown, for high dimensional datasets,
+dimensional datasets, all features are shown; for high dimensional datasets,
 only the most informative features for the given task are shown.  This is
 clearly not guaranteed to surface all interesting aspects with the data, or to
 find all data quality issues.  However, it will give you a quick insight in to
@@ -300,20 +300,19 @@ leakage through spurious representations of the target in the data.</p>
 <span class="go">    Name: LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;), dtype: float64</span>
 </pre></div>
 </div>
-<p>Fit an initial model. The SimpleClassifier first tries several baseline and
-instantaneous models, potentially on subsampled data, to get an idea of what a
-low baseline should be.
+<p>The SimpleClassifier first tries several baseline and instantaneous models,
+potentially on subsampled data, to get an idea of what a low baseline should be.
 This again is a good place to surface data leakage, as well as find the main
 discriminative features in the dataset.  The <code class="docutils literal notranslate"><span class="pre">SimpleClassifier</span></code> allows
 specifying data in the scikit-learn-style <code class="docutils literal notranslate"><span class="pre">fit(X,</span> <span class="pre">y)</span></code> with a 1d y and
-features <code class="docutils literal notranslate"><span class="pre">X</span></code>, or with <code class="docutils literal notranslate"><span class="pre">X</span></code> being a dataframe, and by specifying the target
-column inside of X as``target_col``.</p>
+features <code class="docutils literal notranslate"><span class="pre">X</span></code>, or with <code class="docutils literal notranslate"><span class="pre">X</span></code> being a dataframe and specifying the target
+column inside of X as <code class="docutils literal notranslate"><span class="pre">target_col</span></code>.</p>
 <p>The SimpleClassifier also performs preprocessing such as missing value
-imputation and one-hot-encoding.  You can inspect the model using:</p>
+imputation and one-hot encoding.  You can inspect the model using:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dabl</span><span class="o">.</span><span class="n">explain</span><span class="p">(</span><span class="n">ec</span><span class="p">)</span> 
 </pre></div>
 </div>
-<p>This can lead to additional insights and guide costom processing and
+<p>This can lead to additional insights and guide custom processing and
 cleaning of the data.</p>
 </div>
 <div class="section" id="enhanced-model-building">
@@ -446,7 +445,7 @@ with, <code class="docutils literal notranslate"><span class="pre">r_min</span><
 <p>Ideally, we want the last iteration to evaluate <code class="docutils literal notranslate"><span class="pre">ratio</span></code> candidates. We then
 just have to pick the best one. When the number budget is small with respect to
 the number of candidates, the last iteration may have to evaluate more than
-<code class="docutils literal notranslate"><span class="pre">ratio</span></code> candidates.:</p>
+<code class="docutils literal notranslate"><span class="pre">ratio</span></code> candidates:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -537,11 +536,11 @@ learning that strongly encourage iterative and interactive model building.
 Key ingedients to achieve this are:</p>
 <ul class="simple">
 <li><p>Ready-made visualizations</p></li>
-<li><p>model diagnostics</p></li>
+<li><p>Model diagnostics</p></li>
 <li><p>Efficient model search</p></li>
 <li><p>Type detection</p></li>
 <li><p>Automatic preprocessing</p></li>
-<li><p>portfolios of well-performing pipelines</p></li>
+<li><p>Portfolios of well-performing pipelines</p></li>
 </ul>
 <p>The current version of dabl only provides very simple implementations of these,
 but the goal is for dabl to contain more advanced solutions while providing a
