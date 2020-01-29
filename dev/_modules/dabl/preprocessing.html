@@ -325,7 +325,8 @@
 
 <div class="viewcode-block" id="detect_types"><a class="viewcode-back" href="../../generated/dabl.detect_types.html#dabl.detect_types">[docs]</a><span class="k">def</span> <span class="nf">detect_types</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_int_cardinality</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
                  <span class="n">dirty_float_threshold</span><span class="o">=.</span><span class="mi">9</span><span class="p">,</span>
-                 <span class="n">near_constant_threshold</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+                 <span class="n">near_constant_threshold</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Detect types of dataframe columns.</span>
 
 <span class="sd">    Columns are labeled as one of the following types:</span>
@@ -358,6 +359,10 @@
 <span class="sd">        The fraction of floats required in a dirty continuous</span>
 <span class="sd">        column before it&#39;s considered &quot;useless&quot; or categorical</span>
 <span class="sd">        (after removing top 5 string values)</span>
+
+<span class="sd">    target_col : string, int or None</span>
+<span class="sd">        Specifies the target column in the data, if any.</span>
+<span class="sd">        Target columns are never dropped.</span>
 
 <span class="sd">    verbose : int</span>
 <span class="sd">        How verbose to be</span>
@@ -462,6 +467,8 @@
     <span class="c1"># also throw out near constant:</span>
     <span class="n">near_constant</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">col</span> <span class="o">==</span> <span class="n">target_col</span><span class="p">:</span>
+            <span class="k">continue</span>
         <span class="n">count</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">n_values</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">/</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="o">.</span><span class="mi">9</span><span class="p">:</span>
             <span class="c1"># save some computation</span>
@@ -548,7 +555,8 @@
     <span class="k">return</span> <span class="n">X</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="clean"><a class="viewcode-back" href="../../generated/dabl.clean.html#dabl.clean">[docs]</a><span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_types</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="clean"><a class="viewcode-back" href="../../generated/dabl.clean.html#dabl.clean">[docs]</a><span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_types</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+          <span class="n">target_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Public clean interface</span>
 
 <span class="sd">    Parameters</span>
@@ -558,6 +566,9 @@
 <span class="sd">        Keys are column names, values are types as provided by detect_types.</span>
 <span class="sd">    return_types : bool, default=False</span>
 <span class="sd">        Whether to return the inferred types</span>
+<span class="sd">    target_col : string, int or None</span>
+<span class="sd">        If not None specifies a target column in the data.</span>
+<span class="sd">        Target columns are never dropped.</span>
 <span class="sd">    verbose : int, default=0</span>
 <span class="sd">        Verbosity control.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -568,7 +579,8 @@
     <span class="k">if</span> <span class="ow">not</span> <span class="n">X</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">is_unique</span><span class="p">:</span>
         <span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Index not unique, resetting index!&quot;</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
         <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">types</span> <span class="o">=</span> <span class="n">detect_types</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="n">type_hints</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+    <span class="n">types</span> <span class="o">=</span> <span class="n">detect_types</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="n">type_hints</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
+                         <span class="n">target_col</span><span class="o">=</span><span class="n">target_col</span><span class="p">)</span>
     <span class="c1"># drop useless columns</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="o">~</span><span class="n">types</span><span class="o">.</span><span class="n">useless</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="n">types</span> <span class="o">=</span> <span class="n">types</span><span class="p">[</span><span class="o">~</span><span class="n">types</span><span class="o">.</span><span class="n">useless</span><span class="p">]</span>

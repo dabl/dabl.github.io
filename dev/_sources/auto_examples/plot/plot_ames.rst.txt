@@ -39,7 +39,7 @@ Ames Housing Dataset Visualization
 
     /home/circleci/project/dabl/plot/supervised.py:526: FutureWarning: The second positional argument of plot is a Series 'y'. If passing a column name, use a keyword.
       FutureWarning)
-    /home/circleci/project/dabl/preprocessing.py:311: UserWarning: Discarding near-constant features: ['Street', 'Utilities', 'Land Slope', 'Condition 2', 'Roof Matl', 'Heating', 'Low Qual Fin SF', 'Kitchen AbvGr', 'Garage Cond', '3Ssn Porch', 'Pool Area', 'Misc Val']
+    /home/circleci/project/dabl/preprocessing.py:318: UserWarning: Discarding near-constant features: ['Street', 'Utilities', 'Land Slope', 'Condition 2', 'Roof Matl', 'Heating', 'Low Qual Fin SF', 'Kitchen AbvGr', 'Garage Cond', '3Ssn Porch', 'Pool Area', 'Misc Val']
       near_constant.index[near_constant].tolist()))
     Target looks like regression
     Showing only top 10 of 26 continuous features
@@ -82,7 +82,7 @@ Ames Housing Dataset Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.683 seconds)
+   **Total running time of the script:** ( 0 minutes  3.935 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_ames.py:
