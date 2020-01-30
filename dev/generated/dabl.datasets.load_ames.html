@@ -20,20 +20,11 @@
   <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../',
-              VERSION:'',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
         <script type="text/javascript" src="../_static/js/copybutton.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -47,7 +38,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="dabl.datasets.load_titanic" href="dabl.datasets.load_titanic.html" />
-    <link rel="prev" title="dabl.pipelines.get_fast_classifiers" href="dabl.pipelines.get_fast_classifiers.html" /> 
+    <link rel="prev" title="dabl.datasets.load_adult" href="dabl.datasets.load_adult.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -71,7 +62,7 @@
             
             
               <div class="version">
-                0.0.1
+                0.1.6
               </div>
             
           
@@ -97,21 +88,23 @@
             
               <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Getting started with Machine Learning with dabl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quickstart to ML with dabl</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../user_guide.html">Machine Learning with dabl</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">dabl API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../api.html#high-level-api">High-level API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api.html#supervised-models">Supervised Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api.html#preprocessing">Preprocessing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api.html#plotting">Plotting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api.html#model-search">Model Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api.html#portfolios">Portfolios</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../api.html#datasets">Datasets</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">dabl.datasets</span></code>.load_ames</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dabl.datasets.load_titanic.html"><code class="docutils literal"><span class="pre">dabl.datasets</span></code>.load_titanic</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html#full-api">Full API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../api.html#datasets">Datasets</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="dabl.datasets.load_adult.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.datasets</span></code>.load_adult</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.datasets</span></code>.load_ames</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dabl.datasets.load_titanic.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.datasets</span></code>.load_titanic</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#model-search">Model Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#plotting">Plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#portfolios">Portfolios</a></li>
 </ul>
 </li>
 </ul>
@@ -120,6 +113,7 @@
 <p class="caption"><span class="caption-text">Examples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">General examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#plotting-examples">Plotting examples</a></li>
 </ul>
 
             
@@ -167,7 +161,7 @@
         
           <li><a href="../api.html">dabl API</a> &raquo;</li>
         
-      <li><code class="docutils literal"><span class="pre">dabl.datasets</span></code>.load_ames</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.datasets</span></code>.load_ames</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -187,24 +181,19 @@
            <div itemprop="articleBody">
             
   <div class="section" id="dabl-datasets-load-ames">
-<h1><code class="xref py py-mod docutils literal"><span class="pre">dabl.datasets</span></code>.load_ames<a class="headerlink" href="#dabl-datasets-load-ames" title="Permalink to this headline">¶</a></h1>
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.datasets</span></code>.load_ames<a class="headerlink" href="#dabl-datasets-load-ames" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dabl.datasets.load_ames">
-<code class="descclassname">dabl.datasets.</code><code class="descname">load_ames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/datasets.html#load_ames"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.datasets.load_ames" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">dabl.datasets.</code><code class="sig-name descname">load_ames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/datasets.html#load_ames"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.datasets.load_ames" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load ames housing dataset.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>data</strong> <span class="classifier-delimiter">:</span> <span class="classifier">DataFrame</span></dt>
-<dd><p class="first last">DataFrame containing the ames housing dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data</strong><span class="classifier">DataFrame</span></dt><dd><p>DataFrame containing the ames housing dataset.</p>
 </dd>
 </dl>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <div style='clear:both'></div></div>
@@ -220,7 +209,7 @@
         <a href="dabl.datasets.load_titanic.html" class="btn btn-neutral float-right" title="dabl.datasets.load_titanic" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="dabl.pipelines.get_fast_classifiers.html" class="btn btn-neutral float-left" title="dabl.pipelines.get_fast_classifiers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="dabl.datasets.load_adult.html" class="btn btn-neutral float-left" title="dabl.datasets.load_adult" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

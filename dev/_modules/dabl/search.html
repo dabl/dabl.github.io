@@ -20,20 +20,11 @@
   <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../../',
-              VERSION:'',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script type="text/javascript" src="../../_static/jquery.js"></script>
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
         <script type="text/javascript" src="../../_static/js/copybutton.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -69,7 +60,7 @@
             
             
               <div class="version">
-                0.0.1
+                0.1.6
               </div>
             
           
@@ -95,7 +86,7 @@
             
               <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Getting started with Machine Learning with dabl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quickstart to ML with dabl</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Documentation</span></p>
 <ul>
@@ -105,6 +96,7 @@
 <p class="caption"><span class="caption-text">Examples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../auto_examples/index.html">General examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auto_examples/index.html#plotting-examples">Plotting examples</a></li>
 </ul>
 
             
@@ -168,17 +160,19 @@
            <div itemprop="articleBody">
             
   <h1>Source code for dabl.search</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">ceil</span><span class="p">,</span> <span class="n">floor</span><span class="p">,</span> <span class="n">log</span>
-<span class="kn">from</span> <span class="nn">abc</span> <span class="k">import</span> <span class="n">abstractmethod</span>
+<span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span><span class="p">,</span> <span class="n">floor</span><span class="p">,</span> <span class="n">log</span>
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">abstractmethod</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection._search</span> <span class="k">import</span> <span class="n">_check_param_grid</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">ParameterGrid</span><span class="p">,</span> <span class="n">ParameterSampler</span>
-<span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="k">import</span> <span class="n">check_random_state</span><span class="p">,</span> <span class="n">safe_indexing</span>
-<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="k">import</span> <span class="n">is_classifier</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection._split</span> <span class="k">import</span> <span class="n">check_cv</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection._search</span> <span class="kn">import</span> <span class="n">_check_param_grid</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">ParameterGrid</span><span class="p">,</span> <span class="n">ParameterSampler</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">check_random_state</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">_num_samples</span>
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">is_classifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection._split</span> <span class="kn">import</span> <span class="n">check_cv</span>
 
-<span class="kn">from</span> <span class="nn">._search</span> <span class="k">import</span> <span class="n">CustomBaseSearchCV</span>
+<span class="kn">from</span> <span class="nn">._search</span> <span class="kn">import</span> <span class="n">CustomBaseSearchCV</span>
+<span class="kn">from</span> <span class="nn">._resample</span> <span class="kn">import</span> <span class="n">resample</span>
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;GridSuccessiveHalving&#39;</span><span class="p">,</span> <span class="s1">&#39;RandomSuccessiveHalving&#39;</span><span class="p">]</span>
 
@@ -202,8 +196,8 @@
 <span class="sd">    Almost optimal exploration in multi-armed bandits, ICML 13</span>
 <span class="sd">    Zohar Karnin, Tomer Koren, Oren Somekh</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">estimator</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">estimator</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
                  <span class="n">pre_dispatch</span><span class="o">=</span><span class="s1">&#39;2*n_jobs&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">error_score</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">return_train_score</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                  <span class="n">max_budget</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">budget_on</span><span class="o">=</span><span class="s1">&#39;n_samples&#39;</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
@@ -226,6 +220,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">force_exhaust_budget</span> <span class="o">=</span> <span class="n">force_exhaust_budget</span>
 
     <span class="k">def</span> <span class="nf">_check_input_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">groups</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scoring</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scoring</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+                                             <span class="ow">or</span> <span class="n">callable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scoring</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;scoring parameter must be a string, &#39;</span>
+                             <span class="s1">&#39;a callable or None.&#39;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">budget_on</span> <span class="o">!=</span> <span class="s1">&#39;n_samples&#39;</span>
                 <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">budget_on</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">get_params</span><span class="p">()):</span>
@@ -277,10 +276,10 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">max_budget_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_budget</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_budget_</span> <span class="o">==</span> <span class="s1">&#39;auto&#39;</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">budget_on</span> <span class="o">==</span> <span class="s1">&#39;n_samples&#39;</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">max_budget_</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">max_budget_</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># FIXME  # n_candidates * r_min??</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">budget_on</span> <span class="o">==</span> <span class="s1">&#39;n_samples&#39;</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;max_budget can only be &#39;auto&#39; if budget_on=&#39;n_samples&#39;&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">max_budget_</span> <span class="o">=</span> <span class="n">_num_samples</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">r_min_</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_budget_</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
@@ -288,13 +287,19 @@
                 <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r_min_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_budget_</span><span class="p">)</span>
             <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_run_search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evaluate_candidates</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">groups</span><span class="p">):</span>
-
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_check_input_parameters</span><span class="p">(</span>
             <span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>
             <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
             <span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">,</span>
         <span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span>
+        <span class="c1"># Set best_score_: BaseSearchCV does not set it, as refit is a callable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">best_score_</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">[</span><span class="s1">&#39;mean_test_score&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">best_index_</span><span class="p">])</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">_run_search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evaluate_candidates</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">groups</span><span class="p">):</span>
         <span class="n">rng</span> <span class="o">=</span> <span class="n">check_random_state</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">)</span>
 
         <span class="n">candidate_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_candidate_params</span><span class="p">()</span>
@@ -337,14 +342,15 @@
             <span class="n">n_iterations</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">n_possible_iterations</span><span class="p">,</span> <span class="n">n_required_iterations</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;n_iterations: </span><span class="si">{n_iterations}</span><span class="s1">&#39;</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;n_required_iterations: </span><span class="si">{n_required_iterations}</span><span class="s1">&#39;</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;n_possible_iterations: </span><span class="si">{n_possible_iterations}</span><span class="s1">&#39;</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;r_min_: </span><span class="si">{self.r_min_}</span><span class="s1">&#39;</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;max_budget_: </span><span class="si">{self.max_budget_}</span><span class="s1">&#39;</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;aggressive_elimination: </span><span class="si">{self.aggressive_elimination}</span><span class="s1">&#39;</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;force_exhaust_budget: </span><span class="si">{self.force_exhaust_budget}</span><span class="s1">&#39;</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;ratio: </span><span class="si">{self.ratio}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;n_iterations: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_iterations</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;n_required_iterations: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_required_iterations</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;n_possible_iterations: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_possible_iterations</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;r_min_: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r_min_</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;max_budget_: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_budget_</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;aggressive_elimination: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">aggressive_elimination</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;force_exhaust_budget: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">force_exhaust_budget</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ratio: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ratio</span><span class="p">))</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_r_i_list</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># list of r_i for each iteration, used in tests</span>
 
@@ -369,26 +375,21 @@
 
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;iter_i: </span><span class="si">{iter_i}</span><span class="s1">&#39;</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;n_candidates: </span><span class="si">{n_candidates}</span><span class="s1">&#39;</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;r_i: </span><span class="si">{r_i}</span><span class="s1">&#39;</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;r_i (in r_min units): {r_i // self.r_min_}&#39;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;iter_i: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iter_i</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;n_candidates: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_candidates</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;r_i: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_i</span><span class="p">))</span>
 
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">budget_on</span> <span class="o">==</span> <span class="s1">&#39;n_samples&#39;</span><span class="p">:</span>
-                <span class="c1"># XXX FIXME TODO</span>
-                <span class="c1"># subsampling should be stratified. We can&#39;t use</span>
-                <span class="c1"># train_test_split because it complains about testset being too</span>
-                <span class="c1"># small in some cases</span>
-                <span class="n">indexes</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">r_i</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-                <span class="n">X_iter</span> <span class="o">=</span> <span class="n">safe_indexing</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">indexes</span><span class="p">)</span>
-                <span class="n">y_iter</span> <span class="o">=</span> <span class="n">safe_indexing</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">indexes</span><span class="p">)</span>
+                <span class="n">stratify</span> <span class="o">=</span> <span class="n">y</span> <span class="k">if</span> <span class="n">is_classifier</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+                <span class="n">X_iter</span><span class="p">,</span> <span class="n">y_iter</span> <span class="o">=</span> <span class="n">resample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                          <span class="n">random_state</span><span class="o">=</span><span class="n">rng</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">stratify</span><span class="p">,</span>
+                                          <span class="n">n_samples</span><span class="o">=</span><span class="n">r_i</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="c1"># Need copy so that r_i of next iteration do not overwrite</span>
                 <span class="n">candidate_params</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">candidate_params</span><span class="p">]</span>
                 <span class="k">for</span> <span class="n">candidate</span> <span class="ow">in</span> <span class="n">candidate_params</span><span class="p">:</span>
                     <span class="n">candidate</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">budget_on</span><span class="p">]</span> <span class="o">=</span> <span class="n">r_i</span>
                 <span class="n">X_iter</span><span class="p">,</span> <span class="n">y_iter</span> <span class="o">=</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span>
-
             <span class="n">more_results</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;iter&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">iter_i</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_candidates</span><span class="p">,</span>
                             <span class="s1">&#39;r_i&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">r_i</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_candidates</span><span class="p">}</span>
             <span class="n">results</span> <span class="o">=</span> <span class="n">evaluate_candidates</span><span class="p">(</span><span class="n">candidate_params</span><span class="p">,</span> <span class="n">X_iter</span><span class="p">,</span> <span class="n">y_iter</span><span class="p">,</span>
@@ -421,11 +422,11 @@
 
 
 <div class="viewcode-block" id="GridSuccessiveHalving"><a class="viewcode-back" href="../../generated/dabl.search.GridSuccessiveHalving.html#dabl.search.GridSuccessiveHalving">[docs]</a><span class="k">class</span> <span class="nc">GridSuccessiveHalving</span><span class="p">(</span><span class="n">BaseSuccessiveHalving</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Search over specified parameter values with successive halving.</span>
+    <span class="sd">&quot;&quot;&quot;Grid-search with successive halving.</span>
 
-<span class="sd">    The search strategy starts evaluating all the candidates with a small</span>
-<span class="sd">    amount a resource and iteratively selects the best candidates, using more</span>
-<span class="sd">    and more resources.</span>
+<span class="sd">    The search strategy for hyper-parameter optimization starts evaluating all</span>
+<span class="sd">    the candidates with a small amount a resource and iteratively selects the</span>
+<span class="sd">    best candidates, using more and more resources.</span>
 
 <span class="sd">    Read more in the :ref:`User guide&lt;successive_halving_user_guide&gt;`.</span>
 
@@ -443,20 +444,9 @@
 <span class="sd">        in the list are explored. This enables searching over any sequence</span>
 <span class="sd">        of parameter settings.</span>
 
-<span class="sd">    # FIXME (is this even supported??)</span>
-<span class="sd">    scoring : string, callable, list/tuple, dict or None, default: None</span>
+<span class="sd">    scoring : string, callable, or None, default: None</span>
 <span class="sd">        A single string (see :ref:`scoring_parameter`) or a callable</span>
 <span class="sd">        (see :ref:`scoring`) to evaluate the predictions on the test set.</span>
-
-<span class="sd">        For evaluating multiple metrics, either give a list of (unique) strings</span>
-<span class="sd">        or a dict with names as keys and callables as values.</span>
-
-<span class="sd">        NOTE that when using custom scorers, each scorer should return a single</span>
-<span class="sd">        value. Metric functions returning a list/array of values can be wrapped</span>
-<span class="sd">        into multiple scorers that return one value each.</span>
-
-<span class="sd">        See :ref:`multimetric_grid_search` for an example.</span>
-
 <span class="sd">        If None, the estimator&#39;s score method is used.</span>
 
 <span class="sd">    n_jobs : int or None, optional (default=None)</span>
@@ -482,11 +472,10 @@
 <span class="sd">            - A string, giving an expression as a function of n_jobs,</span>
 <span class="sd">              as in &#39;2*n_jobs&#39;</span>
 
-<span class="sd">    cv : int, cross-validation generator or an iterable, optional</span>
+<span class="sd">    cv : int, cross-validation generator or an iterable, optional (default=5)</span>
 <span class="sd">        Determines the cross-validation splitting strategy.</span>
 <span class="sd">        Possible inputs for cv are:</span>
 
-<span class="sd">        - None, to use the default 3-fold cross validation,</span>
 <span class="sd">        - integer, to specify the number of folds in a `(Stratified)KFold`,</span>
 <span class="sd">        - :term:`CV splitter`,</span>
 <span class="sd">        - An iterable yielding (train, test) splits as arrays of indices.</span>
@@ -498,35 +487,13 @@
 <span class="sd">        Refer :ref:`User Guide &lt;cross_validation&gt;` for the various</span>
 <span class="sd">        cross-validation strategies that can be used here.</span>
 
-<span class="sd">        # FIXME</span>
-<span class="sd">        .. versionchanged:: 0.20</span>
-<span class="sd">            ``cv`` default value if None will change from 3-fold to 5-fold</span>
-<span class="sd">            in v0.22.</span>
-
-<span class="sd">    # FIXME</span>
 <span class="sd">    refit : boolean, default=True</span>
 <span class="sd">        If True, refit an estimator using the best found parameters on the</span>
 <span class="sd">        whole dataset.</span>
 
-<span class="sd">        For multiple metric evaluation, this needs to be a string denoting the</span>
-<span class="sd">        scorer is used to find the best parameters for refitting the estimator</span>
-<span class="sd">        at the end.</span>
-
-<span class="sd">        Where there are considerations other than maximum score in</span>
-<span class="sd">        choosing a best estimator, ``refit`` can be set to a function which</span>
-<span class="sd">        returns the selected ``best_index_`` given ``cv_results_``.</span>
-
 <span class="sd">        The refitted estimator is made available at the ``best_estimator_``</span>
 <span class="sd">        attribute and permits using ``predict`` directly on this</span>
 <span class="sd">        ``GridSearchCV`` instance.</span>
-
-<span class="sd">        Also for multiple metric evaluation, the attributes ``best_index_``,</span>
-<span class="sd">        ``best_score_`` and ``best_params_`` will only be available if</span>
-<span class="sd">        ``refit`` is set and all of them will be determined w.r.t this specific</span>
-<span class="sd">        scorer. ``best_score_`` is not returned if refit is callable.</span>
-
-<span class="sd">        See ``scoring`` parameter to know more about multiple metric</span>
-<span class="sd">        evaluation.</span>
 
 <span class="sd">    verbose : integer</span>
 <span class="sd">        Controls the verbosity: the higher, the more messages.</span>
@@ -546,7 +513,7 @@
 <span class="sd">        expensive and is not strictly required to select the parameters that</span>
 <span class="sd">        yield the best generalization performance.</span>
 
-<span class="sd">    max_budget : int</span>
+<span class="sd">    max_budget : int, optional(default=&#39;auto&#39;)</span>
 <span class="sd">        The maximum number of resources that any candidate is allowed to use</span>
 <span class="sd">        for a given iteration. By default, this is set ``n_samples`` when</span>
 <span class="sd">        ``budget_on=&#39;n_samples&#39;`` (default), else an error is raised.</span>
@@ -631,7 +598,7 @@
 <span class="sd">        resources. This will be smaller than ``n_possible_iterations_`` when</span>
 <span class="sd">        there isn&#39;t enough budget.</span>
 
-<span class="sd">    cv_results_ : dict of numpy (masked) ndarrays  # FIXME Update this</span>
+<span class="sd">    cv_results_ : dict of numpy (masked) ndarrays</span>
 <span class="sd">        A dict with keys as column headers and values as columns, that can be</span>
 <span class="sd">        imported into a pandas ``DataFrame``.</span>
 
@@ -677,32 +644,16 @@
 <span class="sd">        The ``mean_fit_time``, ``std_fit_time``, ``mean_score_time`` and</span>
 <span class="sd">        ``std_score_time`` are all in seconds.</span>
 
-<span class="sd">        For multi-metric evaluation, the scores for all the scorers are</span>
-<span class="sd">        available in the ``cv_results_`` dict at the keys ending with that</span>
-<span class="sd">        scorer&#39;s name (``&#39;_&lt;scorer_name&gt;&#39;``) instead of ``&#39;_score&#39;`` shown</span>
-<span class="sd">        above. (&#39;split0_test_precision&#39;, &#39;mean_train_precision&#39; etc.)</span>
-
 <span class="sd">    best_estimator_ : estimator or dict</span>
 <span class="sd">        Estimator that was chosen by the search, i.e. estimator</span>
 <span class="sd">        which gave highest score (or smallest loss if specified)</span>
 <span class="sd">        on the left out data. Not available if ``refit=False``.</span>
 
-<span class="sd">        For multi-metric evaluation, this attribute is present only if</span>
-<span class="sd">        ``refit`` is specified.</span>
-
-<span class="sd">        See ``refit`` parameter for more information on allowed values.</span>
-
 <span class="sd">    best_score_ : float</span>
 <span class="sd">        Mean cross-validated score of the best_estimator.</span>
 
-<span class="sd">        For multi-metric evaluation, this is not available if ``refit`` is</span>
-<span class="sd">        ``False``. See ``refit`` parameter for more information.</span>
-
 <span class="sd">    best_params_ : dict</span>
 <span class="sd">        Parameter setting that gave the best results on the hold out data.</span>
-
-<span class="sd">        For multi-metric evaluation, this is not available if ``refit`` is</span>
-<span class="sd">        ``False``. See ``refit`` parameter for more information.</span>
 
 <span class="sd">    best_index_ : int</span>
 <span class="sd">        The index (of the ``cv_results_`` arrays) which corresponds to the best</span>
@@ -712,15 +663,9 @@
 <span class="sd">        the parameter setting for the best model, that gives the highest</span>
 <span class="sd">        mean score (``search.best_score_``).</span>
 
-<span class="sd">        For multi-metric evaluation, this is not available if ``refit`` is</span>
-<span class="sd">        ``False``. See ``refit`` parameter for more information.</span>
-
 <span class="sd">    scorer_ : function or a dict</span>
 <span class="sd">        Scorer function used on the held out data to choose the best</span>
 <span class="sd">        parameters for the model.</span>
-
-<span class="sd">        For multi-metric evaluation, this attribute holds the validated</span>
-<span class="sd">        ``scoring`` dict which maps the scorer key to the scorer callable.</span>
 
 <span class="sd">    n_splits_ : int</span>
 <span class="sd">        The number of cross-validation splits (folds/iterations).</span>
@@ -749,15 +694,15 @@
 <span class="sd">        Random search over a set of parameters using successive halving.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">estimator</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">estimator</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
                  <span class="n">pre_dispatch</span><span class="o">=</span><span class="s1">&#39;2*n_jobs&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">error_score</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">return_train_score</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                  <span class="n">max_budget</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">budget_on</span><span class="o">=</span><span class="s1">&#39;n_samples&#39;</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
                  <span class="n">r_min</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">aggressive_elimination</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">force_exhaust_budget</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">scoring</span><span class="p">,</span>
-                         <span class="n">n_jobs</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span>
+                         <span class="n">n_jobs</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="n">refit</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span>
                          <span class="n">pre_dispatch</span><span class="o">=</span><span class="n">pre_dispatch</span><span class="p">,</span>
                          <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span> <span class="n">error_score</span><span class="o">=</span><span class="n">error_score</span><span class="p">,</span>
                          <span class="n">return_train_score</span><span class="o">=</span><span class="n">return_train_score</span><span class="p">,</span>
@@ -773,11 +718,11 @@
 
 
 <div class="viewcode-block" id="RandomSuccessiveHalving"><a class="viewcode-back" href="../../generated/dabl.search.RandomSuccessiveHalving.html#dabl.search.RandomSuccessiveHalving">[docs]</a><span class="k">class</span> <span class="nc">RandomSuccessiveHalving</span><span class="p">(</span><span class="n">BaseSuccessiveHalving</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Randomized search on hyper parameters.</span>
+    <span class="sd">&quot;&quot;&quot;Randomized search with successive halving.</span>
 
-<span class="sd">    The search strategy starts evaluating all the candidates with a small</span>
-<span class="sd">    amount a resource and iteratively selects the best candidates, using more</span>
-<span class="sd">    and more resources.</span>
+<span class="sd">    The search strategy for hyper-parameter optimization starts evaluating all</span>
+<span class="sd">    the candidates with a small amount a resource and iteratively selects the</span>
+<span class="sd">    best candidates, using more and more resources.</span>
 
 <span class="sd">    Read more in the :ref:`User guide&lt;successive_halving_user_guide&gt;`.</span>
 
@@ -800,20 +745,9 @@
 <span class="sd">        resources as possible. Note that ``force_exhaust_budget`` has no</span>
 <span class="sd">        effect in this case.</span>
 
-<span class="sd">    # FIXME (is this even supported??)</span>
-<span class="sd">    scoring : string, callable, list/tuple, dict or None, default: None</span>
+<span class="sd">    scoring : string, callable, or None, default: None</span>
 <span class="sd">        A single string (see :ref:`scoring_parameter`) or a callable</span>
 <span class="sd">        (see :ref:`scoring`) to evaluate the predictions on the test set.</span>
-
-<span class="sd">        For evaluating multiple metrics, either give a list of (unique) strings</span>
-<span class="sd">        or a dict with names as keys and callables as values.</span>
-
-<span class="sd">        NOTE that when using custom scorers, each scorer should return a single</span>
-<span class="sd">        value. Metric functions returning a list/array of values can be wrapped</span>
-<span class="sd">        into multiple scorers that return one value each.</span>
-
-<span class="sd">        See :ref:`multimetric_grid_search` for an example.</span>
-
 <span class="sd">        If None, the estimator&#39;s score method is used.</span>
 
 <span class="sd">    n_jobs : int or None, optional (default=None)</span>
@@ -839,11 +773,10 @@
 <span class="sd">            - A string, giving an expression as a function of n_jobs,</span>
 <span class="sd">              as in &#39;2*n_jobs&#39;</span>
 
-<span class="sd">    cv : int, cross-validation generator or an iterable, optional</span>
+<span class="sd">    cv : int, cross-validation generator or an iterable, optional (default=5)</span>
 <span class="sd">        Determines the cross-validation splitting strategy.</span>
 <span class="sd">        Possible inputs for cv are:</span>
 
-<span class="sd">        - None, to use the default 3-fold cross validation,</span>
 <span class="sd">        - integer, to specify the number of folds in a `(Stratified)KFold`,</span>
 <span class="sd">        - :term:`CV splitter`,</span>
 <span class="sd">        - An iterable yielding (train, test) splits as arrays of indices.</span>
@@ -855,35 +788,13 @@
 <span class="sd">        Refer :ref:`User Guide &lt;cross_validation&gt;` for the various</span>
 <span class="sd">        cross-validation strategies that can be used here.</span>
 
-<span class="sd">        # FIXME</span>
-<span class="sd">        .. versionchanged:: 0.20</span>
-<span class="sd">            ``cv`` default value if None will change from 3-fold to 5-fold</span>
-<span class="sd">            in v0.22.</span>
-
-<span class="sd">    # FIXME</span>
 <span class="sd">    refit : boolean, default=True</span>
 <span class="sd">        If True, refit an estimator using the best found parameters on the</span>
 <span class="sd">        whole dataset.</span>
 
-<span class="sd">        For multiple metric evaluation, this needs to be a string denoting the</span>
-<span class="sd">        scorer is used to find the best parameters for refitting the estimator</span>
-<span class="sd">        at the end.</span>
-
-<span class="sd">        Where there are considerations other than maximum score in</span>
-<span class="sd">        choosing a best estimator, ``refit`` can be set to a function which</span>
-<span class="sd">        returns the selected ``best_index_`` given ``cv_results_``.</span>
-
 <span class="sd">        The refitted estimator is made available at the ``best_estimator_``</span>
 <span class="sd">        attribute and permits using ``predict`` directly on this</span>
 <span class="sd">        ``GridSearchCV`` instance.</span>
-
-<span class="sd">        Also for multiple metric evaluation, the attributes ``best_index_``,</span>
-<span class="sd">        ``best_score_`` and ``best_params_`` will only be available if</span>
-<span class="sd">        ``refit`` is set and all of them will be determined w.r.t this specific</span>
-<span class="sd">        scorer. ``best_score_`` is not returned if refit is callable.</span>
-
-<span class="sd">        See ``scoring`` parameter to know more about multiple metric</span>
-<span class="sd">        evaluation.</span>
 
 <span class="sd">    verbose : integer</span>
 <span class="sd">        Controls the verbosity: the higher, the more messages.</span>
@@ -903,7 +814,7 @@
 <span class="sd">        expensive and is not strictly required to select the parameters that</span>
 <span class="sd">        yield the best generalization performance.</span>
 
-<span class="sd">    max_budget : int</span>
+<span class="sd">    max_budget : int, optional(default=&#39;auto&#39;)</span>
 <span class="sd">        The maximum number of resources that any candidate is allowed to use</span>
 <span class="sd">        for a given iteration. By default, this is set ``n_samples`` when</span>
 <span class="sd">        ``budget_on=&#39;n_samples&#39;`` (default), else an error is raised.</span>
@@ -988,7 +899,7 @@
 <span class="sd">        resources. This will be smaller than ``n_possible_iterations_`` when</span>
 <span class="sd">        there isn&#39;t enough budget.</span>
 
-<span class="sd">    cv_results_ : dict of numpy (masked) ndarrays  # FIXME Update this</span>
+<span class="sd">    cv_results_ : dict of numpy (masked) ndarrays</span>
 <span class="sd">        A dict with keys as column headers and values as columns, that can be</span>
 <span class="sd">        imported into a pandas ``DataFrame``.</span>
 
@@ -1034,32 +945,16 @@
 <span class="sd">        The ``mean_fit_time``, ``std_fit_time``, ``mean_score_time`` and</span>
 <span class="sd">        ``std_score_time`` are all in seconds.</span>
 
-<span class="sd">        For multi-metric evaluation, the scores for all the scorers are</span>
-<span class="sd">        available in the ``cv_results_`` dict at the keys ending with that</span>
-<span class="sd">        scorer&#39;s name (``&#39;_&lt;scorer_name&gt;&#39;``) instead of ``&#39;_score&#39;`` shown</span>
-<span class="sd">        above. (&#39;split0_test_precision&#39;, &#39;mean_train_precision&#39; etc.)</span>
-
 <span class="sd">    best_estimator_ : estimator or dict</span>
 <span class="sd">        Estimator that was chosen by the search, i.e. estimator</span>
 <span class="sd">        which gave highest score (or smallest loss if specified)</span>
 <span class="sd">        on the left out data. Not available if ``refit=False``.</span>
 
-<span class="sd">        For multi-metric evaluation, this attribute is present only if</span>
-<span class="sd">        ``refit`` is specified.</span>
-
-<span class="sd">        See ``refit`` parameter for more information on allowed values.</span>
-
 <span class="sd">    best_score_ : float</span>
 <span class="sd">        Mean cross-validated score of the best_estimator.</span>
 
-<span class="sd">        For multi-metric evaluation, this is not available if ``refit`` is</span>
-<span class="sd">        ``False``. See ``refit`` parameter for more information.</span>
-
 <span class="sd">    best_params_ : dict</span>
 <span class="sd">        Parameter setting that gave the best results on the hold out data.</span>
-
-<span class="sd">        For multi-metric evaluation, this is not available if ``refit`` is</span>
-<span class="sd">        ``False``. See ``refit`` parameter for more information.</span>
 
 <span class="sd">    best_index_ : int</span>
 <span class="sd">        The index (of the ``cv_results_`` arrays) which corresponds to the best</span>
@@ -1069,15 +964,9 @@
 <span class="sd">        the parameter setting for the best model, that gives the highest</span>
 <span class="sd">        mean score (``search.best_score_``).</span>
 
-<span class="sd">        For multi-metric evaluation, this is not available if ``refit`` is</span>
-<span class="sd">        ``False``. See ``refit`` parameter for more information.</span>
-
 <span class="sd">    scorer_ : function or a dict</span>
 <span class="sd">        Scorer function used on the held out data to choose the best</span>
 <span class="sd">        parameters for the model.</span>
-
-<span class="sd">        For multi-metric evaluation, this attribute holds the validated</span>
-<span class="sd">        ``scoring`` dict which maps the scorer key to the scorer callable.</span>
 
 <span class="sd">    n_splits_ : int</span>
 <span class="sd">        The number of cross-validation splits (folds/iterations).</span>
@@ -1106,15 +995,15 @@
 <span class="sd">        Search over a grid of parameters using successive halving.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">estimator</span><span class="p">,</span> <span class="n">param_distributions</span><span class="p">,</span> <span class="n">n_candidates</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
-                 <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">pre_dispatch</span><span class="o">=</span><span class="s1">&#39;2*n_jobs&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">error_score</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">return_train_score</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                 <span class="n">max_budget</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">budget_on</span><span class="o">=</span><span class="s1">&#39;n_samples&#39;</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-                 <span class="n">r_min</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">aggressive_elimination</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                 <span class="n">force_exhaust_budget</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">estimator</span><span class="p">,</span> <span class="n">param_distributions</span><span class="p">,</span>
+                 <span class="n">n_candidates</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">pre_dispatch</span><span class="o">=</span><span class="s1">&#39;2*n_jobs&#39;</span><span class="p">,</span>
+                 <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">error_score</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>
+                 <span class="n">return_train_score</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_budget</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+                 <span class="n">budget_on</span><span class="o">=</span><span class="s1">&#39;n_samples&#39;</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">r_min</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+                 <span class="n">aggressive_elimination</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">force_exhaust_budget</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">scoring</span><span class="p">,</span>
-                         <span class="n">n_jobs</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span>
+                         <span class="n">n_jobs</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="n">refit</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span>
                          <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span> <span class="n">error_score</span><span class="o">=</span><span class="n">error_score</span><span class="p">,</span>
                          <span class="n">return_train_score</span><span class="o">=</span><span class="n">return_train_score</span><span class="p">,</span>
                          <span class="n">max_budget</span><span class="o">=</span><span class="n">max_budget</span><span class="p">,</span> <span class="n">budget_on</span><span class="o">=</span><span class="n">budget_on</span><span class="p">,</span>

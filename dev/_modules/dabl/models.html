@@ -20,20 +20,11 @@
   <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'../../',
-              VERSION:'',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script type="text/javascript" src="../../_static/jquery.js"></script>
         <script type="text/javascript" src="../../_static/underscore.js"></script>
         <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
         <script type="text/javascript" src="../../_static/js/copybutton.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -69,7 +60,7 @@
             
             
               <div class="version">
-                0.0.1
+                0.1.6
               </div>
             
           
@@ -95,7 +86,7 @@
             
               <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Getting started with Machine Learning with dabl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quickstart to ML with dabl</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Documentation</span></p>
 <ul>
@@ -105,6 +96,7 @@
 <p class="caption"><span class="caption-text">Examples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../auto_examples/index.html">General examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auto_examples/index.html#plotting-examples">Plotting examples</a></li>
 </ul>
 
             
@@ -172,45 +164,82 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">make_scorer</span><span class="p">,</span> <span class="n">average_precision_score</span>
-<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="k">import</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">ClassifierMixin</span><span class="p">,</span> <span class="n">clone</span><span class="p">,</span> <span class="n">RegressorMixin</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">LabelEncoder</span>
-<span class="kn">from</span> <span class="nn">sklearn.utils.multiclass</span> <span class="k">import</span> <span class="n">type_of_target</span>
-<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="k">import</span> <span class="n">make_pipeline</span>
-<span class="kn">from</span> <span class="nn">sklearn.exceptions</span> <span class="k">import</span> <span class="n">UndefinedMetricWarning</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">StratifiedKFold</span><span class="p">,</span> <span class="n">KFold</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics.scorer</span> <span class="k">import</span> <span class="n">_check_multimetric_scoring</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection._validation</span> <span class="k">import</span> <span class="n">_multimetric_score</span>
-<span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="k">import</span> <span class="n">check_is_fitted</span>
-<span class="kn">from</span> <span class="nn">sklearn.utils.testing</span> <span class="k">import</span> <span class="n">set_random_state</span>
+<span class="kn">import</span> <span class="nn">sklearn</span>
 
-<span class="kn">from</span> <span class="nn">.preprocessing</span> <span class="k">import</span> <span class="n">EasyPreprocessor</span><span class="p">,</span> <span class="n">clean</span><span class="p">,</span> <span class="n">detect_types</span>
-<span class="kn">from</span> <span class="nn">.pipelines</span> <span class="k">import</span> <span class="n">get_fast_classifiers</span><span class="p">,</span> <span class="n">get_fast_regressors</span>
-<span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="n">nice_repr</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">make_scorer</span><span class="p">,</span> <span class="n">average_precision_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">ClassifierMixin</span><span class="p">,</span> <span class="n">RegressorMixin</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils.multiclass</span> <span class="kn">import</span> <span class="n">type_of_target</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span><span class="p">,</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.exceptions</span> <span class="kn">import</span> <span class="n">UndefinedMetricWarning</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">StratifiedKFold</span><span class="p">,</span> <span class="n">KFold</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">sklearn.metrics._scorer</span> <span class="kn">import</span> <span class="n">_check_multimetric_scoring</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">sklearn.metrics.scorer</span> <span class="kn">import</span> <span class="n">_check_multimetric_scoring</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection._validation</span> <span class="kn">import</span> <span class="n">_fit_and_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_is_fitted</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils.metaestimators</span> <span class="kn">import</span> <span class="n">if_delegate_has_method</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">sklearn.utils._testing</span> <span class="kn">import</span> <span class="n">set_random_state</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">sklearn.utils.testing</span> <span class="kn">import</span> <span class="n">set_random_state</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.dummy</span> <span class="kn">import</span> <span class="n">DummyClassifier</span>
+
+<span class="kn">from</span> <span class="nn">.preprocessing</span> <span class="kn">import</span> <span class="n">EasyPreprocessor</span><span class="p">,</span> <span class="n">detect_types</span>
+<span class="kn">from</span> <span class="nn">.pipelines</span> <span class="kn">import</span> <span class="p">(</span><span class="n">get_fast_classifiers</span><span class="p">,</span> <span class="n">get_fast_regressors</span><span class="p">,</span>
+                        <span class="n">get_any_classifiers</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">nice_repr</span><span class="p">,</span> <span class="n">_validate_Xyt</span>
+<span class="kn">from</span> <span class="nn">.search</span> <span class="kn">import</span> <span class="n">GridSuccessiveHalving</span>
 
 
-<span class="k">class</span> <span class="nc">_BaseSimpleEstimator</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">_format_scores</span><span class="p">(</span><span class="n">scores</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: </span><span class="si">{:.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+                     <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">scores</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
 
+
+<span class="k">class</span> <span class="nc">_DablBaseEstimator</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">):</span>
+
+    <span class="nd">@if_delegate_has_method</span><span class="p">(</span><span class="n">delegate</span><span class="o">=</span><span class="s1">&#39;est_&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">est_</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+    <span class="nd">@if_delegate_has_method</span><span class="p">(</span><span class="n">delegate</span><span class="o">=</span><span class="s1">&#39;est_&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">decision_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">est_</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">_BaseSimpleEstimator</span><span class="p">(</span><span class="n">_DablBaseEstimator</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">refit</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Must specify refit=True to predict.&quot;</span><span class="p">)</span>
-        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;est_&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">est_</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+            <span class="c1"># fix when requiring sklearn 0.22</span>
+            <span class="c1"># check_is_fitted will not have arguments any more</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">DeprecationWarning</span><span class="p">)</span>
+            <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;est_&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">est_</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_evaluate_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">estimator</span><span class="p">,</span> <span class="n">data_preproc</span><span class="p">,</span> <span class="n">scorers</span><span class="p">):</span>
         <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="ow">in</span> <span class="n">data_preproc</span><span class="p">:</span>
-            <span class="n">est</span> <span class="o">=</span> <span class="n">clone</span><span class="p">(</span><span class="n">estimator</span><span class="p">)</span>
-            <span class="n">est</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-            <span class="c1"># fit_time = time.time() - start_time</span>
-            <span class="c1"># _score will return dict if is_multimetric is True</span>
+            <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">y_train</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">y_test</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">])</span>
+            <span class="n">train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">))</span>
+            <span class="n">test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">))</span>
             <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
                 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span>
                                         <span class="n">category</span><span class="o">=</span><span class="n">UndefinedMetricWarning</span><span class="p">)</span>
-                <span class="n">test_scores</span> <span class="o">=</span> <span class="n">_multimetric_score</span><span class="p">(</span><span class="n">est</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">scorers</span><span class="p">)</span>
-            <span class="c1"># score_time = time.time() - start_time - fit_time</span>
-            <span class="c1"># train_scores = _multimetric_score(estimator, X_train, y_train,</span>
-            <span class="c1">#                                   scorers)</span>
+                <span class="n">test_scores</span> <span class="o">=</span> <span class="n">_fit_and_score</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">scorer</span><span class="o">=</span><span class="n">scorers</span><span class="p">,</span>
+                                             <span class="n">train</span><span class="o">=</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="o">=</span><span class="n">test</span><span class="p">,</span>
+                                             <span class="n">parameters</span><span class="o">=</span><span class="p">{},</span> <span class="n">fit_params</span><span class="o">=</span><span class="p">{},</span>
+                                             <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
             <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_scores</span><span class="p">)</span>
 
         <span class="n">res_mean</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -219,12 +248,10 @@
             <span class="n">name</span> <span class="o">=</span> <span class="n">nice_repr</span><span class="p">(</span><span class="n">estimator</span><span class="o">.</span><span class="n">steps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
         <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
             <span class="n">name</span> <span class="o">=</span> <span class="n">nice_repr</span><span class="p">(</span><span class="n">estimator</span><span class="p">)</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;\s&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-            <span class="n">res_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: </span><span class="si">{:.4f}</span><span class="s2">    &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
-                                 <span class="k">for</span> <span class="n">m</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">res_mean</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">res_string</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Running </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">_format_scores</span><span class="p">(</span><span class="n">res_mean</span><span class="p">))</span>
         <span class="n">res_mean</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">log_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">res_mean</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">res_mean</span>
@@ -247,15 +274,10 @@
 <span class="sd">        target_col : string or int, optional</span>
 <span class="sd">            Column name of target if included in X.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="p">((</span><span class="n">y</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">target_col</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span>
-                <span class="ow">or</span> <span class="p">(</span><span class="n">y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">target_col</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="s2">&quot;Need to specify exactly one of y and target_col.&quot;</span><span class="p">)</span>
-        <span class="n">X</span> <span class="o">=</span> <span class="n">clean</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">target_col</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">y</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">target_col</span><span class="p">]</span>
-            <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">target_col</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">types</span> <span class="o">=</span> <span class="n">detect_types</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">_validate_Xyt</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">do_clean</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">types</span> <span class="o">=</span> <span class="n">detect_types</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">type_hints</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">feature_names_</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">types_</span> <span class="o">=</span> <span class="n">types</span>
 
@@ -281,26 +303,32 @@
             <span class="n">data_preproc</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">y</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test</span><span class="p">]))</span>
 
         <span class="n">estimators</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_estimators</span><span class="p">()</span>
-        <span class="n">scorers</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_check_multimetric_scoring</span><span class="p">(</span><span class="n">estimators</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                                                <span class="n">scoring</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scoring_</span><span class="p">)</span>
         <span class="n">rank_scoring</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rank_scoring</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">current_best_</span> <span class="o">=</span> <span class="p">{</span><span class="n">rank_scoring</span><span class="p">:</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">}</span>
         <span class="k">for</span> <span class="n">est</span> <span class="ow">in</span> <span class="n">estimators</span><span class="p">:</span>
             <span class="n">set_random_state</span><span class="p">(</span><span class="n">est</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">)</span>
+            <span class="n">scorers</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_check_multimetric_scoring</span><span class="p">(</span><span class="n">est</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scoring_</span><span class="p">)</span>
             <span class="n">scores</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_evaluate_one</span><span class="p">(</span><span class="n">est</span><span class="p">,</span> <span class="n">data_preproc</span><span class="p">,</span> <span class="n">scorers</span><span class="p">)</span>
             <span class="c1"># make scoring configurable</span>
             <span class="k">if</span> <span class="n">scores</span><span class="p">[</span><span class="n">rank_scoring</span><span class="p">]</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_best_</span><span class="p">[</span><span class="n">rank_scoring</span><span class="p">]:</span>
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;new best (using </span><span class="si">{}</span><span class="s2">):</span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                        <span class="n">rank_scoring</span><span class="p">,</span> <span class="n">scores</span><span class="p">))</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== new best </span><span class="si">{}</span><span class="s2"> (using </span><span class="si">{}</span><span class="s2">):&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">scores</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                        <span class="n">rank_scoring</span><span class="p">))</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">_format_scores</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
+                    <span class="nb">print</span><span class="p">()</span>
+
                 <span class="bp">self</span><span class="o">.</span><span class="n">current_best_</span> <span class="o">=</span> <span class="n">scores</span>
                 <span class="n">best_est</span> <span class="o">=</span> <span class="n">est</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best model:</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s2">Best Scores:</span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                <span class="n">nice_repr</span><span class="p">(</span><span class="n">best_est</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_best_</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Best model:</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s2">Best Scores:</span><span class="se">\n</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                  <span class="n">nice_repr</span><span class="p">(</span><span class="n">best_est</span><span class="p">),</span> <span class="n">_format_scores</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_best_</span><span class="p">)))</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">refit</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">est_</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">EasyPreprocessor</span><span class="p">(),</span> <span class="n">best_est</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">est_</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">est_</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">EasyPreprocessor</span><span class="p">(</span><span class="n">types</span><span class="o">=</span><span class="n">types</span><span class="p">),</span>
+                                          <span class="n">best_est</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">est_</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
 
 
@@ -317,19 +345,32 @@
 
 <span class="sd">    verbose : integer, default=1</span>
 <span class="sd">        Verbosity (higher is more output)</span>
+
+<span class="sd">    type_hints : dict or None</span>
+<span class="sd">            If dict, provide type information for columns.</span>
+<span class="sd">            Keys are column names, values are types as provided by</span>
+<span class="sd">            detect_types.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    est_ : sklearn estimator</span>
+<span class="sd">        Best estimator found.</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="SimpleClassifier.__init__"><a class="viewcode-back" href="../../generated/dabl.SimpleClassifier.html#dabl.SimpleClassifier.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="viewcode-block" id="SimpleClassifier.__init__"><a class="viewcode-back" href="../../generated/dabl.SimpleClassifier.html#dabl.SimpleClassifier.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                 <span class="n">type_hints</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">random_state</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">refit</span> <span class="o">=</span> <span class="n">refit</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refit</span> <span class="o">=</span> <span class="n">refit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type_hints</span> <span class="o">=</span> <span class="n">type_hints</span></div>
 
     <span class="k">def</span> <span class="nf">_get_estimators</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">get_fast_classifiers</span><span class="p">(</span><span class="n">n_classes</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">classes_</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">_preprocess_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="n">target_type</span> <span class="o">=</span> <span class="n">type_of_target</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-        <span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+        <span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">classes_</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">classes_</span>
 
         <span class="k">if</span> <span class="n">target_type</span> <span class="o">==</span> <span class="s2">&quot;binary&quot;</span><span class="p">:</span>
@@ -340,15 +381,17 @@
             <span class="n">scoring</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;accuracy&#39;</span><span class="p">:</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;average_precision&#39;</span><span class="p">:</span> <span class="n">my_average_precision_scorer</span><span class="p">,</span>
                        <span class="s1">&#39;roc_auc&#39;</span><span class="p">:</span> <span class="s1">&#39;roc_auc&#39;</span><span class="p">,</span>
-                       <span class="s1">&#39;recall_macro&#39;</span><span class="p">:</span> <span class="s1">&#39;recall_macro&#39;</span>
+                       <span class="s1">&#39;recall_macro&#39;</span><span class="p">:</span> <span class="s1">&#39;recall_macro&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;f1_macro&#39;</span><span class="p">:</span> <span class="s1">&#39;f1_macro&#39;</span>
                        <span class="p">}</span>
         <span class="k">elif</span> <span class="n">target_type</span> <span class="o">==</span> <span class="s2">&quot;multiclass&quot;</span><span class="p">:</span>
-            <span class="n">scoring</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;recall_macro&#39;</span><span class="p">,</span> <span class="s1">&#39;precision_macro&#39;</span><span class="p">]</span>
+            <span class="n">scoring</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;recall_macro&#39;</span><span class="p">,</span> <span class="s1">&#39;precision_macro&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;f1_macro&#39;</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unknown target type: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_type</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">y</span><span class="p">,</span> <span class="n">scoring</span>
 
-<div class="viewcode-block" id="SimpleClassifier.fit"><a class="viewcode-back" href="../../generated/dabl.SimpleClassifier.html#dabl.SimpleClassifier.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="SimpleClassifier.fit"><a class="viewcode-back" href="../../generated/dabl.SimpleClassifier.html#dabl.SimpleClassifier.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Fit classifier.</span>
 
 <span class="sd">        Requires to either specify the target as separate 1d array or Series y</span>
@@ -370,7 +413,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="n">target_col</span><span class="p">)</span></div></div>
 
 
-<span class="k">class</span> <span class="nc">SimpleRegressor</span><span class="p">(</span><span class="n">_BaseSimpleEstimator</span><span class="p">,</span> <span class="n">RegressorMixin</span><span class="p">):</span>
+<div class="viewcode-block" id="SimpleRegressor"><a class="viewcode-back" href="../../generated/dabl.SimpleRegressor.html#dabl.SimpleRegressor">[docs]</a><span class="k">class</span> <span class="nc">SimpleRegressor</span><span class="p">(</span><span class="n">_BaseSimpleEstimator</span><span class="p">,</span> <span class="n">RegressorMixin</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Automagic anytime classifier.</span>
 
 <span class="sd">    Parameters</span>
@@ -383,11 +426,18 @@
 
 <span class="sd">    verbose : integer, default=1</span>
 <span class="sd">        Verbosity (higher is more output)</span>
+
+<span class="sd">    type_hints : dict or None</span>
+<span class="sd">            If dict, provide type information for columns.</span>
+<span class="sd">            Keys are column names, values are types as provided by</span>
+<span class="sd">            detect_types.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="viewcode-block" id="SimpleRegressor.__init__"><a class="viewcode-back" href="../../generated/dabl.SimpleRegressor.html#dabl.SimpleRegressor.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                 <span class="n">type_hints</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">refit</span> <span class="o">=</span> <span class="n">refit</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">random_state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type_hints</span> <span class="o">=</span> <span class="n">type_hints</span></div>
 
     <span class="k">def</span> <span class="nf">_get_estimators</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">get_fast_regressors</span><span class="p">()</span>
@@ -402,7 +452,7 @@
         <span class="n">scoring</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;r2&#39;</span><span class="p">,</span> <span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">y</span><span class="p">,</span> <span class="n">scoring</span>
 
-    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="SimpleRegressor.fit"><a class="viewcode-back" href="../../generated/dabl.SimpleRegressor.html#dabl.SimpleRegressor.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Fit regressor.</span>
 
 <span class="sd">        Requires to either specify the target as separate 1d array or Series y</span>
@@ -419,10 +469,143 @@
 <span class="sd">            Target class labels. You need to specify either y or target_col.</span>
 <span class="sd">        target_col : string or int, optional</span>
 <span class="sd">            Column name of target if included in X.</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rank_scoring</span> <span class="o">=</span> <span class="s2">&quot;r2&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="n">target_col</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="n">target_col</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="AnyClassifier"><a class="viewcode-back" href="../../generated/dabl.AnyClassifier.html#dabl.AnyClassifier">[docs]</a><span class="k">class</span> <span class="nc">AnyClassifier</span><span class="p">(</span><span class="n">_DablBaseEstimator</span><span class="p">,</span> <span class="n">ClassifierMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Classifier with automatic model selection.</span>
+
+<span class="sd">    This model uses successive halving on a portfolio of complex models</span>
+<span class="sd">    (HistGradientBoosting, RandomForest, SVC, LogisticRegression)</span>
+<span class="sd">    to pick the best model family and hyper-parameters.</span>
+
+<span class="sd">    AnyClassifier internally applies EasyPreprocessor, so no preprocessing</span>
+<span class="sd">    is necessary.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_jobs : int, default=None</span>
+<span class="sd">        Number of processes to spawn for parallelizing the search.</span>
+
+<span class="sd">    force_exhaust_budget : bool, default=True</span>
+<span class="sd">        Whether to ensure at least one model is trained on the full</span>
+<span class="sd">        dataset in successive halving.</span>
+<span class="sd">        See the documentation of successive halving for details.</span>
+
+<span class="sd">    verbose : integer, default=0</span>
+<span class="sd">        Verbosity. Higher means more output.</span>
+
+<span class="sd">    type_hints : dict or None</span>
+<span class="sd">            If dict, provide type information for columns.</span>
+<span class="sd">            Keys are column names, values are types as provided by</span>
+<span class="sd">            detect_types.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    search_ : SuccessiveHalving instance</span>
+<span class="sd">        Fitted GridSuccessiveHalving instance for inspection.</span>
+
+<span class="sd">    est_ : sklearn estimator</span>
+<span class="sd">        Best estimator (pipeline) found during search.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="AnyClassifier.__init__"><a class="viewcode-back" href="../../generated/dabl.AnyClassifier.html#dabl.AnyClassifier.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">force_exhaust_budget</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="n">type_hints</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">force_exhaust_budget</span> <span class="o">=</span> <span class="n">force_exhaust_budget</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type_hints</span> <span class="o">=</span> <span class="n">type_hints</span></div>
+
+    <span class="k">def</span> <span class="nf">_get_estimators</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">get_any_classifiers</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_preprocess_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="c1"># copy and paste from above, should be a mixin</span>
+        <span class="n">target_type</span> <span class="o">=</span> <span class="n">type_of_target</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">classes_</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">classes_</span>
+
+        <span class="k">if</span> <span class="n">target_type</span> <span class="o">==</span> <span class="s2">&quot;binary&quot;</span><span class="p">:</span>
+            <span class="n">scoring</span> <span class="o">=</span> <span class="s1">&#39;recall_macro&#39;</span>
+        <span class="k">elif</span> <span class="n">target_type</span> <span class="o">==</span> <span class="s2">&quot;multiclass&quot;</span><span class="p">:</span>
+            <span class="n">scoring</span> <span class="o">=</span> <span class="s1">&#39;recall_macro&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unknown target type: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_type</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">y</span><span class="p">,</span> <span class="n">scoring</span>
+
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+            <span class="c1"># fix when requiring sklearn 0.22</span>
+            <span class="c1"># check_is_fitted will not have arguments any more</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">DeprecationWarning</span><span class="p">)</span>
+            <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;est_&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">est_</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<div class="viewcode-block" id="AnyClassifier.fit"><a class="viewcode-back" href="../../generated/dabl.AnyClassifier.html#dabl.AnyClassifier.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Fit estimator.</span>
+
+<span class="sd">        Requiers to either specify the target as separate 1d array or Series y</span>
+<span class="sd">        (in scikit-learn fashion) or as column of the dataframe X specified by</span>
+<span class="sd">        target_col.</span>
+<span class="sd">        If y is specified, X is assumed not to contain the target.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : DataFrame</span>
+<span class="sd">            Input features. If target_col is specified, X also includes the</span>
+<span class="sd">            target.</span>
+<span class="sd">        y : Series or numpy array, optional.</span>
+<span class="sd">            Target. You need to specify either y or target_col.</span>
+<span class="sd">        target_col : string or int, optional</span>
+<span class="sd">            Column name of target if included in X.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># copy and paste from above?!</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">y</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">target_col</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="ow">or</span> <span class="p">(</span><span class="n">y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">target_col</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Need to specify exactly one of y and target_col.&quot;</span><span class="p">)</span>
+        <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">_validate_Xyt</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">do_clean</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+        <span class="n">types</span> <span class="o">=</span> <span class="n">detect_types</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">type_hints</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">feature_names_</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">types_</span> <span class="o">=</span> <span class="n">types</span>
+        <span class="n">cv</span> <span class="o">=</span> <span class="mi">5</span>
+        <span class="n">ratio</span> <span class="o">=</span> <span class="mi">3</span>
+
+        <span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scoring_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_preprocess_target</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log_</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># reimplement cross-validation so we only do preprocessing once</span>
+        <span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;preprocessing&#39;</span><span class="p">,</span>
+                          <span class="n">EasyPreprocessor</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="n">types</span><span class="p">)),</span>
+                         <span class="p">(</span><span class="s1">&#39;classifier&#39;</span><span class="p">,</span> <span class="n">DummyClassifier</span><span class="p">())])</span>
+
+        <span class="n">estimators</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_estimators</span><span class="p">()</span>
+        <span class="n">param_grid</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;classifier&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">est</span><span class="p">]}</span> <span class="k">for</span> <span class="n">est</span> <span class="ow">in</span> <span class="n">estimators</span><span class="p">]</span>
+        <span class="n">gs</span> <span class="o">=</span> <span class="n">GridSuccessiveHalving</span><span class="p">(</span>
+            <span class="n">ratio</span><span class="o">=</span><span class="n">ratio</span><span class="p">,</span>
+            <span class="n">estimator</span><span class="o">=</span><span class="n">pipe</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">,</span>
+            <span class="n">force_exhaust_budget</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">force_exhaust_budget</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span> <span class="n">error_score</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">,</span>
+            <span class="n">scoring</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scoring_</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="s1">&#39;recall_macro&#39;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">search_</span> <span class="o">=</span> <span class="n">gs</span>
+        <span class="k">with</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">config_context</span><span class="p">(</span><span class="n">print_changed_only</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">gs</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">est_</span> <span class="o">=</span> <span class="n">gs</span><span class="o">.</span><span class="n">best_estimator_</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;best classifier: &quot;</span><span class="p">,</span> <span class="n">gs</span><span class="o">.</span><span class="n">best_params_</span><span class="p">[</span><span class="s1">&#39;classifier&#39;</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;best score: </span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">best_score_</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div></div>
 </pre></div>
 
            </div>

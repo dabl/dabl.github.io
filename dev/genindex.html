@@ -21,20 +21,11 @@
   <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'./',
-              VERSION:'',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script type="text/javascript" src="_static/jquery.js"></script>
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
         <script type="text/javascript" src="_static/js/copybutton.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
@@ -70,7 +61,7 @@
             
             
               <div class="version">
-                0.0.1
+                0.1.6
               </div>
             
           
@@ -96,7 +87,7 @@
             
               <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Getting started with Machine Learning with dabl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quickstart to ML with dabl</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Documentation</span></p>
 <ul>
@@ -106,6 +97,7 @@
 <p class="caption"><span class="caption-text">Examples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">General examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#plotting-examples">Plotting examples</a></li>
 </ul>
 
             
@@ -173,12 +165,14 @@
 
 <div class="genindex-jumpbox">
  <a href="#_"><strong>_</strong></a>
+ | <a href="#A"><strong>A</strong></a>
  | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
  | <a href="#E"><strong>E</strong></a>
  | <a href="#F"><strong>F</strong></a>
  | <a href="#G"><strong>G</strong></a>
  | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
  | <a href="#P"><strong>P</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
@@ -188,26 +182,36 @@
 <h2 id="_">_</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/dabl.EasyPreprocessor.html#dabl.EasyPreprocessor.__init__">__init__() (dabl.EasyPreprocessor method)</a>
+      <li><a href="generated/dabl.AnyClassifier.html#dabl.AnyClassifier.__init__">__init__() (dabl.AnyClassifier method)</a>
 
       <ul>
+        <li><a href="generated/dabl.EasyPreprocessor.html#dabl.EasyPreprocessor.__init__">(dabl.EasyPreprocessor method)</a>
+</li>
         <li><a href="generated/dabl.SimpleClassifier.html#dabl.SimpleClassifier.__init__">(dabl.SimpleClassifier method)</a>
 </li>
-        <li><a href="generated/dabl.preprocessing.EasyPreprocessor.html#dabl.preprocessing.EasyPreprocessor.__init__">(dabl.preprocessing.EasyPreprocessor method)</a>
+        <li><a href="generated/dabl.SimpleRegressor.html#dabl.SimpleRegressor.__init__">(dabl.SimpleRegressor method)</a>
 </li>
       </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/dabl.AnyClassifier.html#dabl.AnyClassifier">AnyClassifier (class in dabl)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/dabl.clean.html#dabl.clean">clean() (in module dabl)</a>
-
-      <ul>
-        <li><a href="generated/dabl.preprocessing.clean.html#dabl.preprocessing.clean">(in module dabl.preprocessing)</a>
+      <li><a href="generated/dabl.plot.class_hists.html#dabl.plot.class_hists">class_hists() (in module dabl.plot)</a>
 </li>
-      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/dabl.clean.html#dabl.clean">clean() (in module dabl)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -215,11 +219,11 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/dabl.detect_types.html#dabl.detect_types">detect_types() (in module dabl)</a>
-
-      <ul>
-        <li><a href="generated/dabl.preprocessing.detect_types.html#dabl.preprocessing.detect_types">(in module dabl.preprocessing)</a>
 </li>
-      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/dabl.plot.discrete_scatter.html#dabl.plot.discrete_scatter">discrete_scatter() (in module dabl.plot)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -227,11 +231,11 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/dabl.EasyPreprocessor.html#dabl.EasyPreprocessor">EasyPreprocessor (class in dabl)</a>
-
-      <ul>
-        <li><a href="generated/dabl.preprocessing.EasyPreprocessor.html#dabl.preprocessing.EasyPreprocessor">(class in dabl.preprocessing)</a>
 </li>
-      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/dabl.explain.html#dabl.explain">explain() (in module dabl)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -240,36 +244,40 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/dabl.plot.find_pretty_grid.html#dabl.plot.find_pretty_grid">find_pretty_grid() (in module dabl.plot)</a>
 </li>
-      <li><a href="generated/dabl.EasyPreprocessor.html#dabl.EasyPreprocessor.fit">fit() (dabl.EasyPreprocessor method)</a>
+      <li><a href="generated/dabl.AnyClassifier.html#dabl.AnyClassifier.fit">fit() (dabl.AnyClassifier method)</a>
 
       <ul>
+        <li><a href="generated/dabl.EasyPreprocessor.html#dabl.EasyPreprocessor.fit">(dabl.EasyPreprocessor method)</a>
+</li>
         <li><a href="generated/dabl.SimpleClassifier.html#dabl.SimpleClassifier.fit">(dabl.SimpleClassifier method)</a>
 </li>
-        <li><a href="generated/dabl.preprocessing.EasyPreprocessor.html#dabl.preprocessing.EasyPreprocessor.fit">(dabl.preprocessing.EasyPreprocessor method)</a>
+        <li><a href="generated/dabl.SimpleRegressor.html#dabl.SimpleRegressor.fit">(dabl.SimpleRegressor method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/dabl.EasyPreprocessor.html#dabl.EasyPreprocessor.fit_transform">fit_transform() (dabl.EasyPreprocessor method)</a>
-
-      <ul>
-        <li><a href="generated/dabl.preprocessing.EasyPreprocessor.html#dabl.preprocessing.EasyPreprocessor.fit_transform">(dabl.preprocessing.EasyPreprocessor method)</a>
 </li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/dabl.pipelines.get_any_classifiers.html#dabl.pipelines.get_any_classifiers">get_any_classifiers() (in module dabl.pipelines)</a>
+</li>
       <li><a href="generated/dabl.pipelines.get_fast_classifiers.html#dabl.pipelines.get_fast_classifiers">get_fast_classifiers() (in module dabl.pipelines)</a>
 </li>
-      <li><a href="generated/dabl.EasyPreprocessor.html#dabl.EasyPreprocessor.get_params">get_params() (dabl.EasyPreprocessor method)</a>
+      <li><a href="generated/dabl.pipelines.get_fast_regressors.html#dabl.pipelines.get_fast_regressors">get_fast_regressors() (in module dabl.pipelines)</a>
+</li>
+      <li><a href="generated/dabl.AnyClassifier.html#dabl.AnyClassifier.get_params">get_params() (dabl.AnyClassifier method)</a>
 
       <ul>
+        <li><a href="generated/dabl.EasyPreprocessor.html#dabl.EasyPreprocessor.get_params">(dabl.EasyPreprocessor method)</a>
+</li>
         <li><a href="generated/dabl.SimpleClassifier.html#dabl.SimpleClassifier.get_params">(dabl.SimpleClassifier method)</a>
 </li>
-        <li><a href="generated/dabl.preprocessing.EasyPreprocessor.html#dabl.preprocessing.EasyPreprocessor.get_params">(dabl.preprocessing.EasyPreprocessor method)</a>
+        <li><a href="generated/dabl.SimpleRegressor.html#dabl.SimpleRegressor.get_params">(dabl.SimpleRegressor method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -282,11 +290,21 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/dabl.datasets.load_ames.html#dabl.datasets.load_ames">load_ames() (in module dabl.datasets)</a>
+      <li><a href="generated/dabl.datasets.load_adult.html#dabl.datasets.load_adult">load_adult() (in module dabl.datasets)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/dabl.datasets.load_ames.html#dabl.datasets.load_ames">load_ames() (in module dabl.datasets)</a>
+</li>
       <li><a href="generated/dabl.datasets.load_titanic.html#dabl.datasets.load_titanic">load_titanic() (in module dabl.datasets)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/dabl.plot.mosaic_plot.html#dabl.plot.mosaic_plot">mosaic_plot() (in module dabl.plot)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -294,22 +312,20 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/dabl.plot.html#dabl.plot">plot() (in module dabl)</a>
+</li>
       <li><a href="generated/dabl.plot.plot_classification_categorical.html#dabl.plot.plot_classification_categorical">plot_classification_categorical() (in module dabl.plot)</a>
 </li>
       <li><a href="generated/dabl.plot.plot_classification_continuous.html#dabl.plot.plot_classification_continuous">plot_classification_continuous() (in module dabl.plot)</a>
 </li>
-      <li><a href="generated/dabl.plot.plot_regression_categorical.html#dabl.plot.plot_regression_categorical">plot_regression_categorical() (in module dabl.plot)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/dabl.plot.plot_coefficients.html#dabl.plot.plot_coefficients">plot_coefficients() (in module dabl.plot)</a>
+</li>
+      <li><a href="generated/dabl.plot.plot_regression_categorical.html#dabl.plot.plot_regression_categorical">plot_regression_categorical() (in module dabl.plot)</a>
+</li>
       <li><a href="generated/dabl.plot.plot_regression_continuous.html#dabl.plot.plot_regression_continuous">plot_regression_continuous() (in module dabl.plot)</a>
 </li>
-      <li><a href="generated/dabl.plot_supervised.html#dabl.plot_supervised">plot_supervised() (in module dabl)</a>
-
-      <ul>
-        <li><a href="generated/dabl.plot.plot_supervised.html#dabl.plot.plot_supervised">(in module dabl.plot)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -324,19 +340,29 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/dabl.SimpleClassifier.html#dabl.SimpleClassifier.score">score() (dabl.SimpleClassifier method)</a>
-</li>
-      <li><a href="generated/dabl.EasyPreprocessor.html#dabl.EasyPreprocessor.set_params">set_params() (dabl.EasyPreprocessor method)</a>
+      <li><a href="generated/dabl.AnyClassifier.html#dabl.AnyClassifier.score">score() (dabl.AnyClassifier method)</a>
 
       <ul>
+        <li><a href="generated/dabl.SimpleClassifier.html#dabl.SimpleClassifier.score">(dabl.SimpleClassifier method)</a>
+</li>
+        <li><a href="generated/dabl.SimpleRegressor.html#dabl.SimpleRegressor.score">(dabl.SimpleRegressor method)</a>
+</li>
+      </ul></li>
+      <li><a href="generated/dabl.AnyClassifier.html#dabl.AnyClassifier.set_params">set_params() (dabl.AnyClassifier method)</a>
+
+      <ul>
+        <li><a href="generated/dabl.EasyPreprocessor.html#dabl.EasyPreprocessor.set_params">(dabl.EasyPreprocessor method)</a>
+</li>
         <li><a href="generated/dabl.SimpleClassifier.html#dabl.SimpleClassifier.set_params">(dabl.SimpleClassifier method)</a>
 </li>
-        <li><a href="generated/dabl.preprocessing.EasyPreprocessor.html#dabl.preprocessing.EasyPreprocessor.set_params">(dabl.preprocessing.EasyPreprocessor method)</a>
+        <li><a href="generated/dabl.SimpleRegressor.html#dabl.SimpleRegressor.set_params">(dabl.SimpleRegressor method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/dabl.SimpleClassifier.html#dabl.SimpleClassifier">SimpleClassifier (class in dabl)</a>
+</li>
+      <li><a href="generated/dabl.SimpleRegressor.html#dabl.SimpleRegressor">SimpleRegressor (class in dabl)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -345,11 +371,7 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/dabl.EasyPreprocessor.html#dabl.EasyPreprocessor.transform">transform() (dabl.EasyPreprocessor method)</a>
-
-      <ul>
-        <li><a href="generated/dabl.preprocessing.EasyPreprocessor.html#dabl.preprocessing.EasyPreprocessor.transform">(dabl.preprocessing.EasyPreprocessor method)</a>
 </li>
-      </ul></li>
   </ul></td>
 </tr></table>
 

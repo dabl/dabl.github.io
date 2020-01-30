@@ -57,13 +57,7 @@ iterations of a random forest::
     ...                            random_state=0,
     ...                            ).fit(X, y)
     >>> sh.best_estimator_
-    RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
-                           max_depth=5, max_features='auto', max_leaf_nodes=None,
-                           min_impurity_decrease=0.0, min_impurity_split=None,
-                           min_samples_leaf=1, min_samples_split=2,
-                           min_weight_fraction_leaf=0.0, n_estimators=8,
-                           n_jobs=None, oob_score=False, random_state=0, verbose=0,
-                           warm_start=False)
+    RandomForestClassifier(...)
 
 Note that it is not possible to budget on a parameter that is part of the
 parameter space.
@@ -118,7 +112,8 @@ Aggressive elimination of candidates
 Ideally, we want the last iteration to evaluate ``ratio`` candidates. We then
 just have to pick the best one. When the number budget is small with respect to
 the number of candidates, the last iteration may have to evaluate more than
-``ratio`` candidates.::
+``ratio`` candidates::
+
     >>> from sklearn.datasets import make_classification
     >>> from sklearn.svm import SVC
     >>> import pandas as pd
