@@ -286,8 +286,9 @@
            <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
     <span class="n">feature_names</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">feature_names</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">interesting_coefficients</span><span class="p">)))</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">feature_names</span><span class="p">[</span><span class="n">interesting_coefficients</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
-                       <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">feature_names</span><span class="p">[</span><span class="n">interesting_coefficients</span><span class="p">],</span>
+                       <span class="n">rotation</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+    <span class="n">_short_tick_names</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">ticklabel_length</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Coefficient magnitude&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Feature&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">classname</span><span class="p">)</span>
@@ -300,10 +301,12 @@
         <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
     <span class="n">img</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">)</span>
     <span class="n">img</span><span class="o">.</span><span class="n">update_scalarmappable</span><span class="p">()</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">_shortname</span><span class="p">(</span><span class="n">xlabel</span><span class="p">,</span> <span class="n">maxlen</span><span class="o">=</span><span class="mi">40</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">_shortname</span><span class="p">(</span><span class="n">ylabel</span><span class="p">,</span> <span class="n">maxlen</span><span class="o">=</span><span class="mi">40</span><span class="p">))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xticklabels</span><span class="p">))</span> <span class="o">+</span> <span class="o">.</span><span class="mi">5</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">yticklabels</span><span class="p">))</span> <span class="o">+</span> <span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">xticklabels</span> <span class="o">=</span> <span class="p">[</span><span class="n">_shortname</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">maxlen</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">xticklabels</span><span class="p">]</span>
+    <span class="n">yticklabels</span> <span class="o">=</span> <span class="p">[</span><span class="n">_shortname</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">maxlen</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">yticklabels</span><span class="p">]</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">xticklabels</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">yticklabels</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -498,11 +501,30 @@
     <span class="k">return</span> <span class="n">types</span>
 
 
-<span class="k">def</span> <span class="nf">_short_tick_names</span><span class="p">(</span><span class="n">ax</span><span class="p">):</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="n">_shortname</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">get_text</span><span class="p">(),</span> <span class="n">maxlen</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-                        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">()])</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">_shortname</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xlabel</span><span class="p">(),</span> <span class="n">maxlen</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">_shortname</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_ylabel</span><span class="p">(),</span> <span class="n">maxlen</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">_short_tick_names</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">label_length</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">ticklabel_length</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Shorten axes labels and tick labels.</span>
+
+<span class="sd">    Uses _shortname to change labels as a side effect.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ax : matplotlib axes</span>
+<span class="sd">        Axes on which to shorten labels.</span>
+<span class="sd">    label_length : int, default=20</span>
+<span class="sd">        Length of xlabel and ylabel</span>
+<span class="sd">    ticklabel_length : int, default=10</span>
+<span class="sd">        Length of each label in xticklabels and yticklabels</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">_shortname</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">get_text</span><span class="p">(),</span> <span class="n">maxlen</span><span class="o">=</span><span class="n">ticklabel_length</span><span class="p">)</span>
+         <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">()]</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">_shortname</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">get_text</span><span class="p">(),</span> <span class="n">maxlen</span><span class="o">=</span><span class="n">ticklabel_length</span><span class="p">)</span>
+         <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">()]</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">_shortname</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xlabel</span><span class="p">(),</span> <span class="n">maxlen</span><span class="o">=</span><span class="n">label_length</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">_shortname</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_ylabel</span><span class="p">(),</span> <span class="n">maxlen</span><span class="o">=</span><span class="n">label_length</span><span class="p">))</span>
 
 
 <span class="k">def</span> <span class="nf">_find_scatter_plots_classification</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">how_many</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
@@ -645,7 +667,7 @@
         <span class="k">if</span> <span class="n">ordinal</span><span class="p">:</span>
             <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">counts</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">width</span><span class="o">=.</span><span class="mi">9</span><span class="p">,</span>
                    <span class="n">bottom</span><span class="o">=</span><span class="n">bottom</span> <span class="o">*</span> <span class="n">i</span><span class="p">,</span> <span class="n">tick_label</span><span class="o">=</span><span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-                   <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+                   <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
             <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">-</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="n">counts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="o">.</span><span class="mi">5</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">bin_edges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">counts</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">bottom</span><span class="o">=</span><span class="n">bottom</span> <span class="o">*</span> <span class="n">i</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
@@ -656,7 +678,7 @@
     <span class="k">if</span> <span class="n">legend</span><span class="p">:</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(())</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">_shortname</span><span class="p">(</span><span class="n">column</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">ax</span></div>
 
 
@@ -703,7 +725,7 @@
             <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
             <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(())</span>
         <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">n_features</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">columns</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">_shortname</span><span class="p">(</span><span class="n">columns</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
             <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(())</span>

@@ -183,7 +183,7 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.SimpleRegressor<a class="headerlink" href="#dabl-simpleregressor" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="dabl.SimpleRegressor">
-<em class="property">class </em><code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">SimpleRegressor</code><span class="sig-paren">(</span><em class="sig-param">refit=True</em>, <em class="sig-param">random_state=None</em>, <em class="sig-param">verbose=1</em>, <em class="sig-param">type_hints=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/models.html#SimpleRegressor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleRegressor" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">SimpleRegressor</code><span class="sig-paren">(</span><em class="sig-param">refit=True</em>, <em class="sig-param">random_state=None</em>, <em class="sig-param">verbose=1</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">shuffle=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/models.html#SimpleRegressor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleRegressor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Automagic anytime classifier.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -198,12 +198,14 @@
 Keys are column names, values are types as provided by
 detect_types.</p>
 </dd>
+<dt><strong>shuffle</strong><span class="classifier">boolean, default=True</span></dt><dd><p>Whether to shuffle the training set in cross-validation.</p>
+</dd>
 </dl>
 </dd>
 </dl>
 <dl class="method">
 <dt id="dabl.SimpleRegressor.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">refit=True</em>, <em class="sig-param">random_state=None</em>, <em class="sig-param">verbose=1</em>, <em class="sig-param">type_hints=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/models.html#SimpleRegressor.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleRegressor.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">refit=True</em>, <em class="sig-param">random_state=None</em>, <em class="sig-param">verbose=1</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">shuffle=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dabl/models.html#SimpleRegressor.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleRegressor.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 

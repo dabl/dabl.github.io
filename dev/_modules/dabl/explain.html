@@ -161,6 +161,7 @@
             
   <h1>Source code for dabl.explain</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">warn</span>
 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -176,10 +177,23 @@
 <span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">SimpleClassifier</span><span class="p">,</span> <span class="n">SimpleRegressor</span><span class="p">,</span> <span class="n">AnyClassifier</span>
 <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">_validate_Xyt</span>
 <span class="kn">from</span> <span class="nn">.plot.utils</span> <span class="kn">import</span> <span class="p">(</span><span class="n">plot_coefficients</span><span class="p">,</span> <span class="n">plot_multiclass_roc_curve</span><span class="p">,</span>
-                         <span class="n">find_pretty_grid</span><span class="p">,</span> <span class="n">_make_subplots</span><span class="p">)</span>
+                         <span class="n">find_pretty_grid</span><span class="p">,</span> <span class="n">_make_subplots</span><span class="p">,</span> <span class="n">_find_inliers</span><span class="p">,</span>
+                         <span class="n">_get_scatter_alpha</span><span class="p">,</span>
+                         <span class="n">_get_scatter_size</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">classification_metrics</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">plot_classification_metrics</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Show classification metrics on a validation set.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    estimator : sklearn or dabl estimator</span>
+<span class="sd">        Trained estimator</span>
+<span class="sd">    X_val : DataFrame</span>
+<span class="sd">        Validation set features</span>
+<span class="sd">    y_val : Series</span>
+<span class="sd">        Validation set target.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">y_pred</span> <span class="o">=</span> <span class="n">estimator</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_val</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
@@ -193,8 +207,42 @@
         <span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Can&#39;t plot roc curve, install sklearn 0.22-dev&quot;</span><span class="p">)</span>
 
 
+<span class="k">def</span> <span class="nf">plot_regression_metrics</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">,</span> <span class="n">drop_outliers</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Show classification metrics on a validation set.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    estimator : sklearn or dabl estimator</span>
+<span class="sd">        Trained estimator</span>
+<span class="sd">    X_val : DataFrame</span>
+<span class="sd">        Validation set features</span>
+<span class="sd">    y_val : Series</span>
+<span class="sd">        Validation set target.</span>
+<span class="sd">    drop_outliers : boolean, default=False</span>
+<span class="sd">        Whether to drop outliers in the predictions.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">estimator</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_val</span><span class="p">)</span>
+    <span class="c1"># residual plot</span>
+    <span class="k">if</span> <span class="n">drop_outliers</span><span class="p">:</span>
+        <span class="n">inlier_mask</span> <span class="o">=</span> <span class="n">_find_inliers</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y_pred</span><span class="p">))</span>
+        <span class="n">y_val</span> <span class="o">=</span> <span class="n">y_val</span><span class="p">[</span><span class="n">inlier_mask</span><span class="p">]</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_pred</span><span class="p">[</span><span class="n">inlier_mask</span><span class="p">]</span>
+    <span class="n">true_min</span> <span class="o">=</span> <span class="n">y_val</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+    <span class="n">true_max</span> <span class="o">=</span> <span class="n">y_val</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">scatter_alpha</span> <span class="o">=</span> <span class="n">_get_scatter_alpha</span><span class="p">(</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">y_val</span><span class="p">)</span>
+    <span class="n">scatter_size</span> <span class="o">=</span> <span class="n">_get_scatter_size</span><span class="p">(</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">y_val</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">true_min</span><span class="p">,</span> <span class="n">true_max</span><span class="p">],</span> <span class="p">[</span><span class="n">true_min</span><span class="p">,</span> <span class="n">true_max</span><span class="p">],</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ideal&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">scatter_alpha</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">scatter_size</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Predictions&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;True target&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Observed vs predicted&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+
+
 <div class="viewcode-block" id="explain"><a class="viewcode-back" href="../../generated/dabl.explain.html#dabl.explain">[docs]</a><span class="k">def</span> <span class="nf">explain</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">X_val</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y_val</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-            <span class="n">feature_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <span class="n">feature_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_top_features</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Explain estimator.</span>
 
 <span class="sd">    Provide basic properties and evaluation plots for the estimator.</span>
@@ -213,13 +261,20 @@
 
 <span class="sd">    target_col : string or int, optional</span>
 <span class="sd">        Column name of target if included in X.</span>
+
+<span class="sd">    n_top_features : int, default=10</span>
+<span class="sd">        Number of features to show for coefficients or feature importances.</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">feature_names</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">feature_names</span> <span class="o">=</span> <span class="n">estimator</span><span class="o">.</span><span class="n">feature_names_</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
         <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t determine input feature names, &quot;</span>
-                             <span class="s2">&quot;please pass them.&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">X_val</span><span class="p">,</span> <span class="s1">&#39;columns&#39;</span><span class="p">):</span>
+                <span class="n">feature_names</span> <span class="o">=</span> <span class="n">X_val</span><span class="o">.</span><span class="n">columns</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t determine input feature names, &quot;</span>
+                                 <span class="s2">&quot;please pass them.&quot;</span><span class="p">)</span>
 
     <span class="n">classifier</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="s1">&#39;classes_&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">estimator</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
@@ -236,11 +291,9 @@
                                      <span class="n">do_clean</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">classifier</span><span class="p">:</span>
-            <span class="c1"># classification metrics:</span>
-            <span class="n">classification_metrics</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">)</span>
+            <span class="n">plot_classification_metrics</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># FIXME add regression metrics</span>
-            <span class="k">pass</span>
+            <span class="n">plot_regression_metrics</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">inner_estimator</span><span class="p">,</span> <span class="n">DecisionTreeClassifier</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
@@ -268,18 +321,21 @@
             <span class="n">coef</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">inner_estimator</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">inner_estimator</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span> <span class="n">coef</span><span class="p">):</span>
                 <span class="n">plot_coefficients</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">inner_feature_names</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
-                                  <span class="n">classname</span><span class="o">=</span><span class="s2">&quot;class: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+                                  <span class="n">classname</span><span class="o">=</span><span class="s2">&quot;class: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">),</span>
+                                  <span class="n">n_top_features</span><span class="o">=</span><span class="n">n_top_features</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">coef</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">inner_estimator</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">coef</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Don&#39;t know how to handle &quot;</span>
                                  <span class="s2">&quot;multi-target regressor&quot;</span><span class="p">)</span>
-            <span class="n">plot_coefficients</span><span class="p">(</span><span class="n">coef</span><span class="p">,</span> <span class="n">inner_feature_names</span><span class="p">)</span>
+            <span class="n">plot_coefficients</span><span class="p">(</span><span class="n">coef</span><span class="p">,</span> <span class="n">inner_feature_names</span><span class="p">,</span>
+                              <span class="n">n_top_features</span><span class="o">=</span><span class="n">n_top_features</span><span class="p">)</span>
 
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">inner_estimator</span><span class="p">,</span> <span class="n">RandomForestClassifier</span><span class="p">):</span>
         <span class="c1"># FIXME This is a bad thing to show!</span>
         <span class="n">plot_coefficients</span><span class="p">(</span>
-            <span class="n">inner_estimator</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">,</span> <span class="n">inner_feature_names</span><span class="p">)</span>
+            <span class="n">inner_estimator</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">,</span> <span class="n">inner_feature_names</span><span class="p">,</span>
+            <span class="n">n_top_features</span><span class="o">=</span><span class="n">n_top_features</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Imputity Decrease&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">X_val</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
