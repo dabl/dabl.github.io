@@ -39,17 +39,17 @@ Regression on the classical diamond dataset.
  .. code-block:: none
 
     Target looks like regression
-    /home/circleci/project/dabl/plot/utils.py:593: UserWarning: Dropped 13 outliers in column carat.
+    /home/circleci/project/dabl/plot/utils.py:615: UserWarning: Dropped 13 outliers in column carat.
       int(dropped), series.name), UserWarning)
-    /home/circleci/project/dabl/plot/utils.py:593: UserWarning: Dropped 9 outliers in column x.
+    /home/circleci/project/dabl/plot/utils.py:615: UserWarning: Dropped 9 outliers in column x.
       int(dropped), series.name), UserWarning)
-    /home/circleci/project/dabl/plot/utils.py:593: UserWarning: Dropped 10 outliers in column y.
+    /home/circleci/project/dabl/plot/utils.py:615: UserWarning: Dropped 10 outliers in column y.
       int(dropped), series.name), UserWarning)
-    /home/circleci/project/dabl/plot/utils.py:593: UserWarning: Dropped 25 outliers in column z.
+    /home/circleci/project/dabl/plot/utils.py:615: UserWarning: Dropped 25 outliers in column z.
       int(dropped), series.name), UserWarning)
-    /home/circleci/project/dabl/plot/utils.py:593: UserWarning: Dropped 19 outliers in column table.
+    /home/circleci/project/dabl/plot/utils.py:615: UserWarning: Dropped 19 outliers in column table.
       int(dropped), series.name), UserWarning)
-    /home/circleci/project/dabl/plot/utils.py:593: UserWarning: Dropped 52 outliers in column depth.
+    /home/circleci/project/dabl/plot/utils.py:615: UserWarning: Dropped 52 outliers in column depth.
       int(dropped), series.name), UserWarning)
 
 
@@ -75,7 +75,7 @@ Regression on the classical diamond dataset.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  7.484 seconds)
+   **Total running time of the script:** ( 0 minutes  7.172 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_diamonds.py:

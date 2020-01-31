@@ -569,17 +569,39 @@
 <span class="sd">        y coordinates to scatter</span>
 <span class="sd">    c : array-like</span>
 <span class="sd">        Grouping of samples (similar to hue in seaborn)</span>
+<span class="sd">    unique_c : array-like, default=&#39;None&#39;</span>
+<span class="sd">        Unique values of c considered in scatter. If not</span>
+<span class="sd">        provided unique elements of c are determined.</span>
 <span class="sd">    legend : bool, or &quot;first&quot;, default=&quot;first&quot;</span>
 <span class="sd">        Whether to create a legend. &quot;first&quot; mean only the</span>
 <span class="sd">        first one in a given gridspec.</span>
-<span class="sd">    scatter_alpha : float, default=&#39;auto&#39;</span>
+<span class="sd">    clip_outliers : bool, default=&#39;True&#39;</span>
+<span class="sd">        Whether to clip outliers in x and y. The limits are</span>
+<span class="sd">        determined based on 0.01 and 0.99 quantiles of x and</span>
+<span class="sd">        y ignoring nan values.</span>
+<span class="sd">    alpha : float, default=&#39;auto&#39;</span>
 <span class="sd">        Alpha values for scatter plots. &#39;auto&#39; is dirty hacks.</span>
-<span class="sd">    scatter_size : float, default=&#39;auto&#39;.</span>
+<span class="sd">    s : float, default=&#39;auto&#39;.</span>
 <span class="sd">        Marker size for scatter plots. &#39;auto&#39; is dirty hacks.</span>
 <span class="sd">    ax : matplotlib axes, default=None</span>
 <span class="sd">        Axes to plot into</span>
 <span class="sd">    kwargs :</span>
 <span class="sd">        Passed through to plt.scatter</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">    &gt;&gt;&gt; from dabl.datasets import load_ames</span>
+<span class="sd">    &gt;&gt;&gt; data = load_ames()</span>
+<span class="sd">    &gt;&gt;&gt; fig = plt.figure()</span>
+<span class="sd">    &gt;&gt;&gt; discrete_scatter(</span>
+<span class="sd">    ...    x=data[&quot;Year Built&quot;],</span>
+<span class="sd">    ...    y=data[&quot;SalePrice&quot;],</span>
+<span class="sd">    ...    c=data[&quot;Overall Qual&quot;],</span>
+<span class="sd">    ...    unique_c=[2, 4, 6, 8, 10],</span>
+<span class="sd">    ...    legend=True,</span>
+<span class="sd">    ...    alpha=0.3</span>
+<span class="sd">    ... )</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">alpha</span> <span class="o">=</span> <span class="n">_get_scatter_alpha</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">_get_scatter_size</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>

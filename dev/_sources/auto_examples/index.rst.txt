@@ -206,6 +206,26 @@ Plotting examples
    :hidden:
 
    /auto_examples/plot/plot_wine
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Discrete Scatter Example">
+
+.. only:: html
+
+ .. figure:: /auto_examples/plot/images/thumb/sphx_glr_plot_discrete_scatter_thumb.png
+
+     :ref:`sphx_glr_auto_examples_plot_plot_discrete_scatter.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/plot/plot_discrete_scatter
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
