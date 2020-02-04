@@ -191,23 +191,23 @@
 <h1><a class="reference internal" href="dabl.plot.html#dabl.plot" title="dabl.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code></a>.plot_regression_continuous<a class="headerlink" href="#dabl-plot-plot-regression-continuous" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dabl.plot.plot_regression_continuous">
-<code class="sig-prename descclassname">dabl.plot.</code><code class="sig-name descname">plot_regression_continuous</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">target_col</em>, <em class="sig-param">types=None</em>, <em class="sig-param">scatter_alpha='auto'</em>, <em class="sig-param">scatter_size='auto'</em>, <em class="sig-param">drop_outliers=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/e8988e4/dabl/plot/supervised.py#L29"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot.plot_regression_continuous" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">dabl.plot.</code><code class="sig-name descname">plot_regression_continuous</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">target_col</em>, <em class="sig-param">types=None</em>, <em class="sig-param">scatter_alpha='auto'</em>, <em class="sig-param">scatter_size='auto'</em>, <em class="sig-param">drop_outliers=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/2886cc8/dabl/plot/supervised.py#L29"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot.plot_regression_continuous" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots for continuous features in regression.</p>
 <p>Creates plots of all the continuous features vs the target.
 Relevant features are determined using F statistics.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">dataframe</span></dt><dd><p>Input data including features and target</p>
+<dt><strong>X</strong><span class="classifier">dataframe</span></dt><dd><p>Input data including features and target.</p>
 </dd>
-<dt><strong>target_col</strong><span class="classifier">str or int</span></dt><dd><p>Identifier of the target column in X</p>
+<dt><strong>target_col</strong><span class="classifier">str or int</span></dt><dd><p>Identifier of the target column in X.</p>
 </dd>
-<dt><strong>types</strong><span class="classifier">dataframe of types, optional.</span></dt><dd><p>Output of detect_types on X. Can be used to avoid recomputing the
+<dt><strong>types</strong><span class="classifier">dataframe of types, optional</span></dt><dd><p>Output of detect_types on X. Can be used to avoid recomputing the
 types.</p>
 </dd>
-<dt><strong>scatter_alpha</strong><span class="classifier">float, default=’auto’.</span></dt><dd><p>Alpha values for scatter plots. ‘auto’ is dirty hacks.</p>
+<dt><strong>scatter_alpha</strong><span class="classifier">float, default=’auto’</span></dt><dd><p>Alpha values for scatter plots. ‘auto’ is dirty hacks.</p>
 </dd>
-<dt><strong>scatter_size</strong><span class="classifier">float, default=’auto’.</span></dt><dd><p>Marker size for scatter plots. ‘auto’ is dirty hacks.</p>
+<dt><strong>scatter_size</strong><span class="classifier">float, default=’auto’</span></dt><dd><p>Marker size for scatter plots. ‘auto’ is dirty hacks.</p>
 </dd>
 <dt><strong>drop_outliers</strong><span class="classifier">bool, default=True</span></dt><dd><p>Whether to drop outliers when plotting.</p>
 </dd>

@@ -184,7 +184,7 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.search</span></code>.RandomSuccessiveHalving<a class="headerlink" href="#dabl-search-randomsuccessivehalving" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dabl.search.RandomSuccessiveHalving">
-<code class="sig-prename descclassname">dabl.search.</code><code class="sig-name descname">RandomSuccessiveHalving</code><span class="sig-paren">(</span><em class="sig-param">estimator</em>, <em class="sig-param">param_distributions</em>, <em class="sig-param">n_candidates='auto'</em>, <em class="sig-param">scoring=None</em>, <em class="sig-param">n_jobs=None</em>, <em class="sig-param">refit=True</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">cv=5</em>, <em class="sig-param">pre_dispatch='2*n_jobs'</em>, <em class="sig-param">random_state=None</em>, <em class="sig-param">error_score=nan</em>, <em class="sig-param">return_train_score=True</em>, <em class="sig-param">max_budget='auto'</em>, <em class="sig-param">budget_on='n_samples'</em>, <em class="sig-param">ratio=3</em>, <em class="sig-param">r_min='auto'</em>, <em class="sig-param">aggressive_elimination=False</em>, <em class="sig-param">force_exhaust_budget=False</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/e8988e4/dabl/search.py#L558"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.search.RandomSuccessiveHalving" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">dabl.search.</code><code class="sig-name descname">RandomSuccessiveHalving</code><span class="sig-paren">(</span><em class="sig-param">estimator</em>, <em class="sig-param">param_distributions</em>, <em class="sig-param">n_candidates='auto'</em>, <em class="sig-param">scoring=None</em>, <em class="sig-param">n_jobs=None</em>, <em class="sig-param">refit=True</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">cv=5</em>, <em class="sig-param">pre_dispatch='2*n_jobs'</em>, <em class="sig-param">random_state=None</em>, <em class="sig-param">error_score=nan</em>, <em class="sig-param">return_train_score=True</em>, <em class="sig-param">max_budget='auto'</em>, <em class="sig-param">budget_on='n_samples'</em>, <em class="sig-param">ratio=3</em>, <em class="sig-param">r_min='auto'</em>, <em class="sig-param">aggressive_elimination=False</em>, <em class="sig-param">force_exhaust_budget=False</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/2886cc8/dabl/search.py#L558"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.search.RandomSuccessiveHalving" title="Permalink to this definition">¶</a></dt>
 <dd><p>Randomized search with successive halving.</p>
 <p>The search strategy for hyper-parameter optimization starts evaluating all
 the candidates with a small amount a resource and iteratively selects the
@@ -243,7 +243,7 @@ Possible inputs for cv are:</p>
 <p>For integer/None inputs, if the estimator is a classifier and <code class="docutils literal notranslate"><span class="pre">y</span></code> is
 either binary or multiclass, <code class="xref py py-class docutils literal notranslate"><span class="pre">StratifiedKFold</span></code> is used. In all
 other cases, <code class="xref py py-class docutils literal notranslate"><span class="pre">KFold</span></code> is used.</p>
-<p>Refer <a class="reference external" href="https://scikit-learn.org/stable/modules/cross_validation.html#cross-validation" title="(in scikit-learn v0.22)"><span class="xref std std-ref">User Guide</span></a> for the various
+<p>Refer to <a class="reference external" href="https://scikit-learn.org/stable/modules/cross_validation.html#cross-validation" title="(in scikit-learn v0.22)"><span class="xref std std-ref">User Guide</span></a> for the various
 cross-validation strategies that can be used here.</p>
 </dd>
 <dt><strong>refit</strong><span class="classifier">boolean, default=True</span></dt><dd><p>If True, refit an estimator using the best found parameters on the
@@ -333,7 +333,7 @@ n_jobs</cite>.</p>
 <dt class="field-odd">Attributes</dt>
 <dd class="field-odd"><dl>
 <dt><strong>n_candidates_</strong><span class="classifier">int</span></dt><dd><p>The number of candidate parameters that were evaluated at the first
-iteartion.</p>
+iteration.</p>
 </dd>
 <dt><strong>n_remaining_candidates_</strong><span class="classifier">int</span></dt><dd><p>The number of candidate parameters that are left after the last
 iteration.</p>
@@ -341,7 +341,7 @@ iteration.</p>
 <dt><strong>max_budget_</strong><span class="classifier">int</span></dt><dd><p>The maximum number of resources that any candidate is allowed to use
 for a given iteration. Note that since the number of resources used at
 each iteration must be a multiple of <code class="docutils literal notranslate"><span class="pre">r_min_</span></code>, the actual number of
-resources used at the last iteartion may be smaller than
+resources used at the last iteration may be smaller than
 <code class="docutils literal notranslate"><span class="pre">max_budget_</span></code>.</p>
 </dd>
 <dt><strong>r_min_</strong><span class="classifier">int</span></dt><dd><p>The amount of resources that are allocated for each candidate at the

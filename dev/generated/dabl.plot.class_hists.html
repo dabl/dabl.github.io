@@ -191,12 +191,12 @@
 <h1><a class="reference internal" href="dabl.plot.html#dabl.plot" title="dabl.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code></a>.class_hists<a class="headerlink" href="#dabl-plot-class-hists" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dabl.plot.class_hists">
-<code class="sig-prename descclassname">dabl.plot.</code><code class="sig-name descname">class_hists</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">column</em>, <em class="sig-param">target</em>, <em class="sig-param">bins='auto'</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">legend=False</em>, <em class="sig-param">scale_separately=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/e8988e4/dabl/plot/utils.py#L473"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot.class_hists" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">dabl.plot.</code><code class="sig-name descname">class_hists</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">column</em>, <em class="sig-param">target</em>, <em class="sig-param">bins='auto'</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">legend=False</em>, <em class="sig-param">scale_separately=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/2886cc8/dabl/plot/utils.py#L473"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot.class_hists" title="Permalink to this definition">¶</a></dt>
 <dd><p>Grouped univariate histograms.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>data</strong><span class="classifier">pandas DataFrame</span></dt><dd><p>Input data to plot</p>
+<dt><strong>data</strong><span class="classifier">pandas DataFrame</span></dt><dd><p>Input data to plot.</p>
 </dd>
 <dt><strong>column</strong><span class="classifier">column specifier</span></dt><dd><p>Column in the data to compute histograms over (must be continuous).</p>
 </dd>
@@ -205,7 +205,7 @@
 <dt><strong>bins</strong><span class="classifier">string, int or array-like</span></dt><dd><p>Number of bins, ‘auto’ or bin edges. Passed to np.histogram_bin_edges.
 We always show at least 5 bins for now.</p>
 </dd>
-<dt><strong>ax</strong><span class="classifier">matplotlib axes</span></dt><dd><p>Axes to plot into</p>
+<dt><strong>ax</strong><span class="classifier">matplotlib axes</span></dt><dd><p>Axes to plot into.</p>
 </dd>
 <dt><strong>legend</strong><span class="classifier">boolean, default=False</span></dt><dd><p>Whether to create a legend.</p>
 </dd>
