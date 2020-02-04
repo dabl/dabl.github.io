@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Diamonds Dataset Visualization &mdash; dabl  documentation</title>
+  <title>Mosaic Plot Example &mdash; dabl  documentation</title>
   
 
   
@@ -38,8 +38,8 @@
   <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Class Histogram Example" href="plot_class_hists.html" />
-    <link rel="prev" title="Splice dataset visualization" href="plot_splice.html" /> 
+    <link rel="next" title="Wine Classification Dataset Visualization" href="plot_wine.html" />
+    <link rel="prev" title="Adult Census Dataset Visualization" href="plot_adult.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -102,12 +102,12 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html#plotting-examples">Plotting examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="plot_human_activity.html">Human Activity Recognition Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_splice.html">Splice dataset visualization</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Diamonds Dataset Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_diamonds.html">Diamonds Dataset Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_class_hists.html">Class Histogram Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_mfeat_factors.html">mfeat-factors dataset visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_ames.html">Ames Housing Dataset Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_adult.html">Adult Census Dataset Visualization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_mosaic.html">Mosaic Plot Example</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Mosaic Plot Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_wine.html">Wine Classification Dataset Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_discrete_scatter.html">Discrete Scatter Example</a></li>
 </ul>
@@ -159,13 +159,13 @@
         
           <li><a href="../index.html">General examples</a> &raquo;</li>
         
-      <li>Diamonds Dataset Visualization</li>
+      <li>Mosaic Plot Example</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/auto_examples/plot/plot_diamonds.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/auto_examples/plot/plot_mosaic.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -180,56 +180,31 @@
             
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
-<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-plot-diamonds-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-plot-mosaic-py"><span class="std std-ref">here</span></a> to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="diamonds-dataset-visualization">
-<span id="sphx-glr-auto-examples-plot-plot-diamonds-py"></span><h1>Diamonds Dataset Visualization<a class="headerlink" href="#diamonds-dataset-visualization" title="Permalink to this headline">¶</a></h1>
-<p>Regression on the classical diamond dataset.</p>
-<ul class="sphx-glr-horizontal">
-<li><img alt="../../_images/sphx_glr_plot_diamonds_001.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_diamonds_001.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_plot_diamonds_002.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_diamonds_002.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_plot_diamonds_003.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_diamonds_003.png" />
-</li>
-</ul>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Target looks like regression
-/home/circleci/project/dabl/plot/utils.py:621: UserWarning: Dropped 13 outliers in column carat.
-  int(dropped), series.name), UserWarning)
-/home/circleci/project/dabl/plot/utils.py:621: UserWarning: Dropped 9 outliers in column x.
-  int(dropped), series.name), UserWarning)
-/home/circleci/project/dabl/plot/utils.py:621: UserWarning: Dropped 10 outliers in column y.
-  int(dropped), series.name), UserWarning)
-/home/circleci/project/dabl/plot/utils.py:621: UserWarning: Dropped 25 outliers in column z.
-  int(dropped), series.name), UserWarning)
-/home/circleci/project/dabl/plot/utils.py:621: UserWarning: Dropped 19 outliers in column table.
-  int(dropped), series.name), UserWarning)
-/home/circleci/project/dabl/plot/utils.py:621: UserWarning: Dropped 52 outliers in column depth.
-  int(dropped), series.name), UserWarning)
-</pre></div>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx_gallery_thumbnail_number = 2</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_openml.html#sklearn.datasets.fetch_openml" title="View documentation for sklearn.datasets.fetch_openml"><span class="n">fetch_openml</span></a>
-<span class="kn">from</span> <span class="nn">dabl</span> <span class="kn">import</span> <span class="n">plot</span>
+<div class="sphx-glr-example-title section" id="mosaic-plot-example">
+<span id="sphx-glr-auto-examples-plot-plot-mosaic-py"></span><h1>Mosaic Plot Example<a class="headerlink" href="#mosaic-plot-example" title="Permalink to this headline">¶</a></h1>
+<img alt="../../_images/sphx_glr_plot_mosaic_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_plot_mosaic_001.png" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">dabl.datasets</span> <span class="kn">import</span> <span class="n">load_titanic</span>
+<span class="kn">from</span> <span class="nn">dabl.plot</span> <span class="kn">import</span> <span class="n">mosaic_plot</span>
 
-<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_openml.html#sklearn.datasets.fetch_openml" title="View documentation for sklearn.datasets.fetch_openml"><span class="n">fetch_openml</span></a><span class="p">(</span><span class="s1">&#39;diamonds&#39;</span><span class="p">,</span> <span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">load_titanic</span><span class="p">()</span>
 
-<span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="c1"># Mosaic plot for frequencies of Titanic passengers grouped</span>
+<span class="c1"># by gender and survival status</span>
+
+<span class="n">mosaic_plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">,</span> <span class="s1">&#39;survived&#39;</span><span class="p">)</span>
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  14.873 seconds)</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-plot-diamonds-py">
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.071 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-plot-mosaic-py">
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/b5ba7bd9c9e674fd8060c53cf15a6307/plot_diamonds.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_diamonds.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/ac0ca181e66cd179901e2be18653c16b/plot_mosaic.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_mosaic.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/f4db3f63741df76e8da6f6d39d99815c/plot_diamonds.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_diamonds.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/17b281ce3f3f22a1d2b397821927450c/plot_mosaic.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_mosaic.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
@@ -243,10 +218,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="plot_class_hists.html" class="btn btn-neutral float-right" title="Class Histogram Example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="plot_wine.html" class="btn btn-neutral float-right" title="Wine Classification Dataset Visualization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="plot_splice.html" class="btn btn-neutral float-left" title="Splice dataset visualization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="plot_adult.html" class="btn btn-neutral float-left" title="Adult Census Dataset Visualization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
