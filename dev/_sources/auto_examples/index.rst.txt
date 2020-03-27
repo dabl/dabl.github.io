@@ -15,6 +15,26 @@ Introductory examples.
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Model Explanation">
+
+.. only:: html
+
+ .. figure:: /auto_examples/images/thumb/sphx_glr_plot_explain_example_thumb.png
+
+     :ref:`sphx_glr_auto_examples_plot_explain_example.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/plot_explain_example
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="Successive Halving">
 
 .. only:: html
