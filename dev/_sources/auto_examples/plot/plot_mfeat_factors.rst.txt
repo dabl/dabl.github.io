@@ -49,8 +49,8 @@ Linear discriminant analysis works surprisingly well!
 
  .. code-block:: none
 
-    /home/circleci/miniconda/envs/testenv/lib/python3.7/site-packages/sklearn/datasets/_openml.py:372: UserWarning: Multiple active versions of the dataset matching the name mfeat-factors exist. Versions may be fundamentally different, returning version 1.
-      " {version}.".format(name=name, version=res[0]['version']))
+    /home/circleci/miniconda/envs/testenv/lib/python3.8/site-packages/sklearn/datasets/_openml.py:369: UserWarning: Multiple active versions of the dataset matching the name mfeat-factors exist. Versions may be fundamentally different, returning version 1.
+      warn("Multiple active versions of the dataset matching the name"
     Target looks like classification
     Showing only top 10 of 216 continuous features
     Linear Discriminant Analysis training set score: 0.993
@@ -78,7 +78,7 @@ Linear discriminant analysis works surprisingly well!
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  14.036 seconds)
+   **Total running time of the script:** ( 0 minutes  9.636 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_mfeat_factors.py:

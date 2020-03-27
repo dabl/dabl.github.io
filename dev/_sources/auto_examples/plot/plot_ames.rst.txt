@@ -37,24 +37,24 @@ Ames Housing Dataset Visualization
 
  .. code-block:: none
 
-    /home/circleci/project/dabl/plot/supervised.py:540: FutureWarning: The second positional argument of plot is a Series 'y'. If passing a column name, use a keyword.
-      FutureWarning)
-    /home/circleci/project/dabl/preprocessing.py:344: UserWarning: Discarding near-constant features: ['Street', 'Utilities', 'Land Slope', 'Condition 2', 'Roof Matl', 'Heating', 'Low Qual Fin SF', 'Kitchen AbvGr', 'Garage Cond', '3Ssn Porch', 'Pool Area', 'Misc Val']
-      near_constant.index[near_constant].tolist()))
+    /home/circleci/project/dabl/plot/supervised.py:538: FutureWarning: The second positional argument of plot is a Series 'y'. If passing a column name, use a keyword.
+      warnings.warn("The second positional argument of plot is a Series 'y'."
+    /home/circleci/project/dabl/preprocessing.py:343: UserWarning: Discarding near-constant features: ['Street', 'Utilities', 'Land Slope', 'Condition 2', 'Roof Matl', 'Heating', 'Low Qual Fin SF', 'Kitchen AbvGr', 'Garage Cond', '3Ssn Porch', 'Pool Area', 'Misc Val']
+      warn("Discarding near-constant features: {}".format(
     Target looks like regression
     Showing only top 10 of 26 continuous features
-    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 5 outliers in column Gr Liv Area.
-      int(dropped), series.name), UserWarning)
-    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 1 outliers in column Garage Cars.
-      int(dropped), series.name), UserWarning)
-    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 2 outliers in column Total Bsmt SF.
-      int(dropped), series.name), UserWarning)
-    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 4 outliers in column 1st Flr SF.
-      int(dropped), series.name), UserWarning)
-    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 1 outliers in column Garage Yr Blt.
-      int(dropped), series.name), UserWarning)
-    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 7 outliers in column Mas Vnr Area.
-      int(dropped), series.name), UserWarning)
+    /home/circleci/project/dabl/plot/utils.py:628: UserWarning: Dropped 5 outliers in column Gr Liv Area.
+      warn("Dropped {} outliers in column {}.".format(
+    /home/circleci/project/dabl/plot/utils.py:628: UserWarning: Dropped 1 outliers in column Garage Cars.
+      warn("Dropped {} outliers in column {}.".format(
+    /home/circleci/project/dabl/plot/utils.py:628: UserWarning: Dropped 2 outliers in column Total Bsmt SF.
+      warn("Dropped {} outliers in column {}.".format(
+    /home/circleci/project/dabl/plot/utils.py:628: UserWarning: Dropped 4 outliers in column 1st Flr SF.
+      warn("Dropped {} outliers in column {}.".format(
+    /home/circleci/project/dabl/plot/utils.py:628: UserWarning: Dropped 1 outliers in column Garage Yr Blt.
+      warn("Dropped {} outliers in column {}.".format(
+    /home/circleci/project/dabl/plot/utils.py:628: UserWarning: Dropped 7 outliers in column Mas Vnr Area.
+      warn("Dropped {} outliers in column {}.".format(
     Showing only top 10 of 42 categorical features
 
 
@@ -82,7 +82,7 @@ Ames Housing Dataset Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.199 seconds)
+   **Total running time of the script:** ( 0 minutes  3.827 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_ames.py:
