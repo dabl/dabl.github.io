@@ -34,8 +34,10 @@
   
   <link rel="stylesheet" href="../../_static/css/project-template.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Mosaic Plot Example" href="plot_mosaic.html" />
@@ -181,20 +183,20 @@
             
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
-<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-plot-adult-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-plot-adult-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="adult-census-dataset-visualization">
 <span id="sphx-glr-auto-examples-plot-plot-adult-py"></span><h1>Adult Census Dataset Visualization<a class="headerlink" href="#adult-census-dataset-visualization" title="Permalink to this headline">¶</a></h1>
 <ul class="sphx-glr-horizontal">
-<li><img alt="../../_images/sphx_glr_plot_adult_001.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_adult_001.png" />
+<li><img alt="Target distribution" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_adult_001.png" />
 </li>
-<li><img alt="../../_images/sphx_glr_plot_adult_002.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_adult_002.png" />
+<li><img alt="Continuous features pairplot" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_adult_002.png" />
 </li>
-<li><img alt="../../_images/sphx_glr_plot_adult_003.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_adult_003.png" />
+<li><img alt="Discriminating PCA directions, 0.583, Scree plot (PCA explained variance)" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_adult_003.png" />
 </li>
-<li><img alt="../../_images/sphx_glr_plot_adult_004.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_adult_004.png" />
+<li><img alt="Linear Discriminant" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_adult_004.png" />
 </li>
-<li><img alt="../../_images/sphx_glr_plot_adult_005.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_adult_005.png" />
+<li><img alt="Categorical Features vs Target, relationship, marital-status, education-num, education, occupation, hours-per-week, gender, workclass, native-country, race" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_adult_005.png" />
 </li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
@@ -219,15 +221,15 @@ Linear Discriminant Analysis training set score: 0.530
 <span class="n">data</span> <span class="o">=</span> <span class="n">load_adult</span><span class="p">()</span>
 
 <span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="n">scatter_alpha</span><span class="o">=.</span><span class="mi">1</span><span class="p">)</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="View documentation for matplotlib.pyplot.show"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.889 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.598 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-plot-adult-py">
-<div class="sphx-glr-download docutils container">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/caaa92f9199e96b108a479398e91b6bc/plot_adult.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_adult.py</span></code></a></p>
 </div>
-<div class="sphx-glr-download docutils container">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/a213580e4898a233224e8d3307cb3a4c/plot_adult.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_adult.ipynb</span></code></a></p>
 </div>
 </div>

@@ -1,10 +1,12 @@
-.. note::
-    :class: sphx-glr-download-link-note
+.. only:: html
 
-    Click :ref:`here <sphx_glr_download_auto_examples_plot_plot_discrete_scatter.py>` to download the full example code
-.. rst-class:: sphx-glr-example-title
+    .. note::
+        :class: sphx-glr-download-link-note
 
-.. _sphx_glr_auto_examples_plot_plot_discrete_scatter.py:
+        Click :ref:`here <sphx_glr_download_auto_examples_plot_plot_discrete_scatter.py>`     to download the full example code
+    .. rst-class:: sphx-glr-example-title
+
+    .. _sphx_glr_auto_examples_plot_plot_discrete_scatter.py:
 
 
 Discrete Scatter Example
@@ -13,6 +15,7 @@ Discrete Scatter Example
 
 
 .. image:: /auto_examples/plot/images/sphx_glr_plot_discrete_scatter_001.png
+    :alt: plot discrete scatter
     :class: sphx-glr-single-img
 
 
@@ -42,7 +45,7 @@ Discrete Scatter Example
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.178 seconds)
+   **Total running time of the script:** ( 0 minutes  0.151 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_discrete_scatter.py:
@@ -55,13 +58,13 @@ Discrete Scatter Example
 
 
 
-  .. container:: sphx-glr-download
+  .. container:: sphx-glr-download sphx-glr-download-python
 
      :download:`Download Python source code: plot_discrete_scatter.py <plot_discrete_scatter.py>`
 
 
 
-  .. container:: sphx-glr-download
+  .. container:: sphx-glr-download sphx-glr-download-jupyter
 
      :download:`Download Jupyter notebook: plot_discrete_scatter.ipynb <plot_discrete_scatter.ipynb>`
 

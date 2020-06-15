@@ -34,8 +34,10 @@
   
   <link rel="stylesheet" href="../_static/css/project-template.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Successive Halving" href="plot_successive_halving_iterations.html" />
@@ -173,87 +175,90 @@
             
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
-<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-explain-example-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-explain-example-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="model-explanation">
 <span id="sphx-glr-auto-examples-plot-explain-example-py"></span><h1>Model Explanation<a class="headerlink" href="#model-explanation" title="Permalink to this headline">¶</a></h1>
 <ul class="sphx-glr-horizontal">
-<li><img alt="../_images/sphx_glr_plot_explain_example_001.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_plot_explain_example_001.png" />
+<li><img alt="ROC curve for class 0, ROC curve for class 1, ROC curve for class 2" class="sphx-glr-multi-img" src="../_images/sphx_glr_plot_explain_example_001.png" />
 </li>
-<li><img alt="../_images/sphx_glr_plot_explain_example_002.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_plot_explain_example_002.png" />
+<li><img alt="class: 0, class: 1, class: 2" class="sphx-glr-multi-img" src="../_images/sphx_glr_plot_explain_example_002.png" />
 </li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Running DummyClassifier(strategy=&#39;prior&#39;)
-accuracy: 0.376 recall_macro: 0.333 precision_macro: 0.125 f1_macro: 0.182
+accuracy: 0.421 recall_macro: 0.333 precision_macro: 0.140 f1_macro: 0.197
 === new best DummyClassifier(strategy=&#39;prior&#39;) (using recall_macro):
-accuracy: 0.376 recall_macro: 0.333 precision_macro: 0.125 f1_macro: 0.182
+accuracy: 0.421 recall_macro: 0.333 precision_macro: 0.140 f1_macro: 0.197
 
 Running GaussianNB()
-accuracy: 0.962 recall_macro: 0.965 precision_macro: 0.965 f1_macro: 0.963
+accuracy: 0.970 recall_macro: 0.972 precision_macro: 0.973 f1_macro: 0.971
 === new best GaussianNB() (using recall_macro):
-accuracy: 0.962 recall_macro: 0.965 precision_macro: 0.965 f1_macro: 0.963
+accuracy: 0.970 recall_macro: 0.972 precision_macro: 0.973 f1_macro: 0.971
 
 Running MultinomialNB()
-accuracy: 0.948 recall_macro: 0.952 precision_macro: 0.952 f1_macro: 0.950
+accuracy: 0.940 recall_macro: 0.935 precision_macro: 0.961 f1_macro: 0.940
 Running DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=1)
-accuracy: 0.593 recall_macro: 0.622 precision_macro: 0.455 f1_macro: 0.500
+accuracy: 0.564 recall_macro: 0.648 precision_macro: 0.413 f1_macro: 0.494
 Running DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=5)
-accuracy: 0.947 recall_macro: 0.945 precision_macro: 0.955 f1_macro: 0.947
+accuracy: 0.909 recall_macro: 0.914 precision_macro: 0.919 f1_macro: 0.911
 Running DecisionTreeClassifier(class_weight=&#39;balanced&#39;, min_impurity_decrease=0.01)
-accuracy: 0.947 recall_macro: 0.945 precision_macro: 0.955 f1_macro: 0.947
+accuracy: 0.931 recall_macro: 0.931 precision_macro: 0.938 f1_macro: 0.932
 Running LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, max_iter=1000)
-accuracy: 0.985 recall_macro: 0.987 precision_macro: 0.987 f1_macro: 0.985
+accuracy: 0.977 recall_macro: 0.982 precision_macro: 0.977 f1_macro: 0.978
 === new best LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, max_iter=1000) (using recall_macro):
-accuracy: 0.985 recall_macro: 0.987 precision_macro: 0.987 f1_macro: 0.985
+accuracy: 0.977 recall_macro: 0.982 precision_macro: 0.977 f1_macro: 0.978
 
 Running LogisticRegression(class_weight=&#39;balanced&#39;, max_iter=1000)
-accuracy: 0.978 recall_macro: 0.978 precision_macro: 0.981 f1_macro: 0.978
+accuracy: 0.985 recall_macro: 0.988 precision_macro: 0.984 f1_macro: 0.985
+=== new best LogisticRegression(class_weight=&#39;balanced&#39;, max_iter=1000) (using recall_macro):
+accuracy: 0.985 recall_macro: 0.988 precision_macro: 0.984 f1_macro: 0.985
+
 
 Best model:
-LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, max_iter=1000)
+LogisticRegression(class_weight=&#39;balanced&#39;, max_iter=1000)
 Best Scores:
-accuracy: 0.985 recall_macro: 0.987 precision_macro: 0.987 f1_macro: 0.985
+accuracy: 0.985 recall_macro: 0.988 precision_macro: 0.984 f1_macro: 0.985
               precision    recall  f1-score   support
 
-           0       0.88      1.00      0.93        14
-           1       1.00      0.90      0.95        21
-           2       1.00      1.00      1.00        10
+           0       0.95      1.00      0.97        18
+           1       1.00      0.93      0.97        15
+           2       1.00      1.00      1.00        12
 
-    accuracy                           0.96        45
-   macro avg       0.96      0.97      0.96        45
-weighted avg       0.96      0.96      0.96        45
+    accuracy                           0.98        45
+   macro avg       0.98      0.98      0.98        45
+weighted avg       0.98      0.98      0.98        45
 
-[[14  0  0]
- [ 2 19  0]
- [ 0  0 10]]
+[[18  0  0]
+ [ 1 14  0]
+ [ 0  0 12]]
 </pre></div>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dabl.models</span> <span class="kn">import</span> <span class="n">SimpleClassifier</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dabl.models</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.ClassifierMixin.html#sklearn.base.ClassifierMixin" title="sklearn.base.ClassifierMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">SimpleClassifier</span></a>
 <span class="kn">from</span> <span class="nn">dabl.explain</span> <span class="kn">import</span> <span class="n">explain</span>
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_wine.html#sklearn.datasets.load_wine" title="View documentation for sklearn.datasets.load_wine"><span class="n">load_wine</span></a>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html#sklearn.model_selection.train_test_split" title="View documentation for sklearn.model_selection.train_test_split"><span class="n">train_test_split</span></a>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_wine.html#sklearn.datasets.load_wine" title="sklearn.datasets.load_wine" class="sphx-glr-backref-module-sklearn-datasets sphx-glr-backref-type-py-function"><span class="n">load_wine</span></a>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html#sklearn.model_selection.train_test_split" title="sklearn.model_selection.train_test_split" class="sphx-glr-backref-module-sklearn-model_selection sphx-glr-backref-type-py-function"><span class="n">train_test_split</span></a>
 
-<span class="n">wine</span> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_wine.html#sklearn.datasets.load_wine" title="View documentation for sklearn.datasets.load_wine"><span class="n">load_wine</span></a><span class="p">()</span>
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-function"><span class="n">wine</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_wine.html#sklearn.datasets.load_wine" title="sklearn.datasets.load_wine" class="sphx-glr-backref-module-sklearn-datasets sphx-glr-backref-type-py-function"><span class="n">load_wine</span></a><span class="p">()</span>
 
-<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">X_train</span></a><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">X_test</span></a><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">y_train</span></a><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">y_test</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html#sklearn.model_selection.train_test_split" title="View documentation for sklearn.model_selection.train_test_split"><span class="n">train_test_split</span></a><span class="p">(</span><span class="n">wine</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">wine</span><span class="o">.</span><span class="n">target</span><span class="p">)</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X_train</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X_test</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_train</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_test</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html#sklearn.model_selection.train_test_split" title="sklearn.model_selection.train_test_split" class="sphx-glr-backref-module-sklearn-model_selection sphx-glr-backref-type-py-function"><span class="n">train_test_split</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">wine</span><span class="o">.</span><span class="n">data</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">wine</span><span class="o">.</span><span class="n">target</span></a><span class="p">)</span>
 
-<span class="n">sc</span> <span class="o">=</span> <span class="n">SimpleClassifier</span><span class="p">()</span>
+<span class="n">sc</span> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.ClassifierMixin.html#sklearn.base.ClassifierMixin" title="sklearn.base.ClassifierMixin" class="sphx-glr-backref-module-sklearn-base sphx-glr-backref-type-py-class"><span class="n">SimpleClassifier</span></a><span class="p">()</span>
 
-<span class="n">sc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">X_train</span></a><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">y_train</span></a><span class="p">)</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X_train</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_train</span></a><span class="p">)</span>
 
-<span class="n">explain</span><span class="p">(</span><span class="n">sc</span><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">X_test</span></a><span class="p">,</span> <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="View documentation for numpy.ndarray"><span class="n">y_test</span></a><span class="p">)</span>
+<span class="n">explain</span><span class="p">(</span><span class="n">sc</span><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X_test</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_test</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.710 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.097 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-explain-example-py">
-<div class="sphx-glr-download docutils container">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/e428c113b13e9b657eb51a0f7358216a/plot_explain_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_explain_example.py</span></code></a></p>
 </div>
-<div class="sphx-glr-download docutils container">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/fc0e8ffc7ace682180af5bc38c346631/plot_explain_example.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_explain_example.ipynb</span></code></a></p>
 </div>
 </div>

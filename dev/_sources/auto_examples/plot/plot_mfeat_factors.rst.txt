@@ -1,10 +1,12 @@
-.. note::
-    :class: sphx-glr-download-link-note
+.. only:: html
 
-    Click :ref:`here <sphx_glr_download_auto_examples_plot_plot_mfeat_factors.py>` to download the full example code
-.. rst-class:: sphx-glr-example-title
+    .. note::
+        :class: sphx-glr-download-link-note
 
-.. _sphx_glr_auto_examples_plot_plot_mfeat_factors.py:
+        Click :ref:`here <sphx_glr_download_auto_examples_plot_plot_mfeat_factors.py>`     to download the full example code
+    .. rst-class:: sphx-glr-example-title
+
+    .. _sphx_glr_auto_examples_plot_plot_mfeat_factors.py:
 
 
 mfeat-factors dataset visualization
@@ -20,27 +22,32 @@ Linear discriminant analysis works surprisingly well!
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_001.png
-            :class: sphx-glr-multi-img
+          :alt: Target distribution
+          :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_002.png
-            :class: sphx-glr-multi-img
+          :alt: F=1.06E+03, F=7.18E+02, F=7.16E+02, F=6.95E+02, F=6.64E+02, F=6.60E+02, F=6.58E+02, F=6.29E+02, F=6.12E+02, F=5.59E+02
+          :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_003.png
-            :class: sphx-glr-multi-img
+          :alt: Top feature interactions, 0.550, 0.540, 0.535, 0.532
+          :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_004.png
-            :class: sphx-glr-multi-img
+          :alt: Discriminating PCA directions, 0.582, 0.557, 0.508, Scree plot (PCA explained variance)
+          :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_005.png
-            :class: sphx-glr-multi-img
+          :alt: Discriminating LDA directions, 0.755, 0.733, 0.732, 0.728
+          :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -49,7 +56,7 @@ Linear discriminant analysis works surprisingly well!
 
  .. code-block:: none
 
-    /home/circleci/miniconda/envs/testenv/lib/python3.8/site-packages/sklearn/datasets/_openml.py:369: UserWarning: Multiple active versions of the dataset matching the name mfeat-factors exist. Versions may be fundamentally different, returning version 1.
+    /home/circleci/miniconda/envs/testenv/lib/python3.8/site-packages/sklearn/datasets/_openml.py:373: UserWarning: Multiple active versions of the dataset matching the name mfeat-factors exist. Versions may be fundamentally different, returning version 1.
       warn("Multiple active versions of the dataset matching the name"
     Target looks like classification
     Showing only top 10 of 216 continuous features
@@ -78,7 +85,7 @@ Linear discriminant analysis works surprisingly well!
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  10.956 seconds)
+   **Total running time of the script:** ( 0 minutes  9.952 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_mfeat_factors.py:
@@ -91,13 +98,13 @@ Linear discriminant analysis works surprisingly well!
 
 
 
-  .. container:: sphx-glr-download
+  .. container:: sphx-glr-download sphx-glr-download-python
 
      :download:`Download Python source code: plot_mfeat_factors.py <plot_mfeat_factors.py>`
 
 
 
-  .. container:: sphx-glr-download
+  .. container:: sphx-glr-download sphx-glr-download-jupyter
 
      :download:`Download Jupyter notebook: plot_mfeat_factors.ipynb <plot_mfeat_factors.ipynb>`
 

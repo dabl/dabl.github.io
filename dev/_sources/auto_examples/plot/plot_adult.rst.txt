@@ -1,10 +1,12 @@
-.. note::
-    :class: sphx-glr-download-link-note
+.. only:: html
 
-    Click :ref:`here <sphx_glr_download_auto_examples_plot_plot_adult.py>` to download the full example code
-.. rst-class:: sphx-glr-example-title
+    .. note::
+        :class: sphx-glr-download-link-note
 
-.. _sphx_glr_auto_examples_plot_plot_adult.py:
+        Click :ref:`here <sphx_glr_download_auto_examples_plot_plot_adult.py>`     to download the full example code
+    .. rst-class:: sphx-glr-example-title
+
+    .. _sphx_glr_auto_examples_plot_plot_adult.py:
 
 
 Adult Census Dataset Visualization
@@ -18,27 +20,32 @@ Adult Census Dataset Visualization
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_adult_001.png
-            :class: sphx-glr-multi-img
+          :alt: Target distribution
+          :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_adult_002.png
-            :class: sphx-glr-multi-img
+          :alt: Continuous features pairplot
+          :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_adult_003.png
-            :class: sphx-glr-multi-img
+          :alt: Discriminating PCA directions, 0.583, Scree plot (PCA explained variance)
+          :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_adult_004.png
-            :class: sphx-glr-multi-img
+          :alt: Linear Discriminant
+          :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_adult_005.png
-            :class: sphx-glr-multi-img
+          :alt: Categorical Features vs Target, relationship, marital-status, education-num, education, occupation, hours-per-week, gender, workclass, native-country, race
+          :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -79,7 +86,7 @@ Adult Census Dataset Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.889 seconds)
+   **Total running time of the script:** ( 0 minutes  4.598 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_adult.py:
@@ -92,13 +99,13 @@ Adult Census Dataset Visualization
 
 
 
-  .. container:: sphx-glr-download
+  .. container:: sphx-glr-download sphx-glr-download-python
 
      :download:`Download Python source code: plot_adult.py <plot_adult.py>`
 
 
 
-  .. container:: sphx-glr-download
+  .. container:: sphx-glr-download sphx-glr-download-jupyter
 
      :download:`Download Jupyter notebook: plot_adult.ipynb <plot_adult.ipynb>`
 

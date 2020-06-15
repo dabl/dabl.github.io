@@ -34,8 +34,10 @@
   
   <link rel="stylesheet" href="../_static/css/project-template.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="dabl.datasets.load_adult" href="dabl.datasets.load_adult.html" />
@@ -185,7 +187,7 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.SimpleRegressor<a class="headerlink" href="#dabl-simpleregressor" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="dabl.SimpleRegressor">
-<em class="property">class </em><code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">SimpleRegressor</code><span class="sig-paren">(</span><em class="sig-param">refit=True</em>, <em class="sig-param">random_state=None</em>, <em class="sig-param">verbose=1</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">shuffle=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/a333bd7/dabl/models.py#L261"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleRegressor" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">SimpleRegressor</code><span class="sig-paren">(</span><em class="sig-param">refit=True</em>, <em class="sig-param">random_state=None</em>, <em class="sig-param">verbose=1</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">shuffle=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/27c3e12/dabl/models.py#L261"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleRegressor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Automagic anytime classifier.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -207,13 +209,13 @@ detect_types.</p>
 </dl>
 <dl class="method">
 <dt id="dabl.SimpleRegressor.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">refit=True</em>, <em class="sig-param">random_state=None</em>, <em class="sig-param">verbose=1</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">shuffle=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/a333bd7/dabl/models.py#L283"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleRegressor.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">refit=True</em>, <em class="sig-param">random_state=None</em>, <em class="sig-param">verbose=1</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">shuffle=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/27c3e12/dabl/models.py#L283"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleRegressor.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="dabl.SimpleRegressor.fit">
-<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">*</em>, <em class="sig-param">target_col=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/a333bd7/dabl/models.py#L304"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleRegressor.fit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">*</em>, <em class="sig-param">target_col=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/27c3e12/dabl/models.py#L304"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleRegressor.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit regressor.</p>
 <p>Requires to either specify the target as separate 1d array or Series y
 (in scikit-learn fashion) or as column of the dataframe X specified by
@@ -236,7 +238,7 @@ target.</p>
 
 <dl class="method">
 <dt id="dabl.SimpleRegressor.get_params">
-<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/a333bd7/dabl/../../miniconda/envs/testenv/lib/python3.8/site-packages/sklearn/base.py#L173"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleRegressor.get_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/27c3e12/dabl/../../miniconda/envs/testenv/lib/python3.8/site-packages/sklearn/base.py#L189"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleRegressor.get_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get parameters for this estimator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -257,7 +259,7 @@ contained subobjects that are estimators.</p>
 
 <dl class="method">
 <dt id="dabl.SimpleRegressor.score">
-<code class="sig-name descname">score</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y</em>, <em class="sig-param">sample_weight=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/a333bd7/dabl/../../miniconda/envs/testenv/lib/python3.8/site-packages/sklearn/base.py#L376"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleRegressor.score" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">score</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y</em>, <em class="sig-param">sample_weight=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/27c3e12/dabl/../../miniconda/envs/testenv/lib/python3.8/site-packages/sklearn/base.py#L509"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleRegressor.score" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the coefficient of determination R^2 of the prediction.</p>
 <p>The coefficient R^2 is defined as (1 - u/v), where u is the residual
 sum of squares ((y_true - y_pred) ** 2).sum() and v is the total
@@ -289,20 +291,17 @@ samples used in the fitting for the estimator.</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>The R2 score used when calling <code class="docutils literal notranslate"><span class="pre">score</span></code> on a regressor will use
+<p>The R2 score used when calling <code class="docutils literal notranslate"><span class="pre">score</span></code> on a regressor uses
 <code class="docutils literal notranslate"><span class="pre">multioutput='uniform_average'</span></code> from version 0.23 to keep consistent
-with <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html#sklearn.metrics.r2_score" title="(in scikit-learn v0.22)"><code class="xref py py-func docutils literal notranslate"><span class="pre">r2_score()</span></code></a>. This will influence the
-<code class="docutils literal notranslate"><span class="pre">score</span></code> method of all the multioutput regressors (except for
-<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.multioutput.MultiOutputRegressor.html#sklearn.multioutput.MultiOutputRegressor" title="(in scikit-learn v0.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiOutputRegressor</span></code></a>). To specify the
-default value manually and avoid the warning, please either call
-<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html#sklearn.metrics.r2_score" title="(in scikit-learn v0.22)"><code class="xref py py-func docutils literal notranslate"><span class="pre">r2_score()</span></code></a> directly or make a custom scorer with
-<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.make_scorer.html#sklearn.metrics.make_scorer" title="(in scikit-learn v0.22)"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_scorer()</span></code></a> (the built-in scorer <code class="docutils literal notranslate"><span class="pre">'r2'</span></code> uses
-<code class="docutils literal notranslate"><span class="pre">multioutput='uniform_average'</span></code>).</p>
+with default value of <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html#sklearn.metrics.r2_score" title="(in scikit-learn v0.23)"><code class="xref py py-func docutils literal notranslate"><span class="pre">r2_score()</span></code></a>.
+This influences the <code class="docutils literal notranslate"><span class="pre">score</span></code> method of all the multioutput
+regressors (except for
+<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.multioutput.MultiOutputRegressor.html#sklearn.multioutput.MultiOutputRegressor" title="(in scikit-learn v0.23)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiOutputRegressor</span></code></a>).</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="dabl.SimpleRegressor.set_params">
-<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">**params</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/a333bd7/dabl/../../miniconda/envs/testenv/lib/python3.8/site-packages/sklearn/base.py#L205"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleRegressor.set_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">**params</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/27c3e12/dabl/../../miniconda/envs/testenv/lib/python3.8/site-packages/sklearn/base.py#L221"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleRegressor.set_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
 (such as pipelines). The latter have parameters of the form

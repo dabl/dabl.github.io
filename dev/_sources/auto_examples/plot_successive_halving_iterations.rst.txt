@@ -1,10 +1,12 @@
-.. note::
-    :class: sphx-glr-download-link-note
+.. only:: html
 
-    Click :ref:`here <sphx_glr_download_auto_examples_plot_successive_halving_iterations.py>` to download the full example code
-.. rst-class:: sphx-glr-example-title
+    .. note::
+        :class: sphx-glr-download-link-note
 
-.. _sphx_glr_auto_examples_plot_successive_halving_iterations.py:
+        Click :ref:`here <sphx_glr_download_auto_examples_plot_successive_halving_iterations.py>`     to download the full example code
+    .. rst-class:: sphx-glr-example-title
+
+    .. _sphx_glr_auto_examples_plot_successive_halving_iterations.py:
 
 
 Successive Halving
@@ -13,11 +15,25 @@ Successive Halving
 
 
 .. image:: /auto_examples/images/sphx_glr_plot_successive_halving_iterations_001.png
+    :alt: Candidate scores over iterations
     :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    /home/circleci/miniconda/envs/testenv/lib/python3.8/site-packages/sklearn/utils/validation.py:68: FutureWarning: Pass random_state=RandomState(MT19937) as keyword args. From version 0.25 passing these as positional arguments will result in an error
+      warnings.warn("Pass {} as keyword args. From version 0.25 "
 
 
+
+
+
+
+|
 
 
 .. code-block:: default
@@ -72,7 +88,7 @@ Successive Halving
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  8.564 seconds)
+   **Total running time of the script:** ( 0 minutes  12.519 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_successive_halving_iterations.py:
@@ -85,13 +101,13 @@ Successive Halving
 
 
 
-  .. container:: sphx-glr-download
+  .. container:: sphx-glr-download sphx-glr-download-python
 
      :download:`Download Python source code: plot_successive_halving_iterations.py <plot_successive_halving_iterations.py>`
 
 
 
-  .. container:: sphx-glr-download
+  .. container:: sphx-glr-download sphx-glr-download-jupyter
 
      :download:`Download Jupyter notebook: plot_successive_halving_iterations.ipynb <plot_successive_halving_iterations.ipynb>`
 

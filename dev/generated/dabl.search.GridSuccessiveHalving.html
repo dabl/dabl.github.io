@@ -34,8 +34,10 @@
   
   <link rel="stylesheet" href="../_static/css/project-template.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="dabl.search.RandomSuccessiveHalving" href="dabl.search.RandomSuccessiveHalving.html" />
@@ -185,7 +187,7 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.search</span></code>.GridSuccessiveHalving<a class="headerlink" href="#dabl-search-gridsuccessivehalving" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dabl.search.GridSuccessiveHalving">
-<code class="sig-prename descclassname">dabl.search.</code><code class="sig-name descname">GridSuccessiveHalving</code><span class="sig-paren">(</span><em class="sig-param">estimator</em>, <em class="sig-param">param_grid</em>, <em class="sig-param">scoring=None</em>, <em class="sig-param">n_jobs=None</em>, <em class="sig-param">refit=True</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">cv=5</em>, <em class="sig-param">pre_dispatch='2*n_jobs'</em>, <em class="sig-param">random_state=None</em>, <em class="sig-param">error_score=nan</em>, <em class="sig-param">return_train_score=True</em>, <em class="sig-param">max_budget='auto'</em>, <em class="sig-param">budget_on='n_samples'</em>, <em class="sig-param">ratio=3</em>, <em class="sig-param">r_min='auto'</em>, <em class="sig-param">aggressive_elimination=False</em>, <em class="sig-param">force_exhaust_budget=False</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/a333bd7/dabl/search.py#L262"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.search.GridSuccessiveHalving" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">dabl.search.</code><code class="sig-name descname">GridSuccessiveHalving</code><span class="sig-paren">(</span><em class="sig-param">estimator</em>, <em class="sig-param">param_grid</em>, <em class="sig-param">scoring=None</em>, <em class="sig-param">n_jobs=None</em>, <em class="sig-param">refit=True</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">cv=5</em>, <em class="sig-param">pre_dispatch='2*n_jobs'</em>, <em class="sig-param">random_state=None</em>, <em class="sig-param">error_score=nan</em>, <em class="sig-param">return_train_score=True</em>, <em class="sig-param">max_budget='auto'</em>, <em class="sig-param">budget_on='n_samples'</em>, <em class="sig-param">ratio=3</em>, <em class="sig-param">r_min='auto'</em>, <em class="sig-param">aggressive_elimination=False</em>, <em class="sig-param">force_exhaust_budget=False</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/27c3e12/dabl/search.py#L262"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.search.GridSuccessiveHalving" title="Permalink to this definition">¶</a></dt>
 <dd><p>Grid-search with successive halving.</p>
 <p>The search strategy for hyper-parameter optimization starts evaluating all
 the candidates with a small amount of resource and iteratively selects the
@@ -204,13 +206,13 @@ dictionaries, in which case the grids spanned by each dictionary
 in the list are explored. This enables searching over any sequence
 of parameter settings.</p>
 </dd>
-<dt><strong>scoring</strong><span class="classifier">string, callable, or None, default: None</span></dt><dd><p>A single string (see <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter" title="(in scikit-learn v0.22)"><span>The scoring parameter: defining model evaluation rules</span></a>) or a callable
-(see <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html#scoring" title="(in scikit-learn v0.22)"><span>Defining your scoring strategy from metric functions</span></a>) to evaluate the predictions on the test set.
+<dt><strong>scoring</strong><span class="classifier">string, callable, or None, default: None</span></dt><dd><p>A single string (see <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter" title="(in scikit-learn v0.23)"><span>The scoring parameter: defining model evaluation rules</span></a>) or a callable
+(see <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html#scoring" title="(in scikit-learn v0.23)"><span>Defining your scoring strategy from metric functions</span></a>) to evaluate the predictions on the test set.
 If None, the estimator’s score method is used.</p>
 </dd>
 <dt><strong>n_jobs</strong><span class="classifier">int or None, optional (default=None)</span></dt><dd><p>Number of jobs to run in parallel.
 <code class="docutils literal notranslate"><span class="pre">None</span></code> means 1 unless in a <code class="xref py py-obj docutils literal notranslate"><span class="pre">joblib.parallel_backend</span></code> context.
-<code class="docutils literal notranslate"><span class="pre">-1</span></code> means using all processors. See <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-n-jobs" title="(in scikit-learn v0.22)"><span class="xref std std-term">Glossary</span></a>
+<code class="docutils literal notranslate"><span class="pre">-1</span></code> means using all processors. See <a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-n-jobs" title="(in scikit-learn v0.23)"><span class="xref std std-term">Glossary</span></a>
 for more details.</p>
 </dd>
 <dt><strong>pre_dispatch</strong><span class="classifier">int, or string, optional</span></dt><dd><p>Controls the number of jobs that get dispatched during parallel
@@ -234,13 +236,13 @@ as in ‘2*n_jobs’</p></li>
 Possible inputs for cv are:</p>
 <ul class="simple">
 <li><p>integer, to specify the number of folds in a <cite>(Stratified)KFold</cite>,</p></li>
-<li><p><a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-cv-splitter" title="(in scikit-learn v0.22)"><span class="xref std std-term">CV splitter</span></a>,</p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/glossary.html#term-cv-splitter" title="(in scikit-learn v0.23)"><span class="xref std std-term">CV splitter</span></a>,</p></li>
 <li><p>An iterable yielding (train, test) splits as arrays of indices.</p></li>
 </ul>
 <p>For integer/None inputs, if the estimator is a classifier and <code class="docutils literal notranslate"><span class="pre">y</span></code> is
 either binary or multiclass, <code class="xref py py-class docutils literal notranslate"><span class="pre">StratifiedKFold</span></code> is used. In all
 other cases, <code class="xref py py-class docutils literal notranslate"><span class="pre">KFold</span></code> is used.</p>
-<p>Refer to <a class="reference external" href="https://scikit-learn.org/stable/modules/cross_validation.html#cross-validation" title="(in scikit-learn v0.22)"><span class="xref std std-ref">User Guide</span></a> for the various
+<p>Refer to <a class="reference external" href="https://scikit-learn.org/stable/modules/cross_validation.html#cross-validation" title="(in scikit-learn v0.23)"><span class="xref std std-ref">User Guide</span></a> for the various
 cross-validation strategies that can be used here.</p>
 </dd>
 <dt><strong>refit</strong><span class="classifier">boolean, default=True</span></dt><dd><p>If True, refit an estimator using the best found parameters on the
