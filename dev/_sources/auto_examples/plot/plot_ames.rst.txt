@@ -32,7 +32,7 @@ Ames Housing Dataset Visualization
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_ames_003.png
-          :alt: Categorical Feature vs Target, F=5.79E-01, F=3.71E-01, F=3.33E-01, F=3.29E-01, F=2.94E-01, F=2.74E-01, F=2.67E-01, F=2.38E-01, F=2.32E-01, F=2.22E-01
+          :alt: Categorical Feature vs Target, F=5.74E-01, F=3.68E-01, F=3.30E-01, F=3.30E-01, F=2.91E-01, F=2.81E-01, F=2.59E-01, F=2.36E-01, F=2.28E-01, F=2.27E-01
           :class: sphx-glr-multi-img
 
 
@@ -87,7 +87,7 @@ Ames Housing Dataset Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.247 seconds)
+   **Total running time of the script:** ( 0 minutes  3.343 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_ames.py:
