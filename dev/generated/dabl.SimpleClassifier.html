@@ -187,7 +187,7 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.SimpleClassifier<a class="headerlink" href="#dabl-simpleclassifier" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="dabl.SimpleClassifier">
-<em class="property">class </em><code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">SimpleClassifier</code><span class="sig-paren">(</span><em class="sig-param">refit=True</em>, <em class="sig-param">random_state=None</em>, <em class="sig-param">verbose=1</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">shuffle=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/ef83e67/dabl/models.py#L176"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">SimpleClassifier</code><span class="sig-paren">(</span><em class="sig-param">refit=True</em>, <em class="sig-param">random_state=None</em>, <em class="sig-param">verbose=1</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">shuffle=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/d83d5e2/dabl/models.py#L176"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Automagic anytime classifier.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -215,13 +215,13 @@ detect_types.</p>
 </dl>
 <dl class="method">
 <dt id="dabl.SimpleClassifier.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">refit=True</em>, <em class="sig-param">random_state=None</em>, <em class="sig-param">verbose=1</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">shuffle=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/ef83e67/dabl/models.py#L204"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleClassifier.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">refit=True</em>, <em class="sig-param">random_state=None</em>, <em class="sig-param">verbose=1</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">shuffle=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/d83d5e2/dabl/models.py#L204"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleClassifier.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="dabl.SimpleClassifier.fit">
-<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">*</em>, <em class="sig-param">target_col=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/ef83e67/dabl/models.py#L239"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleClassifier.fit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">*</em>, <em class="sig-param">target_col=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/d83d5e2/dabl/models.py#L239"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleClassifier.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit classifier.</p>
 <p>Requires to either specify the target as separate 1d array or Series y
 (in scikit-learn fashion) or as column of the dataframe X specified by
@@ -244,7 +244,7 @@ target.</p>
 
 <dl class="method">
 <dt id="dabl.SimpleClassifier.get_params">
-<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/ef83e67/dabl/../../miniconda/envs/testenv/lib/python3.8/site-packages/sklearn/base.py#L189"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleClassifier.get_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/d83d5e2/dabl/../../miniconda/envs/testenv/lib/python3.8/site-packages/sklearn/base.py#L189"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleClassifier.get_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get parameters for this estimator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -265,7 +265,7 @@ contained subobjects that are estimators.</p>
 
 <dl class="method">
 <dt id="dabl.SimpleClassifier.score">
-<code class="sig-name descname">score</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y</em>, <em class="sig-param">sample_weight=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/ef83e67/dabl/../../miniconda/envs/testenv/lib/python3.8/site-packages/sklearn/base.py#L474"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleClassifier.score" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">score</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y</em>, <em class="sig-param">sample_weight=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/d83d5e2/dabl/../../miniconda/envs/testenv/lib/python3.8/site-packages/sklearn/base.py#L474"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleClassifier.score" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the mean accuracy on the given test data and labels.</p>
 <p>In multi-label classification, this is the subset accuracy
 which is a harsh metric since you require for each sample that
@@ -292,7 +292,7 @@ each label set be correctly predicted.</p>
 
 <dl class="method">
 <dt id="dabl.SimpleClassifier.set_params">
-<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">**params</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/ef83e67/dabl/../../miniconda/envs/testenv/lib/python3.8/site-packages/sklearn/base.py#L221"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleClassifier.set_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">**params</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/d83d5e2/dabl/../../miniconda/envs/testenv/lib/python3.8/site-packages/sklearn/base.py#L221"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.SimpleClassifier.set_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
 (such as pipelines). The latter have parameters of the form
