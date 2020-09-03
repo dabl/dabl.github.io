@@ -37,51 +37,48 @@ Model Explanation
  .. code-block:: none
 
     Running DummyClassifier(strategy='prior')
-    accuracy: 0.383 recall_macro: 0.333 precision_macro: 0.128 f1_macro: 0.185
+    accuracy: 0.399 recall_macro: 0.333 precision_macro: 0.133 f1_macro: 0.190
     === new best DummyClassifier(strategy='prior') (using recall_macro):
-    accuracy: 0.383 recall_macro: 0.333 precision_macro: 0.128 f1_macro: 0.185
+    accuracy: 0.399 recall_macro: 0.333 precision_macro: 0.133 f1_macro: 0.190
 
     Running GaussianNB()
-    accuracy: 0.977 recall_macro: 0.979 precision_macro: 0.981 f1_macro: 0.978
+    accuracy: 0.962 recall_macro: 0.965 precision_macro: 0.965 f1_macro: 0.963
     === new best GaussianNB() (using recall_macro):
-    accuracy: 0.977 recall_macro: 0.979 precision_macro: 0.981 f1_macro: 0.978
+    accuracy: 0.962 recall_macro: 0.965 precision_macro: 0.965 f1_macro: 0.963
 
     Running MultinomialNB()
-    accuracy: 0.940 recall_macro: 0.940 precision_macro: 0.946 f1_macro: 0.942
+    accuracy: 0.940 recall_macro: 0.939 precision_macro: 0.949 f1_macro: 0.941
     Running DecisionTreeClassifier(class_weight='balanced', max_depth=1)
-    accuracy: 0.564 recall_macro: 0.608 precision_macro: 0.441 f1_macro: 0.488
+    accuracy: 0.586 recall_macro: 0.650 precision_macro: 0.441 f1_macro: 0.511
     Running DecisionTreeClassifier(class_weight='balanced', max_depth=5)
-    accuracy: 0.842 recall_macro: 0.837 precision_macro: 0.853 f1_macro: 0.837
+    accuracy: 0.940 recall_macro: 0.942 precision_macro: 0.950 f1_macro: 0.943
     Running DecisionTreeClassifier(class_weight='balanced', min_impurity_decrease=0.01)
-    accuracy: 0.873 recall_macro: 0.865 precision_macro: 0.887 f1_macro: 0.868
+    accuracy: 0.940 recall_macro: 0.943 precision_macro: 0.942 f1_macro: 0.941
     Running LogisticRegression(C=0.1, class_weight='balanced', max_iter=1000)
-    accuracy: 0.985 recall_macro: 0.987 precision_macro: 0.985 f1_macro: 0.985
+    accuracy: 0.977 recall_macro: 0.982 precision_macro: 0.979 f1_macro: 0.979
     === new best LogisticRegression(C=0.1, class_weight='balanced', max_iter=1000) (using recall_macro):
-    accuracy: 0.985 recall_macro: 0.987 precision_macro: 0.985 f1_macro: 0.985
+    accuracy: 0.977 recall_macro: 0.982 precision_macro: 0.979 f1_macro: 0.979
 
     Running LogisticRegression(class_weight='balanced', max_iter=1000)
-    accuracy: 0.992 recall_macro: 0.993 precision_macro: 0.992 f1_macro: 0.992
-    === new best LogisticRegression(class_weight='balanced', max_iter=1000) (using recall_macro):
-    accuracy: 0.992 recall_macro: 0.993 precision_macro: 0.992 f1_macro: 0.992
-
+    accuracy: 0.962 recall_macro: 0.966 precision_macro: 0.963 f1_macro: 0.963
 
     Best model:
-    LogisticRegression(class_weight='balanced', max_iter=1000)
+    LogisticRegression(C=0.1, class_weight='balanced', max_iter=1000)
     Best Scores:
-    accuracy: 0.992 recall_macro: 0.993 precision_macro: 0.992 f1_macro: 0.992
+    accuracy: 0.977 recall_macro: 0.982 precision_macro: 0.979 f1_macro: 0.979
                   precision    recall  f1-score   support
 
-               0       1.00      1.00      1.00        14
-               1       1.00      1.00      1.00        20
-               2       1.00      1.00      1.00        11
+               0       0.94      1.00      0.97        17
+               1       1.00      0.83      0.91        18
+               2       0.83      1.00      0.91        10
 
-        accuracy                           1.00        45
-       macro avg       1.00      1.00      1.00        45
-    weighted avg       1.00      1.00      1.00        45
+        accuracy                           0.93        45
+       macro avg       0.93      0.94      0.93        45
+    weighted avg       0.94      0.93      0.93        45
 
-    [[14  0  0]
-     [ 0 20  0]
-     [ 0  0 11]]
+    [[17  0  0]
+     [ 1 15  2]
+     [ 0  0 10]]
     /home/circleci/project/dabl/plot/utils.py:375: UserWarning: FixedFormatter should only be used together with FixedLocator
       ax.set_yticklabels(
 
@@ -113,7 +110,7 @@ Model Explanation
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.777 seconds)
+   **Total running time of the script:** ( 0 minutes  0.716 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_explain_example.py:
