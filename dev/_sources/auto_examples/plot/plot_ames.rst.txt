@@ -32,7 +32,7 @@ Ames Housing Dataset Visualization
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_ames_003.png
-          :alt: Categorical Feature vs Target, F=5.78E-01, F=3.73E-01, F=3.29E-01, F=3.29E-01, F=2.93E-01, F=2.75E-01, F=2.60E-01, F=2.39E-01, F=2.36E-01, F=2.19E-01
+          :alt: Categorical Feature vs Target, F=5.76E-01, F=3.72E-01, F=3.31E-01, F=3.31E-01, F=2.88E-01, F=2.71E-01, F=2.61E-01, F=2.40E-01, F=2.27E-01, F=2.18E-01
           :class: sphx-glr-multi-img
 
 
@@ -61,6 +61,26 @@ Ames Housing Dataset Visualization
     /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 7 outliers in column Mas Vnr Area.
       warn("Dropped {} outliers in column {}.".format(
     Showing only top 10 of 42 categorical features
+    /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
+      ax.set_xticklabels(
+    /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
+      ax.set_xticklabels(
+    /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
+      ax.set_xticklabels(
+    /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
+      ax.set_xticklabels(
+    /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
+      ax.set_xticklabels(
+    /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
+      ax.set_xticklabels(
+    /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
+      ax.set_xticklabels(
+    /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
+      ax.set_xticklabels(
+    /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
+      ax.set_xticklabels(
+    /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
+      ax.set_xticklabels(
 
 
 
@@ -87,7 +107,7 @@ Ames Housing Dataset Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.626 seconds)
+   **Total running time of the script:** ( 0 minutes  4.201 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_ames.py:
