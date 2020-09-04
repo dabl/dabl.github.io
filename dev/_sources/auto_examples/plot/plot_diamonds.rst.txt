@@ -33,7 +33,7 @@ Regression on the classical diamond dataset.
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_diamonds_003.png
-          :alt: Categorical Feature vs Target, F=3.64E-01, F=2.83E-01, F=1.04E-01
+          :alt: Categorical Feature vs Target, F=3.62E-01, F=2.82E-01, F=1.04E-01
           :class: sphx-glr-multi-img
 
 
@@ -44,17 +44,17 @@ Regression on the classical diamond dataset.
  .. code-block:: none
 
     Target looks like regression
-    /home/circleci/project/dabl/plot/utils.py:628: UserWarning: Dropped 13 outliers in column carat.
+    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 13 outliers in column carat.
       warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:628: UserWarning: Dropped 9 outliers in column x.
+    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 9 outliers in column x.
       warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:628: UserWarning: Dropped 10 outliers in column y.
+    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 10 outliers in column y.
       warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:628: UserWarning: Dropped 25 outliers in column z.
+    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 25 outliers in column z.
       warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:628: UserWarning: Dropped 19 outliers in column table.
+    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 19 outliers in column table.
       warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:628: UserWarning: Dropped 52 outliers in column depth.
+    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 52 outliers in column depth.
       warn("Dropped {} outliers in column {}.".format(
     /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
       ax.set_xticklabels(
@@ -86,7 +86,7 @@ Regression on the classical diamond dataset.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.396 seconds)
+   **Total running time of the script:** ( 0 minutes  6.345 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_diamonds.py:
