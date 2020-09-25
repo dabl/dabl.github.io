@@ -1,0 +1,12 @@
+:mod:`dabl.datasets`.load_titanic
+==============================================
+
+.. currentmodule:: dabl.datasets
+
+.. autofunction:: load_titanic
+
+.. include:: dabl.datasets.load_titanic.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>
