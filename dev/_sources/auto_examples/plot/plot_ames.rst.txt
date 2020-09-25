@@ -26,13 +26,13 @@ Ames Housing Dataset Visualization
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_ames_002.png
-          :alt: Continuous Feature vs Target, F=5.18E+03, F=2.92E+03, F=2.12E+03, F=2.04E+03, F=1.95E+03, F=1.84E+03, F=1.33E+03, F=1.16E+03, F=1.03E+03, F=1.01E+03
+          :alt: Continuous Feature vs Target, F=5.27E+03, F=2.79E+03, F=2.16E+03, F=2.08E+03, F=1.93E+03, F=1.82E+03, F=1.37E+03, F=1.20E+03, F=1.06E+03, F=9.98E+02
           :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_ames_003.png
-          :alt: Categorical Feature vs Target, F=5.65E-01, F=3.69E-01, F=3.29E-01, F=3.23E-01, F=2.97E-01, F=2.77E-01, F=2.65E-01, F=2.40E-01, F=2.34E-01, F=2.26E-01
+          :alt: Categorical Feature vs Target, F=5.67E-01, F=3.68E-01, F=3.29E-01, F=3.26E-01, F=2.91E-01, F=2.85E-01, F=2.62E-01, F=2.35E-01, F=2.27E-01, F=2.26E-01
           :class: sphx-glr-multi-img
 
 
@@ -42,13 +42,15 @@ Ames Housing Dataset Visualization
 
  .. code-block:: none
 
-    /home/circleci/project/dabl/plot/supervised.py:538: FutureWarning: The second positional argument of plot is a Series 'y'. If passing a column name, use a keyword.
+    /home/circleci/project/dabl/plot/supervised.py:542: FutureWarning: The second positional argument of plot is a Series 'y'. If passing a column name, use a keyword.
       warnings.warn("The second positional argument of plot is a Series 'y'."
     /home/circleci/project/dabl/preprocessing.py:351: UserWarning: Discarding near-constant features: ['Street', 'Utilities', 'Land Slope', 'Condition 2', 'Roof Matl', 'Heating', 'Low Qual Fin SF', 'Kitchen AbvGr', 'Garage Cond', '3Ssn Porch', 'Pool Area', 'Misc Val']
       warn("Discarding near-constant features: {}".format(
     Target looks like regression
+    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 2 outliers in column SalePrice.
+      warn("Dropped {} outliers in column {}.".format(
     Showing only top 10 of 26 continuous features
-    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 5 outliers in column Gr Liv Area.
+    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 3 outliers in column Gr Liv Area.
       warn("Dropped {} outliers in column {}.".format(
     /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 1 outliers in column Garage Cars.
       warn("Dropped {} outliers in column {}.".format(
@@ -58,7 +60,7 @@ Ames Housing Dataset Visualization
       warn("Dropped {} outliers in column {}.".format(
     /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 1 outliers in column Garage Yr Blt.
       warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 7 outliers in column Mas Vnr Area.
+    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 6 outliers in column Mas Vnr Area.
       warn("Dropped {} outliers in column {}.".format(
     Showing only top 10 of 42 categorical features
     /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
@@ -107,7 +109,7 @@ Ames Housing Dataset Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.137 seconds)
+   **Total running time of the script:** ( 0 minutes  4.110 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_ames.py:
