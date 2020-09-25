@@ -1,0 +1,12 @@
+:mod:`dabl.pipelines`.get_fast_classifiers
+=======================================================
+
+.. currentmodule:: dabl.pipelines
+
+.. autofunction:: get_fast_classifiers
+
+.. include:: dabl.pipelines.get_fast_classifiers.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>
