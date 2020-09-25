@@ -32,7 +32,7 @@ Adult Census Dataset Visualization
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_adult_003.png
-          :alt: Discriminating PCA directions, 0.574, Scree plot (PCA explained variance)
+          :alt: Discriminating PCA directions, 0.655, 0.621, 0.603, Scree plot (PCA explained variance)
           :class: sphx-glr-multi-img
 
     *
@@ -44,7 +44,7 @@ Adult Census Dataset Visualization
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_adult_005.png
-          :alt: Categorical Features vs Target, relationship, marital-status, education-num, education, occupation, hours-per-week, gender, workclass, native-country, race
+          :alt: Categorical Features vs Target, relationship, marital-status, education, occupation, hours-per-week, gender, workclass, native-country, race
           :class: sphx-glr-multi-img
 
 
@@ -56,12 +56,10 @@ Adult Census Dataset Visualization
 
     /home/circleci/project/dabl/plot/supervised.py:538: FutureWarning: The second positional argument of plot is a Series 'y'. If passing a column name, use a keyword.
       warnings.warn("The second positional argument of plot is a Series 'y'."
-    /home/circleci/project/dabl/preprocessing.py:343: UserWarning: Discarding near-constant features: ['capital-loss']
+    /home/circleci/project/dabl/preprocessing.py:351: UserWarning: Discarding near-constant features: ['capital-loss']
       warn("Discarding near-constant features: {}".format(
     Target looks like classification
-    Linear Discriminant Analysis training set score: 0.530
-    /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
-      ax.set_xticklabels(
+    Linear Discriminant Analysis training set score: 0.614
     /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
       ax.set_xticklabels(
     /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
@@ -106,7 +104,7 @@ Adult Census Dataset Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.341 seconds)
+   **Total running time of the script:** ( 0 minutes  5.671 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_adult.py:

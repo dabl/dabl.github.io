@@ -5,10 +5,10 @@
 
 Computation times
 =================
-**00:09.485** total execution time for **auto_examples** files:
+**00:13.518** total execution time for **auto_examples** files:
 
 +-----------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_successive_halving_iterations.py` (``plot_successive_halving_iterations.py``) | 00:08.738 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_successive_halving_iterations.py` (``plot_successive_halving_iterations.py``) | 00:12.490 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_explain_example.py` (``plot_explain_example.py``)                             | 00:00.748 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_explain_example.py` (``plot_explain_example.py``)                             | 00:01.028 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------+-----------+--------+
