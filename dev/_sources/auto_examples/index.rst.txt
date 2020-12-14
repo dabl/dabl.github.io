@@ -33,27 +33,6 @@ Introductory examples.
    :hidden:
 
    /auto_examples/plot_explain_example
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="Successive Halving">
-
-.. only:: html
-
- .. figure:: /auto_examples/images/thumb/sphx_glr_plot_successive_halving_iterations_thumb.png
-     :alt: Successive Halving
-
-     :ref:`sphx_glr_auto_examples_plot_successive_halving_iterations.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /auto_examples/plot_successive_halving_iterations
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>

@@ -40,7 +40,7 @@
   <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Successive Halving" href="plot_successive_halving_iterations.html" />
+    <link rel="next" title="Human Activity Recognition Visualization" href="plot/plot_human_activity.html" />
     <link rel="prev" title="General examples" href="index.html" /> 
 </head>
 
@@ -104,7 +104,6 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">General examples</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Model Explanation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_successive_halving_iterations.html">Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#plotting-examples">Plotting examples</a></li>
@@ -187,49 +186,49 @@
 </li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Running DummyClassifier(strategy=&#39;prior&#39;)
-accuracy: 0.414 recall_macro: 0.333 precision_macro: 0.138 f1_macro: 0.195
-=== new best DummyClassifier(strategy=&#39;prior&#39;) (using recall_macro):
-accuracy: 0.414 recall_macro: 0.333 precision_macro: 0.138 f1_macro: 0.195
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Running DummyClassifier()
+accuracy: 0.421 recall_macro: 0.333 precision_macro: 0.140 f1_macro: 0.198
+=== new best DummyClassifier() (using recall_macro):
+accuracy: 0.421 recall_macro: 0.333 precision_macro: 0.140 f1_macro: 0.198
 
 Running GaussianNB()
-accuracy: 0.970 recall_macro: 0.973 precision_macro: 0.971 f1_macro: 0.971
+accuracy: 0.977 recall_macro: 0.980 precision_macro: 0.980 f1_macro: 0.979
 === new best GaussianNB() (using recall_macro):
-accuracy: 0.970 recall_macro: 0.973 precision_macro: 0.971 f1_macro: 0.971
+accuracy: 0.977 recall_macro: 0.980 precision_macro: 0.980 f1_macro: 0.979
 
 Running MultinomialNB()
-accuracy: 0.932 recall_macro: 0.935 precision_macro: 0.946 f1_macro: 0.938
+accuracy: 0.947 recall_macro: 0.947 precision_macro: 0.961 f1_macro: 0.951
 Running DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=1)
-accuracy: 0.579 recall_macro: 0.657 precision_macro: 0.451 f1_macro: 0.520
+accuracy: 0.571 recall_macro: 0.623 precision_macro: 0.420 f1_macro: 0.490
 Running DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=5)
-accuracy: 0.925 recall_macro: 0.932 precision_macro: 0.936 f1_macro: 0.931
+accuracy: 0.932 recall_macro: 0.938 precision_macro: 0.937 f1_macro: 0.931
 Running DecisionTreeClassifier(class_weight=&#39;balanced&#39;, min_impurity_decrease=0.01)
-accuracy: 0.932 recall_macro: 0.938 precision_macro: 0.942 f1_macro: 0.937
+accuracy: 0.932 recall_macro: 0.936 precision_macro: 0.935 f1_macro: 0.931
 Running LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, max_iter=1000)
-accuracy: 0.978 recall_macro: 0.982 precision_macro: 0.978 f1_macro: 0.978
+accuracy: 0.985 recall_macro: 0.988 precision_macro: 0.985 f1_macro: 0.986
 === new best LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, max_iter=1000) (using recall_macro):
-accuracy: 0.978 recall_macro: 0.982 precision_macro: 0.978 f1_macro: 0.978
+accuracy: 0.985 recall_macro: 0.988 precision_macro: 0.985 f1_macro: 0.986
 
 Running LogisticRegression(class_weight=&#39;balanced&#39;, max_iter=1000)
-accuracy: 0.970 recall_macro: 0.976 precision_macro: 0.969 f1_macro: 0.970
+accuracy: 0.977 recall_macro: 0.982 precision_macro: 0.975 f1_macro: 0.978
 
 Best model:
 LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, max_iter=1000)
 Best Scores:
-accuracy: 0.978 recall_macro: 0.982 precision_macro: 0.978 f1_macro: 0.978
+accuracy: 0.985 recall_macro: 0.988 precision_macro: 0.985 f1_macro: 0.986
               precision    recall  f1-score   support
 
-           0       1.00      1.00      1.00        12
-           1       1.00      0.94      0.97        16
-           2       0.94      1.00      0.97        17
+           0       0.94      1.00      0.97        15
+           1       1.00      0.93      0.97        15
+           2       1.00      1.00      1.00        15
 
     accuracy                           0.98        45
    macro avg       0.98      0.98      0.98        45
 weighted avg       0.98      0.98      0.98        45
 
-[[12  0  0]
- [ 0 15  1]
- [ 0  0 17]]
+[[15  0  0]
+ [ 1 14  0]
+ [ 0  0 15]]
 /home/circleci/project/dabl/plot/utils.py:375: UserWarning: FixedFormatter should only be used together with FixedLocator
   ax.set_yticklabels(
 </pre></div>
@@ -253,7 +252,7 @@ weighted avg       0.98      0.98      0.98        45
 <span class="n">explain</span><span class="p">(</span><span class="n">sc</span><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X_test</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_test</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.088 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.782 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-explain-example-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/e428c113b13e9b657eb51a0f7358216a/plot_explain_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_explain_example.py</span></code></a></p>
@@ -273,7 +272,7 @@ weighted avg       0.98      0.98      0.98        45
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="plot_successive_halving_iterations.html" class="btn btn-neutral float-right" title="Successive Halving" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="plot/plot_human_activity.html" class="btn btn-neutral float-right" title="Human Activity Recognition Visualization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="General examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

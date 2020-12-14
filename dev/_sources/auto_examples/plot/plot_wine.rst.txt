@@ -32,13 +32,13 @@ Wine Classification Dataset Visualization
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_wine_003.png
-          :alt: Top feature interactions, 0.952, 0.931, 0.917, 0.912
+          :alt: Top feature interactions, 0.956, 0.934, 0.930, 0.928
           :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_wine_004.png
-          :alt: Discriminating PCA directions, 0.950, 0.921, 0.900, Scree plot (PCA explained variance)
+          :alt: Discriminating PCA directions, 0.963, 0.880, 0.877, Scree plot (PCA explained variance)
           :class: sphx-glr-multi-img
 
     *
@@ -84,7 +84,7 @@ Wine Classification Dataset Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.423 seconds)
+   **Total running time of the script:** ( 0 minutes  3.114 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_wine.py:
