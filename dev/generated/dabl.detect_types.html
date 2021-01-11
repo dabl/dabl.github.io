@@ -38,6 +38,7 @@
   <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-rendered-html.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="dabl.explain" href="dabl.explain.html" />
@@ -188,7 +189,7 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.detect_types<a class="headerlink" href="#dabl-detect-types" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dabl.detect_types">
-<code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">detect_types</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">max_int_cardinality='auto'</em>, <em class="sig-param">dirty_float_threshold=0.9</em>, <em class="sig-param">near_constant_threshold=0.95</em>, <em class="sig-param">target_col=None</em>, <em class="sig-param">verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/ef324be/dabl/preprocessing.py#L190"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.detect_types" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">detect_types</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">max_int_cardinality='auto'</em>, <em class="sig-param">dirty_float_threshold=0.9</em>, <em class="sig-param">near_constant_threshold=0.95</em>, <em class="sig-param">target_col=None</em>, <em class="sig-param">verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/ea9ef96/dabl/preprocessing.py#L302"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.detect_types" title="Permalink to this definition">¶</a></dt>
 <dd><p>Detect types of dataframe columns.</p>
 <p>Columns are labeled as one of the following types:
 ‘continuous’, ‘categorical’, ‘low_card_int’, ‘dirty_float’,
@@ -209,7 +210,7 @@ or doesn’t match any of the above categories is labeled “useless”.</p>
 <dt><strong>X</strong><span class="classifier">dataframe</span></dt><dd><p>input</p>
 </dd>
 <dt><strong>max_int_cardinality: int or ‘auto’, default=’auto’</strong></dt><dd><p>Maximum number of distinct integers for an integer column
-to be considered categorical. ‘auto’ is <code class="docutils literal notranslate"><span class="pre">max(42,</span> <span class="pre">n_samples/10)</span></code>.
+to be considered categorical. ‘auto’ is <code class="docutils literal notranslate"><span class="pre">max(42,</span> <span class="pre">n_samples/100)</span></code>.
 Integers are also always considered as continuous variables.
 FIXME not true any more?</p>
 </dd>
