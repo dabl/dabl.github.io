@@ -43,7 +43,7 @@ Ames Housing Dataset Visualization
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_ames_003.png
-          :alt: Categorical Feature vs Target, F=5.72E-01, F=3.77E-01, F=3.29E-01, F=3.28E-01, F=2.99E-01, F=2.74E-01, F=2.62E-01, F=2.38E-01, F=2.32E-01, F=2.31E-01
+          :alt: Categorical Feature vs Target, F=5.72E-01, F=3.75E-01, F=3.29E-01, F=3.27E-01, F=2.94E-01, F=2.76E-01, F=2.59E-01, F=2.39E-01, F=2.38E-01, F=2.27E-01
           :class: sphx-glr-multi-img
 
 
@@ -53,44 +53,44 @@ Ames Housing Dataset Visualization
 
  .. code-block:: none
 
-    /home/circleci/project/dabl/plot/supervised.py:542: FutureWarning: The second positional argument of plot is a Series 'y'. If passing a column name, use a keyword.
+    /home/circleci/project/dabl/plot/supervised.py:545: FutureWarning: The second positional argument of plot is a Series 'y'. If passing a column name, use a keyword.
       warnings.warn("The second positional argument of plot is a Series 'y'."
     Target looks like regression
-    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 2 outliers in column SalePrice.
+    /home/circleci/project/dabl/plot/utils.py:632: UserWarning: Dropped 2 outliers in column SalePrice.
       warn("Dropped {} outliers in column {}.".format(
     Showing only top 10 of 26 continuous features
-    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 3 outliers in column Gr Liv Area.
+    /home/circleci/project/dabl/plot/utils.py:632: UserWarning: Dropped 3 outliers in column Gr Liv Area.
       warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 1 outliers in column Garage Cars.
+    /home/circleci/project/dabl/plot/utils.py:632: UserWarning: Dropped 1 outliers in column Garage Cars.
       warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 2 outliers in column Total Bsmt SF.
+    /home/circleci/project/dabl/plot/utils.py:632: UserWarning: Dropped 2 outliers in column Total Bsmt SF.
       warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 4 outliers in column 1st Flr SF.
+    /home/circleci/project/dabl/plot/utils.py:632: UserWarning: Dropped 4 outliers in column 1st Flr SF.
       warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 1 outliers in column Garage Yr Blt.
+    /home/circleci/project/dabl/plot/utils.py:632: UserWarning: Dropped 1 outliers in column Garage Yr Blt.
       warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:629: UserWarning: Dropped 6 outliers in column Mas Vnr Area.
+    /home/circleci/project/dabl/plot/utils.py:632: UserWarning: Dropped 6 outliers in column Mas Vnr Area.
       warn("Dropped {} outliers in column {}.".format(
     Showing only top 10 of 41 categorical features
-    /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
+    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
       ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
+    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
       ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
+    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
       ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
+    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
       ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
+    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
       ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
+    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
       ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
+    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
       ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
+    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
       ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
+    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
       ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:371: UserWarning: FixedFormatter should only be used together with FixedLocator
+    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
       ax.set_xticklabels(
 
 
@@ -117,7 +117,7 @@ Ames Housing Dataset Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.937 seconds)
+   **Total running time of the script:** ( 0 minutes  3.725 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_ames.py:

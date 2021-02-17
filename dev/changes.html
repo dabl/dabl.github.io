@@ -180,6 +180,8 @@
 <ul class="simple">
 <li><p>Rely on the Successive Halving implementation from scikit-learn 0.24, removing the old implementation.
 Consequently the search module in dabl has been deprecated and the minimum version requirement of scikit-learn is now 0.24.</p></li>
+<li><p>The type detection has been completely rewritten and accomodates more edge cases, <a class="reference external" href="https://github.com/dabl/dabl/issues/270">#270</a> by <a class="reference external" href="https://github.com/amueller">&#64;amueller</a>.</p></li>
+<li><p>A global configuration was introduced that can be set with <cite>set_config</cite>. For now, this allows users to turn off truncation of labels, by <a class="reference external" href="https://github.com/amueller">&#64;amueller</a>.</p></li>
 </ul>
 </div>
 <div class="section" id="dabl-0-1-9">

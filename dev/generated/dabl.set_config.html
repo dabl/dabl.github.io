@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dabl.pipelines.get_fast_classifiers &mdash; dabl  documentation</title>
+  <title>dabl.set_config &mdash; dabl  documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../_static/gallery-rendered-html.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="dabl.pipelines.get_fast_regressors" href="dabl.pipelines.get_fast_regressors.html" />
-    <link rel="prev" title="dabl.pipelines.get_any_classifiers" href="dabl.pipelines.get_any_classifiers.html" /> 
+    <link rel="next" title="dabl.get_config" href="dabl.get_config.html" />
+    <link rel="prev" title="dabl.plot" href="dabl.plot.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -99,18 +99,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide.html">Machine Learning with dabl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts_term.html">Concepts and terminology</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">dabl API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../api.html#high-level-api">High-level API</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../api.html#full-api">Full API</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../api.html#datasets">Datasets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../api.html#plotting">Plotting</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../api.html#portfolios">Portfolios</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="dabl.pipelines.get_any_classifiers.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.pipelines</span></code>.get_any_classifiers</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.pipelines</span></code>.get_fast_classifiers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="dabl.pipelines.get_fast_regressors.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.pipelines</span></code>.get_fast_regressors</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html#high-level-api">High-level API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="dabl.clean.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.clean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.detect_types.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.detect_types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.explain.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.explain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.plot</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.set_config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.get_config.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.get_config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.AnyClassifier.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.AnyClassifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.EasyPreprocessor.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.EasyPreprocessor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.SimpleClassifier.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.SimpleClassifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.SimpleRegressor.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.SimpleRegressor</a></li>
 </ul>
 </li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#full-api">Full API</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Release History</a></li>
@@ -166,13 +168,13 @@
         
           <li><a href="../api.html">dabl API</a> &raquo;</li>
         
-      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.pipelines</span></code>.get_fast_classifiers</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.set_config</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/generated/dabl.pipelines.get_fast_classifiers.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/generated/dabl.set_config.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -185,24 +187,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="dabl-pipelines-get-fast-classifiers">
-<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.pipelines</span></code>.get_fast_classifiers<a class="headerlink" href="#dabl-pipelines-get-fast-classifiers" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="dabl-set-config">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.set_config<a class="headerlink" href="#dabl-set-config" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="dabl.pipelines.get_fast_classifiers">
-<code class="sig-prename descclassname">dabl.pipelines.</code><code class="sig-name descname">get_fast_classifiers</code><span class="sig-paren">(</span><em class="sig-param">n_classes</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/91a170f/dabl/pipelines.py#L22"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.pipelines.get_fast_classifiers" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get a list of very fast classifiers.</p>
+<dt id="dabl.set_config">
+<code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">set_config</code><span class="sig-paren">(</span><em class="sig-param">truncate_labels=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/91a170f/dabl/_config.py#L21"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.set_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set global dabl configuration.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>n_classes</strong><span class="classifier">int</span></dt><dd><p>Number of classes in the dataset. Used to decide on the complexity
-of some of the classifiers.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>fast_classifiers</strong><span class="classifier">list of sklearn estimators</span></dt><dd><p>List of classification models that can be fitted and evaluated very
-quickly.</p>
+<dt><strong>truncate_labels</strong><span class="classifier">bool, default=None</span></dt><dd><p>Whether to truncate labels in plots.</p>
 </dd>
 </dl>
 </dd>
@@ -219,10 +213,10 @@ quickly.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="dabl.pipelines.get_fast_regressors.html" class="btn btn-neutral float-right" title="dabl.pipelines.get_fast_regressors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="dabl.get_config.html" class="btn btn-neutral float-right" title="dabl.get_config" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="dabl.pipelines.get_any_classifiers.html" class="btn btn-neutral float-left" title="dabl.pipelines.get_any_classifiers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="dabl.plot.html" class="btn btn-neutral float-left" title="dabl.plot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -41,7 +41,7 @@
   <link rel="stylesheet" href="../_static/gallery-rendered-html.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="dabl.AnyClassifier" href="dabl.AnyClassifier.html" />
+    <link rel="next" title="dabl.set_config" href="dabl.set_config.html" />
     <link rel="prev" title="dabl.explain" href="dabl.explain.html" /> 
 </head>
 
@@ -104,6 +104,8 @@
 <li class="toctree-l3"><a class="reference internal" href="dabl.detect_types.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.detect_types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dabl.explain.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.explain</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.set_config.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.set_config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dabl.get_config.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.get_config</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dabl.AnyClassifier.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.AnyClassifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dabl.EasyPreprocessor.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.EasyPreprocessor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dabl.SimpleClassifier.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.SimpleClassifier</a></li>
@@ -189,7 +191,7 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.plot<a class="headerlink" href="#dabl-plot" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dabl.plot">
-<code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">target_col=None</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">scatter_alpha='auto'</em>, <em class="sig-param">scatter_size='auto'</em>, <em class="sig-param">verbose=10</em>, <em class="sig-param">plot_pairwise=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/f296809/dabl/plot/supervised.py#L496"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">target_col=None</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">scatter_alpha='auto'</em>, <em class="sig-param">scatter_size='auto'</em>, <em class="sig-param">verbose=10</em>, <em class="sig-param">plot_pairwise=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/91a170f/dabl/plot/supervised.py#L499"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Automatic plots for classification and regression.</p>
 <p>Determines whether the target is categorical or continuous and plots the
 target distribution. Then calls the relevant plotting functions
@@ -240,7 +242,7 @@ These can be somewhat expensive to compute.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="dabl.AnyClassifier.html" class="btn btn-neutral float-right" title="dabl.AnyClassifier" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="dabl.set_config.html" class="btn btn-neutral float-right" title="dabl.set_config" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="dabl.explain.html" class="btn btn-neutral float-left" title="dabl.explain" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

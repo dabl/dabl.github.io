@@ -43,13 +43,13 @@ Wine Classification Dataset Visualization
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_wine_003.png
-          :alt: Top feature interactions, 0.966, 0.952, 0.943, 0.930
+          :alt: Top feature interactions, 0.984, 0.934, 0.915, 0.914
           :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_wine_004.png
-          :alt: Discriminating PCA directions, 0.981, 0.893, 0.890, Scree plot (PCA explained variance)
+          :alt: Discriminating PCA directions, 0.950, 0.928, 0.880, Scree plot (PCA explained variance)
           :class: sphx-glr-multi-img
 
     *
@@ -65,7 +65,7 @@ Wine Classification Dataset Visualization
 
  .. code-block:: none
 
-    /home/circleci/project/dabl/plot/supervised.py:542: FutureWarning: The second positional argument of plot is a Series 'y'. If passing a column name, use a keyword.
+    /home/circleci/project/dabl/plot/supervised.py:545: FutureWarning: The second positional argument of plot is a Series 'y'. If passing a column name, use a keyword.
       warnings.warn("The second positional argument of plot is a Series 'y'."
     Target looks like classification
     Linear Discriminant Analysis training set score: 1.000
@@ -94,7 +94,7 @@ Wine Classification Dataset Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.122 seconds)
+   **Total running time of the script:** ( 0 minutes  2.991 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_wine.py:
