@@ -1,0 +1,421 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>User guide : contents &mdash; dabl  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/js/copybutton.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/project-template.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+  <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="_static/gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="_static/gallery-rendered-html.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Concepts and terminology" href="concepts_term.html" />
+    <link rel="prev" title="Quickstart to ML with dabl" href="quick_start.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> dabl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quickstart to ML with dabl</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Machine Learning with dabl</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#philosophy">Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-cleaning">Data cleaning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exploratory-data-analysis">Exploratory Data analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#initial-model-building">Initial Model Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enhanced-model-building">Enhanced Model Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#explainable-model-building">Explainable Model Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#limitations">Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#future-goals-and-roadmap">Future Goals and Roadmap</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="concepts_term.html">Concepts and terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">dabl API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">Release History</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">General examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#plotting-examples">Plotting examples</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">dabl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>User guide : contents</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/user_guide.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="machine-learning-with-dabl">
+<span id="user-guide"></span><h1>Machine Learning with dabl<a class="headerlink" href="#machine-learning-with-dabl" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="philosophy">
+<h2>Philosophy<a class="headerlink" href="#philosophy" title="Permalink to this headline">¶</a></h2>
+<p>The idea behind dabl is to jump-start your supervised learning task.  dabl has
+several tools that make it easy to clean and inspect your data, and create
+strong baseline models.</p>
+<p>Building machine learning models is an inherently iterative task with a human
+in the loop.  Big jumps in performance are often achieved by better
+understanding of the data and task, and more appropriate features.  dabl tries
+to provide as much insight into the data as possible, and enable interactive
+analysis.</p>
+<p>Many analyses start with the same rote tasks of cleaning and basic data
+visualization, and initial modeling.  dabl tries to make these steps as easy
+as possible, so that you can spend your time thinking about the problem and
+creating more interesting custom analyses.</p>
+<p>There are two main packages that dabl takes inspiration from and that dabl
+builds upon: scikit-learn and auto-sklearn.  The design philosophies and
+use-cases are quite different, however.</p>
+<p>Scikit-learn provides many essential building blocks, but is built on the idea
+to do exactly what the user asks for.  That requires specifying every step of
+the processing in detail.  dabl on the other hand has a best-guess philosophy:
+it tries to do something sensible, and then provides tools for the user to
+inspect and evaluate the results to judge them.</p>
+<p>auto-sklearn is completely automatic and black-box.  It searches a vast space
+of models and constructs complex ensembles of high accuracy, taking a substantial
+amount of computation and time in the process.  The goal of auto-sklearn is to
+build the best model possible given the data.  dabl, conversely, tries to enable
+the user to quickly iterate and get a grasp on the properties of the data at hand
+and the fitted models.</p>
+<p>dabl is meant to support you in the following tasks, in order:</p>
+</div>
+<div class="section" id="data-cleaning">
+<h2>Data cleaning<a class="headerlink" href="#data-cleaning" title="Permalink to this headline">¶</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">dabl</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dabl</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">data_path</span><span class="p">(</span><span class="s2">&quot;adult.csv.gz&quot;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_clean</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">data</span><span class="p">)[::</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The first step in any data analysis is data cleaning. dabl tries to detect the
+types of your data and apply appropriate conversions.  It also tries to detect
+potential data quality issues.
+The field of data cleaning is impossibly broad, and dabl’s approaches are by no
+means sophisticated.  The goal of dabl is to get the data “clean enough” to
+create useful visualizations and models, and to allow users to perform
+custom cleaning operations themselves.
+In particular if the detection of semantic types (continuous, categorical,
+ordinal, text, etc) fails, the user can provide <code class="docutils literal notranslate"><span class="pre">type_hints</span></code>:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data_clean</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">type_hints</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;capital-gain&quot;</span><span class="p">:</span> <span class="s2">&quot;continuous&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exploratory-data-analysis">
+<h2>Exploratory Data analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dabl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s2">&quot;income&quot;</span><span class="p">)</span>
+<span class="go">Target looks like classification</span>
+<span class="go">Linear Discriminant Analysis training set score: ...</span>
+</pre></div>
+</div>
+<p>The next step in any task should be exploratory data analysis. dabl provides a
+high-level interface that summarizes several common high-level plots.  For low
+dimensional datasets, all features are shown; for high dimensional datasets,
+only the most informative features for the given task are shown.  This is
+clearly not guaranteed to surface all interesting aspects with the data, or to
+find all data quality issues.  However, it will give you a quick insight in to
+what are the important features, their interactions, and how hard the problem
+might be.  It also allows a good assessment of whether there is any data
+leakage through spurious representations of the target in the data.</p>
+</div>
+<div class="section" id="initial-model-building">
+<h2>Initial Model Building<a class="headerlink" href="#initial-model-building" title="Permalink to this headline">¶</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ec</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">SimpleClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s2">&quot;income&quot;</span><span class="p">)</span> 
+<span class="go">    DummyClassifier(strategy=&#39;prior&#39;)</span>
+<span class="go">    accuracy: 0.759    average_precision: 0.241    recall_macro: 0.500    roc_auc: 0.500</span>
+<span class="go">    new best (using recall_macro):</span>
+<span class="go">    accuracy             0.759</span>
+<span class="go">    average_precision    0.241</span>
+<span class="go">    recall_macro         0.500</span>
+<span class="go">    roc_auc              0.500</span>
+<span class="go">    Name: DummyClassifier(strategy=&#39;prior&#39;), dtype: float64</span>
+<span class="go">    GaussianNB()</span>
+<span class="go">    accuracy: 0.407    average_precision: 0.288    recall_macro: 0.605    roc_auc: 0.607</span>
+<span class="go">    new best (using recall_macro):</span>
+<span class="go">    accuracy             0.407</span>
+<span class="go">    average_precision    0.288</span>
+<span class="go">    recall_macro         0.605</span>
+<span class="go">    roc_auc              0.607</span>
+<span class="go">    Name: GaussianNB(), dtype: float64</span>
+<span class="go">    MultinomialNB()</span>
+<span class="go">    accuracy: 0.831    average_precision: 0.773    recall_macro: 0.815    roc_auc: 0.908</span>
+<span class="go">    new best (using recall_macro):</span>
+<span class="go">    accuracy             0.831</span>
+<span class="go">    average_precision    0.773</span>
+<span class="go">    recall_macro         0.815</span>
+<span class="go">    roc_auc              0.908</span>
+<span class="go">    Name: MultinomialNB(), dtype: float64</span>
+<span class="go">    DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=1)</span>
+<span class="go">    accuracy: 0.710    average_precision: 0.417    recall_macro: 0.759    roc_auc: 0.759</span>
+<span class="go">    DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=5)</span>
+<span class="go">    accuracy: 0.784    average_precision: 0.711    recall_macro: 0.811    roc_auc: 0.894</span>
+<span class="go">    DecisionTreeClassifier(class_weight=&#39;balanced&#39;, min_impurity_decrease=0.01)</span>
+<span class="go">    accuracy: 0.718    average_precision: 0.561    recall_macro: 0.779    roc_auc: 0.848</span>
+<span class="go">    LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;)</span>
+<span class="go">    accuracy: 0.819    average_precision: 0.789    recall_macro: 0.832    roc_auc: 0.915</span>
+<span class="go">    new best (using recall_macro):</span>
+<span class="go">    accuracy             0.819</span>
+<span class="go">    average_precision    0.789</span>
+<span class="go">    recall_macro         0.832</span>
+<span class="go">    roc_auc              0.915</span>
+<span class="go">    Name: LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;), dtype: float64</span>
+<span class="go">    Best model:</span>
+<span class="go">    LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;)</span>
+<span class="go">    Best Scores:</span>
+<span class="go">    accuracy             0.819</span>
+<span class="go">    average_precision    0.789</span>
+<span class="go">    recall_macro         0.832</span>
+<span class="go">    roc_auc              0.915</span>
+<span class="go">    Name: LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;), dtype: float64</span>
+</pre></div>
+</div>
+<p>The SimpleClassifier first tries several baseline and instantaneous models,
+potentially on subsampled data, to get an idea of what a low baseline should be.
+This again is a good place to surface data leakage, as well as find the main
+discriminative features in the dataset.  The <code class="docutils literal notranslate"><span class="pre">SimpleClassifier</span></code> allows
+specifying data in the scikit-learn-style <code class="docutils literal notranslate"><span class="pre">fit(X,</span> <span class="pre">y)</span></code> with a 1d y and
+features <code class="docutils literal notranslate"><span class="pre">X</span></code>, or with <code class="docutils literal notranslate"><span class="pre">X</span></code> being a dataframe and specifying the target
+column inside of X as <code class="docutils literal notranslate"><span class="pre">target_col</span></code>.</p>
+<p>The SimpleClassifier also performs preprocessing such as missing value
+imputation and one-hot encoding.  You can inspect the model using:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dabl</span><span class="o">.</span><span class="n">explain</span><span class="p">(</span><span class="n">ec</span><span class="p">)</span> 
+</pre></div>
+</div>
+<p>This can lead to additional insights and guide custom processing and
+cleaning of the data.</p>
+</div>
+<div class="section" id="enhanced-model-building">
+<h2>Enhanced Model Building<a class="headerlink" href="#enhanced-model-building" title="Permalink to this headline">¶</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># ac = AnyClassifier().fit(data, target_col=&quot;income&quot;) not implemented yet</span>
+</pre></div>
+</div>
+<p>After creating an initial model, it’s interesting to explore more powerful
+models such as tree ensembles.  <code class="docutils literal notranslate"><span class="pre">AnyClassifier</span></code> searches over a space of
+models that commonly perform well, and identifies promising candidates.  If
+your goal is prediction, <code class="docutils literal notranslate"><span class="pre">AnyClassifier</span></code> can provide a strong baseline for
+further investigation.  Again, we can inspect our model to understand it
+better:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># explain(ac)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="explainable-model-building">
+<h2>Explainable Model Building<a class="headerlink" href="#explainable-model-building" title="Permalink to this headline">¶</a></h2>
+<p>TODO this is not done yet!</p>
+<p>Sometimes, explainability of a model can be more important than performance. A
+complex model can serve as a good benchmark on what is achievable on a certain
+dataset. After this benchmark is established, it is interesting to see if we
+can build a model that is interpretable while still providing competitive
+performance.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># xc = ExplainableClassifier().fit(data, target_col=&quot;income&quot;)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
+<p>Right now dabl does not deal with text data and time series data.  It also does
+not consider neural network models.  Image, audio and video data is considered
+out of scope.  All current implementation are quite rudimentary and rely
+heavily on heuristics. The goal is to replace these with more principled
+approaches where this provides a benefit.</p>
+</div>
+<div class="section" id="future-goals-and-roadmap">
+<h2>Future Goals and Roadmap<a class="headerlink" href="#future-goals-and-roadmap" title="Permalink to this headline">¶</a></h2>
+<p>dabl aims to provide easy-to-use, turn-key solutions for supervised machine
+learning that strongly encourage iterative and interactive model building.
+Key ingredients to achieve this are:</p>
+<ul class="simple">
+<li><p>Ready-made visualizations</p></li>
+<li><p>Model diagnostics</p></li>
+<li><p>Efficient model search</p></li>
+<li><p>Type detection</p></li>
+<li><p>Automatic preprocessing</p></li>
+<li><p>Portfolios of well-performing pipelines</p></li>
+</ul>
+<p>The current version of dabl only provides very simple implementations of these,
+but the goal is for dabl to contain more advanced solutions while providing a
+simple user interface and strong anytime performance.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="concepts_term.html" class="btn btn-neutral float-right" title="Concepts and terminology" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="quick_start.html" class="btn btn-neutral float-left" title="Quickstart to ML with dabl" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Andreas Mueller
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

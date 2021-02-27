@@ -1,0 +1,12 @@
+:mod:`dabl`.set_config
+===================================
+
+.. currentmodule:: dabl
+
+.. autofunction:: set_config
+
+.. include:: dabl.set_config.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>
