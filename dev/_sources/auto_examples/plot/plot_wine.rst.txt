@@ -43,19 +43,19 @@ Wine Classification Dataset Visualization
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_wine_003.png
-          :alt: Top feature interactions, 0.950, 0.915, 0.913, 0.912
+          :alt: Top feature interactions, 0.924, 0.908, 0.905, 0.895
           :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_wine_004.png
-          :alt: Discriminating PCA directions, 0.966, 0.893, 0.892, Scree plot (PCA explained variance)
+          :alt: Discriminating PCA directions, 0.944, 0.918, 0.899, Scree plot (PCA explained variance)
           :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_wine_005.png
-          :alt: Discriminating LDA directions, 0.984
+          :alt: Discriminating LDA directions, 1.000
           :class: sphx-glr-multi-img
 
 
