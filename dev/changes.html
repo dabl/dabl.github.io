@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Release History &mdash; dabl  documentation</title>
@@ -90,11 +91,11 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quickstart to ML with dabl</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="user_guide.html">Machine Learning with dabl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts_term.html">Concepts and terminology</a></li>
@@ -109,7 +110,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Examples</span></p>
+<p><span class="caption-text">Examples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">General examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#plotting-examples">Plotting examples</a></li>
@@ -177,15 +178,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="release-history">
+  <section id="release-history">
 <h1>Release History<a class="headerlink" href="#release-history" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="dabl-0-2-1-current-development-version">
+<section id="dabl-0-2-1-current-development-version">
 <h2>dabl 0.2.1 (current development version<a class="headerlink" href="#dabl-0-2-1-current-development-version" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>nothing yet</p></li>
 </ul>
-</div>
-<div class="section" id="dabl-0-2-0">
+</section>
+<section id="dabl-0-2-0">
 <h2>dabl 0.2.0<a class="headerlink" href="#dabl-0-2-0" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Rely on the Successive Halving implementation from scikit-learn 0.24, removing the old implementation.
@@ -195,8 +196,8 @@ Consequently the search module in dabl has been deprecated and the minimum versi
 <li><p>Fix default value of <cite>alpha</cite> in <cite>plot_regression_continuous</cite>, <a class="reference external" href="https://github.com/dabl/dabl/issues/276">#276</a> by <a class="reference external" href="https://github.com/amueller">&#64;amueller</a>.</p></li>
 <li><p>Fix a memory issue when calling bincount on really large integers in the type detection, <a class="reference external" href="https://github.com/dabl/dabl/issues/275">#275</a> by <a class="reference external" href="https://github.com/amueller">&#64;amueller</a>.</p></li>
 </ul>
-</div>
-<div class="section" id="dabl-0-1-9">
+</section>
+<section id="dabl-0-1-9">
 <h2>dabl 0.1.9<a class="headerlink" href="#dabl-0-1-9" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Fix bug in type detection when a column contained boolean data and missing values, <a class="reference external" href="https://github.com/dabl/dabl/issues/256">#256</a> by <a class="reference external" href="https://github.com/amueller">&#64;amueller</a>.</p></li>
@@ -204,8 +205,8 @@ Consequently the search module in dabl has been deprecated and the minimum versi
 <li><p>Make color usage consistent between scatter plots and mosaic plots, <a class="reference external" href="https://github.com/dabl/dabl/issues/249">#249</a> by <a class="reference external" href="https://github.com/h4pZ">&#64;h4pZ</a>.</p></li>
 <li><p>Update the AnyClassifier portfolio to include several new optimized portfolios, <a class="reference external" href="https://github.com/dabl/dabl/issues/246">#246</a> by <a class="reference external" href="https://github.com/hp2500">&#64;hp2500</a>.</p></li>
 </ul>
-</div>
-<div class="section" id="dabl-0-1-7">
+</section>
+<section id="dabl-0-1-7">
 <h2>dabl  0.1.7<a class="headerlink" href="#dabl-0-1-7" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Ensure target column is not dropped in ‘clean’ for highly imbalanced datasets #171.</p></li>
@@ -216,22 +217,22 @@ Consequently the search module in dabl has been deprecated and the minimum versi
 <li><p>Allow numpy arrays in SimpleRegressor and plot #187.</p></li>
 <li><p>Add actual vs predicted plot for regression to explain #186.</p></li>
 </ul>
-</div>
-<div class="section" id="dabl-0-1-6">
+</section>
+<section id="dabl-0-1-6">
 <h2>dabl 0.1.6<a class="headerlink" href="#dabl-0-1-6" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>More fixed to dirty floats with heterogeneous dtypes.</p></li>
 </ul>
-</div>
-<div class="section" id="dabl-0-1-5">
+</section>
+<section id="dabl-0-1-5">
 <h2>dabl 0.1.5<a class="headerlink" href="#dabl-0-1-5" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>More robust detection of dirty floats, more robust parsing of categorical variables.</p></li>
 <li><p>Ensure data is parsed consistently between predict and fit by not calling <cite>clean</cite> in fit.</p></li>
 <li><p>Allow passing columns with integer names as target in <cite>plot</cite>.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

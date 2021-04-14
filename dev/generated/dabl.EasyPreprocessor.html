@@ -5,7 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>dabl.EasyPreprocessor &mdash; dabl  documentation</title>
@@ -90,11 +91,11 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quickstart to ML with dabl</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Documentation</span></p>
+<p><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../user_guide.html">Machine Learning with dabl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts_term.html">Concepts and terminology</a></li>
@@ -117,7 +118,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Release History</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Examples</span></p>
+<p><span class="caption-text">Examples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">General examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#plotting-examples">Plotting examples</a></li>
@@ -187,11 +188,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="dabl-easypreprocessor">
+  <section id="dabl-easypreprocessor">
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.EasyPreprocessor<a class="headerlink" href="#dabl-easypreprocessor" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="dabl.EasyPreprocessor">
-<em class="property">class </em><code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">EasyPreprocessor</code><span class="sig-paren">(</span><em class="sig-param">scale=True</em>, <em class="sig-param">force_imputation=True</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">types=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/37751ab/dabl/preprocessing.py#L500"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">EasyPreprocessor</code><span class="sig-paren">(</span><em class="sig-param">scale=True</em>, <em class="sig-param">force_imputation=True</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">types=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/6695d45/dabl/preprocessing.py#L504"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor" title="Permalink to this definition">¶</a></dt>
 <dd><p>A simple preprocessor.</p>
 <p>Detects variable types, encodes everything as floats
 for use with sklearn.</p>
@@ -222,13 +223,13 @@ for use with sklearn.</p>
 </dl>
 <dl class="method">
 <dt id="dabl.EasyPreprocessor.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">scale=True</em>, <em class="sig-param">force_imputation=True</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">types=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/37751ab/dabl/preprocessing.py#L535"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">scale=True</em>, <em class="sig-param">force_imputation=True</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">types=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/6695d45/dabl/preprocessing.py#L539"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="dabl.EasyPreprocessor.fit">
-<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/37751ab/dabl/preprocessing.py#L542"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.fit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/6695d45/dabl/preprocessing.py#L546"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>A reference implementation of a fitting function for a transformer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -251,7 +252,7 @@ requires this parameter.</p>
 
 <dl class="method">
 <dt id="dabl.EasyPreprocessor.fit_transform">
-<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/37751ab/dabl/../../miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/base.py#L671"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.fit_transform" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/6695d45/dabl/../../miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/base.py#L671"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.fit_transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit to data, then transform it.</p>
 <p>Fits transformer to <cite>X</cite> and <cite>y</cite> with optional parameters <cite>fit_params</cite>
 and returns a transformed version of <cite>X</cite>.</p>
@@ -277,7 +278,7 @@ and returns a transformed version of <cite>X</cite>.</p>
 
 <dl class="method">
 <dt id="dabl.EasyPreprocessor.get_params">
-<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/37751ab/dabl/../../miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/base.py#L178"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.get_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/6695d45/dabl/../../miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/base.py#L178"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.get_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get parameters for this estimator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -298,7 +299,7 @@ contained subobjects that are estimators.</p>
 
 <dl class="method">
 <dt id="dabl.EasyPreprocessor.set_params">
-<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">**params</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/37751ab/dabl/../../miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/base.py#L202"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.set_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">**params</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/6695d45/dabl/../../miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/base.py#L202"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.set_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
 (such as <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="(in scikit-learn v0.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a>). The latter have
@@ -322,7 +323,7 @@ possible to update each component of a nested object.</p>
 
 <dl class="method">
 <dt id="dabl.EasyPreprocessor.transform">
-<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">X</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/37751ab/dabl/preprocessing.py#L665"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.transform" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">X</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/6695d45/dabl/preprocessing.py#L669"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>A reference implementation of a transform function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -343,7 +344,7 @@ in <cite>X</cite>.</p>
 
 </dd></dl>
 
-<div style='clear:both'></div></div>
+<div style='clear:both'></div></section>
 
 
            </div>

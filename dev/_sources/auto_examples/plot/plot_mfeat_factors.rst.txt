@@ -45,19 +45,19 @@ Linear discriminant analysis works surprisingly well!
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_003.png
-          :alt: Top feature interactions, 0.550, 0.542, 0.528, 0.518
+          :alt: Top feature interactions, 0.552, 0.547, 0.543, 0.535
           :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_004.png
-          :alt: Discriminating PCA directions, 0.585, 0.538, 0.515, Scree plot (PCA explained variance)
+          :alt: Discriminating PCA directions, 0.605, 0.547, 0.517, Scree plot (PCA explained variance)
           :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_005.png
-          :alt: Discriminating LDA directions, 0.763, 0.748, 0.727, 0.722
+          :alt: Discriminating LDA directions, 0.763, 0.728, 0.725, 0.722
           :class: sphx-glr-multi-img
 
 
@@ -95,7 +95,7 @@ Linear discriminant analysis works surprisingly well!
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  15.322 seconds)
+   **Total running time of the script:** ( 0 minutes  16.909 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_mfeat_factors.py:
