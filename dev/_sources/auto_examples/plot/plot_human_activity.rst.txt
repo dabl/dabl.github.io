@@ -43,19 +43,19 @@ Human Activity Recognition Visualization
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_human_activity_003.png
-          :alt: Top feature interactions, 0.695, 0.688, 0.683, 0.679
+          :alt: Top feature interactions, 0.693, 0.686, 0.685, 0.684
           :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_human_activity_004.png
-          :alt: Discriminating PCA directions, 0.653, 0.623, 0.567, Scree plot (PCA explained variance)
+          :alt: Discriminating PCA directions, 0.639, 0.618, 0.565, Scree plot (PCA explained variance)
           :class: sphx-glr-multi-img
 
     *
 
       .. image:: /auto_examples/plot/images/sphx_glr_plot_human_activity_005.png
-          :alt: Discriminating LDA directions, 0.858, 0.832, 0.804, 0.789
+          :alt: Discriminating LDA directions, 0.857, 0.831, 0.803, 0.785
           :class: sphx-glr-multi-img
 
 
@@ -91,7 +91,7 @@ Human Activity Recognition Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  20.715 seconds)
+   **Total running time of the script:** ( 0 minutes  31.633 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_human_activity.py:

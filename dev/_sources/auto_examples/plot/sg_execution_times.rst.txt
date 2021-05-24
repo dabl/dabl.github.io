@@ -5,26 +5,26 @@
 
 Computation times
 =================
-**00:50.382** total execution time for **auto_examples_plot** files:
+**01:19.250** total execution time for **auto_examples_plot** files:
 
 +--------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_human_activity.py` (``plot_human_activity.py``)     | 00:20.715 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_plot_human_activity.py` (``plot_human_activity.py``)     | 00:31.633 | 0.0 MB |
 +--------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_mfeat_factors.py` (``plot_mfeat_factors.py``)       | 00:09.703 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_plot_mfeat_factors.py` (``plot_mfeat_factors.py``)       | 00:17.144 | 0.0 MB |
 +--------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_diamonds.py` (``plot_diamonds.py``)                 | 00:05.990 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_plot_diamonds.py` (``plot_diamonds.py``)                 | 00:09.117 | 0.0 MB |
 +--------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_splice.py` (``plot_splice.py``)                     | 00:03.946 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_plot_ames.py` (``plot_ames.py``)                         | 00:07.054 | 0.0 MB |
 +--------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_adult.py` (``plot_adult.py``)                       | 00:03.545 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_plot_splice.py` (``plot_splice.py``)                     | 00:05.455 | 0.0 MB |
 +--------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_ames.py` (``plot_ames.py``)                         | 00:03.420 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_plot_adult.py` (``plot_adult.py``)                       | 00:04.813 | 0.0 MB |
 +--------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_wine.py` (``plot_wine.py``)                         | 00:02.703 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_plot_wine.py` (``plot_wine.py``)                         | 00:03.471 | 0.0 MB |
 +--------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_class_hists.py` (``plot_class_hists.py``)           | 00:00.152 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_plot_class_hists.py` (``plot_class_hists.py``)           | 00:00.310 | 0.0 MB |
 +--------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_discrete_scatter.py` (``plot_discrete_scatter.py``) | 00:00.145 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_plot_discrete_scatter.py` (``plot_discrete_scatter.py``) | 00:00.174 | 0.0 MB |
 +--------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_mosaic.py` (``plot_mosaic.py``)                     | 00:00.065 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_plot_mosaic.py` (``plot_mosaic.py``)                     | 00:00.080 | 0.0 MB |
 +--------------------------------------------------------------------------------------------+-----------+--------+
