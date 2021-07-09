@@ -1,0 +1,16 @@
+:mod:`dabl`.EasyPreprocessor
+===================================
+
+.. currentmodule:: dabl
+
+.. autoclass:: EasyPreprocessor
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: dabl.EasyPreprocessor.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>
