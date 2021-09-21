@@ -37,19 +37,7 @@ Model Explanation
     *
 
       .. image:: /auto_examples/images/sphx_glr_plot_explain_example_002.png
-          :alt: Partial Dependence for class 0
-          :class: sphx-glr-multi-img
-
-    *
-
-      .. image:: /auto_examples/images/sphx_glr_plot_explain_example_003.png
-          :alt: Partial Dependence for class 1
-          :class: sphx-glr-multi-img
-
-    *
-
-      .. image:: /auto_examples/images/sphx_glr_plot_explain_example_004.png
-          :alt: Partial Dependence for class 2
+          :alt: class: 0, class: 1, class: 2
           :class: sphx-glr-multi-img
 
 
@@ -60,46 +48,50 @@ Model Explanation
  .. code-block:: none
 
     Running DummyClassifier()
-    accuracy: 0.421 recall_macro: 0.333 precision_macro: 0.140 f1_macro: 0.197
+    accuracy: 0.399 recall_macro: 0.333 precision_macro: 0.133 f1_macro: 0.190
     === new best DummyClassifier() (using recall_macro):
-    accuracy: 0.421 recall_macro: 0.333 precision_macro: 0.140 f1_macro: 0.197
+    accuracy: 0.399 recall_macro: 0.333 precision_macro: 0.133 f1_macro: 0.190
 
     Running GaussianNB()
-    accuracy: 0.985 recall_macro: 0.986 precision_macro: 0.986 f1_macro: 0.985
+    accuracy: 0.970 recall_macro: 0.971 precision_macro: 0.973 f1_macro: 0.971
     === new best GaussianNB() (using recall_macro):
-    accuracy: 0.985 recall_macro: 0.986 precision_macro: 0.986 f1_macro: 0.985
+    accuracy: 0.970 recall_macro: 0.971 precision_macro: 0.973 f1_macro: 0.971
 
     Running MultinomialNB()
-    accuracy: 0.909 recall_macro: 0.900 precision_macro: 0.944 f1_macro: 0.911
+    accuracy: 0.948 recall_macro: 0.945 precision_macro: 0.962 f1_macro: 0.949
     Running DecisionTreeClassifier(class_weight='balanced', max_depth=1)
-    accuracy: 0.541 recall_macro: 0.619 precision_macro: 0.394 f1_macro: 0.470
+    accuracy: 0.555 recall_macro: 0.614 precision_macro: 0.432 f1_macro: 0.480
     Running DecisionTreeClassifier(class_weight='balanced', max_depth=5)
-    accuracy: 0.910 recall_macro: 0.911 precision_macro: 0.917 f1_macro: 0.911
+    accuracy: 0.917 recall_macro: 0.915 precision_macro: 0.941 f1_macro: 0.919
     Running DecisionTreeClassifier(class_weight='balanced', min_impurity_decrease=0.01)
-    accuracy: 0.925 recall_macro: 0.924 precision_macro: 0.930 f1_macro: 0.925
+    accuracy: 0.924 recall_macro: 0.919 precision_macro: 0.948 f1_macro: 0.925
     Running LogisticRegression(C=0.1, class_weight='balanced', max_iter=1000)
-    accuracy: 0.970 recall_macro: 0.976 precision_macro: 0.968 f1_macro: 0.970
+    accuracy: 1.000 recall_macro: 1.000 precision_macro: 1.000 f1_macro: 1.000
+    === new best LogisticRegression(C=0.1, class_weight='balanced', max_iter=1000) (using recall_macro):
+    accuracy: 1.000 recall_macro: 1.000 precision_macro: 1.000 f1_macro: 1.000
+
     Running LogisticRegression(class_weight='balanced', max_iter=1000)
-    accuracy: 0.978 recall_macro: 0.979 precision_macro: 0.978 f1_macro: 0.977
+    accuracy: 0.993 recall_macro: 0.993 precision_macro: 0.993 f1_macro: 0.993
 
     Best model:
-    GaussianNB()
+    LogisticRegression(C=0.1, class_weight='balanced', max_iter=1000)
     Best Scores:
-    accuracy: 0.985 recall_macro: 0.986 precision_macro: 0.986 f1_macro: 0.985
+    accuracy: 1.000 recall_macro: 1.000 precision_macro: 1.000 f1_macro: 1.000
                   precision    recall  f1-score   support
 
-               0       0.94      1.00      0.97        17
-               1       1.00      0.93      0.97        15
-               2       1.00      1.00      1.00        13
+               0       1.00      1.00      1.00        16
+               1       1.00      0.89      0.94        18
+               2       0.85      1.00      0.92        11
 
-        accuracy                           0.98        45
-       macro avg       0.98      0.98      0.98        45
-    weighted avg       0.98      0.98      0.98        45
+        accuracy                           0.96        45
+       macro avg       0.95      0.96      0.95        45
+    weighted avg       0.96      0.96      0.96        45
 
-    [[17  0  0]
-     [ 1 14  0]
-     [ 0  0 13]]
-    Computing partial dependence plots...
+    [[16  0  0]
+     [ 0 16  2]
+     [ 0  0 11]]
+    /home/circleci/project/dabl/plot/utils.py:378: UserWarning: FixedFormatter should only be used together with FixedLocator
+      ax.set_yticklabels(
 
 
 
@@ -128,7 +120,7 @@ Model Explanation
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.007 seconds)
+   **Total running time of the script:** ( 0 minutes  0.736 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_explain_example.py:
