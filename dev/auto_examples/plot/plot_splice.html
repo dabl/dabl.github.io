@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -37,10 +37,10 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Diamonds Dataset Visualization" href="plot_diamonds.html" />
@@ -189,18 +189,16 @@
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-plot-splice-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
-</div>
+</aside>
 <section class="sphx-glr-example-title" id="splice-dataset-visualization">
 <span id="sphx-glr-auto-examples-plot-plot-splice-py"></span><h1>Splice dataset visualization<a class="headerlink" href="#splice-dataset-visualization" title="Permalink to this headline">¶</a></h1>
 <p>A nice illustration of the mosaic plot.</p>
 <ul class="sphx-glr-horizontal">
-<li><img alt="Target distribution" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_splice_001.png" />
-</li>
-<li><img alt="Categorical Features vs Target, attribute_30, attribute_29, attribute_32, attribute_31, attribute_35, attribute_28, attribute_33, attribute_34, attribute_25, attribute_26" class="sphx-glr-multi-img" src="../../_images/sphx_glr_plot_splice_002.png" />
-</li>
+<li><img src="../../_images/sphx_glr_plot_splice_001.png" srcset="../../_images/sphx_glr_plot_splice_001.png" alt="Target distribution" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_splice_002.png" srcset="../../_images/sphx_glr_plot_splice_002.png" alt="Categorical Features vs Target, attribute_30, attribute_29, attribute_32, attribute_31, attribute_35, attribute_28, attribute_33, attribute_34, attribute_25, attribute_26" class = "sphx-glr-multi-img"/></li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/datasets/_openml.py:414: UserWarning: Multiple active versions of the dataset matching the name splice exist. Versions may be fundamentally different, returning version 1.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/datasets/_openml.py:417: UserWarning: Multiple active versions of the dataset matching the name splice exist. Versions may be fundamentally different, returning version 1.
   warn(
 Target looks like classification
 Showing only top 10 of 60 categorical features
@@ -237,10 +235,10 @@ Showing only top 10 of 60 categorical features
 <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_openml.html#sklearn.datasets.fetch_openml" title="sklearn.datasets.fetch_openml" class="sphx-glr-backref-module-sklearn-datasets sphx-glr-backref-type-py-function"><span class="n">fetch_openml</span></a><span class="p">(</span><span class="s1">&#39;splice&#39;</span><span class="p">,</span> <span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.840 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.846 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-plot-splice-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/495474f5dc38d03abec972f431b7387e/plot_splice.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_splice.py</span></code></a></p>

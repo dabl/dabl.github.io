@@ -30,15 +30,31 @@ Model Explanation
 
     *
 
-      .. image:: /auto_examples/images/sphx_glr_plot_explain_example_001.png
-          :alt: ROC curve for class 0, ROC curve for class 1, ROC curve for class 2
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/images/sphx_glr_plot_explain_example_001.png
+         :alt: ROC curve for class 0, ROC curve for class 1, ROC curve for class 2
+         :srcset: /auto_examples/images/sphx_glr_plot_explain_example_001.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/images/sphx_glr_plot_explain_example_002.png
-          :alt: class: 0, class: 1, class: 2
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/images/sphx_glr_plot_explain_example_002.png
+         :alt: Partial Dependence for class 0
+         :srcset: /auto_examples/images/sphx_glr_plot_explain_example_002.png
+         :class: sphx-glr-multi-img
+
+    *
+
+      .. image-sg:: /auto_examples/images/sphx_glr_plot_explain_example_003.png
+         :alt: Partial Dependence for class 1
+         :srcset: /auto_examples/images/sphx_glr_plot_explain_example_003.png
+         :class: sphx-glr-multi-img
+
+    *
+
+      .. image-sg:: /auto_examples/images/sphx_glr_plot_explain_example_004.png
+         :alt: Partial Dependence for class 2
+         :srcset: /auto_examples/images/sphx_glr_plot_explain_example_004.png
+         :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -48,50 +64,52 @@ Model Explanation
  .. code-block:: none
 
     Running DummyClassifier()
-    accuracy: 0.399 recall_macro: 0.333 precision_macro: 0.133 f1_macro: 0.190
+    accuracy: 0.406 recall_macro: 0.333 precision_macro: 0.135 f1_macro: 0.192
     === new best DummyClassifier() (using recall_macro):
-    accuracy: 0.399 recall_macro: 0.333 precision_macro: 0.133 f1_macro: 0.190
+    accuracy: 0.406 recall_macro: 0.333 precision_macro: 0.135 f1_macro: 0.192
 
     Running GaussianNB()
-    accuracy: 0.970 recall_macro: 0.971 precision_macro: 0.973 f1_macro: 0.971
+    accuracy: 0.992 recall_macro: 0.994 precision_macro: 0.992 f1_macro: 0.992
     === new best GaussianNB() (using recall_macro):
-    accuracy: 0.970 recall_macro: 0.971 precision_macro: 0.973 f1_macro: 0.971
+    accuracy: 0.992 recall_macro: 0.994 precision_macro: 0.992 f1_macro: 0.992
 
     Running MultinomialNB()
-    accuracy: 0.948 recall_macro: 0.945 precision_macro: 0.962 f1_macro: 0.949
+    accuracy: 0.947 recall_macro: 0.951 precision_macro: 0.959 f1_macro: 0.950
     Running DecisionTreeClassifier(class_weight='balanced', max_depth=1)
-    accuracy: 0.555 recall_macro: 0.614 precision_macro: 0.432 f1_macro: 0.480
+    accuracy: 0.549 recall_macro: 0.616 precision_macro: 0.395 f1_macro: 0.470
     Running DecisionTreeClassifier(class_weight='balanced', max_depth=5)
-    accuracy: 0.917 recall_macro: 0.915 precision_macro: 0.941 f1_macro: 0.919
+    accuracy: 0.872 recall_macro: 0.865 precision_macro: 0.888 f1_macro: 0.869
     Running DecisionTreeClassifier(class_weight='balanced', min_impurity_decrease=0.01)
-    accuracy: 0.924 recall_macro: 0.919 precision_macro: 0.948 f1_macro: 0.925
+    accuracy: 0.865 recall_macro: 0.856 precision_macro: 0.880 f1_macro: 0.860
     Running LogisticRegression(C=0.1, class_weight='balanced', max_iter=1000)
-    accuracy: 1.000 recall_macro: 1.000 precision_macro: 1.000 f1_macro: 1.000
-    === new best LogisticRegression(C=0.1, class_weight='balanced', max_iter=1000) (using recall_macro):
-    accuracy: 1.000 recall_macro: 1.000 precision_macro: 1.000 f1_macro: 1.000
-
+    accuracy: 0.985 recall_macro: 0.988 precision_macro: 0.985 f1_macro: 0.986
     Running LogisticRegression(class_weight='balanced', max_iter=1000)
-    accuracy: 0.993 recall_macro: 0.993 precision_macro: 0.993 f1_macro: 0.993
+    accuracy: 0.985 recall_macro: 0.988 precision_macro: 0.985 f1_macro: 0.986
 
     Best model:
-    LogisticRegression(C=0.1, class_weight='balanced', max_iter=1000)
+    GaussianNB()
     Best Scores:
-    accuracy: 1.000 recall_macro: 1.000 precision_macro: 1.000 f1_macro: 1.000
+    accuracy: 0.992 recall_macro: 0.994 precision_macro: 0.992 f1_macro: 0.992
                   precision    recall  f1-score   support
 
-               0       1.00      1.00      1.00        16
-               1       1.00      0.89      0.94        18
-               2       0.85      1.00      0.92        11
+               0       1.00      0.93      0.97        15
+               1       0.94      1.00      0.97        17
+               2       1.00      1.00      1.00        13
 
-        accuracy                           0.96        45
-       macro avg       0.95      0.96      0.95        45
-    weighted avg       0.96      0.96      0.96        45
+        accuracy                           0.98        45
+       macro avg       0.98      0.98      0.98        45
+    weighted avg       0.98      0.98      0.98        45
 
-    [[16  0  0]
-     [ 0 16  2]
-     [ 0  0 11]]
-    /home/circleci/project/dabl/plot/utils.py:378: UserWarning: FixedFormatter should only be used together with FixedLocator
-      ax.set_yticklabels(
+    [[14  1  0]
+     [ 0 17  0]
+     [ 0  0 13]]
+    Computing partial dependence plots...
+    /home/circleci/miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function plot_partial_dependence is deprecated; Function `plot_partial_dependence` is deprecated in 1.0 and will be removed in 1.2. Use PartialDependenceDisplay.from_estimator instead
+      warnings.warn(msg, category=FutureWarning)
+    /home/circleci/miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function plot_partial_dependence is deprecated; Function `plot_partial_dependence` is deprecated in 1.0 and will be removed in 1.2. Use PartialDependenceDisplay.from_estimator instead
+      warnings.warn(msg, category=FutureWarning)
+    /home/circleci/miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function plot_partial_dependence is deprecated; Function `plot_partial_dependence` is deprecated in 1.0 and will be removed in 1.2. Use PartialDependenceDisplay.from_estimator instead
+      warnings.warn(msg, category=FutureWarning)
 
 
 
@@ -120,7 +138,7 @@ Model Explanation
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.736 seconds)
+   **Total running time of the script:** ( 0 minutes  3.838 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_explain_example.py:

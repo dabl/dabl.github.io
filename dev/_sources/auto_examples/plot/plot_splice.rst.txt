@@ -31,15 +31,17 @@ A nice illustration of the mosaic plot.
 
     *
 
-      .. image:: /auto_examples/plot/images/sphx_glr_plot_splice_001.png
-          :alt: Target distribution
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_splice_001.png
+         :alt: Target distribution
+         :srcset: /auto_examples/plot/images/sphx_glr_plot_splice_001.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/plot/images/sphx_glr_plot_splice_002.png
-          :alt: Categorical Features vs Target, attribute_30, attribute_29, attribute_32, attribute_31, attribute_35, attribute_28, attribute_33, attribute_34, attribute_25, attribute_26
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_splice_002.png
+         :alt: Categorical Features vs Target, attribute_30, attribute_29, attribute_32, attribute_31, attribute_35, attribute_28, attribute_33, attribute_34, attribute_25, attribute_26
+         :srcset: /auto_examples/plot/images/sphx_glr_plot_splice_002.png
+         :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -48,7 +50,7 @@ A nice illustration of the mosaic plot.
 
  .. code-block:: none
 
-    /home/circleci/miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/datasets/_openml.py:414: UserWarning: Multiple active versions of the dataset matching the name splice exist. Versions may be fundamentally different, returning version 1.
+    /home/circleci/miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/datasets/_openml.py:417: UserWarning: Multiple active versions of the dataset matching the name splice exist. Versions may be fundamentally different, returning version 1.
       warn(
     Target looks like classification
     Showing only top 10 of 60 categorical features
@@ -95,7 +97,7 @@ A nice illustration of the mosaic plot.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.840 seconds)
+   **Total running time of the script:** ( 0 minutes  3.846 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_splice.py:

@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -37,10 +37,10 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
   <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="dabl.SimpleClassifier" href="dabl.SimpleClassifier.html" />
@@ -193,13 +193,13 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.EasyPreprocessor<a class="headerlink" href="#dabl-easypreprocessor" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="dabl.EasyPreprocessor">
-<em class="property">class </em><code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">EasyPreprocessor</code><span class="sig-paren">(</span><em class="sig-param">scale=True</em>, <em class="sig-param">force_imputation=True</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">types=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/92a3055/dabl/preprocessing.py#L502"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">EasyPreprocessor</code><span class="sig-paren">(</span><em class="sig-param">scale=True</em>, <em class="sig-param">force_imputation=True</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">types=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/5c04143/dabl/preprocessing.py#L505"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor" title="Permalink to this definition">¶</a></dt>
 <dd><p>A simple preprocessor.</p>
 <p>Detects variable types, encodes everything as floats
 for use with sklearn.</p>
 <p>Applies one-hot encoding, missing value imputation and scaling.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>scale</strong><span class="classifier">boolean, default=True</span></dt><dd><p>Whether to scale continuous data.</p>
 </dd>
@@ -209,7 +209,7 @@ for use with sklearn.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Attributes</dt>
+<dt class="field-even">Attributes<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>ct_</strong><span class="classifier">ColumnTransformer</span></dt><dd><p>Main container for all transformations.</p>
 </dd>
@@ -224,16 +224,16 @@ for use with sklearn.</p>
 </dl>
 <dl class="method">
 <dt id="dabl.EasyPreprocessor.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">scale=True</em>, <em class="sig-param">force_imputation=True</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">types=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/92a3055/dabl/preprocessing.py#L537"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">scale=True</em>, <em class="sig-param">force_imputation=True</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">types=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/5c04143/dabl/preprocessing.py#L540"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="dabl.EasyPreprocessor.fit">
-<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/92a3055/dabl/preprocessing.py#L544"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.fit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/5c04143/dabl/preprocessing.py#L547"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>A reference implementation of a fitting function for a transformer.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>X</strong><span class="classifier">array-like or sparse matrix of shape = [n_samples, n_features]</span></dt><dd><p>The training input samples.</p>
 </dd>
@@ -242,7 +242,7 @@ requires this parameter.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>self</strong><span class="classifier">object</span></dt><dd><p>Returns self.</p>
 </dd>
@@ -253,12 +253,12 @@ requires this parameter.</p>
 
 <dl class="method">
 <dt id="dabl.EasyPreprocessor.fit_transform">
-<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/92a3055/dabl/../../miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/base.py#L816"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.fit_transform" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit_transform</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">**fit_params</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/5c04143/dabl/../../miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/base.py#L824"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.fit_transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit to data, then transform it.</p>
 <p>Fits transformer to <cite>X</cite> and <cite>y</cite> with optional parameters <cite>fit_params</cite>
 and returns a transformed version of <cite>X</cite>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>X</strong><span class="classifier">array-like of shape (n_samples, n_features)</span></dt><dd><p>Input samples.</p>
 </dd>
@@ -268,7 +268,7 @@ and returns a transformed version of <cite>X</cite>.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>X_new</strong><span class="classifier">ndarray array of shape (n_samples, n_features_new)</span></dt><dd><p>Transformed array.</p>
 </dd>
@@ -279,17 +279,17 @@ and returns a transformed version of <cite>X</cite>.</p>
 
 <dl class="method">
 <dt id="dabl.EasyPreprocessor.get_params">
-<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/92a3055/dabl/../../miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/base.py#L188"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.get_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/5c04143/dabl/../../miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/base.py#L193"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.get_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get parameters for this estimator.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>deep</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, will return the parameters for this estimator and
 contained subobjects that are estimators.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>params</strong><span class="classifier">dict</span></dt><dd><p>Parameter names mapped to their values.</p>
 </dd>
@@ -300,20 +300,20 @@ contained subobjects that are estimators.</p>
 
 <dl class="method">
 <dt id="dabl.EasyPreprocessor.set_params">
-<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">**params</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/92a3055/dabl/../../miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/base.py#L212"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.set_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">**params</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/5c04143/dabl/../../miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/base.py#L217"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.set_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
-(such as <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="(in scikit-learn v0.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a>). The latter have
+(such as <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="(in scikit-learn v1.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a>). The latter have
 parameters of the form <code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s
 possible to update each component of a nested object.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>**params</strong><span class="classifier">dict</span></dt><dd><p>Estimator parameters.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>self</strong><span class="classifier">estimator instance</span></dt><dd><p>Estimator instance.</p>
 </dd>
@@ -324,16 +324,16 @@ possible to update each component of a nested object.</p>
 
 <dl class="method">
 <dt id="dabl.EasyPreprocessor.transform">
-<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">X</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/92a3055/dabl/preprocessing.py#L667"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.transform" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">X</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/5c04143/dabl/preprocessing.py#L670"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.EasyPreprocessor.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>A reference implementation of a transform function.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>X</strong><span class="classifier">array-like of shape = [n_samples, n_features]</span></dt><dd><p>The input samples.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>X_transformed</strong><span class="classifier">array of int of shape = [n_samples, n_features]</span></dt><dd><p>The array containing the element-wise square roots of the values
 in <cite>X</cite>.</p>

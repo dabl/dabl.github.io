@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -37,10 +37,10 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
   <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="dabl.explain" href="dabl.explain.html" />
@@ -193,7 +193,7 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.detect_types<a class="headerlink" href="#dabl-detect-types" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dabl.detect_types">
-<code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">detect_types</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">max_cat_cardinality='auto'</em>, <em class="sig-param">dirty_float_threshold=0.9</em>, <em class="sig-param">near_constant_threshold=0.95</em>, <em class="sig-param">target_col=None</em>, <em class="sig-param">verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/92a3055/dabl/preprocessing.py#L315"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.detect_types" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">detect_types</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">max_cat_cardinality='auto'</em>, <em class="sig-param">dirty_float_threshold=0.9</em>, <em class="sig-param">near_constant_threshold=0.95</em>, <em class="sig-param">target_col=None</em>, <em class="sig-param">verbose=0</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/5c04143/dabl/preprocessing.py#L316"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.detect_types" title="Permalink to this definition">¶</a></dt>
 <dd><p>Detect types of dataframe columns.</p>
 <p>Columns are labeled as one of the following types:
 ‘continuous’, ‘categorical’, ‘low_card_int’, ‘dirty_float’,
@@ -209,7 +209,7 @@ Date types are labeled as “date” (and currently not processed by dabl).
 Anything that is constant, nearly constant, detected as an integer index,
 or doesn’t match any of the above categories is labeled “useless”.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>X</strong><span class="classifier">dataframe</span></dt><dd><p>input</p>
 </dd>
@@ -227,7 +227,7 @@ Target columns are never dropped.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>res</strong><span class="classifier">dataframe, shape (n_columns, 7)</span></dt><dd><p>Boolean dataframe of detected types. Rows are columns in input X,
 columns are possible types (see above).</p>

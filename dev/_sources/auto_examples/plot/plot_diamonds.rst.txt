@@ -31,21 +31,24 @@ Regression on the classical diamond dataset.
 
     *
 
-      .. image:: /auto_examples/plot/images/sphx_glr_plot_diamonds_001.png
-          :alt: Target distribution
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_diamonds_001.png
+         :alt: Target distribution
+         :srcset: /auto_examples/plot/images/sphx_glr_plot_diamonds_001.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/plot/images/sphx_glr_plot_diamonds_002.png
-          :alt: Continuous Feature vs Target, F=3.04E+05, F=1.94E+05, F=1.61E+05, F=1.55E+05, F=8.86E+02, F=6.12E+00
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_diamonds_002.png
+         :alt: Continuous Feature vs Target, F=3.04E+05, F=1.94E+05, F=1.61E+05, F=1.55E+05, F=8.86E+02, F=6.12E+00
+         :srcset: /auto_examples/plot/images/sphx_glr_plot_diamonds_002.png
+         :class: sphx-glr-multi-img
 
     *
 
-      .. image:: /auto_examples/plot/images/sphx_glr_plot_diamonds_003.png
-          :alt: Categorical Feature vs Target, F=3.63E-01, F=2.87E-01, F=1.02E-01
-          :class: sphx-glr-multi-img
+      .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_diamonds_003.png
+         :alt: Categorical Feature vs Target, F=3.61E-01, F=2.84E-01, F=1.05E-01
+         :srcset: /auto_examples/plot/images/sphx_glr_plot_diamonds_003.png
+         :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -96,7 +99,7 @@ Regression on the classical diamond dataset.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.810 seconds)
+   **Total running time of the script:** ( 0 minutes  4.818 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_diamonds.py:

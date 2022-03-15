@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -37,10 +37,10 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
   <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="dabl.EasyPreprocessor" href="dabl.EasyPreprocessor.html" />
@@ -193,7 +193,7 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.AnyClassifier<a class="headerlink" href="#dabl-anyclassifier" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="dabl.AnyClassifier">
-<em class="property">class </em><code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">AnyClassifier</code><span class="sig-paren">(</span><em class="sig-param">n_jobs=None</em>, <em class="sig-param">min_resources='exhaust'</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">portfolio='baseline'</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/92a3055/dabl/models.py#L330"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.AnyClassifier" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">AnyClassifier</code><span class="sig-paren">(</span><em class="sig-param">n_jobs=None</em>, <em class="sig-param">min_resources='exhaust'</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">portfolio='baseline'</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/5c04143/dabl/models.py#L330"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.AnyClassifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Classifier with automatic model selection.</p>
 <p>This model uses successive halving on a portfolio of complex models
 (HistGradientBoosting, RandomForest, SVC, LogisticRegression)
@@ -201,7 +201,7 @@ to pick the best model family and hyper-parameters.</p>
 <p>AnyClassifier internally applies EasyPreprocessor, so no preprocessing
 is necessary.</p>
 <dl class="field-list">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
 <dt><strong>n_jobs</strong><span class="classifier">int, default=None</span></dt><dd><p>Number of processes to spawn for parallelizing the search.</p>
 </dd>
@@ -232,7 +232,7 @@ classifiers.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Attributes</dt>
+<dt class="field-even">Attributes<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>search_</strong><span class="classifier">HalvingGridSearchCV instance</span></dt><dd><p>Fitted HalvingGridSearchCV instance for inspection.</p>
 </dd>
@@ -243,20 +243,20 @@ classifiers.</p>
 </dl>
 <dl class="method">
 <dt id="dabl.AnyClassifier.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">n_jobs=None</em>, <em class="sig-param">min_resources='exhaust'</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">portfolio='baseline'</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/92a3055/dabl/models.py#L379"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.AnyClassifier.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">n_jobs=None</em>, <em class="sig-param">min_resources='exhaust'</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">portfolio='baseline'</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/5c04143/dabl/models.py#L379"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.AnyClassifier.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="dabl.AnyClassifier.fit">
-<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">*</em>, <em class="sig-param">target_col=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/92a3055/dabl/models.py#L415"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.AnyClassifier.fit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">*</em>, <em class="sig-param">target_col=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/5c04143/dabl/models.py#L415"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.AnyClassifier.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit estimator.</p>
 <p>Requires to either specify the target as separate 1d array or Series y
 (in scikit-learn fashion) or as column of the dataframe X specified by
 target_col.
 If y is specified, X is assumed not to contain the target.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>X</strong><span class="classifier">DataFrame</span></dt><dd><p>Input features. If target_col is specified, X also includes the
 target.</p>
@@ -272,17 +272,17 @@ target.</p>
 
 <dl class="method">
 <dt id="dabl.AnyClassifier.get_params">
-<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/92a3055/dabl/../../miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/base.py#L188"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.AnyClassifier.get_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">deep=True</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/5c04143/dabl/../../miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/base.py#L193"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.AnyClassifier.get_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get parameters for this estimator.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>deep</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, will return the parameters for this estimator and
 contained subobjects that are estimators.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>params</strong><span class="classifier">dict</span></dt><dd><p>Parameter names mapped to their values.</p>
 </dd>
@@ -293,13 +293,13 @@ contained subobjects that are estimators.</p>
 
 <dl class="method">
 <dt id="dabl.AnyClassifier.score">
-<code class="sig-name descname">score</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y</em>, <em class="sig-param">sample_weight=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/92a3055/dabl/../../miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/base.py#L616"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.AnyClassifier.score" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">score</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y</em>, <em class="sig-param">sample_weight=None</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/5c04143/dabl/../../miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/base.py#L625"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.AnyClassifier.score" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the mean accuracy on the given test data and labels.</p>
 <p>In multi-label classification, this is the subset accuracy
 which is a harsh metric since you require for each sample that
 each label set be correctly predicted.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>X</strong><span class="classifier">array-like of shape (n_samples, n_features)</span></dt><dd><p>Test samples.</p>
 </dd>
@@ -309,7 +309,7 @@ each label set be correctly predicted.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>score</strong><span class="classifier">float</span></dt><dd><p>Mean accuracy of <code class="docutils literal notranslate"><span class="pre">self.predict(X)</span></code> wrt. <cite>y</cite>.</p>
 </dd>
@@ -320,20 +320,20 @@ each label set be correctly predicted.</p>
 
 <dl class="method">
 <dt id="dabl.AnyClassifier.set_params">
-<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">**params</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/92a3055/dabl/../../miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/base.py#L212"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.AnyClassifier.set_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">**params</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/5c04143/dabl/../../miniconda/envs/testenv/lib/python3.9/site-packages/sklearn/base.py#L217"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.AnyClassifier.set_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
-(such as <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="(in scikit-learn v0.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a>). The latter have
+(such as <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="(in scikit-learn v1.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a>). The latter have
 parameters of the form <code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s
 possible to update each component of a nested object.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>**params</strong><span class="classifier">dict</span></dt><dd><p>Estimator parameters.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>self</strong><span class="classifier">estimator instance</span></dt><dd><p>Estimator instance.</p>
 </dd>

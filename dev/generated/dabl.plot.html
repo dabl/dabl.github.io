@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -37,10 +37,10 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
   <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/gallery-rendered-html.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="dabl.set_config" href="dabl.set_config.html" />
@@ -193,13 +193,13 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl</span></code>.plot<a class="headerlink" href="#dabl-plot" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="dabl.plot">
-<code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">target_col=None</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">scatter_alpha='auto'</em>, <em class="sig-param">scatter_size='auto'</em>, <em class="sig-param">verbose=10</em>, <em class="sig-param">plot_pairwise=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/92a3055/dabl/plot/supervised.py#L500"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">dabl.</code><code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y=None</em>, <em class="sig-param">target_col=None</em>, <em class="sig-param">type_hints=None</em>, <em class="sig-param">scatter_alpha='auto'</em>, <em class="sig-param">scatter_size='auto'</em>, <em class="sig-param">drop_outliers=True</em>, <em class="sig-param">verbose=10</em>, <em class="sig-param">plot_pairwise=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/5c04143/dabl/plot/supervised.py#L506"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Automatic plots for classification and regression.</p>
 <p>Determines whether the target is categorical or continuous and plots the
 target distribution. Then calls the relevant plotting functions
 accordingly.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>X</strong><span class="classifier">DataFrame</span></dt><dd><p>Input features. If target_col is specified, X also includes the
 target.</p>
@@ -220,18 +220,17 @@ These can be somewhat expensive to compute.</p>
 </dd>
 <dt><strong>verbose</strong><span class="classifier">int, default=10</span></dt><dd><p>Controls the verbosity (output).</p>
 </dd>
+<dt><strong>drop_outliers</strong><span class="classifier">bool, default=True</span></dt><dd><p>Whether to drop outliers in the target column for regression.</p>
+</dd>
+<dt><strong>See also</strong></dt><dd></dd>
+<dt><strong>——–</strong></dt><dd></dd>
+<dt><strong>plot_regression_continuous</strong></dt><dd></dd>
+<dt><strong>plot_regression_categorical</strong></dt><dd></dd>
+<dt><strong>plot_classification_continuous</strong></dt><dd></dd>
+<dt><strong>plot_classification_categorical</strong></dt><dd></dd>
 </dl>
 </dd>
 </dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<dl class="simple">
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_regression_continuous</span></code></dt><dd></dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_regression_categorical</span></code></dt><dd></dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_classification_continuous</span></code></dt><dd></dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_classification_categorical</span></code></dt><dd></dd>
-</dl>
-</div>
 </dd></dl>
 
 <div style='clear:both'></div></section>
