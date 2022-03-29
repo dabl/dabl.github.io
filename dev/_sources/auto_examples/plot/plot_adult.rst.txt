@@ -21,7 +21,7 @@
 Adult Census Dataset Visualization
 ====================================
 
-.. GENERATED FROM PYTHON SOURCE LINES 5-16
+.. GENERATED FROM PYTHON SOURCE LINES 5-15
 
 
 
@@ -45,7 +45,7 @@ Adult Census Dataset Visualization
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_adult_003.png
-         :alt: Discriminating PCA directions, 0.590, Scree plot (PCA explained variance)
+         :alt: Discriminating PCA directions, 0.583, Scree plot (PCA explained variance)
          :srcset: /auto_examples/plot/images/sphx_glr_plot_adult_003.png
          :class: sphx-glr-multi-img
 
@@ -70,30 +70,10 @@ Adult Census Dataset Visualization
 
  .. code-block:: none
 
-    /home/circleci/project/dabl/plot/supervised.py:553: FutureWarning: The second positional argument of plot is a Series 'y'. If passing a column name, use a keyword.
+    /home/circleci/project/dabl/plot/supervised.py:555: FutureWarning: The second positional argument of plot is a Series 'y'. If passing a column name, use a keyword.
       warnings.warn("The second positional argument of plot is a Series 'y'."
     Target looks like classification
     Linear Discriminant Analysis training set score: 0.530
-    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
-      ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
-      ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
-      ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
-      ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
-      ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
-      ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
-      ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
-      ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
-      ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
-      ax.set_xticklabels(
 
 
 
@@ -109,17 +89,16 @@ Adult Census Dataset Visualization
     from dabl.datasets import load_adult
     import matplotlib.pyplot as plt
 
-    # load the adult census housing dataset
+    # load the adult census dataset
     # returns a plain dataframe
     data = load_adult()
-
     plot(data, 'income', scatter_alpha=.1)
     plt.show()
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.477 seconds)
+   **Total running time of the script:** ( 0 minutes  3.310 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_adult.py:

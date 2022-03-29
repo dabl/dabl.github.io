@@ -45,7 +45,7 @@ Ames Housing Dataset Visualization
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_ames_003.png
-         :alt: Categorical Feature vs Target, F=5.69E-01, F=3.67E-01, F=3.29E-01, F=3.23E-01, F=2.90E-01, F=2.77E-01, F=2.59E-01, F=2.39E-01, F=2.34E-01, F=2.22E-01
+         :alt: Categorical Feature vs Target, F=5.76E-01, F=3.63E-01, F=3.32E-01, F=3.25E-01, F=2.93E-01, F=2.77E-01, F=2.64E-01, F=2.36E-01, F=2.26E-01, F=2.26E-01
          :srcset: /auto_examples/plot/images/sphx_glr_plot_ames_003.png
          :class: sphx-glr-multi-img
 
@@ -56,47 +56,27 @@ Ames Housing Dataset Visualization
 
  .. code-block:: none
 
-    /home/circleci/project/dabl/plot/supervised.py:553: FutureWarning: The second positional argument of plot is a Series 'y'. If passing a column name, use a keyword.
+    /home/circleci/project/dabl/plot/supervised.py:555: FutureWarning: The second positional argument of plot is a Series 'y'. If passing a column name, use a keyword.
       warnings.warn("The second positional argument of plot is a Series 'y'."
     Target looks like regression
-    /home/circleci/project/dabl/plot/utils.py:632: UserWarning: Dropped 2 outliers in column SalePrice.
+    /home/circleci/project/dabl/plot/utils.py:637: UserWarning: Dropped 2 outliers in column SalePrice.
       warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/supervised.py:594: UserWarning: Discarding 2 outliers in target column.
+    /home/circleci/project/dabl/plot/supervised.py:596: UserWarning: Discarding 2 outliers in target column.
       warn(f"Discarding {n_outliers} outliers in target column.",
     Showing only top 10 of 26 continuous features
-    /home/circleci/project/dabl/plot/utils.py:632: UserWarning: Dropped 3 outliers in column Gr Liv Area.
+    /home/circleci/project/dabl/plot/utils.py:637: UserWarning: Dropped 3 outliers in column Gr Liv Area.
       warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:632: UserWarning: Dropped 1 outliers in column Garage Cars.
+    /home/circleci/project/dabl/plot/utils.py:637: UserWarning: Dropped 1 outliers in column Garage Cars.
       warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:632: UserWarning: Dropped 2 outliers in column Total Bsmt SF.
+    /home/circleci/project/dabl/plot/utils.py:637: UserWarning: Dropped 2 outliers in column Total Bsmt SF.
       warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:632: UserWarning: Dropped 4 outliers in column 1st Flr SF.
+    /home/circleci/project/dabl/plot/utils.py:637: UserWarning: Dropped 4 outliers in column 1st Flr SF.
       warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:632: UserWarning: Dropped 1 outliers in column Garage Yr Blt.
+    /home/circleci/project/dabl/plot/utils.py:637: UserWarning: Dropped 1 outliers in column Garage Yr Blt.
       warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:632: UserWarning: Dropped 6 outliers in column Mas Vnr Area.
+    /home/circleci/project/dabl/plot/utils.py:637: UserWarning: Dropped 6 outliers in column Mas Vnr Area.
       warn("Dropped {} outliers in column {}.".format(
     Showing only top 10 of 41 categorical features
-    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
-      ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
-      ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
-      ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
-      ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
-      ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
-      ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
-      ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
-      ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
-      ax.set_xticklabels(
-    /home/circleci/project/dabl/plot/utils.py:374: UserWarning: FixedFormatter should only be used together with FixedLocator
-      ax.set_xticklabels(
 
 
 
@@ -122,7 +102,7 @@ Ames Housing Dataset Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.402 seconds)
+   **Total running time of the script:** ( 0 minutes  3.233 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_ames.py:
