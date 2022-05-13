@@ -45,7 +45,7 @@ Ames Housing Dataset Visualization
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_ames_003.png
-         :alt: Categorical Feature vs Target, F=5.74E-01, F=3.75E-01, F=3.33E-01, F=3.31E-01, F=2.96E-01, F=2.76E-01, F=2.56E-01, F=2.38E-01, F=2.28E-01, F=2.25E-01
+         :alt: Categorical Feature vs Target, F=5.69E-01, F=3.72E-01, F=3.28E-01, F=3.24E-01, F=2.89E-01, F=2.80E-01, F=2.60E-01, F=2.30E-01, F=2.29E-01, F=2.21E-01
          :srcset: /auto_examples/plot/images/sphx_glr_plot_ames_003.png
          :class: sphx-glr-multi-img
 
@@ -59,22 +59,22 @@ Ames Housing Dataset Visualization
     /home/circleci/project/dabl/plot/supervised.py:556: FutureWarning: The second positional argument of plot is a Series 'y'. If passing a column name, use a keyword.
       warnings.warn("The second positional argument of plot is a Series 'y'."
     Target looks like regression
-    /home/circleci/project/dabl/plot/utils.py:637: UserWarning: Dropped 2 outliers in column SalePrice.
+    /home/circleci/project/dabl/plot/utils.py:638: UserWarning: Dropped 2 outliers in column SalePrice.
       warn("Dropped {} outliers in column {}.".format(
     /home/circleci/project/dabl/plot/supervised.py:597: UserWarning: Discarding 2 outliers in target column.
       warn(f"Discarding {n_outliers} outliers in target column.",
     Showing only top 10 of 26 continuous features
-    /home/circleci/project/dabl/plot/utils.py:637: UserWarning: Dropped 3 outliers in column Gr Liv Area.
+    /home/circleci/project/dabl/plot/utils.py:638: UserWarning: Dropped 3 outliers in column Gr Liv Area.
       warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:637: UserWarning: Dropped 1 outliers in column Garage Cars.
+    /home/circleci/project/dabl/plot/utils.py:638: UserWarning: Dropped 1 outliers in column Garage Cars.
       warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:637: UserWarning: Dropped 1 outliers in column Garage Yr Blt.
+    /home/circleci/project/dabl/plot/utils.py:638: UserWarning: Dropped 1 outliers in column Garage Yr Blt.
       warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:637: UserWarning: Dropped 2 outliers in column Total Bsmt SF.
+    /home/circleci/project/dabl/plot/utils.py:638: UserWarning: Dropped 2 outliers in column Total Bsmt SF.
       warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:637: UserWarning: Dropped 4 outliers in column 1st Flr SF.
+    /home/circleci/project/dabl/plot/utils.py:638: UserWarning: Dropped 4 outliers in column 1st Flr SF.
       warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:637: UserWarning: Dropped 1 outliers in column TotRms AbvGrd.
+    /home/circleci/project/dabl/plot/utils.py:638: UserWarning: Dropped 1 outliers in column TotRms AbvGrd.
       warn("Dropped {} outliers in column {}.".format(
     Showing only top 10 of 41 categorical features
 
@@ -102,7 +102,7 @@ Ames Housing Dataset Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.753 seconds)
+   **Total running time of the script:** ( 0 minutes  3.562 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_ames.py:
