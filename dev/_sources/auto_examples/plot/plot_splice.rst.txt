@@ -50,7 +50,7 @@ A nice illustration of the mosaic plot.
 
  .. code-block:: none
 
-    /home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/datasets/_openml.py:417: UserWarning: Multiple active versions of the dataset matching the name splice exist. Versions may be fundamentally different, returning version 1.
+    /home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/datasets/_openml.py:294: UserWarning: Multiple active versions of the dataset matching the name splice exist. Versions may be fundamentally different, returning version 1.
       warn(
     Target looks like classification
     Showing only top 10 of 60 categorical features
@@ -77,7 +77,7 @@ A nice illustration of the mosaic plot.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.217 seconds)
+   **Total running time of the script:** ( 0 minutes  5.408 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_splice.py:

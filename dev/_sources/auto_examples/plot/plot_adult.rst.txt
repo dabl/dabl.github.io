@@ -45,7 +45,7 @@ Adult Census Dataset Visualization
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_adult_003.png
-         :alt: Discriminating PCA directions, 0.580, Scree plot (PCA explained variance)
+         :alt: Discriminating PCA directions, 0.585, Scree plot (PCA explained variance)
          :srcset: /auto_examples/plot/images/sphx_glr_plot_adult_003.png
          :class: sphx-glr-multi-img
 
@@ -70,7 +70,7 @@ Adult Census Dataset Visualization
 
  .. code-block:: none
 
-    /home/circleci/project/dabl/plot/supervised.py:555: FutureWarning: The second positional argument of plot is a Series 'y'. If passing a column name, use a keyword.
+    /home/circleci/project/dabl/plot/supervised.py:556: FutureWarning: The second positional argument of plot is a Series 'y'. If passing a column name, use a keyword.
       warnings.warn("The second positional argument of plot is a Series 'y'."
     Target looks like classification
     Linear Discriminant Analysis training set score: 0.530
@@ -98,7 +98,7 @@ Adult Census Dataset Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.242 seconds)
+   **Total running time of the script:** ( 0 minutes  3.338 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_adult.py:
