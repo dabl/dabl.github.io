@@ -239,6 +239,27 @@ Plotting examples
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Comparing categorical variable visualizations">
+
+.. only:: html
+
+ .. figure:: /auto_examples/plot/images/thumb/sphx_glr_plot_categorical_types_adult_thumb.png
+     :alt: Comparing categorical variable visualizations
+
+     :ref:`sphx_glr_auto_examples_plot_plot_categorical_types_adult.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/plot/plot_categorical_types_adult
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="Discrete Scatter Example">
 
 .. only:: html
@@ -257,27 +278,6 @@ Plotting examples
    :hidden:
 
    /auto_examples/plot/plot_discrete_scatter
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="The &#x27;count&#x27; plot is easiest to understand and closest to the data, as it simply provides a bar-...">
-
-.. only:: html
-
- .. figure:: /auto_examples/plot/images/thumb/sphx_glr_plot_categorical_types_adult_thumb.png
-     :alt: Comparing categorical variable visualizations
-
-     :ref:`sphx_glr_auto_examples_plot_plot_categorical_types_adult.py`
-
-.. raw:: html
-
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   /auto_examples/plot/plot_categorical_types_adult
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
