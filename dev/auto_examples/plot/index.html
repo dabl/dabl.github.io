@@ -9,7 +9,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Class Histogram Example &mdash; dabl  documentation</title>
+  <title>Plotting examples &mdash; dabl  documentation</title>
   
 
   
@@ -43,8 +43,8 @@
   <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="mfeat-factors dataset visualization" href="plot_mfeat_factors.html" />
-    <link rel="prev" title="Diamonds Dataset Visualization" href="plot_diamonds.html" /> 
+    <link rel="next" title="Human Activity Recognition Visualization" href="plot_human_activity.html" />
+    <link rel="prev" title="Model Explanation" href="../plot_explain_example.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -107,11 +107,11 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">General examples</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html#plotting-examples">Plotting examples</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">Plotting examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Plotting examples</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="plot_human_activity.html">Human Activity Recognition Visualization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_splice.html">Splice dataset visualization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_diamonds.html">Diamonds Dataset Visualization</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Class Histogram Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_class_hists.html">Class Histogram Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_mfeat_factors.html">mfeat-factors dataset visualization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_ames.html">Ames Housing Dataset Visualization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_adult.html">Adult Census Dataset Visualization</a></li>
@@ -170,15 +170,13 @@
         
           <li><a href="../index.html">General examples</a> &raquo;</li>
         
-          <li><a href="index.html">Plotting examples</a> &raquo;</li>
-        
-      <li>Class Histogram Example</li>
+      <li>Plotting examples</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/auto_examples/plot/plot_class_hists.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/auto_examples/plot/index.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -191,34 +189,43 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="sphx-glr-download-link-note admonition note">
-<p class="admonition-title">Note</p>
-<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-plot-class-hists-py"><span class="std std-ref">here</span></a>
-to download the full example code</p>
-</aside>
-<section class="sphx-glr-example-title" id="class-histogram-example">
-<span id="sphx-glr-auto-examples-plot-plot-class-hists-py"></span><h1>Class Histogram Example<a class="headerlink" href="#class-histogram-example" title="Permalink to this headline">¶</a></h1>
-<img src="../../_images/sphx_glr_plot_class_hists_001.png" srcset="../../_images/sphx_glr_plot_class_hists_001.png" alt="plot class hists" class = "sphx-glr-single-img"/><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">dabl.datasets</span> <span class="kn">import</span> <span class="n">load_adult</span>
-<span class="kn">from</span> <span class="nn">dabl.plot</span> <span class="kn">import</span> <span class="n">class_hists</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="n">load_adult</span><span class="p">()</span>
-
-<span class="c1"># Plots the histogram of age per gender</span>
-<span class="n">class_hists</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;gender&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
-</pre></div>
+  <section id="plotting-examples">
+<span id="plotting-exmples"></span><span id="sphx-glr-auto-examples-plot"></span><h1>Plotting examples<a class="headerlink" href="#plotting-examples" title="Permalink to this headline">¶</a></h1>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Human Activity Recognition Visualization"><img alt="Human Activity Recognition Visualization" src="../../_images/sphx_glr_plot_human_activity_thumb.png" />
+<p><a class="reference internal" href="plot_human_activity.html#sphx-glr-auto-examples-plot-plot-human-activity-py"><span class="std std-ref">Human Activity Recognition Visualization</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Human Activity Recognition Visualization</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Splice dataset visualization"><img alt="Splice dataset visualization" src="../../_images/sphx_glr_plot_splice_thumb.png" />
+<p><a class="reference internal" href="plot_splice.html#sphx-glr-auto-examples-plot-plot-splice-py"><span class="std std-ref">Splice dataset visualization</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Splice dataset visualization</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Diamonds Dataset Visualization"><img alt="Diamonds Dataset Visualization" src="../../_images/sphx_glr_plot_diamonds_thumb.png" />
+<p><a class="reference internal" href="plot_diamonds.html#sphx-glr-auto-examples-plot-plot-diamonds-py"><span class="std std-ref">Diamonds Dataset Visualization</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Diamonds Dataset Visualization</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Class Histogram Example"><img alt="Class Histogram Example" src="../../_images/sphx_glr_plot_class_hists_thumb.png" />
+<p><a class="reference internal" href="plot_class_hists.html#sphx-glr-auto-examples-plot-plot-class-hists-py"><span class="std std-ref">Class Histogram Example</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Class Histogram Example</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="mfeat-factors dataset visualization"><img alt="mfeat-factors dataset visualization" src="../../_images/sphx_glr_plot_mfeat_factors_thumb.png" />
+<p><a class="reference internal" href="plot_mfeat_factors.html#sphx-glr-auto-examples-plot-plot-mfeat-factors-py"><span class="std std-ref">mfeat-factors dataset visualization</span></a></p>
+  <div class="sphx-glr-thumbnail-title">mfeat-factors dataset visualization</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Ames Housing Dataset Visualization"><img alt="Ames Housing Dataset Visualization" src="../../_images/sphx_glr_plot_ames_thumb.png" />
+<p><a class="reference internal" href="plot_ames.html#sphx-glr-auto-examples-plot-plot-ames-py"><span class="std std-ref">Ames Housing Dataset Visualization</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Ames Housing Dataset Visualization</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Adult Census Dataset Visualization"><img alt="Adult Census Dataset Visualization" src="../../_images/sphx_glr_plot_adult_thumb.png" />
+<p><a class="reference internal" href="plot_adult.html#sphx-glr-auto-examples-plot-plot-adult-py"><span class="std std-ref">Adult Census Dataset Visualization</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Adult Census Dataset Visualization</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Mosaic Plot Example"><img alt="Mosaic Plot Example" src="../../_images/sphx_glr_plot_mosaic_thumb.png" />
+<p><a class="reference internal" href="plot_mosaic.html#sphx-glr-auto-examples-plot-plot-mosaic-py"><span class="std std-ref">Mosaic Plot Example</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Mosaic Plot Example</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Wine Classification Dataset Visualization"><img alt="Wine Classification Dataset Visualization" src="../../_images/sphx_glr_plot_wine_thumb.png" />
+<p><a class="reference internal" href="plot_wine.html#sphx-glr-auto-examples-plot-plot-wine-py"><span class="std std-ref">Wine Classification Dataset Visualization</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Wine Classification Dataset Visualization</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Comparing categorical variable visualizations"><img alt="Comparing categorical variable visualizations" src="../../_images/sphx_glr_plot_categorical_types_adult_thumb.png" />
+<p><a class="reference internal" href="plot_categorical_types_adult.html#sphx-glr-auto-examples-plot-plot-categorical-types-adult-py"><span class="std std-ref">Comparing categorical variable visualizations</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Comparing categorical variable visualizations</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Discrete Scatter Example"><img alt="Discrete Scatter Example" src="../../_images/sphx_glr_plot_discrete_scatter_thumb.png" />
+<p><a class="reference internal" href="plot_discrete_scatter.html#sphx-glr-auto-examples-plot-plot-discrete-scatter-py"><span class="std std-ref">Discrete Scatter Example</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Discrete Scatter Example</div>
+</div></div><div class="toctree-wrapper compound">
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.221 seconds)</p>
-<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-plot-class-hists-py">
-<div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/64576fe81053139ccb14c01d9569da5e/plot_class_hists.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_class_hists.py</span></code></a></p>
-</div>
-<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/61d4c966bb56fbbf86ae08be5186cef4/plot_class_hists.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_class_hists.ipynb</span></code></a></p>
-</div>
-</div>
-<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>
 
 
@@ -229,10 +236,10 @@ to download the full example code</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="plot_mfeat_factors.html" class="btn btn-neutral float-right" title="mfeat-factors dataset visualization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="plot_human_activity.html" class="btn btn-neutral float-right" title="Human Activity Recognition Visualization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="plot_diamonds.html" class="btn btn-neutral float-left" title="Diamonds Dataset Visualization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../plot_explain_example.html" class="btn btn-neutral float-left" title="Model Explanation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

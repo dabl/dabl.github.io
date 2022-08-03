@@ -47,28 +47,26 @@ Linear discriminant analysis works surprisingly well!
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_003.png
-         :alt: Top feature interactions, 0.545, 0.540, 0.527, 0.513
+         :alt: Top feature interactions, 0.553, 0.552, 0.550, 0.530
          :srcset: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_003.png
          :class: sphx-glr-multi-img
 
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_004.png
-         :alt: Discriminating PCA directions, 0.577, 0.533, 0.520, Scree plot (PCA explained variance)
+         :alt: Discriminating PCA directions, 0.565, 0.533, 0.508, Scree plot (PCA explained variance)
          :srcset: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_004.png
          :class: sphx-glr-multi-img
 
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_005.png
-         :alt: Discriminating LDA directions, 0.752, 0.730, 0.728, 0.718
+         :alt: Discriminating LDA directions, 0.753, 0.752, 0.713, 0.700
          :srcset: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_005.png
          :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
-
- Out:
 
  .. code-block:: none
 
@@ -100,28 +98,23 @@ Linear discriminant analysis works surprisingly well!
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  13.789 seconds)
+   **Total running time of the script:** ( 0 minutes  18.588 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_mfeat_factors.py:
 
+.. only:: html
 
-.. only :: html
-
- .. container:: sphx-glr-footer
-    :class: sphx-glr-footer-example
+  .. container:: sphx-glr-footer sphx-glr-footer-example
 
 
+    .. container:: sphx-glr-download sphx-glr-download-python
 
-  .. container:: sphx-glr-download sphx-glr-download-python
+      :download:`Download Python source code: plot_mfeat_factors.py <plot_mfeat_factors.py>`
 
-     :download:`Download Python source code: plot_mfeat_factors.py <plot_mfeat_factors.py>`
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
-
-  .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-     :download:`Download Jupyter notebook: plot_mfeat_factors.ipynb <plot_mfeat_factors.ipynb>`
+      :download:`Download Jupyter notebook: plot_mfeat_factors.ipynb <plot_mfeat_factors.ipynb>`
 
 
 .. only:: html

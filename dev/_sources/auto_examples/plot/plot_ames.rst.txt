@@ -45,14 +45,12 @@ Ames Housing Dataset Visualization
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_ames_003.png
-         :alt: Categorical Feature vs Target, F=5.69E-01, F=3.71E-01, F=3.27E-01, F=3.25E-01, F=2.96E-01, F=2.75E-01, F=2.60E-01, F=2.42E-01, F=2.37E-01, F=2.30E-01
+         :alt: Categorical Feature vs Target, F=5.68E-01, F=3.80E-01, F=3.30E-01, F=3.29E-01, F=2.97E-01, F=2.81E-01, F=2.61E-01, F=2.34E-01, F=2.29E-01, F=2.24E-01
          :srcset: /auto_examples/plot/images/sphx_glr_plot_ames_003.png
          :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
-
- Out:
 
  .. code-block:: none
 
@@ -102,28 +100,23 @@ Ames Housing Dataset Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.908 seconds)
+   **Total running time of the script:** ( 0 minutes  3.662 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_ames.py:
 
+.. only:: html
 
-.. only :: html
-
- .. container:: sphx-glr-footer
-    :class: sphx-glr-footer-example
+  .. container:: sphx-glr-footer sphx-glr-footer-example
 
 
+    .. container:: sphx-glr-download sphx-glr-download-python
 
-  .. container:: sphx-glr-download sphx-glr-download-python
+      :download:`Download Python source code: plot_ames.py <plot_ames.py>`
 
-     :download:`Download Python source code: plot_ames.py <plot_ames.py>`
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
-
-  .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-     :download:`Download Jupyter notebook: plot_ames.ipynb <plot_ames.ipynb>`
+      :download:`Download Jupyter notebook: plot_ames.ipynb <plot_ames.ipynb>`
 
 
 .. only:: html

@@ -45,28 +45,26 @@ Human Activity Recognition Visualization
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_human_activity_003.png
-         :alt: Top feature interactions, 0.689, 0.686, 0.680, 0.678
+         :alt: Top feature interactions, 0.686, 0.686, 0.684, 0.680
          :srcset: /auto_examples/plot/images/sphx_glr_plot_human_activity_003.png
          :class: sphx-glr-multi-img
 
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_human_activity_004.png
-         :alt: Discriminating PCA directions, 0.643, 0.615, 0.569, Scree plot (PCA explained variance)
+         :alt: Discriminating PCA directions, 0.648, 0.629, 0.566, Scree plot (PCA explained variance)
          :srcset: /auto_examples/plot/images/sphx_glr_plot_human_activity_004.png
          :class: sphx-glr-multi-img
 
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_human_activity_005.png
-         :alt: Discriminating LDA directions, 0.861, 0.832, 0.805, 0.785
+         :alt: Discriminating LDA directions, 0.855, 0.834, 0.807, 0.784
          :srcset: /auto_examples/plot/images/sphx_glr_plot_human_activity_005.png
          :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
-
- Out:
 
  .. code-block:: none
 
@@ -96,28 +94,23 @@ Human Activity Recognition Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  34.019 seconds)
+   **Total running time of the script:** ( 0 minutes  48.682 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_human_activity.py:
 
+.. only:: html
 
-.. only :: html
-
- .. container:: sphx-glr-footer
-    :class: sphx-glr-footer-example
+  .. container:: sphx-glr-footer sphx-glr-footer-example
 
 
+    .. container:: sphx-glr-download sphx-glr-download-python
 
-  .. container:: sphx-glr-download sphx-glr-download-python
+      :download:`Download Python source code: plot_human_activity.py <plot_human_activity.py>`
 
-     :download:`Download Python source code: plot_human_activity.py <plot_human_activity.py>`
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
-
-  .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-     :download:`Download Jupyter notebook: plot_human_activity.ipynb <plot_human_activity.ipynb>`
+      :download:`Download Jupyter notebook: plot_human_activity.ipynb <plot_human_activity.ipynb>`
 
 
 .. only:: html

@@ -45,7 +45,7 @@ Adult Census Dataset Visualization
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_adult_003.png
-         :alt: Discriminating PCA directions, 0.577, Scree plot (PCA explained variance)
+         :alt: Discriminating PCA directions, 0.590, Scree plot (PCA explained variance)
          :srcset: /auto_examples/plot/images/sphx_glr_plot_adult_003.png
          :class: sphx-glr-multi-img
 
@@ -65,8 +65,6 @@ Adult Census Dataset Visualization
 
 
 .. rst-class:: sphx-glr-script-out
-
- Out:
 
  .. code-block:: none
 
@@ -98,28 +96,23 @@ Adult Census Dataset Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.903 seconds)
+   **Total running time of the script:** ( 0 minutes  4.000 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_adult.py:
 
+.. only:: html
 
-.. only :: html
-
- .. container:: sphx-glr-footer
-    :class: sphx-glr-footer-example
+  .. container:: sphx-glr-footer sphx-glr-footer-example
 
 
+    .. container:: sphx-glr-download sphx-glr-download-python
 
-  .. container:: sphx-glr-download sphx-glr-download-python
+      :download:`Download Python source code: plot_adult.py <plot_adult.py>`
 
-     :download:`Download Python source code: plot_adult.py <plot_adult.py>`
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
-
-  .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-     :download:`Download Jupyter notebook: plot_adult.ipynb <plot_adult.ipynb>`
+      :download:`Download Jupyter notebook: plot_adult.ipynb <plot_adult.ipynb>`
 
 
 .. only:: html

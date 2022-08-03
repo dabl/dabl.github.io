@@ -46,14 +46,12 @@ Regression on the classical diamond dataset.
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_diamonds_003.png
-         :alt: Categorical Feature vs Target, F=3.64E-01, F=2.86E-01, F=1.04E-01
+         :alt: Categorical Feature vs Target, F=3.64E-01, F=2.83E-01, F=1.00E-01
          :srcset: /auto_examples/plot/images/sphx_glr_plot_diamonds_003.png
          :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
-
- Out:
 
  .. code-block:: none
 
@@ -95,28 +93,23 @@ Regression on the classical diamond dataset.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  8.508 seconds)
+   **Total running time of the script:** ( 0 minutes  8.654 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_diamonds.py:
 
+.. only:: html
 
-.. only :: html
-
- .. container:: sphx-glr-footer
-    :class: sphx-glr-footer-example
+  .. container:: sphx-glr-footer sphx-glr-footer-example
 
 
+    .. container:: sphx-glr-download sphx-glr-download-python
 
-  .. container:: sphx-glr-download sphx-glr-download-python
+      :download:`Download Python source code: plot_diamonds.py <plot_diamonds.py>`
 
-     :download:`Download Python source code: plot_diamonds.py <plot_diamonds.py>`
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
-
-  .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-     :download:`Download Jupyter notebook: plot_diamonds.ipynb <plot_diamonds.ipynb>`
+      :download:`Download Jupyter notebook: plot_diamonds.ipynb <plot_diamonds.ipynb>`
 
 
 .. only:: html

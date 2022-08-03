@@ -43,7 +43,7 @@
   <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Human Activity Recognition Visualization" href="plot/plot_human_activity.html" />
+    <link rel="next" title="Plotting examples" href="plot/index.html" />
     <link rel="prev" title="General examples" href="index.html" /> 
 </head>
 
@@ -185,52 +185,117 @@ to download the full example code</p>
 <span id="sphx-glr-auto-examples-plot-explain-example-py"></span><h1>Model Explanation<a class="headerlink" href="#model-explanation" title="Permalink to this headline">¶</a></h1>
 <ul class="sphx-glr-horizontal">
 <li><img src="../_images/sphx_glr_plot_explain_example_001.png" srcset="../_images/sphx_glr_plot_explain_example_001.png" alt="ROC curve for class 0, ROC curve for class 1, ROC curve for class 2" class = "sphx-glr-multi-img"/></li>
-<li><img src="../_images/sphx_glr_plot_explain_example_002.png" srcset="../_images/sphx_glr_plot_explain_example_002.png" alt="class: 0, class: 1, class: 2" class = "sphx-glr-multi-img"/></li>
+<li><img src="../_images/sphx_glr_plot_explain_example_002.png" srcset="../_images/sphx_glr_plot_explain_example_002.png" alt="Partial Dependence for class 0" class = "sphx-glr-multi-img"/></li>
+<li><img src="../_images/sphx_glr_plot_explain_example_003.png" srcset="../_images/sphx_glr_plot_explain_example_003.png" alt="Partial Dependence for class 1" class = "sphx-glr-multi-img"/></li>
+<li><img src="../_images/sphx_glr_plot_explain_example_004.png" srcset="../_images/sphx_glr_plot_explain_example_004.png" alt="Partial Dependence for class 2" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Running DummyClassifier()
-accuracy: 0.406 recall_macro: 0.333 precision_macro: 0.135 f1_macro: 0.192
+accuracy: 0.353 recall_macro: 0.333 precision_macro: 0.118 f1_macro: 0.174
 === new best DummyClassifier() (using recall_macro):
-accuracy: 0.406 recall_macro: 0.333 precision_macro: 0.135 f1_macro: 0.192
+accuracy: 0.353 recall_macro: 0.333 precision_macro: 0.118 f1_macro: 0.174
 
 Running GaussianNB()
-accuracy: 0.962 recall_macro: 0.967 precision_macro: 0.965 f1_macro: 0.964
+accuracy: 0.985 recall_macro: 0.987 precision_macro: 0.988 f1_macro: 0.987
 === new best GaussianNB() (using recall_macro):
-accuracy: 0.962 recall_macro: 0.967 precision_macro: 0.965 f1_macro: 0.964
+accuracy: 0.985 recall_macro: 0.987 precision_macro: 0.988 f1_macro: 0.987
 
 Running MultinomialNB()
-accuracy: 0.947 recall_macro: 0.945 precision_macro: 0.959 f1_macro: 0.947
+accuracy: 0.933 recall_macro: 0.938 precision_macro: 0.947 f1_macro: 0.937
 Running DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=1)
-accuracy: 0.579 recall_macro: 0.595 precision_macro: 0.447 f1_macro: 0.484
+accuracy: 0.594 recall_macro: 0.597 precision_macro: 0.426 f1_macro: 0.487
 Running DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=5)
-accuracy: 0.917 recall_macro: 0.920 precision_macro: 0.926 f1_macro: 0.919
+accuracy: 0.925 recall_macro: 0.924 precision_macro: 0.932 f1_macro: 0.922
 Running DecisionTreeClassifier(class_weight=&#39;balanced&#39;, min_impurity_decrease=0.01)
-accuracy: 0.924 recall_macro: 0.929 precision_macro: 0.930 f1_macro: 0.925
+accuracy: 0.925 recall_macro: 0.927 precision_macro: 0.928 f1_macro: 0.925
 Running LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, max_iter=1000)
-accuracy: 0.977 recall_macro: 0.982 precision_macro: 0.978 f1_macro: 0.978
-=== new best LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, max_iter=1000) (using recall_macro):
-accuracy: 0.977 recall_macro: 0.982 precision_macro: 0.978 f1_macro: 0.978
-
-Running LogisticRegression(class_weight=&#39;balanced&#39;, max_iter=1000)
-accuracy: 0.962 recall_macro: 0.966 precision_macro: 0.963 f1_macro: 0.963
+accuracy: 0.977 recall_macro: 0.979 precision_macro: 0.980 f1_macro: 0.978
+Running LogisticRegression(C=1, class_weight=&#39;balanced&#39;, max_iter=1000)
+accuracy: 0.985 recall_macro: 0.986 precision_macro: 0.986 f1_macro: 0.985
 
 Best model:
-LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, max_iter=1000)
+GaussianNB()
 Best Scores:
-accuracy: 0.977 recall_macro: 0.982 precision_macro: 0.978 f1_macro: 0.978
+accuracy: 0.985 recall_macro: 0.987 precision_macro: 0.988 f1_macro: 0.987
               precision    recall  f1-score   support
 
-           0       1.00      1.00      1.00        18
-           1       1.00      1.00      1.00        17
-           2       1.00      1.00      1.00        10
+           0       0.83      0.91      0.87        11
+           1       0.94      0.77      0.85        22
+           2       0.80      1.00      0.89        12
 
-    accuracy                           1.00        45
-   macro avg       1.00      1.00      1.00        45
-weighted avg       1.00      1.00      1.00        45
+    accuracy                           0.87        45
+   macro avg       0.86      0.89      0.87        45
+weighted avg       0.88      0.87      0.87        45
 
-[[18  0  0]
- [ 0 17  0]
- [ 0  0 10]]
+[[10  1  0]
+ [ 2 17  3]
+ [ 0  0 12]]
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+Computing partial dependence plots...
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function plot_partial_dependence is deprecated; Function `plot_partial_dependence` is deprecated in 1.0 and will be removed in 1.2. Use PartialDependenceDisplay.from_estimator instead
+  warnings.warn(msg, category=FutureWarning)
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function plot_partial_dependence is deprecated; Function `plot_partial_dependence` is deprecated in 1.0 and will be removed in 1.2. Use PartialDependenceDisplay.from_estimator instead
+  warnings.warn(msg, category=FutureWarning)
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function plot_partial_dependence is deprecated; Function `plot_partial_dependence` is deprecated in 1.0 and will be removed in 1.2. Use PartialDependenceDisplay.from_estimator instead
+  warnings.warn(msg, category=FutureWarning)
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
+  warnings.warn(
 /home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use if_available instead.
   warnings.warn(
 </pre></div>
@@ -254,8 +319,8 @@ weighted avg       1.00      1.00      1.00        45
 <span class="n">explain</span><span class="p">(</span><span class="n">sc</span><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X_test</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_test</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.685 seconds)</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-explain-example-py">
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.035 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-explain-example-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/e428c113b13e9b657eb51a0f7358216a/plot_explain_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_explain_example.py</span></code></a></p>
 </div>
@@ -274,7 +339,7 @@ weighted avg       1.00      1.00      1.00        45
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="plot/plot_human_activity.html" class="btn btn-neutral float-right" title="Human Activity Recognition Visualization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="plot/index.html" class="btn btn-neutral float-right" title="Plotting examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="General examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
