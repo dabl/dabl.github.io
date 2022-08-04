@@ -43,8 +43,7 @@
   <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Discrete Scatter Example" href="plot_discrete_scatter.html" />
-    <link rel="prev" title="Wine Classification Dataset Visualization" href="plot_wine.html" /> 
+    <link rel="prev" title="Discrete Scatter Example" href="plot_discrete_scatter.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -114,11 +113,11 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_class_hists.html">Class Histogram Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_mfeat_factors.html">mfeat-factors dataset visualization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_ames.html">Ames Housing Dataset Visualization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_adult.html">Adult Census Dataset Visualization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_mosaic.html">Mosaic Plot Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_adult.html">Adult Census Dataset Visualization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_wine.html">Wine Classification Dataset Visualization</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Comparing categorical variable visualizations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_discrete_scatter.html">Discrete Scatter Example</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Comparing categorical variable visualizations</a></li>
 </ul>
 </li>
 </ul>
@@ -212,7 +211,7 @@ simply provides a bar-plot of class counts per category.
 However, it makes it hard to make comparisons between different categories.
 For example, for workclass, it is hard to see the differences in proportions
 among the categories.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_classification_categorical</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_classification_categorical</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_plot_categorical_types_adult_001.png" srcset="../../_images/sphx_glr_plot_categorical_types_adult_001.png" alt="Categorical Features vs Target, relationship, marital-status, education, occupation, gender, workclass, native-country, race" class = "sphx-glr-single-img"/><p>The ‘proportion’ plot on the other hand <em>only</em> shows the proportion, so we
@@ -220,24 +219,24 @@ can see that the proportions in state-government, government, and
 self-employed are nearly the same. However, ‘proportion’ does not show how
 many samples are in each category. How much each category is actually
 present in the data can be very important, though.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_classification_categorical</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;proportion&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_classification_categorical</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;proportion&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_plot_categorical_types_adult_002.png" srcset="../../_images/sphx_glr_plot_categorical_types_adult_002.png" alt="Categorical Features vs Target, relationship, marital-status, education, occupation, gender, workclass, native-country, race" class = "sphx-glr-single-img"/><p>The ‘mosaic’ plot shows both the class proportions within each category
 (on the x axis) as well as the proportion of the category in the data
 (on the y axis). The ‘mosaic’ plot can be a bit busy; in particular if
 there are many classes and many catgories, it becomes harder to interpret.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_classification_categorical</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;mosaic&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_classification_categorical</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;mosaic&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_plot_categorical_types_adult_003.png" srcset="../../_images/sphx_glr_plot_categorical_types_adult_003.png" alt="Categorical Features vs Target, relationship, marital-status, education, occupation, gender, workclass, native-country, race" class = "sphx-glr-single-img"/><p>The ‘sankey’ plot is even busier, as it combines the features of the ‘count’
 plot with an alluvial flow diagram of interactions.
 By default, only the 5 most common features are included in the sankey
 diagram, which can be adjusted by calling the plot_sankey function directly.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_classification_categorical</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;sankey&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_classification_categorical</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;sankey&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_categorical_types_adult_004.png" srcset="../../_images/sphx_glr_plot_categorical_types_adult_004.png" alt="plot categorical types adult" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  6.610 seconds)</p>
+<img src="../../_images/sphx_glr_plot_categorical_types_adult_004.png" srcset="../../_images/sphx_glr_plot_categorical_types_adult_004.png" alt="plot categorical types adult" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  6.137 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-plot-categorical-types-adult-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/bf77809e4b232653ff47321970de17ca/plot_categorical_types_adult.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_categorical_types_adult.py</span></code></a></p>
@@ -257,10 +256,8 @@ diagram, which can be adjusted by calling the plot_sankey function directly.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="plot_discrete_scatter.html" class="btn btn-neutral float-right" title="Discrete Scatter Example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="plot_wine.html" class="btn btn-neutral float-left" title="Wine Classification Dataset Visualization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="plot_discrete_scatter.html" class="btn btn-neutral float-left" title="Discrete Scatter Example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

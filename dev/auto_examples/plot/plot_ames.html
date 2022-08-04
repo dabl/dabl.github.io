@@ -43,7 +43,7 @@
   <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Adult Census Dataset Visualization" href="plot_adult.html" />
+    <link rel="next" title="Mosaic Plot Example" href="plot_mosaic.html" />
     <link rel="prev" title="mfeat-factors dataset visualization" href="plot_mfeat_factors.html" /> 
 </head>
 
@@ -114,11 +114,11 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_class_hists.html">Class Histogram Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_mfeat_factors.html">mfeat-factors dataset visualization</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Ames Housing Dataset Visualization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_adult.html">Adult Census Dataset Visualization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_mosaic.html">Mosaic Plot Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_adult.html">Adult Census Dataset Visualization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_wine.html">Wine Classification Dataset Visualization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_categorical_types_adult.html">Comparing categorical variable visualizations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_discrete_scatter.html">Discrete Scatter Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_categorical_types_adult.html">Comparing categorical variable visualizations</a></li>
 </ul>
 </li>
 </ul>
@@ -201,27 +201,25 @@ to download the full example code</p>
 <ul class="sphx-glr-horizontal">
 <li><img src="../../_images/sphx_glr_plot_ames_001.png" srcset="../../_images/sphx_glr_plot_ames_001.png" alt="Target distribution" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_ames_002.png" srcset="../../_images/sphx_glr_plot_ames_002.png" alt="Continuous Feature vs Target, F=8.08E-01, F=7.23E-01, F=7.01E-01, F=6.81E-01, F=6.60E-01, F=6.38E-01, F=6.05E-01, F=6.02E-01, F=5.81E-01, F=4.98E-01" class = "sphx-glr-multi-img"/></li>
-<li><img src="../../_images/sphx_glr_plot_ames_003.png" srcset="../../_images/sphx_glr_plot_ames_003.png" alt="Categorical Feature vs Target, F=5.68E-01, F=3.80E-01, F=3.30E-01, F=3.29E-01, F=2.97E-01, F=2.81E-01, F=2.61E-01, F=2.34E-01, F=2.29E-01, F=2.24E-01" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_ames_003.png" srcset="../../_images/sphx_glr_plot_ames_003.png" alt="Categorical Feature vs Target, F=5.70E-01, F=3.69E-01, F=3.26E-01, F=3.20E-01, F=2.87E-01, F=2.84E-01, F=2.58E-01, F=2.30E-01, F=2.29E-01, F=2.24E-01" class = "sphx-glr-multi-img"/></li>
 </ul>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/project/dabl/plot/supervised.py:556: FutureWarning: The second positional argument of plot is a Series &#39;y&#39;. If passing a column name, use a keyword.
-  warnings.warn(&quot;The second positional argument of plot is a Series &#39;y&#39;.&quot;
-Target looks like regression
-/home/circleci/project/dabl/plot/utils.py:639: UserWarning: Dropped 2 outliers in column SalePrice.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Target looks like regression
+/home/circleci/project/dabl/plot/utils.py:636: UserWarning: Dropped 2 outliers in column SalePrice.
   warn(&quot;Dropped {} outliers in column {}.&quot;.format(
-/home/circleci/project/dabl/plot/supervised.py:597: UserWarning: Discarding 2 outliers in target column.
+/home/circleci/project/dabl/plot/supervised.py:598: UserWarning: Discarding 2 outliers in target column.
   warn(f&quot;Discarding {n_outliers} outliers in target column.&quot;,
 Showing only top 10 of 26 continuous features
-/home/circleci/project/dabl/plot/utils.py:639: UserWarning: Dropped 3 outliers in column Gr Liv Area.
+/home/circleci/project/dabl/plot/utils.py:636: UserWarning: Dropped 3 outliers in column Gr Liv Area.
   warn(&quot;Dropped {} outliers in column {}.&quot;.format(
-/home/circleci/project/dabl/plot/utils.py:639: UserWarning: Dropped 1 outliers in column Garage Cars.
+/home/circleci/project/dabl/plot/utils.py:636: UserWarning: Dropped 1 outliers in column Garage Cars.
   warn(&quot;Dropped {} outliers in column {}.&quot;.format(
-/home/circleci/project/dabl/plot/utils.py:639: UserWarning: Dropped 1 outliers in column Garage Yr Blt.
+/home/circleci/project/dabl/plot/utils.py:636: UserWarning: Dropped 1 outliers in column Garage Yr Blt.
   warn(&quot;Dropped {} outliers in column {}.&quot;.format(
-/home/circleci/project/dabl/plot/utils.py:639: UserWarning: Dropped 2 outliers in column Total Bsmt SF.
+/home/circleci/project/dabl/plot/utils.py:636: UserWarning: Dropped 2 outliers in column Total Bsmt SF.
   warn(&quot;Dropped {} outliers in column {}.&quot;.format(
-/home/circleci/project/dabl/plot/utils.py:639: UserWarning: Dropped 4 outliers in column 1st Flr SF.
+/home/circleci/project/dabl/plot/utils.py:636: UserWarning: Dropped 4 outliers in column 1st Flr SF.
   warn(&quot;Dropped {} outliers in column {}.&quot;.format(
-/home/circleci/project/dabl/plot/utils.py:639: UserWarning: Dropped 1 outliers in column TotRms AbvGrd.
+/home/circleci/project/dabl/plot/utils.py:636: UserWarning: Dropped 1 outliers in column TotRms AbvGrd.
   warn(&quot;Dropped {} outliers in column {}.&quot;.format(
 Showing only top 10 of 41 categorical features
 </pre></div>
@@ -238,11 +236,11 @@ Showing only top 10 of 41 categorical features
 <span class="c1"># returns a plain dataframe</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">load_ames</span><span class="p">()</span>
 
-<span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;SalePrice&#39;</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;SalePrice&#39;</span><span class="p">)</span>
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.662 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.431 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-plot-ames-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/d7e0725f30b41ccf0b61892cda7f4e84/plot_ames.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_ames.py</span></code></a></p>
@@ -262,7 +260,7 @@ Showing only top 10 of 41 categorical features
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="plot_adult.html" class="btn btn-neutral float-right" title="Adult Census Dataset Visualization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="plot_mosaic.html" class="btn btn-neutral float-right" title="Mosaic Plot Example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="plot_mfeat_factors.html" class="btn btn-neutral float-left" title="mfeat-factors dataset visualization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
