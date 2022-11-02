@@ -62,45 +62,45 @@ Model Explanation
  .. code-block:: none
 
     Running DummyClassifier()
-    accuracy: 0.376 recall_macro: 0.333 precision_macro: 0.125 f1_macro: 0.182
+    accuracy: 0.391 recall_macro: 0.333 precision_macro: 0.130 f1_macro: 0.187
     === new best DummyClassifier() (using recall_macro):
-    accuracy: 0.376 recall_macro: 0.333 precision_macro: 0.125 f1_macro: 0.182
+    accuracy: 0.391 recall_macro: 0.333 precision_macro: 0.130 f1_macro: 0.187
 
     Running GaussianNB()
-    accuracy: 0.993 recall_macro: 0.993 precision_macro: 0.994 f1_macro: 0.993
+    accuracy: 0.977 recall_macro: 0.980 precision_macro: 0.976 f1_macro: 0.978
     === new best GaussianNB() (using recall_macro):
-    accuracy: 0.993 recall_macro: 0.993 precision_macro: 0.994 f1_macro: 0.993
+    accuracy: 0.977 recall_macro: 0.980 precision_macro: 0.976 f1_macro: 0.978
 
     Running MultinomialNB()
-    accuracy: 0.933 recall_macro: 0.936 precision_macro: 0.944 f1_macro: 0.937
+    accuracy: 0.932 recall_macro: 0.931 precision_macro: 0.946 f1_macro: 0.936
     Running DecisionTreeClassifier(class_weight='balanced', max_depth=1)
-    accuracy: 0.556 recall_macro: 0.591 precision_macro: 0.415 f1_macro: 0.466
+    accuracy: 0.602 recall_macro: 0.656 precision_macro: 0.432 f1_macro: 0.515
     Running DecisionTreeClassifier(class_weight='balanced', max_depth=5)
-    accuracy: 0.887 recall_macro: 0.889 precision_macro: 0.900 f1_macro: 0.884
+    accuracy: 0.903 recall_macro: 0.902 precision_macro: 0.907 f1_macro: 0.902
     Running DecisionTreeClassifier(class_weight='balanced', min_impurity_decrease=0.01)
-    accuracy: 0.895 recall_macro: 0.896 precision_macro: 0.902 f1_macro: 0.891
+    accuracy: 0.918 recall_macro: 0.915 precision_macro: 0.915 f1_macro: 0.914
     Running LogisticRegression(C=0.1, class_weight='balanced', max_iter=1000)
-    accuracy: 0.985 recall_macro: 0.987 precision_macro: 0.985 f1_macro: 0.985
+    accuracy: 0.977 recall_macro: 0.978 precision_macro: 0.977 f1_macro: 0.976
     Running LogisticRegression(C=1, class_weight='balanced', max_iter=1000)
-    accuracy: 0.985 recall_macro: 0.984 precision_macro: 0.986 f1_macro: 0.984
+    accuracy: 0.977 recall_macro: 0.978 precision_macro: 0.977 f1_macro: 0.976
 
     Best model:
     GaussianNB()
     Best Scores:
-    accuracy: 0.993 recall_macro: 0.993 precision_macro: 0.994 f1_macro: 0.993
+    accuracy: 0.977 recall_macro: 0.980 precision_macro: 0.976 f1_macro: 0.978
                   precision    recall  f1-score   support
 
-               0       1.00      0.92      0.96        12
-               1       0.95      0.95      0.95        21
-               2       0.92      1.00      0.96        12
+               0       1.00      1.00      1.00        11
+               1       1.00      1.00      1.00        19
+               2       1.00      1.00      1.00        15
 
-        accuracy                           0.96        45
-       macro avg       0.96      0.96      0.96        45
-    weighted avg       0.96      0.96      0.96        45
+        accuracy                           1.00        45
+       macro avg       1.00      1.00      1.00        45
+    weighted avg       1.00      1.00      1.00        45
 
-    [[11  1  0]
-     [ 0 20  1]
-     [ 0  0 12]]
+    [[11  0  0]
+     [ 0 19  0]
+     [ 0  0 15]]
     /home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
       warnings.warn(
     Computing partial dependence plots...
@@ -192,7 +192,7 @@ Model Explanation
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.440 seconds)
+   **Total running time of the script:** ( 0 minutes  3.714 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_explain_example.py:
