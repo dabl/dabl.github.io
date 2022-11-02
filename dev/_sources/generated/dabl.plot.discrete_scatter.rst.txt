@@ -1,4 +1,4 @@
-:mod:`dabl.plot`.discrete_scatter
+﻿:mod:`dabl.plot`.discrete_scatter
 ==============================================
 
 .. currentmodule:: dabl.plot

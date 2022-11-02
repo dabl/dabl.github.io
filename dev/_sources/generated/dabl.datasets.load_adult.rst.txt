@@ -1,4 +1,4 @@
-:mod:`dabl.datasets`.load_adult
+﻿:mod:`dabl.datasets`.load_adult
 ============================================
 
 .. currentmodule:: dabl.datasets

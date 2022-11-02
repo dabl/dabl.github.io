@@ -22,10 +22,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/js/copybutton.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
@@ -35,6 +37,8 @@
   
   <link rel="stylesheet" href="_static/css/project-template.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/project-template.css" type="text/css" />
   <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
   <link rel="stylesheet" href="_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="_static/sg_gallery.css" type="text/css" />
@@ -92,11 +96,11 @@
               
             
             
-              <p><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quickstart to ML with dabl</a></li>
 </ul>
-<p><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="user_guide.html">Machine Learning with dabl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts_term.html">Concepts and terminology</a></li>
@@ -112,7 +116,7 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">Examples</span></p>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">General examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#plotting-examples">Plotting examples</a></li>
@@ -181,16 +185,16 @@
            <div itemprop="articleBody">
             
   <section id="release-history">
-<h1>Release History<a class="headerlink" href="#release-history" title="Permalink to this headline">¶</a></h1>
+<h1>Release History<a class="headerlink" href="#release-history" title="Permalink to this heading">¶</a></h1>
 <section id="dabl-0-2-2">
-<h2>dabl 0.2.2<a class="headerlink" href="#dabl-0-2-2" title="Permalink to this headline">¶</a></h2>
+<h2>dabl 0.2.2<a class="headerlink" href="#dabl-0-2-2" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Added <cite>plot_sankey</cite>, <a class="reference external" href="https://github.com/dabl/dabl/issues/305">#305</a> by <a class="reference external" href="https://github.com/amueller">&#64;amueller</a> for Sankey plots (or really alluvial flow diagrams).</p></li>
 <li><p>Drop outliers in univariate target plots in regression. <a class="reference external" href="https://github.com/dabl/dabl/issues/304">#304</a> by <a class="reference external" href="https://github.com/amueller">&#64;amueller</a>.</p></li>
 </ul>
 </section>
 <section id="dabl-0-2-1">
-<h2>dabl 0.2.1<a class="headerlink" href="#dabl-0-2-1" title="Permalink to this headline">¶</a></h2>
+<h2>dabl 0.2.1<a class="headerlink" href="#dabl-0-2-1" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Plot missing values as separate category, <a class="reference external" href="https://github.com/dabl/dabl/issues/289">#289</a> by <a class="reference external" href="https://github.com/amueller">&#64;amueller</a>.</p></li>
 <li><p>Don’t import <cite>dateutil.parser.ParserError</cite> for more version flexibility.</p></li>
@@ -198,7 +202,7 @@
 </ul>
 </section>
 <section id="dabl-0-2-0">
-<h2>dabl 0.2.0<a class="headerlink" href="#dabl-0-2-0" title="Permalink to this headline">¶</a></h2>
+<h2>dabl 0.2.0<a class="headerlink" href="#dabl-0-2-0" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Rely on the Successive Halving implementation from scikit-learn 0.24, removing the old implementation.
 Consequently the search module in dabl has been deprecated and the minimum version requirement of scikit-learn is now 0.24.</p></li>
@@ -209,7 +213,7 @@ Consequently the search module in dabl has been deprecated and the minimum versi
 </ul>
 </section>
 <section id="dabl-0-1-9">
-<h2>dabl 0.1.9<a class="headerlink" href="#dabl-0-1-9" title="Permalink to this headline">¶</a></h2>
+<h2>dabl 0.1.9<a class="headerlink" href="#dabl-0-1-9" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Fix bug in type detection when a column contained boolean data and missing values, <a class="reference external" href="https://github.com/dabl/dabl/issues/256">#256</a> by <a class="reference external" href="https://github.com/amueller">&#64;amueller</a>.</p></li>
 <li><p>Bundle LICENSE file with project in release, <a class="reference external" href="https://github.com/dabl/dabl/issues/253">#253</a> by <a class="reference external" href="https://github.com/dhirschfeld">&#64;dhirschfeld</a>.</p></li>
@@ -218,7 +222,7 @@ Consequently the search module in dabl has been deprecated and the minimum versi
 </ul>
 </section>
 <section id="dabl-0-1-7">
-<h2>dabl  0.1.7<a class="headerlink" href="#dabl-0-1-7" title="Permalink to this headline">¶</a></h2>
+<h2>dabl  0.1.7<a class="headerlink" href="#dabl-0-1-7" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Ensure target column is not dropped in ‘clean’ for highly imbalanced datasets #171.</p></li>
 <li><p>Scale histograms separately in class histograms #173.</p></li>
@@ -230,13 +234,13 @@ Consequently the search module in dabl has been deprecated and the minimum versi
 </ul>
 </section>
 <section id="dabl-0-1-6">
-<h2>dabl 0.1.6<a class="headerlink" href="#dabl-0-1-6" title="Permalink to this headline">¶</a></h2>
+<h2>dabl 0.1.6<a class="headerlink" href="#dabl-0-1-6" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>More fixed to dirty floats with heterogeneous dtypes.</p></li>
 </ul>
 </section>
 <section id="dabl-0-1-5">
-<h2>dabl 0.1.5<a class="headerlink" href="#dabl-0-1-5" title="Permalink to this headline">¶</a></h2>
+<h2>dabl 0.1.5<a class="headerlink" href="#dabl-0-1-5" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>More robust detection of dirty floats, more robust parsing of categorical variables.</p></li>
 <li><p>Ensure data is parsed consistently between predict and fit by not calling <cite>clean</cite> in fit.</p></li>

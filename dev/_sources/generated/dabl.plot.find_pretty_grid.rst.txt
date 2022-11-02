@@ -1,4 +1,4 @@
-:mod:`dabl.plot`.find_pretty_grid
+﻿:mod:`dabl.plot`.find_pretty_grid
 ==============================================
 
 .. currentmodule:: dabl.plot

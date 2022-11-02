@@ -1,4 +1,4 @@
-:mod:`dabl.datasets`.load_ames
+﻿:mod:`dabl.datasets`.load_ames
 ===========================================
 
 .. currentmodule:: dabl.datasets

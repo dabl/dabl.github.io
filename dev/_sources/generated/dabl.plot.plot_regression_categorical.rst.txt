@@ -1,4 +1,4 @@
-:mod:`dabl.plot`.plot_regression_categorical
+﻿:mod:`dabl.plot`.plot_regression_categorical
 =========================================================
 
 .. currentmodule:: dabl.plot

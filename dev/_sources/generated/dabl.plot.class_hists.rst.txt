@@ -1,4 +1,4 @@
-:mod:`dabl.plot`.class_hists
+﻿:mod:`dabl.plot`.class_hists
 =========================================
 
 .. currentmodule:: dabl.plot

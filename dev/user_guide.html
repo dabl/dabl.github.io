@@ -22,10 +22,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/js/copybutton.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
@@ -35,6 +37,8 @@
   
   <link rel="stylesheet" href="_static/css/project-template.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/project-template.css" type="text/css" />
   <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
   <link rel="stylesheet" href="_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="_static/sg_gallery.css" type="text/css" />
@@ -92,11 +96,11 @@
               
             
             
-              <p><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quickstart to ML with dabl</a></li>
 </ul>
-<p><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Machine Learning with dabl</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#philosophy">Philosophy</a></li>
@@ -113,7 +117,7 @@
 <li class="toctree-l1"><a class="reference internal" href="api.html">dabl API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changes.html">Release History</a></li>
 </ul>
-<p><span class="caption-text">Examples</span></p>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">General examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#plotting-examples">Plotting examples</a></li>
@@ -182,9 +186,9 @@
            <div itemprop="articleBody">
             
   <section id="machine-learning-with-dabl">
-<span id="user-guide"></span><h1>Machine Learning with dabl<a class="headerlink" href="#machine-learning-with-dabl" title="Permalink to this headline">¶</a></h1>
+<span id="user-guide"></span><h1>Machine Learning with dabl<a class="headerlink" href="#machine-learning-with-dabl" title="Permalink to this heading">¶</a></h1>
 <section id="philosophy">
-<h2>Philosophy<a class="headerlink" href="#philosophy" title="Permalink to this headline">¶</a></h2>
+<h2>Philosophy<a class="headerlink" href="#philosophy" title="Permalink to this heading">¶</a></h2>
 <p>The idea behind dabl is to jump-start your supervised learning task.  dabl has
 several tools that make it easy to clean and inspect your data, and create
 strong baseline models.</p>
@@ -214,7 +218,7 @@ and the fitted models.</p>
 <p>dabl is meant to support you in the following tasks, in order:</p>
 </section>
 <section id="data-cleaning">
-<h2>Data cleaning<a class="headerlink" href="#data-cleaning" title="Permalink to this headline">¶</a></h2>
+<h2>Data cleaning<a class="headerlink" href="#data-cleaning" title="Permalink to this heading">¶</a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">dabl</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dabl</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">data_path</span><span class="p">(</span><span class="s2">&quot;adult.csv.gz&quot;</span><span class="p">))</span>
@@ -235,7 +239,7 @@ ordinal, text, etc) fails, the user can provide <code class="docutils literal no
 </div>
 </section>
 <section id="exploratory-data-analysis">
-<h2>Exploratory Data analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">¶</a></h2>
+<h2>Exploratory Data analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this heading">¶</a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dabl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s2">&quot;income&quot;</span><span class="p">)</span>
 <span class="go">Target looks like classification</span>
 <span class="go">Linear Discriminant Analysis training set score: ...</span>
@@ -252,7 +256,7 @@ might be.  It also allows a good assessment of whether there is any data
 leakage through spurious representations of the target in the data.</p>
 </section>
 <section id="initial-model-building">
-<h2>Initial Model Building<a class="headerlink" href="#initial-model-building" title="Permalink to this headline">¶</a></h2>
+<h2>Initial Model Building<a class="headerlink" href="#initial-model-building" title="Permalink to this heading">¶</a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ec</span> <span class="o">=</span> <span class="n">dabl</span><span class="o">.</span><span class="n">SimpleClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s2">&quot;income&quot;</span><span class="p">)</span> 
 <span class="go">    DummyClassifier(strategy=&#39;prior&#39;)</span>
 <span class="go">    accuracy: 0.759    average_precision: 0.241    recall_macro: 0.500    roc_auc: 0.500</span>
@@ -318,7 +322,7 @@ imputation and one-hot encoding.  You can inspect the model using:</p>
 cleaning of the data.</p>
 </section>
 <section id="enhanced-model-building">
-<h2>Enhanced Model Building<a class="headerlink" href="#enhanced-model-building" title="Permalink to this headline">¶</a></h2>
+<h2>Enhanced Model Building<a class="headerlink" href="#enhanced-model-building" title="Permalink to this heading">¶</a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># ac = AnyClassifier().fit(data, target_col=&quot;income&quot;) not implemented yet</span>
 </pre></div>
 </div>
@@ -333,7 +337,7 @@ better:</p>
 </div>
 </section>
 <section id="explainable-model-building">
-<h2>Explainable Model Building<a class="headerlink" href="#explainable-model-building" title="Permalink to this headline">¶</a></h2>
+<h2>Explainable Model Building<a class="headerlink" href="#explainable-model-building" title="Permalink to this heading">¶</a></h2>
 <p>TODO this is not done yet!</p>
 <p>Sometimes, explainability of a model can be more important than performance. A
 complex model can serve as a good benchmark on what is achievable on a certain
@@ -345,7 +349,7 @@ performance.</p>
 </div>
 </section>
 <section id="limitations">
-<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">¶</a></h2>
 <p>Right now dabl does not deal with text data and time series data.  It also does
 not consider neural network models.  Image, audio and video data is considered
 out of scope.  All current implementation are quite rudimentary and rely
@@ -353,7 +357,7 @@ heavily on heuristics. The goal is to replace these with more principled
 approaches where this provides a benefit.</p>
 </section>
 <section id="future-goals-and-roadmap">
-<h2>Future Goals and Roadmap<a class="headerlink" href="#future-goals-and-roadmap" title="Permalink to this headline">¶</a></h2>
+<h2>Future Goals and Roadmap<a class="headerlink" href="#future-goals-and-roadmap" title="Permalink to this heading">¶</a></h2>
 <p>dabl aims to provide easy-to-use, turn-key solutions for supervised machine
 learning that strongly encourage iterative and interactive model building.
 Key ingredients to achieve this are:</p>

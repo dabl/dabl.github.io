@@ -22,10 +22,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/js/copybutton.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -35,6 +37,8 @@
   
   <link rel="stylesheet" href="../_static/css/project-template.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/project-template.css" type="text/css" />
   <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
   <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
@@ -92,11 +96,11 @@
               
             
             
-              <p><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quickstart to ML with dabl</a></li>
 </ul>
-<p><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../user_guide.html">Machine Learning with dabl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts_term.html">Concepts and terminology</a></li>
@@ -123,7 +127,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../changes.html">Release History</a></li>
 </ul>
-<p><span class="caption-text">Examples</span></p>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">General examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#plotting-examples">Plotting examples</a></li>
@@ -194,10 +198,10 @@
            <div itemprop="articleBody">
             
   <section id="dabl-plot-plot-classification-categorical">
-<h1><a class="reference internal" href="dabl.plot.html#dabl.plot" title="dabl.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code></a>.plot_classification_categorical<a class="headerlink" href="#dabl-plot-plot-classification-categorical" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
-<dt id="dabl.plot.plot_classification_categorical">
-<code class="sig-prename descclassname">dabl.plot.</code><code class="sig-name descname">plot_classification_categorical</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">*</em>, <em class="sig-param">target_col</em>, <em class="sig-param">types=None</em>, <em class="sig-param">kind='auto'</em>, <em class="sig-param">hue_order=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/0ecd89a/dabl/plot/supervised.py#L408"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dabl.plot.plot_classification_categorical" title="Permalink to this definition">¶</a></dt>
+<h1><a class="reference internal" href="dabl.plot.html#dabl.plot" title="dabl.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dabl.plot</span></code></a>.plot_classification_categorical<a class="headerlink" href="#dabl-plot-plot-classification-categorical" title="Permalink to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="dabl.plot.plot_classification_categorical">
+<span class="sig-prename descclassname"><span class="pre">dabl.plot.</span></span><span class="sig-name descname"><span class="pre">plot_classification_categorical</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hue_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/dabl/dabl/blob/d711e93/dabl/plot/supervised.py#L408"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dabl.plot.plot_classification_categorical" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots for categorical features in classification.</p>
 <p>Creates plots of categorical variable distributions for each target class.
 Relevant features are identified via mutual information.</p>

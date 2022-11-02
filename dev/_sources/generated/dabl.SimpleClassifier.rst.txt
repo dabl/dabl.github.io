@@ -1,4 +1,4 @@
-:mod:`dabl`.SimpleClassifier
+﻿:mod:`dabl`.SimpleClassifier
 ===================================
 
 .. currentmodule:: dabl

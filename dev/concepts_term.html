@@ -22,10 +22,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/js/copybutton.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
@@ -35,6 +37,8 @@
   
   <link rel="stylesheet" href="_static/css/project-template.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/project-template.css" type="text/css" />
   <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
   <link rel="stylesheet" href="_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="_static/sg_gallery.css" type="text/css" />
@@ -92,11 +96,11 @@
               
             
             
-              <p><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quickstart to ML with dabl</a></li>
 </ul>
-<p><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="user_guide.html">Machine Learning with dabl</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Concepts and terminology</a><ul>
@@ -106,7 +110,7 @@
 <li class="toctree-l1"><a class="reference internal" href="api.html">dabl API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changes.html">Release History</a></li>
 </ul>
-<p><span class="caption-text">Examples</span></p>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">General examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#plotting-examples">Plotting examples</a></li>
@@ -175,7 +179,7 @@
            <div itemprop="articleBody">
             
   <section id="concepts-and-terminology">
-<h1>Concepts and terminology<a class="headerlink" href="#concepts-and-terminology" title="Permalink to this headline">¶</a></h1>
+<h1>Concepts and terminology<a class="headerlink" href="#concepts-and-terminology" title="Permalink to this heading">¶</a></h1>
 <p>dabl tries to reduce the turnaround time required for a quick baseline estimate
 of a supervised learning problem. It does so by automating the task of iterating
 through different techniques of data preprocessing, feature engineering,
@@ -185,7 +189,7 @@ heuristics to generate the best possible outcome. dabl also employs the use of
 specific terminologies related to datasets, plots or machine learning
 techniques.</p>
 <section id="column-types">
-<h2>Column types<a class="headerlink" href="#column-types" title="Permalink to this headline">¶</a></h2>
+<h2>Column types<a class="headerlink" href="#column-types" title="Permalink to this heading">¶</a></h2>
 <p>One of the most important aspects of preprocessing is understanding the type of
 data present in each column of your dataset. The columns could contain integers
 that are binary, ordinal or nominal; float; character strings or even missing

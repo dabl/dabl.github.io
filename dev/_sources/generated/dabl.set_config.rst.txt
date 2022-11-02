@@ -1,4 +1,4 @@
-:mod:`dabl`.set_config
+﻿:mod:`dabl`.set_config
 ===================================
 
 .. currentmodule:: dabl

@@ -22,10 +22,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/js/copybutton.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
@@ -35,6 +37,8 @@
   
   <link rel="stylesheet" href="_static/css/project-template.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/project-template.css" type="text/css" />
   <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
   <link rel="stylesheet" href="_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="_static/sg_gallery.css" type="text/css" />
@@ -91,18 +95,18 @@
               
             
             
-              <p><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quickstart to ML with dabl</a></li>
 </ul>
-<p><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="user_guide.html">Machine Learning with dabl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts_term.html">Concepts and terminology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">dabl API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changes.html">Release History</a></li>
 </ul>
-<p><span class="caption-text">Examples</span></p>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">General examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#plotting-examples">Plotting examples</a></li>
@@ -171,13 +175,13 @@
            <div itemprop="articleBody">
             
   <section id="welcome-to-dabl-the-data-analysis-baseline-library">
-<h1>Welcome to dabl, the Data Analysis Baseline Library<a class="headerlink" href="#welcome-to-dabl-the-data-analysis-baseline-library" title="Permalink to this headline">¶</a></h1>
+<h1>Welcome to dabl, the Data Analysis Baseline Library<a class="headerlink" href="#welcome-to-dabl-the-data-analysis-baseline-library" title="Permalink to this heading">¶</a></h1>
 <p>This project tries to help make supervised machine learning more accessible for
 beginners, and reduce boiler plate for common tasks.</p>
 <p>This library is in very active development, so it’s not recommended for production use.</p>
 <p>Development at <a class="reference external" href="https://github.com/dabl/dabl">github.com/dabl/dabl</a>.</p>
 <section id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
 <p>A minimum example of using dabl for classification is:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">dabl</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
@@ -194,31 +198,31 @@ beginners, and reduce boiler plate for common tasks.</p>
 within several seconds with an accuracy of 0.98.</p>
 <p>The real strength of <code class="docutils literal notranslate"><span class="pre">dabl</span></code> is in providing simple interfaces for data exploration.
 Here are some examples of visualizations produced simply by calling <code class="docutils literal notranslate"><span class="pre">plot(X,</span> <span class="pre">y)</span></code>:</p>
-<figure class="align-center" id="figure-1">
+<figure class="align-center" id="id1">
 <a class="reference external image-reference" href="auto_examples/plot/plot_ames.html"><img alt="_images/sphx_glr_plot_ames_003.png" src="_images/sphx_glr_plot_ames_003.png" style="width: 600.0px; height: 300.0px;" /></a>
 <figcaption>
-<p><span class="caption-text">Impact of categorical variables in the ames housing regression dataset.</span><a class="headerlink" href="#figure-1" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text">Impact of categorical variables in the ames housing regression dataset.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<figure class="align-center" id="figure-2">
+<figure class="align-center" id="id2">
 <a class="reference external image-reference" href="auto_examples/plot/plot_splice.html"><img alt="_images/sphx_glr_plot_splice_002.png" src="_images/sphx_glr_plot_splice_002.png" style="width: 600.0px; height: 300.0px;" /></a>
 <figcaption>
-<p><span class="caption-text">Mosaic plot of the categorical variables in the splice classification task.</span><a class="headerlink" href="#figure-2" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text">Mosaic plot of the categorical variables in the splice classification task.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<figure class="align-center" id="figure-3">
+<figure class="align-center" id="id3">
 <a class="reference external image-reference" href="auto_examples/plot/plot_human_activity.html"><img alt="_images/sphx_glr_plot_human_activity_003.png" src="_images/sphx_glr_plot_human_activity_003.png" style="width: 960.0px; height: 240.0px;" /></a>
 <figcaption>
 <p><span class="caption-text">Interesting pairplots are automatically found, such as here for the
-human activity classification dataset.</span><a class="headerlink" href="#figure-3" title="Permalink to this image">¶</a></p>
+human activity classification dataset.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<figure class="align-center" id="figure-4">
+<figure class="align-center" id="id4">
 <a class="reference external image-reference" href="auto_examples/plot/plot_mfeat_factors.html"><img alt="_images/sphx_glr_plot_mfeat_factors_005.png" src="_images/sphx_glr_plot_mfeat_factors_005.png" style="width: 960.0px; height: 240.0px;" /></a>
 <figcaption>
 <p><span class="caption-text">Often Linear Discriminant Analysis can find interesting linear projections
 of the data.  Here on the mfeat-factors dataset most of the 10 classes can
-be well separated using a 2d projection.</span><a class="headerlink" href="#figure-4" title="Permalink to this image">¶</a></p>
+be well separated using a 2d projection.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="toctree-wrapper compound">

@@ -1,4 +1,4 @@
-:mod:`dabl`.AnyClassifier
+﻿:mod:`dabl`.AnyClassifier
 ================================
 
 .. currentmodule:: dabl

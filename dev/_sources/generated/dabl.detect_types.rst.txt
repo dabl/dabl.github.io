@@ -1,4 +1,4 @@
-:mod:`dabl`.detect_types
+﻿:mod:`dabl`.detect_types
 =====================================
 
 .. currentmodule:: dabl

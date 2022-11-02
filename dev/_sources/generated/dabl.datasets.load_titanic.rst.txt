@@ -1,4 +1,4 @@
-:mod:`dabl.datasets`.load_titanic
+﻿:mod:`dabl.datasets`.load_titanic
 ==============================================
 
 .. currentmodule:: dabl.datasets

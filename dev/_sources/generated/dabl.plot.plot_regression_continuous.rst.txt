@@ -1,4 +1,4 @@
-:mod:`dabl.plot`.plot_regression_continuous
+﻿:mod:`dabl.plot`.plot_regression_continuous
 ========================================================
 
 .. currentmodule:: dabl.plot

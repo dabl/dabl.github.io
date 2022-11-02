@@ -1,4 +1,4 @@
-:mod:`dabl.plot`.plot_coefficients
+﻿:mod:`dabl.plot`.plot_coefficients
 ===============================================
 
 .. currentmodule:: dabl.plot

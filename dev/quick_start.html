@@ -22,10 +22,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/js/copybutton.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
@@ -35,6 +37,8 @@
   
   <link rel="stylesheet" href="_static/css/project-template.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/project-template.css" type="text/css" />
   <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
   <link rel="stylesheet" href="_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="_static/sg_gallery.css" type="text/css" />
@@ -92,18 +96,18 @@
               
             
             
-              <p><span class="caption-text">Getting Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstart to ML with dabl</a></li>
 </ul>
-<p><span class="caption-text">Documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="user_guide.html">Machine Learning with dabl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="concepts_term.html">Concepts and terminology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">dabl API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changes.html">Release History</a></li>
 </ul>
-<p><span class="caption-text">Examples</span></p>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">General examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#plotting-examples">Plotting examples</a></li>
@@ -172,7 +176,7 @@
            <div itemprop="articleBody">
             
   <section id="quickstart-to-ml-with-dabl">
-<h1>Quickstart to ML with dabl<a class="headerlink" href="#quickstart-to-ml-with-dabl" title="Permalink to this headline">¶</a></h1>
+<h1>Quickstart to ML with dabl<a class="headerlink" href="#quickstart-to-ml-with-dabl" title="Permalink to this heading">¶</a></h1>
 <p>Let’s dive right in!</p>
 <p>Let’s start with the classic. You have the titanic.csv file and want to predict
 whether a passenger survived or not based on the information about the
@@ -250,34 +254,34 @@ we can create plot of the features deemed most important for our task.</p>
 </pre></div>
 </div>
 <p>(<a class="reference external" href=".//quick_start-1.py">Source code</a>)</p>
-<figure class="align-default" id="figure-1">
+<figure class="align-default" id="id1">
 <img alt="_images/quick_start-1_00.png" class="plot-directive" src="_images/quick_start-1_00.png" />
 <figcaption>
-<p><span class="caption-text">(<a class="reference external" href=".//quick_start-1_00.png">png</a>, <a class="reference external" href=".//quick_start-1_00.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_00.pdf">pdf</a>)</span><a class="headerlink" href="#figure-1" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text">(<a class="reference external" href=".//quick_start-1_00.png">png</a>, <a class="reference external" href=".//quick_start-1_00.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_00.pdf">pdf</a>)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="figure-2">
+<figure class="align-default" id="id2">
 <img alt="_images/quick_start-1_01.png" class="plot-directive" src="_images/quick_start-1_01.png" />
 <figcaption>
-<p><span class="caption-text">(<a class="reference external" href=".//quick_start-1_01.png">png</a>, <a class="reference external" href=".//quick_start-1_01.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_01.pdf">pdf</a>)</span><a class="headerlink" href="#figure-2" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text">(<a class="reference external" href=".//quick_start-1_01.png">png</a>, <a class="reference external" href=".//quick_start-1_01.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_01.pdf">pdf</a>)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="figure-3">
+<figure class="align-default" id="id3">
 <img alt="_images/quick_start-1_02.png" class="plot-directive" src="_images/quick_start-1_02.png" />
 <figcaption>
-<p><span class="caption-text">(<a class="reference external" href=".//quick_start-1_02.png">png</a>, <a class="reference external" href=".//quick_start-1_02.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_02.pdf">pdf</a>)</span><a class="headerlink" href="#figure-3" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text">(<a class="reference external" href=".//quick_start-1_02.png">png</a>, <a class="reference external" href=".//quick_start-1_02.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_02.pdf">pdf</a>)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="figure-4">
+<figure class="align-default" id="id4">
 <img alt="_images/quick_start-1_03.png" class="plot-directive" src="_images/quick_start-1_03.png" />
 <figcaption>
-<p><span class="caption-text">(<a class="reference external" href=".//quick_start-1_03.png">png</a>, <a class="reference external" href=".//quick_start-1_03.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_03.pdf">pdf</a>)</span><a class="headerlink" href="#figure-4" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text">(<a class="reference external" href=".//quick_start-1_03.png">png</a>, <a class="reference external" href=".//quick_start-1_03.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_03.pdf">pdf</a>)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="figure-5">
+<figure class="align-default" id="id5">
 <img alt="_images/quick_start-1_04.png" class="plot-directive" src="_images/quick_start-1_04.png" />
 <figcaption>
-<p><span class="caption-text">(<a class="reference external" href=".//quick_start-1_04.png">png</a>, <a class="reference external" href=".//quick_start-1_04.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_04.pdf">pdf</a>)</span><a class="headerlink" href="#figure-5" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text">(<a class="reference external" href=".//quick_start-1_04.png">png</a>, <a class="reference external" href=".//quick_start-1_04.hires.png">hires.png</a>, <a class="reference external" href=".//quick_start-1_04.pdf">pdf</a>)</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Finally, we can find an initial model for our data. The SimpleClassifier does all
