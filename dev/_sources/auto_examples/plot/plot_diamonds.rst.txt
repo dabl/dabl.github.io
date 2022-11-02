@@ -39,14 +39,14 @@ Regression on the classical diamond dataset.
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_diamonds_002.png
-         :alt: Continuous Feature vs Target, F=9.63E-01, F=9.63E-01, F=9.63E-01, F=9.57E-01, F=1.72E-01, F=1.00E-02
+         :alt: Continuous Feature vs Target, F=9.63E-01, F=1.72E-01, F=1.00E-02
          :srcset: /auto_examples/plot/images/sphx_glr_plot_diamonds_002.png
          :class: sphx-glr-multi-img
 
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_diamonds_003.png
-         :alt: Categorical Feature vs Target, F=3.64E-01, F=2.85E-01, F=1.03E-01
+         :alt: Categorical Feature vs Target, F=3.62E-01, F=2.84E-01, F=1.02E-01
          :srcset: /auto_examples/plot/images/sphx_glr_plot_diamonds_003.png
          :class: sphx-glr-multi-img
 
@@ -58,18 +58,12 @@ Regression on the classical diamond dataset.
     /home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/datasets/_openml.py:292: UserWarning: Multiple active versions of the dataset matching the name diamonds exist. Versions may be fundamentally different, returning version 1.
       warn(
     Target looks like regression
-    /home/circleci/project/dabl/plot/utils.py:638: UserWarning: Dropped 9 outliers in column x.
-      warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:638: UserWarning: Dropped 13 outliers in column carat.
-      warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:638: UserWarning: Dropped 10 outliers in column y.
-      warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:638: UserWarning: Dropped 25 outliers in column z.
-      warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:638: UserWarning: Dropped 19 outliers in column table.
-      warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/utils.py:638: UserWarning: Dropped 52 outliers in column depth.
-      warn("Dropped {} outliers in column {}.".format(
+    /home/circleci/project/dabl/plot/supervised.py:104: UserWarning: Not plotting highly correlated (0.9961166041570525) feature carat. Set prune_correlations_threshold=0 to keep.
+      warn(f"Not plotting highly correlated ({corr.max()})"
+    /home/circleci/project/dabl/plot/supervised.py:104: UserWarning: Not plotting highly correlated (0.9978949275849379) feature y. Set prune_correlations_threshold=0 to keep.
+      warn(f"Not plotting highly correlated ({corr.max()})"
+    /home/circleci/project/dabl/plot/supervised.py:104: UserWarning: Not plotting highly correlated (0.9873553172140505) feature z. Set prune_correlations_threshold=0 to keep.
+      warn(f"Not plotting highly correlated ({corr.max()})"
 
 
 
@@ -93,7 +87,7 @@ Regression on the classical diamond dataset.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  8.381 seconds)
+   **Total running time of the script:** ( 0 minutes  10.957 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_diamonds.py:

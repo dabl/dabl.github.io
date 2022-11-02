@@ -205,26 +205,15 @@ to download the full example code</p>
 <ul class="sphx-glr-horizontal">
 <li><img src="../../_images/sphx_glr_plot_ames_001.png" srcset="../../_images/sphx_glr_plot_ames_001.png" alt="Target distribution" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_ames_002.png" srcset="../../_images/sphx_glr_plot_ames_002.png" alt="Continuous Feature vs Target, F=8.08E-01, F=7.23E-01, F=7.01E-01, F=6.81E-01, F=6.60E-01, F=6.38E-01, F=6.05E-01, F=6.02E-01, F=5.81E-01, F=4.98E-01" class = "sphx-glr-multi-img"/></li>
-<li><img src="../../_images/sphx_glr_plot_ames_003.png" srcset="../../_images/sphx_glr_plot_ames_003.png" alt="Categorical Feature vs Target, F=5.63E-01, F=3.63E-01, F=3.30E-01, F=3.29E-01, F=2.91E-01, F=2.78E-01, F=2.61E-01, F=2.41E-01, F=2.29E-01, F=2.20E-01" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_ames_003.png" srcset="../../_images/sphx_glr_plot_ames_003.png" alt="Categorical Feature vs Target, F=5.68E-01, F=3.74E-01, F=3.23E-01, F=3.21E-01, F=2.90E-01, F=2.87E-01, F=2.57E-01, F=2.42E-01, F=2.31E-01, F=2.29E-01" class = "sphx-glr-multi-img"/></li>
 </ul>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Target looks like regression
-/home/circleci/project/dabl/plot/utils.py:638: UserWarning: Dropped 2 outliers in column SalePrice.
+/home/circleci/project/dabl/plot/utils.py:678: UserWarning: Dropped 2 outliers in column SalePrice.
   warn(&quot;Dropped {} outliers in column {}.&quot;.format(
-/home/circleci/project/dabl/plot/supervised.py:602: UserWarning: Discarding 2 outliers in target column.
+/home/circleci/project/dabl/plot/supervised.py:642: UserWarning: Discarding 2 outliers in target column.
   warn(f&quot;Discarding {n_outliers} outliers in target column.&quot;,
-Showing only top 10 of 26 continuous features
-/home/circleci/project/dabl/plot/utils.py:638: UserWarning: Dropped 3 outliers in column Gr Liv Area.
-  warn(&quot;Dropped {} outliers in column {}.&quot;.format(
-/home/circleci/project/dabl/plot/utils.py:638: UserWarning: Dropped 1 outliers in column Garage Cars.
-  warn(&quot;Dropped {} outliers in column {}.&quot;.format(
-/home/circleci/project/dabl/plot/utils.py:638: UserWarning: Dropped 1 outliers in column Garage Yr Blt.
-  warn(&quot;Dropped {} outliers in column {}.&quot;.format(
-/home/circleci/project/dabl/plot/utils.py:638: UserWarning: Dropped 2 outliers in column Total Bsmt SF.
-  warn(&quot;Dropped {} outliers in column {}.&quot;.format(
-/home/circleci/project/dabl/plot/utils.py:638: UserWarning: Dropped 4 outliers in column 1st Flr SF.
-  warn(&quot;Dropped {} outliers in column {}.&quot;.format(
-/home/circleci/project/dabl/plot/utils.py:638: UserWarning: Dropped 1 outliers in column TotRms AbvGrd.
-  warn(&quot;Dropped {} outliers in column {}.&quot;.format(
+/home/circleci/project/dabl/plot/supervised.py:108: UserWarning: Showing only top 10 continuous features.
+  warn(&quot;Showing only top 10 continuous features.&quot;)
 Showing only top 10 of 41 categorical features
 </pre></div>
 </div>
@@ -244,7 +233,7 @@ Showing only top 10 of 41 categorical features
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.140 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  25.006 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-plot-ames-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/d7e0725f30b41ccf0b61892cda7f4e84/plot_ames.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_ames.py</span></code></a></p>

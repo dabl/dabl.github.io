@@ -189,54 +189,111 @@ to download the full example code</p>
 <span id="sphx-glr-auto-examples-plot-explain-example-py"></span><h1>Model Explanation<a class="headerlink" href="#model-explanation" title="Permalink to this heading">¶</a></h1>
 <ul class="sphx-glr-horizontal">
 <li><img src="../_images/sphx_glr_plot_explain_example_001.png" srcset="../_images/sphx_glr_plot_explain_example_001.png" alt="ROC curve for class 0, ROC curve for class 1, ROC curve for class 2" class = "sphx-glr-multi-img"/></li>
-<li><img src="../_images/sphx_glr_plot_explain_example_002.png" srcset="../_images/sphx_glr_plot_explain_example_002.png" alt="class: 0, class: 1, class: 2" class = "sphx-glr-multi-img"/></li>
+<li><img src="../_images/sphx_glr_plot_explain_example_002.png" srcset="../_images/sphx_glr_plot_explain_example_002.png" alt="Partial Dependence for class 0" class = "sphx-glr-multi-img"/></li>
+<li><img src="../_images/sphx_glr_plot_explain_example_003.png" srcset="../_images/sphx_glr_plot_explain_example_003.png" alt="Partial Dependence for class 1" class = "sphx-glr-multi-img"/></li>
+<li><img src="../_images/sphx_glr_plot_explain_example_004.png" srcset="../_images/sphx_glr_plot_explain_example_004.png" alt="Partial Dependence for class 2" class = "sphx-glr-multi-img"/></li>
 </ul>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Running DummyClassifier()
-accuracy: 0.406 recall_macro: 0.333 precision_macro: 0.135 f1_macro: 0.192
+accuracy: 0.376 recall_macro: 0.333 precision_macro: 0.125 f1_macro: 0.182
 === new best DummyClassifier() (using recall_macro):
-accuracy: 0.406 recall_macro: 0.333 precision_macro: 0.135 f1_macro: 0.192
+accuracy: 0.376 recall_macro: 0.333 precision_macro: 0.125 f1_macro: 0.182
 
 Running GaussianNB()
-accuracy: 0.962 recall_macro: 0.968 precision_macro: 0.964 f1_macro: 0.964
+accuracy: 0.993 recall_macro: 0.993 precision_macro: 0.994 f1_macro: 0.993
 === new best GaussianNB() (using recall_macro):
-accuracy: 0.962 recall_macro: 0.968 precision_macro: 0.964 f1_macro: 0.964
+accuracy: 0.993 recall_macro: 0.993 precision_macro: 0.994 f1_macro: 0.993
 
 Running MultinomialNB()
-accuracy: 0.947 recall_macro: 0.943 precision_macro: 0.960 f1_macro: 0.948
+accuracy: 0.933 recall_macro: 0.936 precision_macro: 0.944 f1_macro: 0.937
 Running DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=1)
-accuracy: 0.556 recall_macro: 0.620 precision_macro: 0.419 f1_macro: 0.485
+accuracy: 0.556 recall_macro: 0.591 precision_macro: 0.415 f1_macro: 0.466
 Running DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=5)
-accuracy: 0.932 recall_macro: 0.935 precision_macro: 0.941 f1_macro: 0.934
+accuracy: 0.887 recall_macro: 0.889 precision_macro: 0.900 f1_macro: 0.884
 Running DecisionTreeClassifier(class_weight=&#39;balanced&#39;, min_impurity_decrease=0.01)
-accuracy: 0.910 recall_macro: 0.910 precision_macro: 0.916 f1_macro: 0.908
+accuracy: 0.895 recall_macro: 0.896 precision_macro: 0.902 f1_macro: 0.891
 Running LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, max_iter=1000)
-accuracy: 0.970 recall_macro: 0.975 precision_macro: 0.969 f1_macro: 0.970
-=== new best LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, max_iter=1000) (using recall_macro):
-accuracy: 0.970 recall_macro: 0.975 precision_macro: 0.969 f1_macro: 0.970
-
+accuracy: 0.985 recall_macro: 0.987 precision_macro: 0.985 f1_macro: 0.985
 Running LogisticRegression(C=1, class_weight=&#39;balanced&#39;, max_iter=1000)
-accuracy: 0.977 recall_macro: 0.982 precision_macro: 0.977 f1_macro: 0.978
-=== new best LogisticRegression(C=1, class_weight=&#39;balanced&#39;, max_iter=1000) (using recall_macro):
-accuracy: 0.977 recall_macro: 0.982 precision_macro: 0.977 f1_macro: 0.978
-
+accuracy: 0.985 recall_macro: 0.984 precision_macro: 0.986 f1_macro: 0.984
 
 Best model:
-LogisticRegression(C=1, class_weight=&#39;balanced&#39;, max_iter=1000)
+GaussianNB()
 Best Scores:
-accuracy: 0.977 recall_macro: 0.982 precision_macro: 0.977 f1_macro: 0.978
+accuracy: 0.993 recall_macro: 0.993 precision_macro: 0.994 f1_macro: 0.993
               precision    recall  f1-score   support
 
-           0       0.94      1.00      0.97        16
-           1       0.94      0.94      0.94        17
-           2       1.00      0.92      0.96        12
+           0       1.00      0.92      0.96        12
+           1       0.95      0.95      0.95        21
+           2       0.92      1.00      0.96        12
 
     accuracy                           0.96        45
-   macro avg       0.96      0.95      0.96        45
+   macro avg       0.96      0.96      0.96        45
 weighted avg       0.96      0.96      0.96        45
 
-[[16  0  0]
- [ 1 16  0]
- [ 0  1 11]]
+[[11  1  0]
+ [ 0 20  1]
+ [ 0  0 12]]
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+Computing partial dependence plots...
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
+/home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
+  warnings.warn(
 /home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
   warnings.warn(
 </pre></div>
@@ -260,7 +317,7 @@ weighted avg       0.96      0.96      0.96        45
 <span class="n">explain</span><span class="p">(</span><span class="n">sc</span><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X_test</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_test</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.691 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.440 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-explain-example-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/e428c113b13e9b657eb51a0f7358216a/plot_explain_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_explain_example.py</span></code></a></p>
