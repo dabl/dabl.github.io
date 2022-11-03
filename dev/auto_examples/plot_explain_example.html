@@ -192,48 +192,48 @@ to download the full example code</p>
 <li><img src="../_images/sphx_glr_plot_explain_example_002.png" srcset="../_images/sphx_glr_plot_explain_example_002.png" alt="class: 0, class: 1, class: 2" class = "sphx-glr-multi-img"/></li>
 </ul>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Running DummyClassifier()
-accuracy: 0.406 recall_macro: 0.333 precision_macro: 0.135 f1_macro: 0.192
+accuracy: 0.399 recall_macro: 0.333 precision_macro: 0.133 f1_macro: 0.190
 === new best DummyClassifier() (using recall_macro):
-accuracy: 0.406 recall_macro: 0.333 precision_macro: 0.135 f1_macro: 0.192
+accuracy: 0.399 recall_macro: 0.333 precision_macro: 0.133 f1_macro: 0.190
 
 Running GaussianNB()
-accuracy: 0.977 recall_macro: 0.980 precision_macro: 0.981 f1_macro: 0.980
+accuracy: 0.970 recall_macro: 0.971 precision_macro: 0.977 f1_macro: 0.971
 === new best GaussianNB() (using recall_macro):
-accuracy: 0.977 recall_macro: 0.980 precision_macro: 0.981 f1_macro: 0.980
+accuracy: 0.970 recall_macro: 0.971 precision_macro: 0.977 f1_macro: 0.971
 
 Running MultinomialNB()
-accuracy: 0.940 recall_macro: 0.940 precision_macro: 0.955 f1_macro: 0.944
+accuracy: 0.970 recall_macro: 0.969 precision_macro: 0.977 f1_macro: 0.971
 Running DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=1)
-accuracy: 0.572 recall_macro: 0.638 precision_macro: 0.432 f1_macro: 0.500
+accuracy: 0.526 recall_macro: 0.585 precision_macro: 0.430 f1_macro: 0.460
 Running DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=5)
-accuracy: 0.940 recall_macro: 0.939 precision_macro: 0.955 f1_macro: 0.939
+accuracy: 0.827 recall_macro: 0.831 precision_macro: 0.842 f1_macro: 0.826
 Running DecisionTreeClassifier(class_weight=&#39;balanced&#39;, min_impurity_decrease=0.01)
-accuracy: 0.948 recall_macro: 0.948 precision_macro: 0.960 f1_macro: 0.949
+accuracy: 0.842 recall_macro: 0.844 precision_macro: 0.849 f1_macro: 0.838
 Running LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, max_iter=1000)
-accuracy: 0.985 recall_macro: 0.988 precision_macro: 0.985 f1_macro: 0.986
+accuracy: 0.977 recall_macro: 0.979 precision_macro: 0.978 f1_macro: 0.978
 === new best LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, max_iter=1000) (using recall_macro):
-accuracy: 0.985 recall_macro: 0.988 precision_macro: 0.985 f1_macro: 0.986
+accuracy: 0.977 recall_macro: 0.979 precision_macro: 0.978 f1_macro: 0.978
 
 Running LogisticRegression(C=1, class_weight=&#39;balanced&#39;, max_iter=1000)
-accuracy: 0.985 recall_macro: 0.988 precision_macro: 0.985 f1_macro: 0.986
+accuracy: 0.970 recall_macro: 0.973 precision_macro: 0.969 f1_macro: 0.970
 
 Best model:
 LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, max_iter=1000)
 Best Scores:
-accuracy: 0.985 recall_macro: 0.988 precision_macro: 0.985 f1_macro: 0.986
+accuracy: 0.977 recall_macro: 0.979 precision_macro: 0.978 f1_macro: 0.978
               precision    recall  f1-score   support
 
-           0       1.00      1.00      1.00        14
-           1       1.00      0.88      0.94        17
-           2       0.88      1.00      0.93        14
+           0       0.94      1.00      0.97        17
+           1       1.00      0.94      0.97        18
+           2       1.00      1.00      1.00        10
 
-    accuracy                           0.96        45
-   macro avg       0.96      0.96      0.96        45
-weighted avg       0.96      0.96      0.96        45
+    accuracy                           0.98        45
+   macro avg       0.98      0.98      0.98        45
+weighted avg       0.98      0.98      0.98        45
 
-[[14  0  0]
- [ 0 15  2]
- [ 0  0 14]]
+[[17  0  0]
+ [ 1 17  0]
+ [ 0  0 10]]
 /home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/utils/metaestimators.py:201: FutureWarning: if_delegate_has_method was deprecated in version 1.1 and will be removed in version 1.3. Use available_if instead.
   warnings.warn(
 </pre></div>
@@ -257,7 +257,7 @@ weighted avg       0.96      0.96      0.96        45
 <span class="n">explain</span><span class="p">(</span><span class="n">sc</span><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X_test</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_test</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.630 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.699 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-explain-example-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/e428c113b13e9b657eb51a0f7358216a/plot_explain_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_explain_example.py</span></code></a></p>
