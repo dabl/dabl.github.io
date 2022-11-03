@@ -45,7 +45,7 @@ Ames Housing Dataset Visualization
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_ames_003.png
-         :alt: Categorical Feature vs Target, F=5.66E-01, F=3.66E-01, F=3.29E-01, F=3.24E-01, F=2.86E-01, F=2.74E-01, F=2.61E-01, F=2.36E-01, F=2.28E-01, F=2.26E-01
+         :alt: Categorical Feature vs Target, F=5.71E-01, F=3.67E-01, F=3.25E-01, F=3.25E-01, F=2.89E-01, F=2.73E-01, F=2.62E-01, F=2.34E-01, F=2.27E-01, F=2.25E-01
          :srcset: /auto_examples/plot/images/sphx_glr_plot_ames_003.png
          :class: sphx-glr-multi-img
 
@@ -57,9 +57,9 @@ Ames Housing Dataset Visualization
     Target looks like regression
     /home/circleci/project/dabl/plot/utils.py:678: UserWarning: Dropped 2 outliers in column SalePrice.
       warn("Dropped {} outliers in column {}.".format(
-    /home/circleci/project/dabl/plot/supervised.py:642: UserWarning: Discarding 2 outliers in target column.
+    /home/circleci/project/dabl/plot/supervised.py:651: UserWarning: Discarding 2 outliers in target column.
       warn(f"Discarding {n_outliers} outliers in target column.",
-    /home/circleci/project/dabl/plot/supervised.py:108: UserWarning: Showing only top 10 continuous features.
+    /home/circleci/project/dabl/plot/supervised.py:111: UserWarning: Showing only top 10 continuous features.
       warn("Showing only top 10 continuous features.")
     Showing only top 10 of 41 categorical features
 
@@ -87,7 +87,7 @@ Ames Housing Dataset Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  14.138 seconds)
+   **Total running time of the script:** ( 0 minutes  16.510 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_ames.py:
