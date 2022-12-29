@@ -46,7 +46,7 @@ Regression on the classical diamond dataset.
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_diamonds_003.png
-         :alt: Categorical Feature vs Target, F=3.61E-01, F=2.84E-01, F=1.05E-01
+         :alt: Categorical Feature vs Target, F=3.63E-01, F=2.85E-01, F=1.00E-01
          :srcset: /auto_examples/plot/images/sphx_glr_plot_diamonds_003.png
          :class: sphx-glr-multi-img
 
@@ -56,6 +56,8 @@ Regression on the classical diamond dataset.
  .. code-block:: none
 
     /home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/datasets/_openml.py:292: UserWarning: Multiple active versions of the dataset matching the name diamonds exist. Versions may be fundamentally different, returning version 1.
+      warn(
+    /home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/datasets/_openml.py:932: FutureWarning: The default value of `parser` will change from `'liac-arff'` to `'auto'` in 1.4. You can set `parser='auto'` to silence this warning. Therefore, an `ImportError` will be raised from 1.4 if the dataset is dense and pandas is not installed. Note that the pandas parser may return different data types. See the Notes Section in fetch_openml's API doc for details.
       warn(
     Target looks like regression
     /home/circleci/project/dabl/plot/supervised.py:107: UserWarning: Not plotting highly correlated (0.9961166041570525) feature carat. Set prune_correlations_threshold=0 to keep.
@@ -87,7 +89,7 @@ Regression on the classical diamond dataset.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  9.781 seconds)
+   **Total running time of the script:** ( 0 minutes  10.186 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_diamonds.py:

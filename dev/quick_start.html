@@ -240,17 +240,16 @@ types in a convenient format:</p>
 <span class="go">body_?                     False        False  ...        False    False</span>
 <span class="go">body_dabl_continuous        True        False  ...        False    False</span>
 
-<span class="go">[17 rows x 7 columns]</span>
+<span class="go">[17 rows x 8 columns]</span>
 </pre></div>
 </div>
 <p>Having a very rough idea of the shape of our data, we can now start looking
 at the actual content. The easiest way to do that is using visualization of
 univariate and bivariate patterns. With plot,
 we can create plot of the features deemed most important for our task.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dabl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">titanic</span><span class="p">,</span> <span class="s1">&#39;survived&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dabl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">titanic</span><span class="p">,</span> <span class="s1">&#39;survived&#39;</span><span class="p">)</span> 
 <span class="go">Target looks like classification</span>
 <span class="go">Linear Discriminant Analysis training set score: 0.578</span>
-<span class="go">[[&lt;Figure size 1500x1500 with 30 Axes&gt;, &lt;Figure size 1600x400 with 4 Axes&gt;, &lt;Figure size 640x480 with 1 Axes&gt;], None]</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href=".//quick_start-1.py">Source code</a>)</p>

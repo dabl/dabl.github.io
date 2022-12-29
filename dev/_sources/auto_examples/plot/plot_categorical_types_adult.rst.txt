@@ -59,11 +59,27 @@ among the categories.
 
 
 .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_categorical_types_adult_001.png
-   :alt: Categorical Features vs Target, relationship, marital-status, education, occupation, gender, workclass, native-country, race
+   :alt: Categorical Features vs Target, relationship, marital-status, education-num, education, occupation, hours-per-week, gender, workclass, native-country, race
    :srcset: /auto_examples/plot/images/sphx_glr_plot_categorical_types_adult_001.png
    :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+
+    array([[<AxesSubplot: title={'center': 'relationship'}, xlabel='count', ylabel='relationship'>,
+            <AxesSubplot: title={'center': 'marital-status'}, xlabel='count', ylabel='marital-status'>,
+            <AxesSubplot: title={'center': 'education-num'}, xlabel='count', ylabel='education-num'>,
+            <AxesSubplot: title={'center': 'education'}, xlabel='count', ylabel='education'>,
+            <AxesSubplot: title={'center': 'occupation'}, xlabel='count', ylabel='occupation'>],
+           [<AxesSubplot: title={'center': 'hours-per-week'}, xlabel='count', ylabel='hours-per-week'>,
+            <AxesSubplot: title={'center': 'gender'}, xlabel='count', ylabel='gender'>,
+            <AxesSubplot: title={'center': 'workclass'}, xlabel='count', ylabel='workclass'>,
+            <AxesSubplot: title={'center': 'native-country'}, xlabel='count', ylabel='native-country'>,
+            <AxesSubplot: title={'center': 'race'}, xlabel='count', ylabel='race'>]],
+          dtype=object)
 
 
 
@@ -85,11 +101,26 @@ present in the data can be very important, though.
 
 
 .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_categorical_types_adult_002.png
-   :alt: Categorical Features vs Target, relationship, marital-status, education, occupation, gender, workclass, native-country, race
+   :alt: Categorical Features vs Target, relationship, marital-status, education-num, education, occupation, hours-per-week, gender, workclass, native-country, race
    :srcset: /auto_examples/plot/images/sphx_glr_plot_categorical_types_adult_002.png
    :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+
+    array([[<AxesSubplot: title={'center': 'relationship'}>,
+            <AxesSubplot: title={'center': 'marital-status'}>,
+            <AxesSubplot: title={'center': 'education-num'}>,
+            <AxesSubplot: title={'center': 'education'}>,
+            <AxesSubplot: title={'center': 'occupation'}>],
+           [<AxesSubplot: title={'center': 'hours-per-week'}>,
+            <AxesSubplot: title={'center': 'gender'}>,
+            <AxesSubplot: title={'center': 'workclass'}>,
+            <AxesSubplot: title={'center': 'native-country'}>,
+            <AxesSubplot: title={'center': 'race'}>]], dtype=object)
 
 
 
@@ -109,11 +140,26 @@ there are many classes and many catgories, it becomes harder to interpret.
 
 
 .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_categorical_types_adult_003.png
-   :alt: Categorical Features vs Target, relationship, marital-status, education, occupation, gender, workclass, native-country, race
+   :alt: Categorical Features vs Target, relationship, marital-status, education-num, education, occupation, hours-per-week, gender, workclass, native-country, race
    :srcset: /auto_examples/plot/images/sphx_glr_plot_categorical_types_adult_003.png
    :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+
+    array([[<AxesSubplot: title={'center': 'relationship'}>,
+            <AxesSubplot: title={'center': 'marital-status'}>,
+            <AxesSubplot: title={'center': 'education-num'}>,
+            <AxesSubplot: title={'center': 'education'}>,
+            <AxesSubplot: title={'center': 'occupation'}>],
+           [<AxesSubplot: title={'center': 'hours-per-week'}>,
+            <AxesSubplot: title={'center': 'gender'}>,
+            <AxesSubplot: title={'center': 'workclass'}>,
+            <AxesSubplot: title={'center': 'native-country'}>,
+            <AxesSubplot: title={'center': 'race'}>]], dtype=object)
 
 
 
@@ -145,7 +191,7 @@ diagram, which can be adjusted by calling the plot_sankey function directly.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.469 seconds)
+   **Total running time of the script:** ( 0 minutes  10.634 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_categorical_types_adult.py:

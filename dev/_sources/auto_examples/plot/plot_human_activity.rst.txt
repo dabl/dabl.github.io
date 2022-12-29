@@ -45,21 +45,21 @@ Human Activity Recognition Visualization
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_human_activity_003.png
-         :alt: Top feature interactions, 0.691, 0.690, 0.683, 0.682
+         :alt: Top feature interactions, 0.690, 0.687, 0.686, 0.685
          :srcset: /auto_examples/plot/images/sphx_glr_plot_human_activity_003.png
          :class: sphx-glr-multi-img
 
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_human_activity_004.png
-         :alt: Discriminating PCA directions, 0.641, 0.630, 0.567, Scree plot (PCA explained variance)
+         :alt: Discriminating PCA directions, 0.629, 0.622, 0.560, Scree plot (PCA explained variance)
          :srcset: /auto_examples/plot/images/sphx_glr_plot_human_activity_004.png
          :class: sphx-glr-multi-img
 
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_human_activity_005.png
-         :alt: Discriminating LDA directions, 0.862, 0.832, 0.803, 0.784
+         :alt: Discriminating LDA directions, 0.864, 0.832, 0.802, 0.779
          :srcset: /auto_examples/plot/images/sphx_glr_plot_human_activity_005.png
          :class: sphx-glr-multi-img
 
@@ -68,6 +68,8 @@ Human Activity Recognition Visualization
 
  .. code-block:: none
 
+    /home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/datasets/_openml.py:932: FutureWarning: The default value of `parser` will change from `'liac-arff'` to `'auto'` in 1.4. You can set `parser='auto'` to silence this warning. Therefore, an `ImportError` will be raised from 1.4 if the dataset is dense and pandas is not installed. Note that the pandas parser may return different data types. See the Notes Section in fetch_openml's API doc for details.
+      warn(
     Target looks like classification
     Showing only top 10 of 561 continuous features
     Linear Discriminant Analysis training set score: 0.984
@@ -94,7 +96,7 @@ Human Activity Recognition Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  33.118 seconds)
+   **Total running time of the script:** ( 0 minutes  28.892 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_human_activity.py:
