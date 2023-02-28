@@ -47,21 +47,21 @@ Linear discriminant analysis works surprisingly well!
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_003.png
-         :alt: Top feature interactions, 0.550, 0.542, 0.535, 0.533
+         :alt: Top feature interactions, 0.540, 0.538, 0.535, 0.528
          :srcset: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_003.png
          :class: sphx-glr-multi-img
 
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_004.png
-         :alt: Discriminating PCA directions, 0.570, 0.532, 0.510, Scree plot (PCA explained variance)
+         :alt: Discriminating PCA directions, 0.565, 0.562, 0.518, Scree plot (PCA explained variance)
          :srcset: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_004.png
          :class: sphx-glr-multi-img
 
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_005.png
-         :alt: Discriminating LDA directions, 0.752, 0.722, 0.717, 0.715
+         :alt: Discriminating LDA directions, 0.763, 0.735, 0.720, 0.720
          :srcset: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_005.png
          :class: sphx-glr-multi-img
 
@@ -70,9 +70,9 @@ Linear discriminant analysis works surprisingly well!
 
  .. code-block:: none
 
-    /home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/datasets/_openml.py:292: UserWarning: Multiple active versions of the dataset matching the name mfeat-factors exist. Versions may be fundamentally different, returning version 1.
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/datasets/_openml.py:292: UserWarning: Multiple active versions of the dataset matching the name mfeat-factors exist. Versions may be fundamentally different, returning version 1.
       warn(
-    /home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/datasets/_openml.py:932: FutureWarning: The default value of `parser` will change from `'liac-arff'` to `'auto'` in 1.4. You can set `parser='auto'` to silence this warning. Therefore, an `ImportError` will be raised from 1.4 if the dataset is dense and pandas is not installed. Note that the pandas parser may return different data types. See the Notes Section in fetch_openml's API doc for details.
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/datasets/_openml.py:932: FutureWarning: The default value of `parser` will change from `'liac-arff'` to `'auto'` in 1.4. You can set `parser='auto'` to silence this warning. Therefore, an `ImportError` will be raised from 1.4 if the dataset is dense and pandas is not installed. Note that the pandas parser may return different data types. See the Notes Section in fetch_openml's API doc for details.
       warn(
     Target looks like classification
     Showing only top 10 of 216 continuous features
@@ -100,7 +100,7 @@ Linear discriminant analysis works surprisingly well!
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  12.569 seconds)
+   **Total running time of the script:** ( 0 minutes  13.546 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_mfeat_factors.py:

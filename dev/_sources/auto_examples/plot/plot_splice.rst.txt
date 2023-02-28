@@ -48,9 +48,9 @@ A nice illustration of the mosaic plot.
 
  .. code-block:: none
 
-    /home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/datasets/_openml.py:292: UserWarning: Multiple active versions of the dataset matching the name splice exist. Versions may be fundamentally different, returning version 1.
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/datasets/_openml.py:292: UserWarning: Multiple active versions of the dataset matching the name splice exist. Versions may be fundamentally different, returning version 1.
       warn(
-    /home/circleci/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/datasets/_openml.py:932: FutureWarning: The default value of `parser` will change from `'liac-arff'` to `'auto'` in 1.4. You can set `parser='auto'` to silence this warning. Therefore, an `ImportError` will be raised from 1.4 if the dataset is dense and pandas is not installed. Note that the pandas parser may return different data types. See the Notes Section in fetch_openml's API doc for details.
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/datasets/_openml.py:932: FutureWarning: The default value of `parser` will change from `'liac-arff'` to `'auto'` in 1.4. You can set `parser='auto'` to silence this warning. Therefore, an `ImportError` will be raised from 1.4 if the dataset is dense and pandas is not installed. Note that the pandas parser may return different data types. See the Notes Section in fetch_openml's API doc for details.
       warn(
     Target looks like classification
     Showing only top 10 of 60 categorical features
@@ -77,7 +77,7 @@ A nice illustration of the mosaic plot.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.542 seconds)
+   **Total running time of the script:** ( 0 minutes  6.962 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_splice.py:
