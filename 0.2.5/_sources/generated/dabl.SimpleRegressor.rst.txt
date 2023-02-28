@@ -1,0 +1,16 @@
+﻿:mod:`dabl`.SimpleRegressor
+==================================
+
+.. currentmodule:: dabl
+
+.. autoclass:: SimpleRegressor
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: dabl.SimpleRegressor.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

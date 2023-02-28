@@ -1,0 +1,12 @@
+﻿:mod:`dabl`.explain
+================================
+
+.. currentmodule:: dabl
+
+.. autofunction:: explain
+
+.. include:: dabl.explain.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

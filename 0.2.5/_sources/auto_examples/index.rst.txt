@@ -1,0 +1,271 @@
+:orphan:
+
+.. _general_examples:
+
+General examples
+================
+
+Introductory examples.
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Model Explanation">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_explain_example_thumb.png
+    :alt: Model Explanation
+
+  :ref:`sphx_glr_auto_examples_plot_explain_example.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Model Explanation</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/plot_explain_example
+
+
+Plotting examples
+=================
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Human Activity Recognition Visualization">
+
+.. only:: html
+
+  .. image:: /auto_examples/plot/images/thumb/sphx_glr_plot_human_activity_thumb.png
+    :alt: Human Activity Recognition Visualization
+
+  :ref:`sphx_glr_auto_examples_plot_plot_human_activity.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Human Activity Recognition Visualization</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Splice dataset visualization">
+
+.. only:: html
+
+  .. image:: /auto_examples/plot/images/thumb/sphx_glr_plot_splice_thumb.png
+    :alt: Splice dataset visualization
+
+  :ref:`sphx_glr_auto_examples_plot_plot_splice.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Splice dataset visualization</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Diamonds Dataset Visualization">
+
+.. only:: html
+
+  .. image:: /auto_examples/plot/images/thumb/sphx_glr_plot_diamonds_thumb.png
+    :alt: Diamonds Dataset Visualization
+
+  :ref:`sphx_glr_auto_examples_plot_plot_diamonds.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Diamonds Dataset Visualization</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Class Histogram Example">
+
+.. only:: html
+
+  .. image:: /auto_examples/plot/images/thumb/sphx_glr_plot_class_hists_thumb.png
+    :alt: Class Histogram Example
+
+  :ref:`sphx_glr_auto_examples_plot_plot_class_hists.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Class Histogram Example</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="mfeat-factors dataset visualization">
+
+.. only:: html
+
+  .. image:: /auto_examples/plot/images/thumb/sphx_glr_plot_mfeat_factors_thumb.png
+    :alt: mfeat-factors dataset visualization
+
+  :ref:`sphx_glr_auto_examples_plot_plot_mfeat_factors.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">mfeat-factors dataset visualization</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Ames Housing Dataset Visualization">
+
+.. only:: html
+
+  .. image:: /auto_examples/plot/images/thumb/sphx_glr_plot_ames_thumb.png
+    :alt: Ames Housing Dataset Visualization
+
+  :ref:`sphx_glr_auto_examples_plot_plot_ames.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Ames Housing Dataset Visualization</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Mosaic Plot Example">
+
+.. only:: html
+
+  .. image:: /auto_examples/plot/images/thumb/sphx_glr_plot_mosaic_thumb.png
+    :alt: Mosaic Plot Example
+
+  :ref:`sphx_glr_auto_examples_plot_plot_mosaic.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Mosaic Plot Example</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Adult Census Dataset Visualization">
+
+.. only:: html
+
+  .. image:: /auto_examples/plot/images/thumb/sphx_glr_plot_adult_thumb.png
+    :alt: Adult Census Dataset Visualization
+
+  :ref:`sphx_glr_auto_examples_plot_plot_adult.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Adult Census Dataset Visualization</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Wine Classification Dataset Visualization">
+
+.. only:: html
+
+  .. image:: /auto_examples/plot/images/thumb/sphx_glr_plot_wine_thumb.png
+    :alt: Wine Classification Dataset Visualization
+
+  :ref:`sphx_glr_auto_examples_plot_plot_wine.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Wine Classification Dataset Visualization</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Discrete Scatter Example">
+
+.. only:: html
+
+  .. image:: /auto_examples/plot/images/thumb/sphx_glr_plot_discrete_scatter_thumb.png
+    :alt: Discrete Scatter Example
+
+  :ref:`sphx_glr_auto_examples_plot_plot_discrete_scatter.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Discrete Scatter Example</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Comparing categorical variable visualizations">
+
+.. only:: html
+
+  .. image:: /auto_examples/plot/images/thumb/sphx_glr_plot_categorical_types_adult_thumb.png
+    :alt: Comparing categorical variable visualizations
+
+  :ref:`sphx_glr_auto_examples_plot_plot_categorical_types_adult.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Comparing categorical variable visualizations</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+   :includehidden:
+
+   /auto_examples/plot/index.rst
+
+
+.. only:: html
+
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download all examples in Python source code: auto_examples_python.zip </auto_examples/auto_examples_python.zip>`
+
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip </auto_examples/auto_examples_jupyter.zip>`
+
+
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_

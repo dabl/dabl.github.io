@@ -1,0 +1,12 @@
+﻿:mod:`dabl.plot`.plot_regression_categorical
+=========================================================
+
+.. currentmodule:: dabl.plot
+
+.. autofunction:: plot_regression_categorical
+
+.. include:: dabl.plot.plot_regression_categorical.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

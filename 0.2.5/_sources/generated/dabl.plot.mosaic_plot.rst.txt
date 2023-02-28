@@ -1,0 +1,12 @@
+﻿:mod:`dabl.plot`.mosaic_plot
+=========================================
+
+.. currentmodule:: dabl.plot
+
+.. autofunction:: mosaic_plot
+
+.. include:: dabl.plot.mosaic_plot.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

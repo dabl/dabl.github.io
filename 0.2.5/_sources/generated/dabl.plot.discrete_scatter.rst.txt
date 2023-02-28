@@ -1,0 +1,12 @@
+﻿:mod:`dabl.plot`.discrete_scatter
+==============================================
+
+.. currentmodule:: dabl.plot
+
+.. autofunction:: discrete_scatter
+
+.. include:: dabl.plot.discrete_scatter.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

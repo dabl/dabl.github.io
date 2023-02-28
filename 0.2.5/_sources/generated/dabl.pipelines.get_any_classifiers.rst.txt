@@ -1,0 +1,12 @@
+﻿:mod:`dabl.pipelines`.get_any_classifiers
+======================================================
+
+.. currentmodule:: dabl.pipelines
+
+.. autofunction:: get_any_classifiers
+
+.. include:: dabl.pipelines.get_any_classifiers.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

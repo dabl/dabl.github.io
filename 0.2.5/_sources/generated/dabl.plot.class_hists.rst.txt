@@ -1,0 +1,12 @@
+﻿:mod:`dabl.plot`.class_hists
+=========================================
+
+.. currentmodule:: dabl.plot
+
+.. autofunction:: class_hists
+
+.. include:: dabl.plot.class_hists.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

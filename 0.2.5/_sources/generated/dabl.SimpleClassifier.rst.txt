@@ -1,0 +1,16 @@
+﻿:mod:`dabl`.SimpleClassifier
+===================================
+
+.. currentmodule:: dabl
+
+.. autoclass:: SimpleClassifier
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: dabl.SimpleClassifier.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

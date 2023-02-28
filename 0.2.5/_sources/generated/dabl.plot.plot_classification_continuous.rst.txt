@@ -1,0 +1,12 @@
+﻿:mod:`dabl.plot`.plot_classification_continuous
+============================================================
+
+.. currentmodule:: dabl.plot
+
+.. autofunction:: plot_classification_continuous
+
+.. include:: dabl.plot.plot_classification_continuous.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

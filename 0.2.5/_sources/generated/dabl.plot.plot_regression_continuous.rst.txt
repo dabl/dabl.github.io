@@ -1,0 +1,12 @@
+﻿:mod:`dabl.plot`.plot_regression_continuous
+========================================================
+
+.. currentmodule:: dabl.plot
+
+.. autofunction:: plot_regression_continuous
+
+.. include:: dabl.plot.plot_regression_continuous.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

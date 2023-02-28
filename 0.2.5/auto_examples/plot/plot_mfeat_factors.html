@@ -1,0 +1,295 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>mfeat-factors dataset visualization &mdash; dabl  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/js/copybutton.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/project-template.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/project-template.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Ames Housing Dataset Visualization" href="plot_ames.html" />
+    <link rel="prev" title="Class Histogram Example" href="plot_class_hists.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> dabl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quickstart to ML with dabl</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide.html">Machine Learning with dabl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts_term.html">Concepts and terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">dabl API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changes.html">Release History</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">General examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html#plotting-examples">Plotting examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Plotting examples</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot_human_activity.html">Human Activity Recognition Visualization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_splice.html">Splice dataset visualization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_diamonds.html">Diamonds Dataset Visualization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_class_hists.html">Class Histogram Example</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">mfeat-factors dataset visualization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_ames.html">Ames Housing Dataset Visualization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_mosaic.html">Mosaic Plot Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_adult.html">Adult Census Dataset Visualization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_wine.html">Wine Classification Dataset Visualization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_discrete_scatter.html">Discrete Scatter Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_categorical_types_adult.html">Comparing categorical variable visualizations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">dabl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">General examples</a> &raquo;</li>
+        
+          <li><a href="index.html">Plotting examples</a> &raquo;</li>
+        
+      <li>mfeat-factors dataset visualization</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/auto_examples/plot/plot_mfeat_factors.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-plot-mfeat-factors-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="mfeat-factors-dataset-visualization">
+<span id="sphx-glr-auto-examples-plot-plot-mfeat-factors-py"></span><h1>mfeat-factors dataset visualization<a class="headerlink" href="#mfeat-factors-dataset-visualization" title="Permalink to this heading">¶</a></h1>
+<p>A multiclass dataset with 10 classes.
+Linear discriminant analysis works surprisingly well!</p>
+<ul class="sphx-glr-horizontal">
+<li><img src="../../_images/sphx_glr_plot_mfeat_factors_001.png" srcset="../../_images/sphx_glr_plot_mfeat_factors_001.png" alt="Target distribution" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_mfeat_factors_002.png" srcset="../../_images/sphx_glr_plot_mfeat_factors_002.png" alt="F=1.06E+03, F=7.18E+02, F=7.16E+02, F=6.95E+02, F=6.64E+02, F=6.60E+02, F=6.58E+02, F=6.29E+02, F=6.12E+02, F=5.59E+02" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_mfeat_factors_003.png" srcset="../../_images/sphx_glr_plot_mfeat_factors_003.png" alt="Top feature interactions, 0.540, 0.538, 0.535, 0.528" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_mfeat_factors_004.png" srcset="../../_images/sphx_glr_plot_mfeat_factors_004.png" alt="Discriminating PCA directions, 0.565, 0.562, 0.518, Scree plot (PCA explained variance)" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_mfeat_factors_005.png" srcset="../../_images/sphx_glr_plot_mfeat_factors_005.png" alt="Discriminating LDA directions, 0.763, 0.735, 0.720, 0.720" class = "sphx-glr-multi-img"/></li>
+</ul>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/project/~/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/datasets/_openml.py:292: UserWarning: Multiple active versions of the dataset matching the name mfeat-factors exist. Versions may be fundamentally different, returning version 1.
+  warn(
+/home/circleci/project/~/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/datasets/_openml.py:932: FutureWarning: The default value of `parser` will change from `&#39;liac-arff&#39;` to `&#39;auto&#39;` in 1.4. You can set `parser=&#39;auto&#39;` to silence this warning. Therefore, an `ImportError` will be raised from 1.4 if the dataset is dense and pandas is not installed. Note that the pandas parser may return different data types. See the Notes Section in fetch_openml&#39;s API doc for details.
+  warn(
+Target looks like classification
+Showing only top 10 of 216 continuous features
+Linear Discriminant Analysis training set score: 0.993
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx_gallery_thumbnail_number = 5</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_openml.html#sklearn.datasets.fetch_openml" title="sklearn.datasets.fetch_openml" class="sphx-glr-backref-module-sklearn-datasets sphx-glr-backref-type-py-function"><span class="n">fetch_openml</span></a>
+<span class="kn">from</span> <span class="nn">dabl</span> <span class="kn">import</span> <span class="n">plot</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_openml.html#sklearn.datasets.fetch_openml" title="sklearn.datasets.fetch_openml" class="sphx-glr-backref-module-sklearn-datasets sphx-glr-backref-type-py-function"><span class="n">fetch_openml</span></a><span class="p">(</span><span class="s1">&#39;mfeat-factors&#39;</span><span class="p">,</span> <span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  13.546 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-plot-mfeat-factors-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/22aa5c35442ddf4abad9d4c51d2a3395/plot_mfeat_factors.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_mfeat_factors.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/dfc8ea26233b5d4a7e8427333b876f62/plot_mfeat_factors.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_mfeat_factors.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="plot_ames.html" class="btn btn-neutral float-right" title="Ames Housing Dataset Visualization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="plot_class_hists.html" class="btn btn-neutral float-left" title="Class Histogram Example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Andreas Mueller
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

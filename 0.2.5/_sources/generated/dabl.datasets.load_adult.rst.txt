@@ -1,0 +1,12 @@
+﻿:mod:`dabl.datasets`.load_adult
+============================================
+
+.. currentmodule:: dabl.datasets
+
+.. autofunction:: load_adult
+
+.. include:: dabl.datasets.load_adult.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>
