@@ -46,7 +46,7 @@ Regression on the classical diamond dataset.
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_diamonds_003.png
-         :alt: Categorical Feature vs Target, F=3.60E-01, F=2.83E-01, F=1.02E-01
+         :alt: Categorical Feature vs Target, F=3.61E-01, F=2.85E-01, F=1.05E-01
          :srcset: /auto_examples/plot/images/sphx_glr_plot_diamonds_003.png
          :class: sphx-glr-multi-img
 
@@ -104,7 +104,7 @@ Regression on the classical diamond dataset.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 6.801 seconds)
+   **Total running time of the script:** (0 minutes 7.326 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_diamonds.py:

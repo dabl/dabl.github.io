@@ -99,48 +99,48 @@ to download the full example code</p>
 <section class="sphx-glr-example-title" id="model-explanation">
 <span id="sphx-glr-auto-examples-plot-explain-example-py"></span><h1>Model Explanation<a class="headerlink" href="#model-explanation" title="Link to this heading">¶</a></h1>
 <img src="../_images/sphx_glr_plot_explain_example_001.png" srcset="../_images/sphx_glr_plot_explain_example_001.png" alt="class: 0, class: 1, class: 2" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Running DummyClassifier()
-accuracy: 0.338 recall_macro: 0.333 precision_macro: 0.113 f1_macro: 0.169
+accuracy: 0.406 recall_macro: 0.333 precision_macro: 0.135 f1_macro: 0.192
 === new best DummyClassifier() (using recall_macro):
-accuracy: 0.338 recall_macro: 0.333 precision_macro: 0.113 f1_macro: 0.169
+accuracy: 0.406 recall_macro: 0.333 precision_macro: 0.135 f1_macro: 0.192
 
 Running GaussianNB()
-accuracy: 0.970 recall_macro: 0.972 precision_macro: 0.973 f1_macro: 0.971
+accuracy: 0.977 recall_macro: 0.978 precision_macro: 0.982 f1_macro: 0.979
 === new best GaussianNB() (using recall_macro):
-accuracy: 0.970 recall_macro: 0.972 precision_macro: 0.973 f1_macro: 0.971
+accuracy: 0.977 recall_macro: 0.978 precision_macro: 0.982 f1_macro: 0.979
 
 Running MultinomialNB()
-accuracy: 0.917 recall_macro: 0.921 precision_macro: 0.933 f1_macro: 0.918
+accuracy: 0.963 recall_macro: 0.963 precision_macro: 0.975 f1_macro: 0.965
 Running DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=1)
-accuracy: 0.624 recall_macro: 0.642 precision_macro: 0.468 f1_macro: 0.526
+accuracy: 0.616 recall_macro: 0.626 precision_macro: 0.439 f1_macro: 0.506
 Running DecisionTreeClassifier(class_weight=&#39;balanced&#39;, max_depth=5)
-accuracy: 0.917 recall_macro: 0.919 precision_macro: 0.935 f1_macro: 0.918
+accuracy: 0.948 recall_macro: 0.946 precision_macro: 0.952 f1_macro: 0.947
 Running DecisionTreeClassifier(class_weight=&#39;balanced&#39;, min_impurity_decrease=0.01)
-accuracy: 0.917 recall_macro: 0.919 precision_macro: 0.935 f1_macro: 0.918
+accuracy: 0.940 recall_macro: 0.940 precision_macro: 0.940 f1_macro: 0.938
 Running LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, max_iter=1000)
-accuracy: 0.977 recall_macro: 0.979 precision_macro: 0.979 f1_macro: 0.977
+accuracy: 0.978 recall_macro: 0.980 precision_macro: 0.979 f1_macro: 0.979
 === new best LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, max_iter=1000) (using recall_macro):
-accuracy: 0.977 recall_macro: 0.979 precision_macro: 0.979 f1_macro: 0.977
+accuracy: 0.978 recall_macro: 0.980 precision_macro: 0.979 f1_macro: 0.979
 
 Running LogisticRegression(C=1, class_weight=&#39;balanced&#39;, max_iter=1000)
-accuracy: 0.970 recall_macro: 0.973 precision_macro: 0.973 f1_macro: 0.969
+accuracy: 0.978 recall_macro: 0.980 precision_macro: 0.979 f1_macro: 0.979
 
 Best model:
 LogisticRegression(C=0.1, class_weight=&#39;balanced&#39;, max_iter=1000)
 Best Scores:
-accuracy: 0.977 recall_macro: 0.979 precision_macro: 0.979 f1_macro: 0.977
+accuracy: 0.978 recall_macro: 0.980 precision_macro: 0.979 f1_macro: 0.979
               precision    recall  f1-score   support
 
-           0       0.87      1.00      0.93        13
-           1       1.00      0.92      0.96        24
-           2       1.00      1.00      1.00         8
+           0       1.00      1.00      1.00        16
+           1       1.00      0.94      0.97        17
+           2       0.92      1.00      0.96        12
 
-    accuracy                           0.96        45
-   macro avg       0.96      0.97      0.96        45
-weighted avg       0.96      0.96      0.96        45
+    accuracy                           0.98        45
+   macro avg       0.97      0.98      0.98        45
+weighted avg       0.98      0.98      0.98        45
 
-[[13  0  0]
- [ 2 22  0]
- [ 0  0  8]]
+[[16  0  0]
+ [ 0 16  1]
+ [ 0  0 12]]
 /home/circleci/project/dabl/explain.py:45: UserWarning: Can&#39;t plot roc curve, install sklearn 0.22-dev
   warn(&quot;Can&#39;t plot roc curve, install sklearn 0.22-dev&quot;)
 </pre></div>
@@ -164,7 +164,7 @@ weighted avg       0.96      0.96      0.96        45
 <span class="n">explain</span><span class="p">(</span><span class="n">sc</span><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X_test</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_test</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.606 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.630 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-explain-example-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/fc0e8ffc7ace682180af5bc38c346631/plot_explain_example.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_explain_example.ipynb</span></code></a></p>
