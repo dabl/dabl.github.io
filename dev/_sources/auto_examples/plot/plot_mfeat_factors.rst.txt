@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_plot_plot_mfeat_factors.py>`
+        :ref:`Go to the end <sphx_glr_download_auto_examples_plot_plot_mfeat_factors.py>`
         to download the full example code
 
 .. rst-class:: sphx-glr-example-title
@@ -47,21 +47,21 @@ Linear discriminant analysis works surprisingly well!
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_003.png
-         :alt: Top feature interactions, 0.553, 0.542, 0.540, 0.537
+         :alt: Top feature interactions, 0.540, 0.538, 0.535, 0.528
          :srcset: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_003.png
          :class: sphx-glr-multi-img
 
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_004.png
-         :alt: Discriminating PCA directions, 0.583, 0.518, 0.507, Scree plot (PCA explained variance)
+         :alt: Discriminating PCA directions, 0.575, 0.542, 0.515, Scree plot (PCA explained variance)
          :srcset: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_004.png
          :class: sphx-glr-multi-img
 
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_005.png
-         :alt: Discriminating LDA directions, 0.748, 0.742, 0.735, 0.727
+         :alt: Discriminating LDA directions, 0.757, 0.728, 0.728, 0.725
          :srcset: /auto_examples/plot/images/sphx_glr_plot_mfeat_factors_005.png
          :class: sphx-glr-multi-img
 
@@ -70,12 +70,19 @@ Linear discriminant analysis works surprisingly well!
 
  .. code-block:: none
 
-    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/datasets/_openml.py:292: UserWarning: Multiple active versions of the dataset matching the name mfeat-factors exist. Versions may be fundamentally different, returning version 1.
-      warn(
-    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/datasets/_openml.py:932: FutureWarning: The default value of `parser` will change from `'liac-arff'` to `'auto'` in 1.4. You can set `parser='auto'` to silence this warning. Therefore, an `ImportError` will be raised from 1.4 if the dataset is dense and pandas is not installed. Note that the pandas parser may return different data types. See the Notes Section in fetch_openml's API doc for details.
-      warn(
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/sklearn/datasets/_openml.py:322: UserWarning: Multiple active versions of the dataset matching the name mfeat-factors exist. Versions may be fundamentally different, returning version 1. Available versions:
+    - version 1, status: active
+      url: https://www.openml.org/search?type=data&id=12
+    - version 2, status: active
+      url: https://www.openml.org/search?type=data&id=978
+
+      warn(warning_msg)
     Target looks like classification
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
     Showing only top 10 of 216 continuous features
+    /home/circleci/project/dabl/plot/utils.py:607: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      for name, group in data.groupby(target)[column]:
     Linear Discriminant Analysis training set score: 0.993
 
 
@@ -85,7 +92,7 @@ Linear discriminant analysis works surprisingly well!
 
 |
 
-.. code-block:: default
+.. code-block:: Python
 
     # sphinx_gallery_thumbnail_number = 5
     import matplotlib.pyplot as plt
@@ -100,7 +107,7 @@ Linear discriminant analysis works surprisingly well!
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  20.091 seconds)
+   **Total running time of the script:** (0 minutes 9.123 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_mfeat_factors.py:
@@ -109,14 +116,13 @@ Linear discriminant analysis works surprisingly well!
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download Jupyter notebook: plot_mfeat_factors.ipynb <plot_mfeat_factors.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_mfeat_factors.py <plot_mfeat_factors.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_mfeat_factors.ipynb <plot_mfeat_factors.ipynb>`
 
 
 .. only:: html

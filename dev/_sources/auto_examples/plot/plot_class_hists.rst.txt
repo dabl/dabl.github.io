@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_plot_plot_class_hists.py>`
+        :ref:`Go to the end <sphx_glr_download_auto_examples_plot_plot_class_hists.py>`
         to download the full example code
 
 .. rst-class:: sphx-glr-example-title
@@ -34,7 +34,7 @@ Class Histogram Example
 
 
 
-.. code-block:: default
+.. code-block:: Python
 
     import matplotlib.pyplot as plt
     from dabl.datasets import load_adult
@@ -49,7 +49,7 @@ Class Histogram Example
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.135 seconds)
+   **Total running time of the script:** (0 minutes 0.107 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_class_hists.py:
@@ -58,14 +58,13 @@ Class Histogram Example
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download Jupyter notebook: plot_class_hists.ipynb <plot_class_hists.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_class_hists.py <plot_class_hists.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_class_hists.ipynb <plot_class_hists.ipynb>`
 
 
 .. only:: html

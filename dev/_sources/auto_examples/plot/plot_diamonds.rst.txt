@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_plot_plot_diamonds.py>`
+        :ref:`Go to the end <sphx_glr_download_auto_examples_plot_plot_diamonds.py>`
         to download the full example code
 
 .. rst-class:: sphx-glr-example-title
@@ -46,7 +46,7 @@ Regression on the classical diamond dataset.
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_diamonds_003.png
-         :alt: Categorical Feature vs Target, F=3.61E-01, F=2.87E-01, F=1.04E-01
+         :alt: Categorical Feature vs Target, F=3.60E-01, F=2.83E-01, F=1.02E-01
          :srcset: /auto_examples/plot/images/sphx_glr_plot_diamonds_003.png
          :class: sphx-glr-multi-img
 
@@ -55,10 +55,13 @@ Regression on the classical diamond dataset.
 
  .. code-block:: none
 
-    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/datasets/_openml.py:292: UserWarning: Multiple active versions of the dataset matching the name diamonds exist. Versions may be fundamentally different, returning version 1.
-      warn(
-    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/datasets/_openml.py:932: FutureWarning: The default value of `parser` will change from `'liac-arff'` to `'auto'` in 1.4. You can set `parser='auto'` to silence this warning. Therefore, an `ImportError` will be raised from 1.4 if the dataset is dense and pandas is not installed. Note that the pandas parser may return different data types. See the Notes Section in fetch_openml's API doc for details.
-      warn(
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/sklearn/datasets/_openml.py:322: UserWarning: Multiple active versions of the dataset matching the name diamonds exist. Versions may be fundamentally different, returning version 1. Available versions:
+    - version 1, status: active
+      url: https://www.openml.org/search?type=data&id=42225
+    - version 2, status: active
+      url: https://www.openml.org/search?type=data&id=43998
+
+      warn(warning_msg)
     Target looks like regression
     /home/circleci/project/dabl/plot/supervised.py:107: UserWarning: Not plotting highly correlated (0.9961166041570525) feature carat. Set prune_correlations_threshold=0 to keep.
       warn(f"Not plotting highly correlated ({corr.max()})"
@@ -66,6 +69,18 @@ Regression on the classical diamond dataset.
       warn(f"Not plotting highly correlated ({corr.max()})"
     /home/circleci/project/dabl/plot/supervised.py:107: UserWarning: Not plotting highly correlated (0.9873553172140505) feature z. Set prune_correlations_threshold=0 to keep.
       warn(f"Not plotting highly correlated ({corr.max()})"
+    /home/circleci/project/dabl/plot/supervised.py:214: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      medians = X_new.groupby(col)[target_col].median()
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
+    /home/circleci/project/dabl/plot/supervised.py:214: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      medians = X_new.groupby(col)[target_col].median()
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
+    /home/circleci/project/dabl/plot/supervised.py:214: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      medians = X_new.groupby(col)[target_col].median()
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
 
 
 
@@ -74,7 +89,7 @@ Regression on the classical diamond dataset.
 
 |
 
-.. code-block:: default
+.. code-block:: Python
 
     # sphinx_gallery_thumbnail_number = 2
     import matplotlib.pyplot as plt
@@ -89,7 +104,7 @@ Regression on the classical diamond dataset.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  11.437 seconds)
+   **Total running time of the script:** (0 minutes 6.801 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_diamonds.py:
@@ -98,14 +113,13 @@ Regression on the classical diamond dataset.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download Jupyter notebook: plot_diamonds.ipynb <plot_diamonds.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_diamonds.py <plot_diamonds.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_diamonds.ipynb <plot_diamonds.ipynb>`
 
 
 .. only:: html

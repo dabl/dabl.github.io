@@ -3,30 +3,65 @@
 
 .. _sphx_glr_auto_examples_plot_sg_execution_times:
 
+
 Computation times
 =================
-**01:59.655** total execution time for **auto_examples_plot** files:
+**01:13.378** total execution time for 11 files **from auto_examples/plot**:
 
-+----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_human_activity.py` (``plot_human_activity.py``)                   | 00:36.408 | 0.0 MB |
-+----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_ames.py` (``plot_ames.py``)                                       | 00:25.387 | 0.0 MB |
-+----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_mfeat_factors.py` (``plot_mfeat_factors.py``)                     | 00:20.091 | 0.0 MB |
-+----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_diamonds.py` (``plot_diamonds.py``)                               | 00:11.437 | 0.0 MB |
-+----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_categorical_types_adult.py` (``plot_categorical_types_adult.py``) | 00:11.338 | 0.0 MB |
-+----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_splice.py` (``plot_splice.py``)                                   | 00:06.884 | 0.0 MB |
-+----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_adult.py` (``plot_adult.py``)                                     | 00:04.100 | 0.0 MB |
-+----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_wine.py` (``plot_wine.py``)                                       | 00:03.632 | 0.0 MB |
-+----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_discrete_scatter.py` (``plot_discrete_scatter.py``)               | 00:00.167 | 0.0 MB |
-+----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_class_hists.py` (``plot_class_hists.py``)                         | 00:00.135 | 0.0 MB |
-+----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_plot_mosaic.py` (``plot_mosaic.py``)                                   | 00:00.078 | 0.0 MB |
-+----------------------------------------------------------------------------------------------------------+-----------+--------+
+.. container::
+
+  .. raw:: html
+
+    <style scoped>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script type="text/javascript" class="init">
+    $(document).ready( function () {
+        $('table.sg-datatable').DataTable({order: [[1, 'desc']]});
+    } );
+    </script>
+
+  .. list-table::
+   :header-rows: 1
+   :class: table table-striped sg-datatable
+
+   * - Example
+     - Time
+     - Mem (MB)
+   * - :ref:`sphx_glr_auto_examples_plot_plot_human_activity.py` (``plot_human_activity.py``)
+     - 00:19.638
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plot_plot_ames.py` (``plot_ames.py``)
+     - 00:17.054
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plot_plot_categorical_types_adult.py` (``plot_categorical_types_adult.py``)
+     - 00:09.969
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plot_plot_mfeat_factors.py` (``plot_mfeat_factors.py``)
+     - 00:09.123
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plot_plot_diamonds.py` (``plot_diamonds.py``)
+     - 00:06.801
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plot_plot_splice.py` (``plot_splice.py``)
+     - 00:03.696
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plot_plot_wine.py` (``plot_wine.py``)
+     - 00:03.424
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plot_plot_adult.py` (``plot_adult.py``)
+     - 00:03.377
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plot_plot_discrete_scatter.py` (``plot_discrete_scatter.py``)
+     - 00:00.137
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plot_plot_class_hists.py` (``plot_class_hists.py``)
+     - 00:00.107
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plot_plot_mosaic.py` (``plot_mosaic.py``)
+     - 00:00.053
+     - 0.0

@@ -1,79 +1,42 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Comparing categorical variable visualizations &mdash; dabl  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/project-template.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/js/copybutton.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/project-template.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/project-template.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/js/copybutton.js?v=26522df0"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="prev" title="Discrete Scatter Example" href="plot_discrete_scatter.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../../index.html" class="icon icon-home"> dabl
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 0.2.6-dev
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -81,17 +44,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quickstart to ML with dabl</a></li>
@@ -125,83 +78,43 @@
 </li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">dabl</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../index.html">General examples</a> &raquo;</li>
-        
-          <li><a href="index.html">Plotting examples</a> &raquo;</li>
-        
-      <li>Comparing categorical variable visualizations</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">General examples</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Plotting examples</a></li>
+      <li class="breadcrumb-item active">Comparing categorical variable visualizations</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../../_sources/auto_examples/plot/plot_categorical_types_adult.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
-<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-plot-categorical-types-adult-py"><span class="std std-ref">here</span></a>
+<p><a class="reference internal" href="#sphx-glr-download-auto-examples-plot-plot-categorical-types-adult-py"><span class="std std-ref">Go to the end</span></a>
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="comparing-categorical-variable-visualizations">
-<span id="sphx-glr-auto-examples-plot-plot-categorical-types-adult-py"></span><h1>Comparing categorical variable visualizations<a class="headerlink" href="#comparing-categorical-variable-visualizations" title="Permalink to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-plot-plot-categorical-types-adult-py"></span><h1>Comparing categorical variable visualizations<a class="headerlink" href="#comparing-categorical-variable-visualizations" title="Link to this heading">¶</a></h1>
 <p>This example showcases the four types of visualization supported for
 categorical variables for classification,
 which are ‘count’, ‘proportion’, ‘mosaic’ and ‘sankey’.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dabl.plot</span> <span class="kn">import</span> <span class="n">plot_classification_categorical</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dabl.plot</span> <span class="kn">import</span> <span class="n">plot_classification_categorical</span>
 <span class="kn">from</span> <span class="nn">dabl.datasets</span> <span class="kn">import</span> <span class="n">load_adult</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">load_adult</span><span class="p">()</span>
@@ -212,19 +125,74 @@ simply provides a bar-plot of class counts per category.
 However, it makes it hard to make comparisons between different categories.
 For example, for workclass, it is hard to see the differences in proportions
 among the categories.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_classification_categorical</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_classification_categorical</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_categorical_types_adult_001.png" srcset="../../_images/sphx_glr_plot_categorical_types_adult_001.png" alt="Categorical Features vs Target, relationship, marital-status, education-num, education, occupation, hours-per-week, gender, workclass, native-country, race" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>array([[&lt;AxesSubplot: title={&#39;center&#39;: &#39;relationship&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;relationship&#39;&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;marital-status&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;marital-status&#39;&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;education-num&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;education-num&#39;&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;education&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;education&#39;&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;occupation&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;occupation&#39;&gt;],
-       [&lt;AxesSubplot: title={&#39;center&#39;: &#39;hours-per-week&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;hours-per-week&#39;&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;gender&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;gender&#39;&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;workclass&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;workclass&#39;&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;native-country&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;native-country&#39;&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;race&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;race&#39;&gt;]],
+<img src="../../_images/sphx_glr_plot_categorical_types_adult_001.png" srcset="../../_images/sphx_glr_plot_categorical_types_adult_001.png" alt="Categorical Features vs Target, relationship, marital-status, education, education-num, occupation, hours-per-week, gender, workclass, native-country, race" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  grouped_vals = vals.groupby(grouper)
+/home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  grouped_vals = vals.groupby(grouper)
+/home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  grouped_vals = vals.groupby(grouper)
+/home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  grouped_vals = vals.groupby(grouper)
+/home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  grouped_vals = vals.groupby(grouper)
+/home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  grouped_vals = vals.groupby(grouper)
+/home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  grouped_vals = vals.groupby(grouper)
+/home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  grouped_vals = vals.groupby(grouper)
+/home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  grouped_vals = vals.groupby(grouper)
+/home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  grouped_vals = vals.groupby(grouper)
+/home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  grouped_vals = vals.groupby(grouper)
+/home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  grouped_vals = vals.groupby(grouper)
+/home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  grouped_vals = vals.groupby(grouper)
+/home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  grouped_vals = vals.groupby(grouper)
+/home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  grouped_vals = vals.groupby(grouper)
+/home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  grouped_vals = vals.groupby(grouper)
+/home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  grouped_vals = vals.groupby(grouper)
+/home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  grouped_vals = vals.groupby(grouper)
+/home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  grouped_vals = vals.groupby(grouper)
+/home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  grouped_vals = vals.groupby(grouper)
+
+array([[&lt;Axes: title={&#39;center&#39;: &#39;relationship&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;relationship&#39;&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;marital-status&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;marital-status&#39;&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;education&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;education&#39;&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;education-num&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;education-num&#39;&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;occupation&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;occupation&#39;&gt;],
+       [&lt;Axes: title={&#39;center&#39;: &#39;hours-per-week&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;hours-per-week&#39;&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;gender&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;gender&#39;&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;workclass&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;workclass&#39;&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;native-country&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;native-country&#39;&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;race&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;race&#39;&gt;]],
       dtype=object)
 </pre></div>
 </div>
@@ -233,54 +201,148 @@ can see that the proportions in state-government, government, and
 self-employed are nearly the same. However, ‘proportion’ does not show how
 many samples are in each category. How much each category is actually
 present in the data can be very important, though.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_classification_categorical</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;proportion&quot;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_classification_categorical</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;proportion&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_categorical_types_adult_002.png" srcset="../../_images/sphx_glr_plot_categorical_types_adult_002.png" alt="Categorical Features vs Target, relationship, marital-status, education-num, education, occupation, hours-per-week, gender, workclass, native-country, race" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>array([[&lt;AxesSubplot: title={&#39;center&#39;: &#39;relationship&#39;}&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;marital-status&#39;}&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;education-num&#39;}&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;education&#39;}&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;occupation&#39;}&gt;],
-       [&lt;AxesSubplot: title={&#39;center&#39;: &#39;hours-per-week&#39;}&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;gender&#39;}&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;workclass&#39;}&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;native-country&#39;}&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;race&#39;}&gt;]], dtype=object)
+<img src="../../_images/sphx_glr_plot_categorical_types_adult_002.png" srcset="../../_images/sphx_glr_plot_categorical_types_adult_002.png" alt="Categorical Features vs Target, relationship, marital-status, education, education-num, occupation, hours-per-week, gender, workclass, native-country, race" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/plot/supervised.py:539: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  df = (X_new.groupby(col)[target_col]
+/home/circleci/project/dabl/plot/supervised.py:539: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  df = (X_new.groupby(col)[target_col]
+/home/circleci/project/dabl/plot/supervised.py:539: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  df = (X_new.groupby(col)[target_col]
+/home/circleci/project/dabl/plot/supervised.py:539: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  df = (X_new.groupby(col)[target_col]
+/home/circleci/project/dabl/plot/supervised.py:539: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  df = (X_new.groupby(col)[target_col]
+/home/circleci/project/dabl/plot/supervised.py:539: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  df = (X_new.groupby(col)[target_col]
+/home/circleci/project/dabl/plot/supervised.py:539: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  df = (X_new.groupby(col)[target_col]
+/home/circleci/project/dabl/plot/supervised.py:539: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  df = (X_new.groupby(col)[target_col]
+/home/circleci/project/dabl/plot/supervised.py:539: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  df = (X_new.groupby(col)[target_col]
+/home/circleci/project/dabl/plot/supervised.py:539: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  df = (X_new.groupby(col)[target_col]
+
+array([[&lt;Axes: title={&#39;center&#39;: &#39;relationship&#39;}&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;marital-status&#39;}&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;education&#39;}&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;education-num&#39;}&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;occupation&#39;}&gt;],
+       [&lt;Axes: title={&#39;center&#39;: &#39;hours-per-week&#39;}&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;gender&#39;}&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;workclass&#39;}&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;native-country&#39;}&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;race&#39;}&gt;]], dtype=object)
 </pre></div>
 </div>
 <p>The ‘mosaic’ plot shows both the class proportions within each category
 (on the x axis) as well as the proportion of the category in the data
 (on the y axis). The ‘mosaic’ plot can be a bit busy; in particular if
 there are many classes and many catgories, it becomes harder to interpret.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_classification_categorical</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;mosaic&quot;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_classification_categorical</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;mosaic&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_categorical_types_adult_003.png" srcset="../../_images/sphx_glr_plot_categorical_types_adult_003.png" alt="Categorical Features vs Target, relationship, marital-status, education-num, education, occupation, hours-per-week, gender, workclass, native-country, race" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>array([[&lt;AxesSubplot: title={&#39;center&#39;: &#39;relationship&#39;}&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;marital-status&#39;}&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;education-num&#39;}&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;education&#39;}&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;occupation&#39;}&gt;],
-       [&lt;AxesSubplot: title={&#39;center&#39;: &#39;hours-per-week&#39;}&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;gender&#39;}&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;workclass&#39;}&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;native-country&#39;}&gt;,
-        &lt;AxesSubplot: title={&#39;center&#39;: &#39;race&#39;}&gt;]], dtype=object)
+<img src="../../_images/sphx_glr_plot_categorical_types_adult_003.png" srcset="../../_images/sphx_glr_plot_categorical_types_adult_003.png" alt="Categorical Features vs Target, relationship, marital-status, education, education-num, occupation, hours-per-week, gender, workclass, native-country, race" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+
+array([[&lt;Axes: title={&#39;center&#39;: &#39;relationship&#39;}&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;marital-status&#39;}&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;education&#39;}&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;education-num&#39;}&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;occupation&#39;}&gt;],
+       [&lt;Axes: title={&#39;center&#39;: &#39;hours-per-week&#39;}&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;gender&#39;}&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;workclass&#39;}&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;native-country&#39;}&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;race&#39;}&gt;]], dtype=object)
 </pre></div>
 </div>
 <p>The ‘sankey’ plot is even busier, as it combines the features of the ‘count’
 plot with an alluvial flow diagram of interactions.
 By default, only the 5 most common features are included in the sankey
 diagram, which can be adjusted by calling the plot_sankey function directly.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_classification_categorical</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;sankey&quot;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_classification_categorical</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;sankey&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_categorical_types_adult_004.png" srcset="../../_images/sphx_glr_plot_categorical_types_adult_004.png" alt="plot categorical types adult" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  11.338 seconds)</p>
-<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-plot-categorical-types-adult-py">
-<div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/bf77809e4b232653ff47321970de17ca/plot_categorical_types_adult.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_categorical_types_adult.py</span></code></a></p>
+<img src="../../_images/sphx_glr_plot_categorical_types_adult_004.png" srcset="../../_images/sphx_glr_plot_categorical_types_adult_004.png" alt="plot categorical types adult" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  pd.to_datetime(series[:10])
+/home/circleci/project/dabl/plot/sankey.py:264: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  sizes = data.groupby(data.columns.tolist()).size()
+/home/circleci/project/dabl/plot/sankey.py:144: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+  weights = source.groupby(col)[weight_col].sum()
+/home/circleci/project/dabl/plot/sankey.py:179: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value &#39;0.0007115026257834999&#39; has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+  source.loc[i, coord_col_name] = coord[1]
+/home/circleci/project/dabl/plot/sankey.py:179: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value &#39;0.14092156530577674&#39; has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+  source.loc[i, coord_col_name] = coord[1]
+/home/circleci/project/dabl/plot/sankey.py:179: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value &#39;0.0005420972386921904&#39; has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+  source.loc[i, coord_col_name] = coord[1]
+/home/circleci/project/dabl/plot/sankey.py:179: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value &#39;0.05476198543113671&#39; has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+  source.loc[i, coord_col_name] = coord[1]
+/home/circleci/project/dabl/plot/sankey.py:179: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value &#39;0.0005420972386921904&#39; has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+  source.loc[i, coord_col_name] = coord[1]
+</pre></div>
 </div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 9.969 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-plot-categorical-types-adult-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/5fe08e419bc73d16c003d20f18e03912/plot_categorical_types_adult.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_categorical_types_adult.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/bf77809e4b232653ff47321970de17ca/plot_categorical_types_adult.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_categorical_types_adult.py</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
@@ -288,49 +350,32 @@ diagram, which can be adjusted by calling the plot_sankey function directly.</p>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-      
-        <a href="plot_discrete_scatter.html" class="btn btn-neutral float-left" title="Discrete Scatter Example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_discrete_scatter.html" class="btn btn-neutral float-left" title="Discrete Scatter Example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018, Andreas Mueller
-
-    </p>
+    <p>&#169; Copyright 2018, Andreas Mueller.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

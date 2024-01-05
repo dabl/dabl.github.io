@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_plot_plot_splice.py>`
+        :ref:`Go to the end <sphx_glr_download_auto_examples_plot_plot_splice.py>`
         to download the full example code
 
 .. rst-class:: sphx-glr-example-title
@@ -48,11 +48,16 @@ A nice illustration of the mosaic plot.
 
  .. code-block:: none
 
-    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/datasets/_openml.py:292: UserWarning: Multiple active versions of the dataset matching the name splice exist. Versions may be fundamentally different, returning version 1.
-      warn(
-    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/datasets/_openml.py:932: FutureWarning: The default value of `parser` will change from `'liac-arff'` to `'auto'` in 1.4. You can set `parser='auto'` to silence this warning. Therefore, an `ImportError` will be raised from 1.4 if the dataset is dense and pandas is not installed. Note that the pandas parser may return different data types. See the Notes Section in fetch_openml's API doc for details.
-      warn(
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/sklearn/datasets/_openml.py:322: UserWarning: Multiple active versions of the dataset matching the name splice exist. Versions may be fundamentally different, returning version 1. Available versions:
+    - version 1, status: active
+      url: https://www.openml.org/search?type=data&id=46
+    - version 2, status: active
+      url: https://www.openml.org/search?type=data&id=953
+
+      warn(warning_msg)
     Target looks like classification
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
     Showing only top 10 of 60 categorical features
 
 
@@ -62,7 +67,7 @@ A nice illustration of the mosaic plot.
 
 |
 
-.. code-block:: default
+.. code-block:: Python
 
     # sphinx_gallery_thumbnail_number = 2
     import matplotlib.pyplot as plt
@@ -77,7 +82,7 @@ A nice illustration of the mosaic plot.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.884 seconds)
+   **Total running time of the script:** (0 minutes 3.696 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_splice.py:
@@ -86,14 +91,13 @@ A nice illustration of the mosaic plot.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download Jupyter notebook: plot_splice.ipynb <plot_splice.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_splice.py <plot_splice.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_splice.ipynb <plot_splice.ipynb>`
 
 
 .. only:: html

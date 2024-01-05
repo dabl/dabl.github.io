@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_plot_plot_human_activity.py>`
+        :ref:`Go to the end <sphx_glr_download_auto_examples_plot_plot_human_activity.py>`
         to download the full example code
 
 .. rst-class:: sphx-glr-example-title
@@ -45,21 +45,21 @@ Human Activity Recognition Visualization
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_human_activity_003.png
-         :alt: Top feature interactions, 0.691, 0.683, 0.681, 0.681
+         :alt: Top feature interactions, 0.695, 0.689, 0.680, 0.679
          :srcset: /auto_examples/plot/images/sphx_glr_plot_human_activity_003.png
          :class: sphx-glr-multi-img
 
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_human_activity_004.png
-         :alt: Discriminating PCA directions, 0.649, 0.629, 0.568, Scree plot (PCA explained variance)
+         :alt: Discriminating PCA directions, 0.645, 0.618, 0.566, Scree plot (PCA explained variance)
          :srcset: /auto_examples/plot/images/sphx_glr_plot_human_activity_004.png
          :class: sphx-glr-multi-img
 
     *
 
       .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_human_activity_005.png
-         :alt: Discriminating LDA directions, 0.863, 0.834, 0.804, 0.783
+         :alt: Discriminating LDA directions, 0.863, 0.831, 0.806, 0.789
          :srcset: /auto_examples/plot/images/sphx_glr_plot_human_activity_005.png
          :class: sphx-glr-multi-img
 
@@ -68,10 +68,12 @@ Human Activity Recognition Visualization
 
  .. code-block:: none
 
-    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.10/site-packages/sklearn/datasets/_openml.py:932: FutureWarning: The default value of `parser` will change from `'liac-arff'` to `'auto'` in 1.4. You can set `parser='auto'` to silence this warning. Therefore, an `ImportError` will be raised from 1.4 if the dataset is dense and pandas is not installed. Note that the pandas parser may return different data types. See the Notes Section in fetch_openml's API doc for details.
-      warn(
     Target looks like classification
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
     Showing only top 10 of 561 continuous features
+    /home/circleci/project/dabl/plot/utils.py:607: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      for name, group in data.groupby(target)[column]:
     Linear Discriminant Analysis training set score: 0.984
 
 
@@ -81,7 +83,7 @@ Human Activity Recognition Visualization
 
 |
 
-.. code-block:: default
+.. code-block:: Python
 
     # sphinx_gallery_thumbnail_number = 3
     import matplotlib.pyplot as plt
@@ -96,7 +98,7 @@ Human Activity Recognition Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  36.408 seconds)
+   **Total running time of the script:** (0 minutes 19.638 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_human_activity.py:
@@ -105,14 +107,13 @@ Human Activity Recognition Visualization
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download Jupyter notebook: plot_human_activity.ipynb <plot_human_activity.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_human_activity.py <plot_human_activity.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_human_activity.ipynb <plot_human_activity.ipynb>`
 
 
 .. only:: html

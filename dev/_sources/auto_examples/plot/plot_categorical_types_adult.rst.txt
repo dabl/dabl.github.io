@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_plot_plot_categorical_types_adult.py>`
+        :ref:`Go to the end <sphx_glr_download_auto_examples_plot_plot_categorical_types_adult.py>`
         to download the full example code
 
 .. rst-class:: sphx-glr-example-title
@@ -26,7 +26,7 @@ which are 'count', 'proportion', 'mosaic' and 'sankey'.
 
 .. GENERATED FROM PYTHON SOURCE LINES 8-14
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from dabl.plot import plot_classification_categorical
@@ -51,7 +51,7 @@ among the categories.
 
 .. GENERATED FROM PYTHON SOURCE LINES 21-23
 
-.. code-block:: default
+.. code-block:: Python
 
     plot_classification_categorical(data, target_col='income', kind="count")
 
@@ -59,7 +59,7 @@ among the categories.
 
 
 .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_categorical_types_adult_001.png
-   :alt: Categorical Features vs Target, relationship, marital-status, education-num, education, occupation, hours-per-week, gender, workclass, native-country, race
+   :alt: Categorical Features vs Target, relationship, marital-status, education, education-num, occupation, hours-per-week, gender, workclass, native-country, race
    :srcset: /auto_examples/plot/images/sphx_glr_plot_categorical_types_adult_001.png
    :class: sphx-glr-single-img
 
@@ -68,17 +68,71 @@ among the categories.
 
  .. code-block:: none
 
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
+    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      grouped_vals = vals.groupby(grouper)
 
-    array([[<AxesSubplot: title={'center': 'relationship'}, xlabel='count', ylabel='relationship'>,
-            <AxesSubplot: title={'center': 'marital-status'}, xlabel='count', ylabel='marital-status'>,
-            <AxesSubplot: title={'center': 'education-num'}, xlabel='count', ylabel='education-num'>,
-            <AxesSubplot: title={'center': 'education'}, xlabel='count', ylabel='education'>,
-            <AxesSubplot: title={'center': 'occupation'}, xlabel='count', ylabel='occupation'>],
-           [<AxesSubplot: title={'center': 'hours-per-week'}, xlabel='count', ylabel='hours-per-week'>,
-            <AxesSubplot: title={'center': 'gender'}, xlabel='count', ylabel='gender'>,
-            <AxesSubplot: title={'center': 'workclass'}, xlabel='count', ylabel='workclass'>,
-            <AxesSubplot: title={'center': 'native-country'}, xlabel='count', ylabel='native-country'>,
-            <AxesSubplot: title={'center': 'race'}, xlabel='count', ylabel='race'>]],
+    array([[<Axes: title={'center': 'relationship'}, xlabel='count', ylabel='relationship'>,
+            <Axes: title={'center': 'marital-status'}, xlabel='count', ylabel='marital-status'>,
+            <Axes: title={'center': 'education'}, xlabel='count', ylabel='education'>,
+            <Axes: title={'center': 'education-num'}, xlabel='count', ylabel='education-num'>,
+            <Axes: title={'center': 'occupation'}, xlabel='count', ylabel='occupation'>],
+           [<Axes: title={'center': 'hours-per-week'}, xlabel='count', ylabel='hours-per-week'>,
+            <Axes: title={'center': 'gender'}, xlabel='count', ylabel='gender'>,
+            <Axes: title={'center': 'workclass'}, xlabel='count', ylabel='workclass'>,
+            <Axes: title={'center': 'native-country'}, xlabel='count', ylabel='native-country'>,
+            <Axes: title={'center': 'race'}, xlabel='count', ylabel='race'>]],
           dtype=object)
 
 
@@ -93,7 +147,7 @@ present in the data can be very important, though.
 
 .. GENERATED FROM PYTHON SOURCE LINES 30-32
 
-.. code-block:: default
+.. code-block:: Python
 
     plot_classification_categorical(data, target_col='income', kind="proportion")
 
@@ -101,7 +155,7 @@ present in the data can be very important, though.
 
 
 .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_categorical_types_adult_002.png
-   :alt: Categorical Features vs Target, relationship, marital-status, education-num, education, occupation, hours-per-week, gender, workclass, native-country, race
+   :alt: Categorical Features vs Target, relationship, marital-status, education, education-num, occupation, hours-per-week, gender, workclass, native-country, race
    :srcset: /auto_examples/plot/images/sphx_glr_plot_categorical_types_adult_002.png
    :class: sphx-glr-single-img
 
@@ -110,17 +164,51 @@ present in the data can be very important, though.
 
  .. code-block:: none
 
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/plot/supervised.py:539: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      df = (X_new.groupby(col)[target_col]
+    /home/circleci/project/dabl/plot/supervised.py:539: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      df = (X_new.groupby(col)[target_col]
+    /home/circleci/project/dabl/plot/supervised.py:539: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      df = (X_new.groupby(col)[target_col]
+    /home/circleci/project/dabl/plot/supervised.py:539: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      df = (X_new.groupby(col)[target_col]
+    /home/circleci/project/dabl/plot/supervised.py:539: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      df = (X_new.groupby(col)[target_col]
+    /home/circleci/project/dabl/plot/supervised.py:539: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      df = (X_new.groupby(col)[target_col]
+    /home/circleci/project/dabl/plot/supervised.py:539: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      df = (X_new.groupby(col)[target_col]
+    /home/circleci/project/dabl/plot/supervised.py:539: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      df = (X_new.groupby(col)[target_col]
+    /home/circleci/project/dabl/plot/supervised.py:539: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      df = (X_new.groupby(col)[target_col]
+    /home/circleci/project/dabl/plot/supervised.py:539: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      df = (X_new.groupby(col)[target_col]
 
-    array([[<AxesSubplot: title={'center': 'relationship'}>,
-            <AxesSubplot: title={'center': 'marital-status'}>,
-            <AxesSubplot: title={'center': 'education-num'}>,
-            <AxesSubplot: title={'center': 'education'}>,
-            <AxesSubplot: title={'center': 'occupation'}>],
-           [<AxesSubplot: title={'center': 'hours-per-week'}>,
-            <AxesSubplot: title={'center': 'gender'}>,
-            <AxesSubplot: title={'center': 'workclass'}>,
-            <AxesSubplot: title={'center': 'native-country'}>,
-            <AxesSubplot: title={'center': 'race'}>]], dtype=object)
+    array([[<Axes: title={'center': 'relationship'}>,
+            <Axes: title={'center': 'marital-status'}>,
+            <Axes: title={'center': 'education'}>,
+            <Axes: title={'center': 'education-num'}>,
+            <Axes: title={'center': 'occupation'}>],
+           [<Axes: title={'center': 'hours-per-week'}>,
+            <Axes: title={'center': 'gender'}>,
+            <Axes: title={'center': 'workclass'}>,
+            <Axes: title={'center': 'native-country'}>,
+            <Axes: title={'center': 'race'}>]], dtype=object)
 
 
 
@@ -133,14 +221,14 @@ there are many classes and many catgories, it becomes harder to interpret.
 
 .. GENERATED FROM PYTHON SOURCE LINES 38-39
 
-.. code-block:: default
+.. code-block:: Python
 
     plot_classification_categorical(data, target_col='income', kind="mosaic")
 
 
 
 .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_categorical_types_adult_003.png
-   :alt: Categorical Features vs Target, relationship, marital-status, education-num, education, occupation, hours-per-week, gender, workclass, native-country, race
+   :alt: Categorical Features vs Target, relationship, marital-status, education, education-num, occupation, hours-per-week, gender, workclass, native-country, race
    :srcset: /auto_examples/plot/images/sphx_glr_plot_categorical_types_adult_003.png
    :class: sphx-glr-single-img
 
@@ -149,17 +237,31 @@ there are many classes and many catgories, it becomes harder to interpret.
 
  .. code-block:: none
 
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
 
-    array([[<AxesSubplot: title={'center': 'relationship'}>,
-            <AxesSubplot: title={'center': 'marital-status'}>,
-            <AxesSubplot: title={'center': 'education-num'}>,
-            <AxesSubplot: title={'center': 'education'}>,
-            <AxesSubplot: title={'center': 'occupation'}>],
-           [<AxesSubplot: title={'center': 'hours-per-week'}>,
-            <AxesSubplot: title={'center': 'gender'}>,
-            <AxesSubplot: title={'center': 'workclass'}>,
-            <AxesSubplot: title={'center': 'native-country'}>,
-            <AxesSubplot: title={'center': 'race'}>]], dtype=object)
+    array([[<Axes: title={'center': 'relationship'}>,
+            <Axes: title={'center': 'marital-status'}>,
+            <Axes: title={'center': 'education'}>,
+            <Axes: title={'center': 'education-num'}>,
+            <Axes: title={'center': 'occupation'}>],
+           [<Axes: title={'center': 'hours-per-week'}>,
+            <Axes: title={'center': 'gender'}>,
+            <Axes: title={'center': 'workclass'}>,
+            <Axes: title={'center': 'native-country'}>,
+            <Axes: title={'center': 'race'}>]], dtype=object)
 
 
 
@@ -172,7 +274,7 @@ diagram, which can be adjusted by calling the plot_sankey function directly.
 
 .. GENERATED FROM PYTHON SOURCE LINES 45-47
 
-.. code-block:: default
+.. code-block:: Python
 
 
     plot_classification_categorical(data, target_col='income', kind="sankey")
@@ -185,13 +287,60 @@ diagram, which can be adjusted by calling the plot_sankey function directly.
    :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+      pd.to_datetime(series[:10])
+    /home/circleci/project/dabl/plot/sankey.py:264: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      sizes = data.groupby(data.columns.tolist()).size()
+    /home/circleci/project/dabl/plot/sankey.py:144: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+      weights = source.groupby(col)[weight_col].sum()
+    /home/circleci/project/dabl/plot/sankey.py:179: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value '0.0007115026257834999' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+      source.loc[i, coord_col_name] = coord[1]
+    /home/circleci/project/dabl/plot/sankey.py:179: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value '0.14092156530577674' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+      source.loc[i, coord_col_name] = coord[1]
+    /home/circleci/project/dabl/plot/sankey.py:179: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value '0.0005420972386921904' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+      source.loc[i, coord_col_name] = coord[1]
+    /home/circleci/project/dabl/plot/sankey.py:179: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value '0.05476198543113671' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+      source.loc[i, coord_col_name] = coord[1]
+    /home/circleci/project/dabl/plot/sankey.py:179: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value '0.0005420972386921904' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+      source.loc[i, coord_col_name] = coord[1]
+
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  11.338 seconds)
+   **Total running time of the script:** (0 minutes 9.969 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_categorical_types_adult.py:
@@ -200,14 +349,13 @@ diagram, which can be adjusted by calling the plot_sankey function directly.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download Jupyter notebook: plot_categorical_types_adult.ipynb <plot_categorical_types_adult.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_categorical_types_adult.py <plot_categorical_types_adult.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_categorical_types_adult.ipynb <plot_categorical_types_adult.ipynb>`
 
 
 .. only:: html
