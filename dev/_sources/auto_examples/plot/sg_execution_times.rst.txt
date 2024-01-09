@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**01:20.473** total execution time for 11 files **from auto_examples/plot**:
+**01:57.057** total execution time for 11 files **from auto_examples/plot**:
 
 .. container::
 
@@ -32,36 +32,36 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_auto_examples_plot_plot_ames.py` (``plot_ames.py``)
-     - 00:21.576
-     - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_plot_human_activity.py` (``plot_human_activity.py``)
-     - 00:20.314
+     - 01:00.859
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plot_plot_ames.py` (``plot_ames.py``)
+     - 00:18.042
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_plot_categorical_types_adult.py` (``plot_categorical_types_adult.py``)
-     - 00:10.387
+     - 00:10.542
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_plot_mfeat_factors.py` (``plot_mfeat_factors.py``)
-     - 00:10.056
+     - 00:09.336
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_plot_diamonds.py` (``plot_diamonds.py``)
-     - 00:07.326
+     - 00:07.323
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_plot_splice.py` (``plot_splice.py``)
-     - 00:03.694
+     - 00:03.715
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_plot_adult.py` (``plot_adult.py``)
-     - 00:03.549
+     - 00:03.484
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_plot_wine.py` (``plot_wine.py``)
-     - 00:03.259
+     - 00:03.449
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_plot_discrete_scatter.py` (``plot_discrete_scatter.py``)
      - 00:00.144
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_plot_class_hists.py` (``plot_class_hists.py``)
-     - 00:00.113
+     - 00:00.110
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_plot_mosaic.py` (``plot_mosaic.py``)
-     - 00:00.054
+     - 00:00.052
      - 0.0
