@@ -128,7 +128,7 @@ among the categories.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_classification_categorical</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_categorical_types_adult_001.png" srcset="../../_images/sphx_glr_plot_categorical_types_adult_001.png" alt="Categorical Features vs Target, relationship, marital-status, education, education-num, occupation, hours-per-week, gender, workclass, native-country, race" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+<img src="../../_images/sphx_glr_plot_categorical_types_adult_001.png" srcset="../../_images/sphx_glr_plot_categorical_types_adult_001.png" alt="Categorical Features vs Target, relationship, marital-status, education, occupation, hours-per-week, gender, workclass, native-country, race" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
   pd.to_datetime(series[:10])
 /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
   pd.to_datetime(series[:10])
@@ -142,10 +142,6 @@ among the categories.</p>
   pd.to_datetime(series[:10])
 /home/circleci/project/dabl/preprocessing.py:172: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
   pd.to_datetime(series[:10])
-/home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
-  grouped_vals = vals.groupby(grouper)
-/home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
-  grouped_vals = vals.groupby(grouper)
 /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   grouped_vals = vals.groupby(grouper)
 /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
@@ -185,12 +181,11 @@ among the categories.</p>
 
 array([[&lt;Axes: title={&#39;center&#39;: &#39;relationship&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;relationship&#39;&gt;,
         &lt;Axes: title={&#39;center&#39;: &#39;marital-status&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;marital-status&#39;&gt;,
-        &lt;Axes: title={&#39;center&#39;: &#39;education&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;education&#39;&gt;,
-        &lt;Axes: title={&#39;center&#39;: &#39;education-num&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;education-num&#39;&gt;,
-        &lt;Axes: title={&#39;center&#39;: &#39;occupation&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;occupation&#39;&gt;],
-       [&lt;Axes: title={&#39;center&#39;: &#39;hours-per-week&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;hours-per-week&#39;&gt;,
-        &lt;Axes: title={&#39;center&#39;: &#39;gender&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;gender&#39;&gt;,
-        &lt;Axes: title={&#39;center&#39;: &#39;workclass&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;workclass&#39;&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;education&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;education&#39;&gt;],
+       [&lt;Axes: title={&#39;center&#39;: &#39;occupation&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;occupation&#39;&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;hours-per-week&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;hours-per-week&#39;&gt;,
+        &lt;Axes: title={&#39;center&#39;: &#39;gender&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;gender&#39;&gt;],
+       [&lt;Axes: title={&#39;center&#39;: &#39;workclass&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;workclass&#39;&gt;,
         &lt;Axes: title={&#39;center&#39;: &#39;native-country&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;native-country&#39;&gt;,
         &lt;Axes: title={&#39;center&#39;: &#39;race&#39;}, xlabel=&#39;count&#39;, ylabel=&#39;race&#39;&gt;]],
       dtype=object)
@@ -336,7 +331,7 @@ diagram, which can be adjusted by calling the plot_sankey function directly.</p>
   source.loc[i, coord_col_name] = coord[1]
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 10.542 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 9.226 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-plot-categorical-types-adult-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/5fe08e419bc73d16c003d20f18e03912/plot_categorical_types_adult.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_categorical_types_adult.ipynb</span></code></a></p>

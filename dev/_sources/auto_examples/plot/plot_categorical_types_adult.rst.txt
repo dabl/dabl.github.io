@@ -59,7 +59,7 @@ among the categories.
 
 
 .. image-sg:: /auto_examples/plot/images/sphx_glr_plot_categorical_types_adult_001.png
-   :alt: Categorical Features vs Target, relationship, marital-status, education, education-num, occupation, hours-per-week, gender, workclass, native-country, race
+   :alt: Categorical Features vs Target, relationship, marital-status, education, occupation, hours-per-week, gender, workclass, native-country, race
    :srcset: /auto_examples/plot/images/sphx_glr_plot_categorical_types_adult_001.png
    :class: sphx-glr-single-img
 
@@ -118,19 +118,14 @@ among the categories.
       grouped_vals = vals.groupby(grouper)
     /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
       grouped_vals = vals.groupby(grouper)
-    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
-      grouped_vals = vals.groupby(grouper)
-    /home/circleci/project/~/miniconda/envs/testenv/lib/python3.11/site-packages/seaborn/categorical.py:641: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
-      grouped_vals = vals.groupby(grouper)
 
     array([[<Axes: title={'center': 'relationship'}, xlabel='count', ylabel='relationship'>,
             <Axes: title={'center': 'marital-status'}, xlabel='count', ylabel='marital-status'>,
-            <Axes: title={'center': 'education'}, xlabel='count', ylabel='education'>,
-            <Axes: title={'center': 'education-num'}, xlabel='count', ylabel='education-num'>,
-            <Axes: title={'center': 'occupation'}, xlabel='count', ylabel='occupation'>],
-           [<Axes: title={'center': 'hours-per-week'}, xlabel='count', ylabel='hours-per-week'>,
-            <Axes: title={'center': 'gender'}, xlabel='count', ylabel='gender'>,
-            <Axes: title={'center': 'workclass'}, xlabel='count', ylabel='workclass'>,
+            <Axes: title={'center': 'education'}, xlabel='count', ylabel='education'>],
+           [<Axes: title={'center': 'occupation'}, xlabel='count', ylabel='occupation'>,
+            <Axes: title={'center': 'hours-per-week'}, xlabel='count', ylabel='hours-per-week'>,
+            <Axes: title={'center': 'gender'}, xlabel='count', ylabel='gender'>],
+           [<Axes: title={'center': 'workclass'}, xlabel='count', ylabel='workclass'>,
             <Axes: title={'center': 'native-country'}, xlabel='count', ylabel='native-country'>,
             <Axes: title={'center': 'race'}, xlabel='count', ylabel='race'>]],
           dtype=object)
@@ -340,7 +335,7 @@ diagram, which can be adjusted by calling the plot_sankey function directly.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 10.542 seconds)
+   **Total running time of the script:** (0 minutes 9.226 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_plot_categorical_types_adult.py:
